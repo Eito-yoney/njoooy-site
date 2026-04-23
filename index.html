@@ -564,8 +564,9 @@
     @media (max-width: 900px) { .archive-head .meta-col, .archive-head .title-col { grid-column: span 12; } }
 
     /* v7.12 Folio — 持ち込み LP Services 構成を全面採用(card-grid、No.XX ラベル、価格フォント維持) */
-    .folio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: var(--max); margin: 0 auto; }
-    @media (max-width: 900px) { .folio-grid { grid-template-columns: 1fr; gap: 20px; } }
+    .folio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: var(--max); margin: 0 auto; }
+    @media (max-width: 900px) { .folio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (max-width: 600px) { .folio-grid { grid-template-columns: 1fr; gap: 20px; } }
     .folio { display: flex; flex-direction: column; gap: 18px; padding: 32px 28px; background: #FBF7ED; border: 1px solid rgba(27, 18, 14, 0.08); border-radius: 2px; max-width: none; margin: 0; }
     .folio:hover { }
     .folio:last-child { border-bottom: 1px solid rgba(27, 18, 14, 0.08); }
@@ -655,9 +656,9 @@
     .process-divider .line { flex: 1; height: 1px; background: var(--rule); }
     .process-divider .diamond { width: 7px; height: 7px; background: var(--wine); transform: rotate(45deg); }
     .process-intro { font-family: var(--serif-jp); font-size: 14px; line-height: 1.9; color: var(--ink-2); margin-top: 20px; text-align: center; }
-    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 32px; max-width: var(--max); margin: 0 auto; margin-top: 48px; }
-    @media (max-width: 900px) { .process-steps { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; } }
-    @media (max-width: 600px) { .process-steps { grid-template-columns: 1fr; gap: 40px; } }
+    .process-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 40px 16px; max-width: var(--max); margin: 0 auto; margin-top: 48px; }
+    @media (max-width: 1100px) { .process-steps { grid-template-columns: repeat(3, 1fr); gap: 48px 24px; } }
+    @media (max-width: 600px) { .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
     .process-step { display: flex; flex-direction: column; gap: 8px; text-align: center; align-items: center; }
     .process-num { width: 34px; height: 34px; background: var(--wine); color: var(--paper); border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-family: var(--serif-en); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; }
     .process-step:last-child::after { display: none; }
@@ -687,7 +688,7 @@
     .method-step { display: flex; flex-direction: column; gap: 20px; position: relative; padding-right: 16px; }
     .method-step:not(:last-child)::after { content: none; }
     @media (max-width: 900px) { .method-step::after { display: none !important; } }
-    .method-step-num { font-family: var(--serif-en); font-style: italic; font-size: clamp(80px, 10vw, 140px); line-height: 0.85; font-weight: 300; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; letter-spacing: -0.03em; }
+    .method-step-num { font-family: var(--serif-en); font-style: italic; font-size: clamp(32px, 4vw, 48px); line-height: 0.95; font-weight: 300; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; letter-spacing: -0.02em; }
     .method-step-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
     .method-step-jp { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.25; letter-spacing: 0.005em; }
     .method-step-en { font-family: var(--serif-en); font-style: italic; font-weight: 300; font-size: clamp(18px, 2vw, 22px); color: var(--muted); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
