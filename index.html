@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>njoooy — 東京のバーテンダー / [TBD]</title>
+  <title>njoooy — 東京のバーテンダー / </title>
 
   <!-- [v7.7 Track A] Primary meta — description / robots / theme-color / canonical -->
-  <meta name="description" content="[TBD: 120〜160字の description を公開前に確定]" />
+  <meta name="description" content=": 120〜160字の description を公開前に確定]" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#F5F0E6" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0F0C08" media="(prefers-color-scheme: dark)" />
@@ -15,26 +15,26 @@
   <!-- [v7.7 Track A] Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="njoooy" />
-  <meta property="og:title" content="[TBD: OG title、公開前確定]" />
-  <meta property="og:description" content="[TBD: OG description、公開前確定]" />
+  <meta property="og:title" content=": OG title、公開前確定]" />
+  <meta property="og:description" content=": OG description、公開前確定]" />
   <meta property="og:url" content="https://njoooy.com/" />
   <meta property="og:locale" content="ja_JP" />
-  <meta property="og:image" content="https://njoooy.com/og-image.png" /> <!-- [TBD: 1200x630 OG image 作成・配置] -->
+  <meta property="og:image" content="https://njoooy.com/og-image.png" /> <!-- : 1200x630 OG image 作成・配置] -->
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="[TBD: OG image の alt テキスト]" />
+  <meta property="og:image:alt" content=": OG image の alt テキスト]" />
 
   <!-- [v7.7 Track A] Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="[TBD: Twitter title]" />
-  <meta name="twitter:description" content="[TBD: Twitter description]" />
-  <meta name="twitter:image" content="https://njoooy.com/og-image.png" /> <!-- [TBD: OG と共通 or 別素材] -->
-  <!-- [TBD: twitter:site / twitter:creator を Twitter アカウント取得後に追加] -->
+  <meta name="twitter:title" content=": Twitter title]" />
+  <meta name="twitter:description" content=": Twitter description]" />
+  <meta name="twitter:image" content="https://njoooy.com/og-image.png" /> <!-- : OG と共通 or 別素材] -->
+  <!-- : twitter:site / twitter:creator を Twitter アカウント取得後に追加] -->
 
   <!-- [v7.7 Track A] Favicon slot — SVG 優先 / PNG fallback / iOS -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> <!-- [TBD: favicon.svg 作成・配置] -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> <!-- [TBD: 32x32 PNG 作成] -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> <!-- [TBD: 180x180 PNG 作成] -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> <!-- : favicon.svg 作成・配置] -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> <!-- : 32x32 PNG 作成] -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> <!-- : 180x180 PNG 作成] -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,7 +72,7 @@
     ]
   }
   </script>
-  <!-- [TBD: Schema.org に description / image / sameAs(Instagram/note URL) を公開前に追加] -->
+  <!-- : Schema.org に description / image / sameAs(Instagram/note URL) を公開前に追加] -->
 
   <style>
     :root {
@@ -101,21 +101,9 @@
 
     /* CURSOR */
     @media (hover: hover) and (pointer: fine) {
-      html, body, a, button, input, textarea, select, summary, * { cursor: none !important; }
-      .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; will-change: transform; }
-      .cursor-dot { width: 6px; height: 6px; background: var(--paper); border-radius: 50%; margin: -3px 0 0 -3px; transition: opacity .2s, transform .15s; }
-      .cursor-ring { width: 38px; height: 38px; border: 1px solid var(--paper); border-radius: 50%; margin: -19px 0 0 -19px; transition: width .35s cubic-bezier(0.2,0.8,0.2,1), height .35s cubic-bezier(0.2,0.8,0.2,1), margin .35s cubic-bezier(0.2,0.8,0.2,1), background .35s, border-color .35s, opacity .2s; }
-      .cursor-ring.hover { width: 80px; height: 80px; margin: -40px 0 0 -40px; background: rgba(245, 240, 230, 0.06); }
-      .cursor-ring.click { width: 28px; height: 28px; margin: -14px 0 0 -14px; }
     }
-    @media (hover: none), (pointer: coarse) { .cursor-dot, .cursor-ring, .cursor-preview { display: none !important; } }
 
     /* CURSOR PREVIEW (v5) */
-    .cursor-preview { position: fixed; top: 0; left: 0; width: 300px; height: 220px; pointer-events: none; z-index: 9997; opacity: 0; transform: translate(-50%, -130%) scale(0.92); transition: opacity .35s cubic-bezier(.2,.8,.2,1), transform .45s cubic-bezier(.2,.8,.2,1); overflow: hidden; border-radius: 3px; box-shadow: 0 24px 60px rgba(28, 23, 18, 0.35); }
-    .cursor-preview.active { opacity: 1; transform: translate(-50%, -130%) scale(1); }
-    .cursor-preview .pv-inner { position: absolute; inset: 0; background: var(--wine); }
-    .cursor-preview .pv-label { position: absolute; bottom: 16px; left: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--paper); opacity: 0.7; z-index: 3; }
-    .cursor-preview .pv-num { position: absolute; top: 16px; right: 16px; font-family: var(--serif-en); font-style: italic; font-size: 26px; color: var(--gold-bright); font-variation-settings: "SOFT" 100, "WONK" 1; z-index: 3; }
     .pv-v1 .pv-inner { background: radial-gradient(ellipse at 30% 20%, rgba(194,139,91,0.5), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(74,20,24,0.8), transparent 60%), linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%); }
     .pv-v2 .pv-inner { background: radial-gradient(ellipse at 70% 30%, rgba(245,240,230,0.3), transparent 50%), radial-gradient(ellipse at 20% 80%, rgba(194,139,91,0.4), transparent 55%), linear-gradient(225deg, var(--ink) 0%, var(--wine-deep) 100%); }
     .pv-v3 .pv-inner { background: radial-gradient(ellipse at 50% 50%, rgba(224,176,128,0.4), transparent 55%), radial-gradient(ellipse at 10% 10%, rgba(138,59,63,0.5), transparent 60%), linear-gradient(45deg, var(--wine-deep) 0%, var(--ink) 100%); }
@@ -186,37 +174,49 @@
     .nav-logo { font-size: 28px; color: inherit; }
     .nav-logo .mark { background: var(--gold); transition: background .45s; }
     .nav.light .nav-logo .mark { background: var(--wine); }
-    .nav-links { display: flex; gap: 24px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
-    .nav-links a { opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-family: var(--serif-en); font-size: 15px; font-variation-settings: "opsz" 72; letter-spacing: 0.01em; }
+    .nav-links a { opacity: 0.78; transition: opacity .2s, color .2s; }
     .nav-links a:hover { opacity: 1; color: var(--gold); }
     .nav.light .nav-links a:hover { color: var(--wine); }
     .nav-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 18px; border: 1px solid; border-radius: 999px; transition: all .25s; }
     .nav.light .nav-cta { border-color: var(--ink); }
     .nav-cta:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
     .nav.light .nav-cta:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    @media (max-width: 1024px) { .nav-links { display: none; } .nav { padding: 14px var(--gutter); } }
+    @media (max-width: 900px) { .nav-links { gap: 20px; font-size: 14px; } }
+    @media (max-width: 720px) { .nav-links { display: none; } .nav { padding: 14px var(--gutter); } }
 
     /* OPENING */
-    .opening { position: relative; background: var(--wine); color: var(--paper); min-height: 100vh; padding: clamp(100px, 18vh, 200px) var(--gutter) clamp(60px, 10vh, 120px); display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-    .opening::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 85% 10%, var(--wine-deep) 0%, transparent 55%), radial-gradient(ellipse at 10% 90%, rgba(194, 139, 91, 0.15) 0%, transparent 55%); pointer-events: none; }
+    .opening { position: relative; background: var(--wine); color: var(--paper); min-height: 100vh; padding: clamp(180px, 24vh, 280px) var(--gutter) clamp(40px, 5vh, 60px); display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+    .opening::before { content: ""; position: absolute; inset: -8%; background: radial-gradient(ellipse at 92% 6%, rgba(20, 6, 8, 0.48) 0%, transparent 55%), radial-gradient(ellipse at 10% 90%, rgba(194, 139, 91, 0.05) 0%, transparent 55%); pointer-events: none; animation: openingDrift 28s ease-in-out infinite alternate; will-change: transform, opacity; }
+    .opening::after { content: ""; position: absolute; inset: -12%; background: radial-gradient(ellipse at 50% 100%, rgba(20, 6, 8, 0.18) 0%, transparent 50%); pointer-events: none; animation: openingDrift2 42s ease-in-out infinite alternate; will-change: transform, opacity; }
+    @keyframes openingDrift { 0% { transform: translate(0, 0) scale(1); opacity: 0.92; } 100% { transform: translate(-3%, 2%) scale(1.08); opacity: 1; } }
+    @keyframes openingDrift2 { 0% { transform: translate(0, 0) scale(1.02) rotate(0deg); opacity: 0.75; } 100% { transform: translate(2.5%, -1.5%) scale(1.12) rotate(2deg); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .opening::before, .opening::after { animation: none; }
+    }
     .opening-inner { max-width: var(--max); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
-    .opening-top { display: flex; justify-content: space-between; margin-bottom: clamp(60px, 12vh, 140px); flex-wrap: wrap; gap: 20px; }
-    .opening-headline { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(52px, 10vw, 160px); line-height: 1.08; letter-spacing: -0.02em; color: var(--paper); max-width: 1400px; }
+    .opening-top { display: flex; justify-content: flex-end; margin-bottom: clamp(80px, 12vh, 150px); flex-wrap: wrap; gap: 20px; }
+    .opening-headline { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(48px, 7.5vw, 120px); line-height: 1.08; letter-spacing: -0.02em; color: var(--paper); max-width: 1400px; }
     .opening-headline em { font-family: var(--serif-en); font-style: italic; font-weight: 500; color: var(--gold-bright); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
-    .opening-sub { font-family: var(--serif-en); font-style: italic; font-size: clamp(20px, 2.4vw, 34px); line-height: 1.5; color: rgba(245, 240, 230, 0.75); margin-top: 40px; max-width: 820px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
-    .opening-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: clamp(60px, 12vh, 120px); gap: 32px; flex-wrap: wrap; }
+    .opening-sub { font-family: var(--serif-en); font-style: italic; font-size: clamp(20px, 2.4vw, 34px); line-height: 1.5; color: rgba(245, 240, 230, 0.75); margin-top: 24px; max-width: 820px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+    .opening-sub.jp { font-family: var(--serif-jp); font-style: normal; font-weight: 500; font-size: clamp(18px, 2vw, 28px); line-height: 1.6; color: rgba(245, 240, 230, 0.82); }
+    .opening-sub.jp em { font-family: var(--serif-en); font-style: italic; color: var(--gold-bright); font-weight: 500; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+    .opening-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: clamp(24px, 4vh, 36px); gap: 32px; flex-wrap: wrap; }
 
     /* Opening CTA row (migrated from Intro v7.1) — on wine bg, paper text */
-    .opening-cta-row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; margin-top: 40px; }
-    .btn-paper { background: var(--paper); color: var(--ink); padding: 18px 32px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; transition: background .3s ease, transform .2s ease, color .3s ease; display: inline-flex; align-items: center; gap: 10px; }
-    .btn-paper:hover { background: var(--gold-bright); color: var(--ink); transform: translateY(-1px); }
-    .btn-paper::after { content: "→"; font-family: var(--serif-en); font-size: 14px; transition: transform .25s ease; }
-    .btn-paper:hover::after { transform: translateX(4px); }
-    .link-ghost-paper { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px 4px 14px 0; border-bottom: 1px solid rgba(245, 240, 230, 0.5); color: var(--paper); transition: color .25s, border-color .25s, padding-right .25s; }
-    .link-ghost-paper:hover { color: var(--gold-bright); border-color: var(--gold-bright); padding-right: 16px; }
+    .opening-cta-row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; margin-top: 28px; }
+    /* v7.11: primary / secondary CTA を文字サイズ・高さで統一(serif-jp 15px、font-weight で差別化、共に ::after 矢印で揃える) */
+    .btn-paper { font-family: var(--serif-jp); font-size: 15px; font-weight: 600; letter-spacing: 0.05em; color: var(--paper); padding: 8px 0; background: transparent; border: none; transition: color .25s ease, gap .25s ease; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-paper:hover { color: var(--gold-bright); gap: 16px; }
+    .btn-paper::after { content: "→"; font-family: var(--serif-en); font-size: 18px; font-style: italic; line-height: 1; transition: transform .25s ease; }
+    .btn-paper:hover::after { transform: translateX(2px); }
+    .link-ghost-paper { font-family: var(--serif-jp); font-size: 15px; font-weight: 400; letter-spacing: 0.05em; color: var(--paper); padding: 8px 0; background: transparent; border: none; transition: color .25s ease, gap .25s ease; display: inline-flex; align-items: center; gap: 10px; opacity: 0.85; }
+    .link-ghost-paper:hover { color: var(--gold-bright); gap: 16px; opacity: 1; }
+    .link-ghost-paper::after { content: "→"; font-family: var(--serif-en); font-size: 18px; font-style: italic; line-height: 1; transition: transform .25s ease; }
+    .link-ghost-paper:hover::after { transform: translateX(2px); }
 
     /* Opening fact strip (migrated + translated from Intro v7.1) */
-    .opening-fact-strip { margin-top: clamp(60px, 10vh, 100px); padding-top: 40px; border-top: 1px solid rgba(245, 240, 230, 0.22); display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .opening-fact-strip { margin-top: clamp(28px, 4vh, 40px); padding-top: 20px; border-top: 1px solid rgba(245, 240, 230, 0.22); display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
     @media (max-width: 720px) { .opening-fact-strip { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; } }
     .opening-fact-cell .opening-fact-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(245, 240, 230, 0.6); margin-bottom: 8px; }
     .opening-fact-cell .opening-fact-value { font-family: var(--serif-en); font-style: italic; font-size: clamp(18px, 1.8vw, 24px); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; color: var(--paper); }
@@ -522,6 +522,19 @@
     /* FIRST VISIT (v5) */
     /* First Visit — compact strip (v7.2: replaced full-card version with single-strip CTA) */
     .first-visit { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--rule); }
+
+    /* v7.13 Forwhom — 持ち込み LP 構成を全面採用(icon + ラベル + 英訳 + desc、3-col grid) */
+    .forwhom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: var(--max); margin: 0 auto; }
+    @media (max-width: 1024px) { .forwhom-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .forwhom-grid { grid-template-columns: 1fr; } }
+    .forwhom-card { display: flex; gap: 16px; padding: 24px 22px; background: #FBF7ED; border: 1px solid rgba(27, 18, 14, 0.08); border-radius: 2px; align-items: flex-start; }
+    .forwhom-card:hover { }
+    .forwhom-icon { flex-shrink: 0; width: 44px; height: 44px; color: var(--wine); }
+    .forwhom-icon svg { width: 100%; height: 100%; display: block; }
+    .forwhom-body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .forwhom-jp { font-family: var(--serif-jp); font-weight: 600; font-size: 14px; line-height: 1.45; color: var(--ink); margin: 0; }
+    .forwhom-en { font-family: var(--serif-en); font-style: italic; font-size: 11px; color: var(--muted); line-height: 1.3; margin: 0; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; letter-spacing: 0.01em; }
+    .forwhom-desc { font-family: var(--serif-jp); font-size: 12px; line-height: 1.75; color: var(--ink-2); margin-top: 6px; }
     .fv-compact { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
     .fv-compact-label { color: var(--muted); margin-bottom: 4px; }
     .fv-compact-options { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 28px; max-width: 920px; }
@@ -544,6 +557,60 @@
     .archive-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 120px; }
     .archive-head .meta-col { grid-column: span 4; }
     .archive-head .title-col { grid-column: span 8; }
+    /* v7.11 §1 left-align override(standardized-centered-head を archive-head にだけ無効化) */
+    .archive-title { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(36px, 5.5vw, 72px); line-height: 1.1; letter-spacing: -0.01em; text-align: left !important; }
+    .archive-title em { font-family: var(--serif-en); font-style: italic; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+    .archive-desc { margin-top: 32px; max-width: 560px; }
+    @media (max-width: 900px) { .archive-head .meta-col, .archive-head .title-col { grid-column: span 12; } }
+
+    /* v7.12 Folio — 持ち込み LP Services 構成を全面採用(card-grid、No.XX ラベル、価格フォント維持) */
+    .folio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: var(--max); margin: 0 auto; }
+    @media (max-width: 900px) { .folio-grid { grid-template-columns: 1fr; gap: 20px; } }
+    .folio { display: flex; flex-direction: column; gap: 18px; padding: 32px 28px; background: #FBF7ED; border: 1px solid rgba(27, 18, 14, 0.08); border-radius: 2px; max-width: none; margin: 0; }
+    .folio:hover { }
+    .folio:last-child { border-bottom: 1px solid rgba(27, 18, 14, 0.08); }
+    .folio-header { display: flex; flex-direction: column; gap: 4px; margin-bottom: 0; }
+    .folio-slug { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin: 0; }
+    .folio-jp { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(20px, 2vw, 26px); line-height: 1.3; letter-spacing: 0.01em; color: var(--ink); }
+    .folio-en { font-family: var(--serif-en); font-style: italic; font-size: 14px; color: var(--muted); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; margin: 0; }
+    .folio-icon { width: 48px; height: 48px; color: var(--wine); margin: 0; }
+    .folio-icon svg { width: 100%; height: 100%; display: block; }
+    .folio-num { display: none; }
+    .folio-visual { display: none; }
+    .folio-desc { font-size: 13px; line-height: 1.8; color: var(--ink-2); margin: 0; }
+    .folio-specs { border-top: 1px solid var(--rule); padding-top: 12px; margin: 0; }
+    .folio-spec-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px dotted var(--rule); }
+    .folio-spec-row:last-child { border-bottom: none; }
+    .folio-spec-label { font-family: var(--sans-jp); font-size: 12px; color: var(--ink-2); }
+    /* 値段フォント — ユーザー指定通り保持 */
+    .folio-spec-value { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--ink); text-align: right; }
+    .folio-includes { padding-top: 4px; margin: 0; }
+    .folio-includes-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .folio-includes-list { list-style: none; font-family: var(--sans-jp); font-size: 12px; color: var(--ink-2); line-height: 1.75; }
+    .folio-includes-list li::before { content: "– "; color: var(--wine); font-weight: 600; }
+    .folio-cta { margin-top: auto; align-self: flex-end; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 10px; padding-bottom: 4px; border-bottom: 1px solid var(--ink); transition: color .25s, border-color .25s, gap .25s; }
+    .folio-cta:hover { color: var(--wine); border-color: var(--wine); gap: 16px; }
+    .folio-placeholder-cta { margin-top: auto; align-self: flex-end; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); cursor: default; opacity: 0.65; padding-bottom: 4px; border-bottom: 1px dashed var(--muted); }
+    /* dead v7.10 classes kept but display:none */
+    .folio-content { display: contents; }
+
+    /* v7.13 Sample Menu — 持ち込み LP 由来、folio-grid の下に配置 */
+    .sample-menu { max-width: var(--max); margin: clamp(56px, 8vh, 96px) auto 0; padding-top: clamp(36px, 5vh, 64px); border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1.2fr 1.8fr 1.8fr 1.8fr; gap: 28px; align-items: start; }
+    @media (max-width: 900px) { .sample-menu { grid-template-columns: 1fr; gap: 32px; } }
+    .sample-menu-intro { display: flex; flex-direction: column; gap: 10px; padding-right: 8px; }
+    .sample-menu-intro h4 { font-family: var(--serif-en); font-weight: 500; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; letter-spacing: 0.01em; line-height: 1.2; }
+    .sample-menu-intro p { font-family: var(--serif-jp); font-size: 13px; line-height: 1.8; color: var(--ink-2); }
+    .sample-menu-more { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); padding-bottom: 3px; border-bottom: 1px solid var(--ink); align-self: flex-start; transition: color .25s, border-color .25s, gap .25s; margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; }
+    .sample-menu-more:hover { color: var(--wine); border-color: var(--wine); gap: 14px; }
+    .sample-item { display: flex; flex-direction: column; gap: 10px; }
+    .sample-thumb { aspect-ratio: 4 / 3; background: var(--wine-deep); border-radius: 2px; position: relative; overflow: hidden; }
+    .sample-thumb.t1 { background: radial-gradient(ellipse at 30% 28%, rgba(224, 176, 128, 0.4), transparent 55%), radial-gradient(ellipse at 72% 82%, rgba(138, 59, 63, 0.55), transparent 60%), linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%); }
+    .sample-thumb.t2 { background: radial-gradient(ellipse at 28% 30%, rgba(245, 240, 230, 0.18), transparent 52%), radial-gradient(ellipse at 75% 72%, rgba(107, 122, 74, 0.48), transparent 58%), linear-gradient(135deg, #3B4A2E 0%, #1A2412 100%); }
+    .sample-thumb.t3 { background: radial-gradient(ellipse at 32% 28%, rgba(194, 139, 91, 0.22), transparent 55%), radial-gradient(ellipse at 72% 76%, rgba(41, 27, 58, 0.6), transparent 62%), linear-gradient(135deg, #2E1A4A 0%, #1A0D2E 100%); }
+    .sample-name { font-family: var(--serif-en); font-style: italic; font-weight: 500; font-size: clamp(17px, 1.5vw, 19px); color: var(--ink); line-height: 1.3; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; margin-top: 4px; }
+    .sample-desc { font-family: var(--serif-jp); font-size: 12px; line-height: 1.8; color: var(--ink-2); margin-top: 2px; }
+    .sample-tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+    .sample-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--rule); border-radius: 2px; }
 
     /* Why njoooy — 3 differentiators block (v7.3) */
     .why-njoooy { margin: 0 auto clamp(80px, 12vh, 140px); padding: clamp(40px, 5vh, 72px) clamp(28px, 4vw, 56px); background: var(--surface); border: 1px solid var(--rule); max-width: 1200px; border-radius: 2px; }
@@ -560,37 +627,6 @@
     .archive-title em { font-family: var(--serif-en); font-style: italic; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
     .archive-desc { margin-top: 32px; max-width: 560px; }
     @media (max-width: 900px) { .archive-head .meta-col, .archive-head .title-col { grid-column: span 12; } }
-    .folio { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; padding: 80px 0; border-top: 1px solid var(--rule); align-items: start; }
-    .folio:last-child { border-bottom: 1px solid var(--rule); }
-    .folio-num { grid-column: 1 / span 2; font-family: var(--serif-en); font-style: italic; font-size: clamp(56px, 8vw, 120px); line-height: 0.9; font-weight: 300; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; letter-spacing: -0.02em; }
-    .folio-content { grid-column: 3 / span 5; }
-    .folio-visual { grid-column: 8 / span 5; aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: var(--wine); border-radius: 2px; }
-    .folio-visual::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(194, 139, 91, 0.5), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(74, 20, 24, 0.8), transparent 60%), linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%); }
-    .folio-visual.v2::before { background: radial-gradient(ellipse at 70% 30%, rgba(245, 240, 230, 0.3), transparent 50%), radial-gradient(ellipse at 20% 80%, rgba(194, 139, 91, 0.4), transparent 55%), linear-gradient(225deg, var(--ink) 0%, var(--wine-deep) 100%); }
-    .folio-visual.v3::before { background: radial-gradient(ellipse at 50% 50%, rgba(194, 139, 91, 0.4), transparent 55%), radial-gradient(ellipse at 10% 10%, rgba(138, 59, 63, 0.5), transparent 60%), linear-gradient(45deg, var(--wine-deep) 0%, var(--ink) 100%); }
-    .folio-visual .folio-visual-mark { position: absolute; top: 24px; left: 24px; color: var(--paper); opacity: 0.7; font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; z-index: 2; }
-    .folio-visual .folio-visual-label { position: absolute; bottom: 24px; right: 24px; color: var(--paper); opacity: 0.5; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; z-index: 2; }
-    .folio-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.85; }
-    @media (max-width: 900px) { .folio-num { grid-column: 1 / -1; margin-bottom: 12px; } .folio-content { grid-column: 1 / -1; margin-bottom: 24px; } .folio-visual { grid-column: 1 / -1; aspect-ratio: 16 / 10; } }
-    .folio-slug { margin-bottom: 14px; }
-    .folio-jp { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.2; letter-spacing: 0.01em; margin-bottom: 8px; }
-    .folio-en { font-family: var(--serif-en); font-style: italic; font-size: clamp(18px, 1.6vw, 22px); color: var(--muted); margin-bottom: 28px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
-    .folio-desc { font-size: 15px; margin-bottom: 32px; }
-    .folio-specs { border-top: 1px solid var(--rule); padding-top: 20px; margin-bottom: 16px; }
-    .folio-spec-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px dotted var(--rule); }
-    .folio-spec-row:last-child { border-bottom: none; }
-    .folio-spec-row.group { padding-top: 20px; padding-bottom: 4px; border-bottom: none; }
-    .folio-spec-row.group .folio-spec-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-    .folio-spec-row.group .folio-spec-value { opacity: 0; }
-    .folio-spec-label { font-family: var(--sans-jp); font-size: 13px; color: var(--ink-2); }
-    .folio-spec-value { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--ink); text-align: right; }
-    .folio-includes { margin: 16px 0 28px; padding-top: 16px; border-top: 1px dotted var(--rule); }
-    .folio-includes-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .folio-includes-list { list-style: none; font-family: var(--sans-jp); font-size: 13px; color: var(--ink-2); line-height: 1.9; }
-    .folio-includes-list li::before { content: "– "; color: var(--wine); font-weight: 600; }
-    .folio-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 10px; padding-bottom: 4px; border-bottom: 1px solid var(--ink); transition: color .25s, border-color .25s, gap .25s; }
-    .folio-cta:hover { color: var(--wine); border-color: var(--wine); gap: 20px; }
-    .coming-soon { margin-top: 40px; padding-top: 32px; border-top: 1px dotted var(--rule); display: flex; align-items: center; gap: 20px; opacity: 0.7; flex-wrap: wrap; }
 
     /* PROCESS */
     .process { padding: clamp(120px, 18vh, 200px) var(--gutter); background: var(--surface); }
@@ -613,6 +649,28 @@
     .step-time { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--wine); margin-top: 14px; }
     @media (max-width: 900px) { .timeline { grid-template-columns: 1fr; gap: 8px; } .timeline::before { display: none; } .step { border-left: 2px solid var(--ink); padding-left: 24px; padding-top: 24px; padding-bottom: 12px; } .step::before { top: 28px; left: -6px; } }
 
+    /* v7.13 Process — 持ち込み LP Process 構成を全面採用(3-col grid、icon + num + jp + en + desc) */
+    .process-title.spaced { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(32px, 4.5vw, 56px); line-height: 1.15; letter-spacing: 0.04em; }
+    .process-divider { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 20px auto 0; max-width: 180px; }
+    .process-divider .line { flex: 1; height: 1px; background: var(--rule); }
+    .process-divider .diamond { width: 7px; height: 7px; background: var(--wine); transform: rotate(45deg); }
+    .process-intro { font-family: var(--serif-jp); font-size: 14px; line-height: 1.9; color: var(--ink-2); margin-top: 20px; text-align: center; }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 32px; max-width: var(--max); margin: 0 auto; margin-top: 48px; }
+    @media (max-width: 900px) { .process-steps { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; } }
+    @media (max-width: 600px) { .process-steps { grid-template-columns: 1fr; gap: 40px; } }
+    .process-step { display: flex; flex-direction: column; gap: 8px; text-align: center; align-items: center; }
+    .process-num { width: 34px; height: 34px; background: var(--wine); color: var(--paper); border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-family: var(--serif-en); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; }
+    .process-step:last-child::after { display: none; }
+    .process-icon { width: 56px; height: 56px; color: var(--wine); margin: 6px 0 4px; }
+    .process-icon svg { width: 100%; height: 100%; display: block; }
+    .process-step h4 { font-family: var(--serif-jp); font-weight: 600; font-size: 17px; color: var(--ink); line-height: 1.35; margin: 0; }
+    .process-en { font-family: var(--serif-en); font-style: italic; font-size: 12px; color: var(--muted); letter-spacing: 0.02em; line-height: 1.3; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; margin: 0; }
+    .process-desc-step { font-family: var(--serif-jp); font-size: 12px; line-height: 1.8; color: var(--ink-2); margin-top: 6px; max-width: 240px; }
+    .past-meta-row { max-width: var(--max); margin: 56px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; justify-content: flex-end; align-items: baseline; }
+    .past-meta-row .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .past-meta-row .link-ghost { color: var(--wine); padding-bottom: 2px; border-bottom: 1px solid var(--wine); transition: color .25s, border-color .25s; margin-left: 4px; }
+    .past-meta-row .link-ghost:hover { color: var(--wine-deep); border-color: var(--wine-deep); }
+
     /* METHOD (v5) */
     .method { padding: clamp(120px, 18vh, 200px) var(--gutter); background: var(--paper); position: relative; }
     .method-inner { max-width: var(--max); margin: 0 auto; }
@@ -624,10 +682,10 @@
     .method-title em { font-family: var(--serif-en); font-style: italic; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
     .method-desc { margin-top: 32px; max-width: 560px; }
     @media (max-width: 900px) { .method-head .meta-col, .method-head .title-col { grid-column: span 12; } }
-    .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px solid var(--rule); padding-top: 60px; position: relative; }
+    .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding-top: 20px; position: relative; }
     @media (max-width: 900px) { .method-steps { grid-template-columns: 1fr; gap: 48px; } }
     .method-step { display: flex; flex-direction: column; gap: 20px; position: relative; padding-right: 16px; }
-    .method-step:not(:last-child)::after { content: "→"; position: absolute; top: 36px; right: -20px; font-family: var(--serif-en); font-style: italic; font-size: 28px; color: var(--wine); opacity: 0.6; font-variation-settings: "SOFT" 100, "WONK" 1; }
+    .method-step:not(:last-child)::after { content: none; }
     @media (max-width: 900px) { .method-step::after { display: none !important; } }
     .method-step-num { font-family: var(--serif-en); font-style: italic; font-size: clamp(80px, 10vw, 140px); line-height: 0.85; font-weight: 300; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; letter-spacing: -0.03em; }
     .method-step-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
@@ -713,13 +771,24 @@
     /* (.about-stats rules removed v7.4 — block deleted from markup) */
 
     /* ABOUT TIMELINE (v5) */
-    .about-timeline { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--rule); }
+    .about-timeline { margin-top: 40px; padding-top: 8px; }
     .about-timeline-label { margin-bottom: 28px; }
     .about-timeline-list { position: relative; padding-left: 28px; }
     .about-timeline-list::before { content: ""; position: absolute; top: 8px; bottom: 8px; left: 5px; width: 1px; background: var(--rule); }
     .about-timeline-item { position: relative; padding-bottom: 28px; }
     .about-timeline-item::before { content: ""; position: absolute; top: 8px; left: -24px; width: 11px; height: 11px; border-radius: 50%; background: var(--wine); border: 2px solid var(--paper-2); }
     .about-timeline-item.current::before { background: var(--gold); animation: breathe 3.8s ease-in-out infinite; }
+
+    /* v7.13 Founder block — user provided content for §5 */
+    .founder-block { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+    .founder-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .founder-name { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.3; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 8px; }
+    .founder-name ruby { ruby-position: over; }
+    .founder-name rt { font-size: 0.35em; font-weight: 400; color: var(--muted); letter-spacing: 0.15em; font-family: var(--sans-jp); }
+    .founder-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 20px; }
+    .founder-bio { font-family: var(--serif-jp); font-size: 14px; line-height: 1.9; color: var(--ink-2); }
+    .about-timeline-title { font-family: var(--serif-jp); font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+    .about-timeline-desc { font-family: var(--serif-jp); font-size: 12px; color: var(--ink-2); line-height: 1.75; margin: 0; }
     .about-timeline-item.future::before { background: var(--paper-2); border-color: var(--muted-2); }
     .about-timeline-year { font-family: var(--serif-en); font-style: italic; font-weight: 400; font-size: 22px; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; line-height: 1.2; }
     .about-timeline-item.future .about-timeline-year { color: var(--muted-2); }
@@ -753,6 +822,8 @@
     .past-card.reserved .past-card-scope { color: var(--ink); }
     .past-card.reserved .past-card-badge { color: var(--wine); border-color: var(--wine); }
     .past-meta-row { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    /* §3 Process は 1 子要素のみ:space-between だと左寄せになるので右寄せに override */
+    .process .past-meta-row { justify-content: flex-end; }
 
     /* FAQ */
     .faq { padding: clamp(120px, 18vh, 200px) var(--gutter); background: var(--paper-2); }
@@ -797,15 +868,11 @@
     @media (max-width: 900px) { .faq-head .meta-col, .faq-head .title-col { grid-column: span 12; } }
     .faq-list { border-top: 1px solid var(--rule); }
     .faq-item { border-bottom: 1px solid var(--rule); }
-    .faq-summary { padding: 28px 0; display: grid; grid-template-columns: 60px 1fr 40px; gap: 24px; align-items: baseline; cursor: none; }
+    .faq-summary { padding: 28px 0; display: grid; grid-template-columns: 60px 1fr 40px; gap: 24px; align-items: baseline; }
     .faq-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; padding-top: 6px; }
     .faq-q { font-family: var(--serif-jp); font-weight: 500; font-size: clamp(18px, 2vw, 22px); color: var(--ink); line-height: 1.5; }
     .faq-q .faq-q-en { display: block; font-family: var(--serif-en); font-style: italic; font-weight: 300; font-size: 14px; color: var(--muted); margin-top: 4px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
-    .faq-toggle { flex-shrink: 0; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--wine); border-radius: 50%; color: var(--wine); background: transparent; transition: transform .35s cubic-bezier(.4,0,.2,1), background .25s, color .25s, box-shadow .25s, border-color .25s; }
-    .faq-toggle svg { width: 14px; height: 14px; display: block; }
-    .faq-summary:hover .faq-toggle { background: var(--wine); color: var(--paper); box-shadow: 0 0 0 6px rgba(107, 32, 36, 0.1); border-color: var(--wine); }
     .faq-summary:hover .faq-q { color: var(--wine); }
-    details[open] .faq-toggle { transform: rotate(180deg); background: var(--wine); color: var(--paper); }
     .faq-a { padding: 0 64px 32px 84px; font-family: var(--sans-jp); font-size: 14px; line-height: 1.95; color: var(--ink-2); max-width: 800px; }
     @media (max-width: 720px) { .faq-summary { grid-template-columns: 44px 1fr 28px; gap: 12px; } .faq-a { padding: 0 28px 24px 56px; } }
 
@@ -1009,9 +1076,296 @@
       .logo .mark, .wordmark-logo .mark, .footer-logo .mark, .about-timeline-item.current::before { animation: none; }
       .preloader-half-top, .preloader-half-bot { animation-delay: 0s; animation-duration: .3s; }
       .preloader-wordmark { animation: none; }
-      .cursor-preview { transition: opacity .15s; }
     }
-  </style>
+  
+    /* v8.0 §6 FAQ — 持ち込み LP そのまま(2-col layout、faq-side + faq-list) */
+    .faq { padding: clamp(100px, 14vh, 160px) var(--gutter); background: var(--paper); }
+    .faq .section-inner { max-width: var(--max); margin: 0 auto; }
+    .faq-layout { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 72px; align-items: start; }
+    @media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; gap: 48px; } }
+    .faq-side .section-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--wine); margin-bottom: 20px; }
+    .faq-side .section-title { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.25; color: var(--ink); margin-bottom: 28px; letter-spacing: 0.01em; }
+    .faq-side p { font-family: var(--serif-jp); font-size: 13px; line-height: 1.95; color: var(--ink-2); margin-bottom: 8px; }
+    .faq-contact-cta { margin-top: 32px; padding: 0; background: transparent; border: none; display: flex; gap: 16px; align-items: flex-start; }
+    .faq-contact-cta .icon { flex-shrink: 0; width: 28px; height: 28px; color: var(--wine); margin-top: 2px; }
+    .faq-contact-cta .icon svg { width: 100%; height: 100%; }
+    .faq-contact-cta-text { font-family: var(--serif-jp); font-size: 12px; color: var(--ink-2); line-height: 1.7; margin-bottom: 6px; }
+    .faq-contact-cta a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--wine); padding-bottom: 2px; border-bottom: 1px solid var(--wine); display: inline-block; transition: color .25s, border-color .25s; }
+    .faq-contact-cta a:hover { color: var(--wine-deep); border-color: var(--wine-deep); }
+    .faq-list { border-top: 1px solid var(--rule); }
+    .faq-item { border-bottom: 1px solid var(--rule); }
+    .faq-q { list-style: none; cursor: pointer; padding: 22px 4px; display: flex; align-items: center; gap: 16px; transition: color .25s; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q:hover { color: var(--wine); }
+    .faq-num { font-family: var(--serif-en); font-style: italic; font-size: 22px; color: var(--gold); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; min-width: 44px; line-height: 1; font-weight: 300; }
+    .faq-q-text { flex: 1; font-family: var(--serif-jp); font-weight: 600; font-size: 15px; line-height: 1.55; color: var(--ink); }
+    /* §6 faq-toggle: chevron-down, no circle (v8.1) */
+    .faq-toggle { flex-shrink: 0; width: 16px; height: 16px; position: relative; transition: transform .35s ease; background: transparent; border: none; border-radius: 0; }
+    .faq-toggle::before, .faq-toggle::after { content: ""; position: absolute; top: 6px; background: var(--muted); width: 10px; height: 1.5px; transition: background .25s, transform .35s ease; transform-origin: 50% 50%; }
+    .faq-toggle::before { left: -1px; transform: rotate(40deg); }
+    .faq-toggle::after { right: -1px; transform: rotate(-40deg); }
+    details[open] .faq-q { color: var(--wine); }
+    details[open] .faq-q .faq-num { color: var(--wine); }
+    details[open] .faq-toggle { transform: rotate(180deg); }
+    details[open] .faq-toggle::before, details[open] .faq-toggle::after { background: var(--wine); }
+    .faq-a { padding: 0 4px 28px 60px; font-family: var(--serif-jp); font-size: 13px; line-height: 1.95; color: var(--ink-2); }
+    @media (max-width: 720px) { .faq-a { padding-left: 4px; } .faq-q { gap: 12px; padding: 18px 4px; } .faq-num { min-width: 34px; font-size: 18px; } .faq-q-text { font-size: 14px; } }
+
+    /* v8.0 §7 Contact — 持ち込み LP そのまま(2-col: contact-left + contact-form) */
+    .contact { padding: clamp(100px, 14vh, 160px) var(--gutter); background: var(--wine); color: var(--paper); overflow: visible; position: relative; }
+    /* §1 .archive と同じく背景装飾無し — 旧 v7.10 の wine radial-gradient overlay (::before) を無効化 */
+    .contact::before { display: none !important; content: none !important; }
+    .contact .noise-overlay { display: none; }
+    .contact-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 72px; align-items: start; }
+    @media (max-width: 900px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
+    .contact-left .section-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--wine); margin-bottom: 20px; }
+    .contact-title { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.25; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.01em; }
+    .contact-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0 24px; max-width: 120px; }
+    .contact-divider .line { flex: 1; height: 1px; background: var(--rule); }
+    .contact-divider .diamond { width: 7px; height: 7px; background: var(--wine); transform: rotate(45deg); }
+    .contact-lead { font-family: var(--serif-jp); font-size: 13px; line-height: 1.95; color: var(--ink-2); margin-bottom: 32px; }
+    .contact-item { display: flex; align-items: center; gap: 12px; font-family: var(--serif-jp); font-size: 14px; color: var(--ink); padding: 12px 0; border-bottom: 1px solid var(--rule); transition: color .25s; }
+    .contact-item:first-of-type { border-top: 1px solid var(--rule); }
+    .contact-item:hover { color: var(--wine); }
+    .contact-item:hover svg { color: var(--wine); }
+    .contact-item svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--wine); transition: color .25s; }
+    .contact-item[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
+    .contact-note { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--muted); margin-top: 20px; letter-spacing: 0.15em; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row { display: flex; flex-direction: column; gap: 6px; }
+    .form-row label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+    .form-row input, .form-row select, .form-row textarea { font-family: var(--serif-jp); font-size: 14px; color: var(--ink); background: #FBF7ED; border: 1px solid rgba(27, 18, 14, 0.1); border-radius: 2px; padding: 11px 14px; width: 100%; transition: border-color .25s; box-sizing: border-box; }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--wine); outline: none; }
+    .form-row textarea { resize: vertical; line-height: 1.7; min-height: 120px; }
+    .form-row .with-suffix { display: flex; align-items: center; gap: 10px; }
+    .form-row .with-suffix input { flex: 1; }
+    .form-row .with-suffix .suffix { font-family: var(--serif-jp); font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .form-row.tall > div { display: flex; flex-direction: column; gap: 4px; }
+    .form-textarea-count { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: right; letter-spacing: 0.1em; }
+    .form-submit { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper); background: var(--wine); border: 1px solid var(--wine); padding: 14px 32px; border-radius: 2px; cursor: pointer; transition: background .25s, border-color .25s; align-self: flex-start; margin-top: 8px; }
+    .form-submit:hover { background: var(--wine-deep); border-color: var(--wine-deep); }
+    .contact-form-status { font-family: var(--sans-jp); font-size: 13px; color: var(--ink-2); min-height: 20px; }
+    .contact-form-status.success { color: var(--wine); }
+    .contact-form-status.error { color: #B84848; }
+
+    
+
+    /* v8.1 §7 Contact wine theme — 各要素の文字・フォーム色を暗 BG 用に調整 */
+    .contact .section-kicker { color: var(--gold-bright); }
+    .contact-title { color: var(--paper); }
+    .contact-divider .line { background: rgba(245, 240, 230, 0.2); }
+    .contact-divider .diamond { background: var(--gold-bright); }
+    .contact-lead { color: rgba(245, 240, 230, 0.8); }
+    .contact-item { color: var(--paper); border-bottom-color: rgba(245, 240, 230, 0.15); }
+    .contact-item:first-of-type { border-top-color: rgba(245, 240, 230, 0.15); }
+    .contact-item:hover { color: var(--gold-bright); }
+    .contact-item svg { color: var(--gold-bright); }
+    .contact-item:hover svg { color: var(--gold-bright); }
+    .contact-note { color: rgba(245, 240, 230, 0.55); }
+    /* フォーム要素を暗 BG 上で読める配色に */
+    .contact-form .form-row label { color: rgba(245, 240, 230, 0.7); }
+    .contact-form input, .contact-form select, .contact-form textarea { background: rgba(15, 12, 8, 0.35); border-color: rgba(245, 240, 230, 0.2); color: var(--paper); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(245, 240, 230, 0.35); }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold-bright); background: rgba(15, 12, 8, 0.5); }
+    .contact-form .with-suffix .suffix { color: rgba(245, 240, 230, 0.6); }
+    .form-textarea-count { color: rgba(245, 240, 230, 0.4); }
+    .form-submit { background: var(--gold-bright); border-color: var(--gold-bright); color: var(--ink); }
+    .form-submit:hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+    .contact-form-status { color: rgba(245, 240, 230, 0.7); }
+    .contact-form-status.success { color: var(--gold-bright); }
+    .contact-form-status.error { color: #FF9090; }
+
+    /* v8.2 Unified section title format — 全セクションでタイトル下の divider + intro を統一 */
+    /* 各セクションの .{prefix}-title.spaced rule は既存のタイトル CSS に依存、letter-spacing を追加 */
+    .archive-title.spaced, .fw-title.spaced, .method-title.spaced, .about-title.spaced, .faq-title.spaced, .contact-title.spaced { letter-spacing: 0.04em; }
+    /* Divider: line-diamond-line */
+    .archive-divider, .fw-divider, .method-divider, .about-divider, .faq-divider, .contact-divider {
+      display: flex; align-items: center; gap: 12px; margin: 20px 0 24px; max-width: 180px;
+    }
+    .archive-divider .line, .fw-divider .line, .method-divider .line, .about-divider .line, .faq-divider .line, .contact-divider .line {
+      flex: 1; height: 1px; background: var(--rule);
+    }
+    .archive-divider .diamond, .fw-divider .diamond, .method-divider .diamond, .about-divider .diamond, .faq-divider .diamond, .contact-divider .diamond {
+      width: 7px; height: 7px; background: var(--wine); transform: rotate(45deg);
+    }
+    /* Intro: unified paragraph style */
+    .archive-intro, .fw-intro, .method-intro, .about-intro, .faq-intro {
+      font-family: var(--serif-jp); font-size: 14px; line-height: 1.9; color: var(--ink-2); margin-top: 4px;
+    }
+    /* §5 About: rename styles to match new class names */
+    .about-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 80px; }
+    .about-head .meta-col { grid-column: span 4; }
+    .about-head .title-col { grid-column: span 8; }
+    @media (max-width: 900px) { .about-head .meta-col, .about-head .title-col { grid-column: span 12; } }
+    .about-title { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(36px, 5.5vw, 72px); line-height: 1.1; letter-spacing: -0.01em; }
+    /* §7 Contact: contact-title.spaced override — dark bg adj */
+    .contact .meta { color: var(--gold-bright); margin-bottom: 16px; }
+    .contact-divider { margin: 16px 0 24px; max-width: 180px; }
+    .contact-divider .line { background: rgba(245, 240, 230, 0.2); }
+    .contact-divider .diamond { background: var(--gold-bright); }
+    .contact-intro { font-family: var(--serif-jp); font-size: 14px; line-height: 1.9; color: rgba(245, 240, 230, 0.8); margin-top: 4px; }
+
+    /* v8.2 Nav active indicator — 現在のセクションの nav link に下線(持ち込み LP 風) */
+    .nav-links a { position: relative; padding-bottom: 2px; transition: color .25s, border-color .25s; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -2px;
+      height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left;
+      transition: transform .28s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-links a.active::after, .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--paper); }
+    .nav.light .nav-links a.active { color: var(--ink); }
+
+
+    /* v8.3 Footer 刷新(持ち込み LP そのまま) — brand / follow / legal / copyright を centered stack */
+    footer { background: var(--ink-deep); color: var(--paper); padding: clamp(80px, 12vh, 120px) var(--gutter) 48px; }
+    .footer-inner { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px; text-align: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .footer-logo { font-family: var(--serif-en); font-weight: 300; font-size: clamp(48px, 7vw, 80px); color: var(--paper); letter-spacing: -0.03em; line-height: 1; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+    .footer-url { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: rgba(245, 240, 230, 0.65); margin-top: 4px; }
+    .footer-follow { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .footer-follow-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(245, 240, 230, 0.55); }
+    .footer-follow-link { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--paper); border: 1px solid rgba(245, 240, 230, 0.2); border-radius: 50%; transition: color .25s, border-color .25s, background .25s; }
+    .footer-follow-link:hover { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+    .footer-follow-link svg { width: 18px; height: 18px; }
+    .footer-follow-link[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
+    .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; font-family: var(--sans-jp); font-size: 12px; line-height: 1.8; }
+    .footer-legal a { color: rgba(245, 240, 230, 0.65); text-decoration: none; transition: color .25s; padding-bottom: 1px; border-bottom: 1px solid transparent; }
+    .footer-legal a:hover { color: var(--paper); border-bottom-color: rgba(245, 240, 230, 0.4); }
+    .footer-legal-sep { color: rgba(245, 240, 230, 0.25); user-select: none; }
+    .footer-copyright { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: rgba(245, 240, 230, 0.4); margin-top: 8px; padding-top: 24px; border-top: 1px solid rgba(245, 240, 230, 0.08); width: 100%; max-width: 400px; }
+
+    /* v8.3 Unified centered heads — 全セクションが Process スタイル(中央揃え、同一タイポグラフィ)で表示 */
+    /* 対象: .archive-head, .fw-head, .process-head, .method-head, .about-head, .faq-head, .contact-head */
+    .archive-head, .fw-head, .process-head, .method-head, .about-head, .faq-head, .contact-head {
+      display: block !important;
+      grid-template-columns: none !important;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(56px, 8vh, 96px);
+      padding: 0 var(--gutter);
+      box-sizing: border-box;
+    }
+    /* Meta kicker (統一) */
+    .archive-head .meta, .fw-head .meta, .process-head .meta, .method-head .meta, .about-head .meta, .faq-head .meta, .contact-head .meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--wine);
+      margin-bottom: 20px;
+      display: block;
+    }
+    /* meta-col wrapper の標準化(grid レイアウトを完全解除) */
+    .archive-head .meta-col, .fw-head .meta-col, .method-head .meta-col, .about-head .meta-col, .process-head .meta-col {
+      display: block !important;
+      grid-column: unset !important;
+      margin: 0 0 20px !important;
+    }
+    .archive-head .title-col, .fw-head .title-col, .method-head .title-col, .about-head .title-col, .process-head .title-col {
+      display: block !important;
+      grid-column: unset !important;
+      margin: 0 auto !important;
+    }
+    /* Title (統一: Process と同じ size/letter-spacing) */
+    .archive-title.spaced, .fw-title.spaced, .process-title.spaced, .method-title.spaced, .about-title.spaced, .faq-title.spaced, .contact-title.spaced {
+      font-family: var(--serif-jp) !important;
+      font-weight: 600 !important;
+      font-size: clamp(30px, 4.2vw, 52px) !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.04em !important;
+      color: var(--ink);
+      text-align: center;
+      margin: 0;
+    }
+    /* Divider (統一) */
+    .archive-divider, .fw-divider, .process-divider, .method-divider, .about-divider, .faq-divider, .contact-divider {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center;
+      gap: 12px;
+      margin: 20px auto 0 !important;
+      max-width: 180px !important;
+    }
+    .archive-divider .line, .fw-divider .line, .process-divider .line, .method-divider .line, .about-divider .line, .faq-divider .line, .contact-divider .line {
+      flex: 1; height: 1px; background: var(--rule);
+    }
+    .archive-divider .diamond, .fw-divider .diamond, .process-divider .diamond, .method-divider .diamond, .about-divider .diamond, .faq-divider .diamond, .contact-divider .diamond {
+      width: 7px; height: 7px; background: var(--wine); transform: rotate(45deg);
+    }
+    /* Intro (統一) */
+    .archive-intro, .fw-intro, .process-intro, .method-intro, .about-intro, .faq-intro, .contact-intro {
+      font-family: var(--serif-jp) !important;
+      font-size: 14px !important;
+      line-height: 1.9 !important;
+      color: var(--ink-2) !important;
+      margin: 24px auto 0 !important;
+      max-width: 600px;
+      text-align: center !important;
+    }
+    /* §7 Contact wine theme override for head colors */
+    .contact-head .meta { color: var(--gold-bright); }
+    .contact-title.spaced { color: var(--paper) !important; }
+    .contact-divider .line { background: rgba(245, 240, 230, 0.2) !important; }
+    .contact-divider .diamond { background: var(--gold-bright) !important; }
+    .contact-intro { color: rgba(245, 240, 230, 0.8) !important; }
+    .contact-head { margin-bottom: clamp(48px, 6vh, 72px) !important; }
+
+    /* §6 faq-body: 単一 column 中央、幅制限 */
+    .faq-layout { display: none; }  /* 旧 2-col layout 無効化 */
+    .faq-body { max-width: 820px; margin: 0 auto; }
+    .faq-body .faq-list { border-top: 1px solid var(--rule); }
+    /* §6 faq-contact-cta 中央 block */
+    section.faq .faq-contact-cta { max-width: 560px; margin: 40px auto 0; padding: 0; background: transparent; border: none; display: flex; gap: 16px; align-items: flex-start; justify-content: center; text-align: left; }
+
+    /* §7 contact-inner の 2-col は維持、head は上に独立 */
+    section.contact .contact-inner { margin-top: 0; }
+
+
+    /* v8.4 セクション spacing 半減 — 前セクション終端〜次セクション title の垂直空間を半分に */
+    .archive, .for-whom, .process, .method, .about-section, .past, .faq, .contact {
+      padding-top: clamp(60px, 9vh, 100px) !important;
+      padding-bottom: clamp(40px, 6vh, 70px) !important;
+    }
+    .opening {
+      padding-top: clamp(80px, 11vh, 120px) !important;
+      padding-bottom: clamp(40px, 5vh, 60px) !important;
+      justify-content: flex-start !important;
+    }
+    /* v8.4 opening-top(Est. 2026)の margin-bottom を拡大 → Est. は上、以降のコンポーネントは下 */
+    .opening .opening-top { margin-bottom: clamp(180px, 24vh, 280px) !important; padding-top: 0 !important; }
+    .archive-head, .fw-head, .process-head, .method-head, .about-head, .faq-head, .contact-head {
+      margin-bottom: clamp(28px, 4vh, 48px) !important;
+    }
+
+    /* v8.4 §7 Contact form を中央配置(2-col 廃止)*/
+    section.contact .contact-inner { display: block !important; max-width: 640px !important; margin: 0 auto !important; grid-template-columns: none !important; }
+    section.contact .contact-form { margin: 0 auto; max-width: 640px; }
+
+    /* v8.4 Footer contacts block — email/Instagram/note */
+    .footer-contacts { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .footer-contacts .footer-follow-label { margin-bottom: 4px; }
+    .footer-contact-item { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; color: rgba(245, 240, 230, 0.85); font-family: var(--serif-jp); font-size: 13px; transition: color .25s; }
+    .footer-contact-item:hover { color: var(--paper); }
+    .footer-contact-item[aria-disabled="true"] { opacity: 0.6; cursor: not-allowed; }
+    .footer-contact-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .footer-contact-item span { letter-spacing: 0.02em; }
+    .footer-contact-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: rgba(245, 240, 230, 0.45); margin-top: 8px; text-transform: none; }
+
+    /* v8.4 §1 archive 中央揃え強制 — grid 解除 + 全子要素 block + text-align center */
+    section.archive .archive-head { display: block !important; grid-template-columns: none !important; text-align: center !important; max-width: 720px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 0 !important; padding-right: 0 !important; }
+    section.archive .archive-head .meta-col { display: block !important; grid-column: unset !important; width: auto !important; max-width: none !important; margin: 0 0 20px 0 !important; padding: 0 !important; text-align: center !important; }
+    section.archive .archive-head .title-col { display: block !important; grid-column: unset !important; width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; text-align: center !important; }
+    section.archive .archive-head .meta { text-align: center !important; display: block !important; }
+    section.archive .archive-head h2.archive-title { text-align: center !important; display: block !important; width: 100% !important; margin: 0 !important; }
+    section.archive .archive-head .archive-divider { justify-content: center !important; margin-left: auto !important; margin-right: auto !important; }
+    section.archive .archive-head .archive-desc,
+    section.archive .archive-head .archive-intro { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+    /* v8.4 §7 Contact 送信ボタン中央配置 */
+    section.contact .contact-form .form-submit { align-self: center !important; margin-left: auto !important; margin-right: auto !important; display: block !important; }
+</style>
 </head>
 
 <body>
@@ -1056,14 +1410,6 @@
     </div>
   </div>
 
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-
-  <div class="cursor-preview" id="cursorPreview" aria-hidden="true">
-    <div class="pv-inner"></div>
-    <span class="pv-num"></span>
-    <span class="pv-label"></span>
-  </div>
 
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -1077,13 +1423,13 @@
     <a href="#top" class="nav-logo logo">njoooy<span class="mark"></span></a>
     <div class="nav-links">
       <a href="#services" data-hover>Services</a>
-      <a href="#for-whom" data-hover>For Whom</a>
+      <a href="#for-whom" data-hover>Use Cases</a>
       <a href="#method" data-hover>Method</a>
       <a href="#about" data-hover>About</a>
       <a href="#faq" data-hover>FAQ</a>
       <a href="#contact" data-hover>Contact</a>
     </div>
-    <a href="#contact" class="nav-cta" data-hover>ご相談へ →</a>
+    <a href="#contact" class="nav-cta" data-hover>ご相談・ご予約 →</a>
   </nav>
 
   <main id="top" tabindex="-1">
@@ -1092,23 +1438,19 @@
       <div class="noise-overlay"></div>
       <div class="opening-inner">
         <div class="opening-top">
-          <div class="meta meta-dark">njoooy — Tokyo, JP</div>
-          <div class="meta meta-dark">Est. MMXXVI · Tokyo</div>
+          <div class="meta meta-dark">Est. 2026 — Tokyo, JP</div>
         </div>
+        <!-- : ヘッドライン要推敲。現行「僕なんていかがでしょうか?」はユーザー直指定、自己紹介型の謙譲・親しみトーン。差替え可、grep で : ヘッドライン要推敲] から一発] -->
         <h1 class="opening-headline">
-          <span class="kin"><span style="--d:.6s">東京着地、</span></span><br/>
-          <span class="kin"><span style="--d:.85s">2026年</span></span><span class="kin"><span style="--d:1.05s">4月</span></span><span class="kin"><span style="--d:1.2s">。</span></span><em style="font-size: 0.7em; vertical-align: super;">*</em>
+          <span class="kin"><span style="--d:.6s">僕なんて</span></span><br/>
+          <span class="kin"><span style="--d:.9s">いかがでしょうか</span></span><span class="kin"><span style="--d:1.15s">?</span></span>
         </h1>
-        <p class="opening-sub reveal">— cocktail &amp; non-alcoholic, designed with equal intensity. <span style="opacity: 0.6;">[TBD: 要推敲]</span></p>
         <div class="opening-bottom">
-          <div class="meta meta-dark" style="max-width: 460px; line-height: 1.8; text-transform: none; letter-spacing: 0.02em; font-family: var(--serif-jp); font-size: 14px; font-weight: 500;">
-            京都で学び、2026年東京へ。カクテルもノンアルも、<em style="font-family: var(--serif-en); font-style: italic; color: var(--gold-bright);">同じ設計精度</em>で。出張バー、メニュー開発、店舗相談。<span style="opacity: 0.6;">[TBD]</span>
+          <div class="meta meta-dark" style="max-width: 520px; line-height: 1.9; text-transform: none; letter-spacing: 0.02em; font-family: var(--serif-jp); font-size: 14px; font-weight: 500;">
+            味わいのバランスから世界観まで、ひとつひとつを丁寧に設計。<br/>
+            出張バーテンダーとして、イベントや店舗、ブランドの体験価値を高める<br/>
+            一杯と時間をお届けします。
           </div>
-        </div>
-
-        <div class="opening-cta-row reveal">
-          <a href="#contact" class="btn-paper" data-hover>お問い合わせ</a>
-          <a href="#services" class="link-ghost-paper" data-hover>Services &amp; Prices ↓</a>
         </div>
 
         <div class="opening-fact-strip reveal">
@@ -1117,8 +1459,8 @@
             <div class="opening-fact-value jp">東京</div>
           </div>
           <div class="opening-fact-cell">
-            <div class="opening-fact-label">得意領域</div>
-            <div class="opening-fact-value jp">カクテル／ノンアル</div>
+            <div class="opening-fact-label">座右の銘</div>
+            <div class="opening-fact-value jp" style="opacity: 0.6;"></div>
           </div>
           <div class="opening-fact-cell">
             <div class="opening-fact-label">対応言語</div>
@@ -1131,20 +1473,16 @@
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <div class="marquee-group">
-          <span>Cocktail &amp; Non-Alcoholic</span><span class="sep">✦</span>
-          <span class="jp">同じ設計精度で</span><span class="sep">✦</span>
-          <span>njoooy — Tokyo, JP</span><span class="sep">✦</span>
-          <span class="jp">出張バー／メニュー開発／店舗相談</span><span class="sep">✦</span>
-          <span>Est. MMXXVI</span><span class="sep">✦</span>
-          <span class="jp">京都仕込み、東京着地</span><span class="sep">✦</span>
+          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
+          <span class="jp">関東近辺</span><span class="sep">✦</span>
+          <span class="jp">即日対応</span><span class="sep">✦</span>
+          <span class="jp">英語対応可</span><span class="sep">✦</span>
         </div>
         <div class="marquee-group" aria-hidden="true">
-          <span>Cocktail &amp; Non-Alcoholic</span><span class="sep">✦</span>
-          <span class="jp">同じ設計精度で</span><span class="sep">✦</span>
-          <span>njoooy — Tokyo, JP</span><span class="sep">✦</span>
-          <span class="jp">出張バー／メニュー開発／店舗相談</span><span class="sep">✦</span>
-          <span>Est. MMXXVI</span><span class="sep">✦</span>
-          <span class="jp">京都仕込み、東京着地</span><span class="sep">✦</span>
+          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
+          <span class="jp">関東近辺</span><span class="sep">✦</span>
+          <span class="jp">即日対応</span><span class="sep">✦</span>
+          <span class="jp">英語対応可</span><span class="sep">✦</span>
         </div>
       </div>
     </div>
@@ -1152,54 +1490,39 @@
     <section class="archive" id="services">
       <div class="archive-inner">
         <div class="archive-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 01 — Services / Archive 01–04</div></div>
+          <div class="meta-col reveal"><div class="meta">Services</div></div>
           <div class="title-col">
-            <h2 class="archive-title reveal">
-              njoooy<span class="logo" style="display: inline-flex;"><span class="mark" style="width: 14px; height: 14px;"></span></span> が<br/><em>いま開いている</em>、<br/>ひらかれたカウンター。
-            </h2>
-            <p class="archive-desc body-jp reveal">2026年5月より開始。出張バー・メニュー開発・店舗相談の3本立てに、研修プログラム(njoooy Class)を準備中。各サービスは2026年内に Case Study を順次追加予定。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+            <h2 class="archive-title spaced reveal">サービス一覧</h2>
+            <div class="archive-divider reveal">
+              <div class="line"></div>
+              <div class="diamond"></div>
+              <div class="line"></div>
+            </div>
+            <p class="archive-intro reveal">出張バー・メニュー開発・店舗相談・研修プログラム。<br/>4つのサービスで、あらゆるシーンに寄り添います。</p>
           </div>
         </div>
 
-        <div class="why-njoooy reveal">
-          <div class="why-head">
-            <span class="meta">Why njoooy — 選ばれる3つの理由</span>
-          </div>
-          <div class="why-grid">
-            <div class="why-item">
-              <div class="why-num">01</div>
-              <h4 class="why-title">ノンアルも、<em>同じ設計精度</em>で。</h4>
-              <p class="why-desc body-jp">カクテルの「主」とノンアルの「添え」という序列を置かない。食事の流れ、ゲストの嗜好、夜の温度に合わせて、どちらも独立した構造で組み上げます。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+        <div class="folio-grid">
+          <article class="folio reveal" data-hover>
+            <div class="folio-header">
+              <div class="folio-slug">No. 01</div>
+              <h3 class="folio-jp">出張バー</h3>
+              <p class="folio-en">Pop-up Bar Service</p>
             </div>
-            <div class="why-item">
-              <div class="why-num">02</div>
-              <h4 class="why-title">京都ホテルバーの<em>基礎</em>、東京の<em>柔軟性</em>。</h4>
-              <p class="why-desc body-jp">京都のホテルバーで培ったクラシックの厳密さと、東京の現場に応じて組み替える柔軟さ。規模やシーンに関係なく、一定の温度で一杯を届けます。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+            <div class="folio-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 16 18 L 32 38 L 48 18 Z"/>
+                <path d="M 32 38 L 32 52"/>
+                <path d="M 22 52 L 42 52"/>
+                <path d="M 20 24 L 44 24" opacity="0.35"/>
+                <circle cx="28" cy="22" r="1.5" fill="currentColor"/>
+              </svg>
             </div>
-            <div class="why-item">
-              <div class="why-num">03</div>
-              <h4 class="why-title">少人数特化 × <em>バイリンガル</em>対応。</h4>
-              <p class="why-desc body-jp">4〜40名規模のイベント・セッションに特化。大型ケータリングでは届かない距離感で、お客様一人ひとりにサーブします。日本語・英語(B1)で進行可能。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
-            </div>
-          </div>
-        </div>
-
-        <article class="folio reveal" data-hover>
-          <div class="folio-num">01</div>
-          <div class="folio-content">
-            <div class="folio-slug meta">njoooy Bar / No. 01</div>
-            <h3 class="folio-jp">出張バー</h3>
-            <p class="folio-en">Pop-up Bar Service</p>
-            <p class="folio-desc body-jp">あなたの場所を、今夜のバーに。個人の集まりから法人イベントまで、空間に合わせたカクテルとノンアルを用意します。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+            <p class="folio-desc body-jp">個人の集まりから法人イベントまで、プロのバーテンダーが出張し、ご指定のシーンに合わせた一杯をお届けします。</p>
             <div class="folio-specs">
-              <div class="folio-spec-row group"><span class="folio-spec-label">Packages</span><span class="folio-spec-value"></span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Private(個人・少人数)</span><span class="folio-spec-value">¥50,000 ~</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Corporate(法人)</span><span class="folio-spec-value">¥130,000 ~</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Premium(Brand / PR)</span><span class="folio-spec-value">¥280,000 ~</span></div>
-              <div class="folio-spec-row group"><span class="folio-spec-label">Typical setup</span><span class="folio-spec-value"></span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Duration</span><span class="folio-spec-value">3 – 4h</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Capacity</span><span class="folio-spec-value">4 – 40 guests</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Signature drinks</span><span class="folio-spec-value">3 – 5 kinds</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
@@ -1207,7 +1530,6 @@
                 <li>ヒアリング+オリジナルメニュー設計</li>
                 <li>バーテンダー 1名(Corporate は+1名相談可)</li>
                 <li>カウンター設営・撤収・片付け一式</li>
-                <li>ガラスグラス(またはバイオマスカップ)</li>
                 <li>アルコール・ノンアル・ソフトドリンク提供</li>
               </ul>
               <div class="folio-includes-label" style="margin-top: 16px;">Not included</div>
@@ -1217,161 +1539,29 @@
                 <li>特殊食材・希少酒の追加手配(要相談)</li>
               </ul>
             </div>
-            <a href="#contact" class="folio-cta" data-hover>Request a date →</a>
-          </div>
-          <div class="folio-visual v1">
-            <div class="noise-overlay"></div>
-            <span class="folio-visual-mark">01 / njoooy Bar</span>
-            <span class="folio-visual-label">Placeholder — photography TBD</span>
-            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="200" cy="260" r="110" fill="none" stroke="rgba(245,240,230,0.25)" stroke-width="1"/>
-              <circle cx="200" cy="260" r="140" fill="none" stroke="rgba(245,240,230,0.15)" stroke-width="1"/>
-              <line x1="200" y1="60" x2="200" y2="440" stroke="rgba(245,240,230,0.1)" stroke-width="1"/>
-              <line x1="60" y1="260" x2="340" y2="260" stroke="rgba(245,240,230,0.1)" stroke-width="1"/>
-              <circle cx="200" cy="260" r="4" fill="rgba(194,139,91,0.9)"/>
-            </svg>
-          </div>
-                  <div class="folio-sample" aria-label="Sample menu / 派生例">
-            <div class="folio-sample-head">
-              <div class="folio-sample-kicker meta">Sample Menu / 派生例</div>
-              <div class="folio-sample-title">現時点で <em>提供可能</em> な派生例。</div>
-              <p class="folio-sample-desc body-jp">案件のシーン・人数・予算・アル比にあわせて、カクテルとノンアルを設計します。以下は現時点で提供可能な派生例(一杯あたりの単価ではなく、案件パッケージ内で提供)です。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-            </div>
-            <div class="folio-sample-rail-wrap">
-              <div class="folio-sample-rail">
-                <article class="sig-card" data-hover>
-                <div class="sig-visual">
-                <div class="sig-glow"></div>
-                <span class="sig-chip gold">Signature · Cocktail</span>
-                <span class="sig-num">01</span>
-                <svg class="drink" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                <radialGradient id="g1" cx="50%" cy="30%" r="60%">
-                <stop offset="0%" stop-color="rgba(224,176,128,0.35)"/>
-                <stop offset="70%" stop-color="rgba(107,32,36,0.5)"/>
-                <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                </radialGradient>
-                <linearGradient id="liquid1" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#E0B080"/>
-                <stop offset="100%" stop-color="#8A3B3F"/>
-                </linearGradient>
-                </defs>
-                <rect width="400" height="500" fill="url(#g1)"/>
-                <!-- coupe glass -->
-                <path d="M 120 240 Q 120 310 200 325 Q 280 310 280 240 Z" fill="url(#liquid1)" opacity="0.95" stroke="rgba(245,240,230,0.3)" stroke-width="1"/>
-                <ellipse cx="200" cy="240" rx="80" ry="10" fill="rgba(245,240,230,0.18)" stroke="rgba(245,240,230,0.4)" stroke-width="0.8"/>
-                <ellipse cx="170" cy="250" rx="10" ry="3" fill="rgba(245,240,230,0.35)"/>
-                <!-- stem -->
-                <line x1="200" y1="325" x2="200" y2="405" stroke="rgba(245,240,230,0.3)" stroke-width="1.2"/>
-                <ellipse cx="200" cy="410" rx="40" ry="5" fill="rgba(245,240,230,0.12)" stroke="rgba(245,240,230,0.28)" stroke-width="0.8"/>
-                <!-- garnish: gold peel -->
-                <path d="M 195 215 Q 205 205 215 218 Q 210 228 198 225" fill="none" stroke="#E0B080" stroke-width="1.5"/>
-                </svg>
-                </div>
-                <div class="sig-body">
-                <div class="sig-name">Kyoto Old Fashioned</div>
-                <div class="sig-name-jp">京都 · 焙じ茶オールドファッションド</div>
-                <div class="sig-desc">焙じ茶で満たしたバーボンに、和三盆と柚子ビターズ。東京へ持ち込んだ京都の記憶。</div>
-                <div class="sig-meta"><span>Cocktail · 35ml</span></div>
-                </div>
-                </article>
-                <article class="sig-card" data-hover>
-                <div class="sig-visual">
-                <div class="sig-glow"></div>
-                <span class="sig-chip">Non-Alc · Signature</span>
-                <span class="sig-num">02</span>
-                <svg class="drink" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                <radialGradient id="g2" cx="50%" cy="30%" r="60%">
-                <stop offset="0%" stop-color="rgba(245,240,230,0.18)"/>
-                <stop offset="70%" stop-color="rgba(107,32,36,0.35)"/>
-                <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                </radialGradient>
-                <linearGradient id="liquid2" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#D9C88A"/>
-                <stop offset="100%" stop-color="#8A6B3B"/>
-                </linearGradient>
-                </defs>
-                <rect width="400" height="500" fill="url(#g2)"/>
-                <!-- highball -->
-                <path d="M 150 180 L 160 380 L 240 380 L 250 180 Z" fill="rgba(245,240,230,0.06)" stroke="rgba(245,240,230,0.3)" stroke-width="1"/>
-                <path d="M 153 200 L 162 378 L 238 378 L 247 200 Z" fill="url(#liquid2)" opacity="0.88"/>
-                <!-- ice cubes -->
-                <rect x="165" y="210" width="30" height="30" fill="rgba(245,240,230,0.35)" stroke="rgba(245,240,230,0.5)" stroke-width="0.6" transform="rotate(8 180 225)"/>
-                <rect x="200" y="230" width="28" height="28" fill="rgba(245,240,230,0.28)" stroke="rgba(245,240,230,0.45)" stroke-width="0.6" transform="rotate(-5 214 244)"/>
-                <!-- bubbles -->
-                <circle cx="180" cy="290" r="2" fill="rgba(245,240,230,0.5)"/>
-                <circle cx="210" cy="320" r="1.5" fill="rgba(245,240,230,0.4)"/>
-                <circle cx="195" cy="350" r="2.5" fill="rgba(245,240,230,0.45)"/>
-                <!-- garnish: rosemary -->
-                <line x1="200" y1="180" x2="200" y2="140" stroke="#6B7A4A" stroke-width="1.5"/>
-                <path d="M 200 160 L 195 158 M 200 150 L 205 148 M 200 145 L 195 143" stroke="#6B7A4A" stroke-width="1"/>
-                </svg>
-                </div>
-                <div class="sig-body">
-                <div class="sig-name">Hinoki Garden</div>
-                <div class="sig-name-jp">檜ガーデン · ノンアルハイボール</div>
-                <div class="sig-desc">檜の蒸留水、青山椒、蜂蜜。杉樽の香りをノンアルで再構築した、森の一杯。</div>
-                <div class="sig-meta"><span>Non-Alc · 0.0%</span></div>
-                </div>
-                </article>
-                <article class="sig-card" data-hover>
-                <div class="sig-visual">
-                <div class="sig-glow"></div>
-                <span class="sig-chip gold">Signature · Cocktail</span>
-                <span class="sig-num">03</span>
-                <svg class="drink" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                <radialGradient id="g3" cx="50%" cy="30%" r="60%">
-                <stop offset="0%" stop-color="rgba(224,176,128,0.28)"/>
-                <stop offset="70%" stop-color="rgba(40,15,20,0.6)"/>
-                <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                </radialGradient>
-                <linearGradient id="liquid3" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#F5E8D0"/>
-                <stop offset="100%" stop-color="#C28B5B"/>
-                </linearGradient>
-                </defs>
-                <rect width="400" height="500" fill="url(#g3)"/>
-                <!-- Nick & Nora glass -->
-                <path d="M 150 220 Q 150 290 200 305 Q 250 290 250 220 Z" fill="url(#liquid3)" opacity="0.94" stroke="rgba(245,240,230,0.3)" stroke-width="1"/>
-                <ellipse cx="200" cy="220" rx="50" ry="8" fill="rgba(245,240,230,0.18)" stroke="rgba(245,240,230,0.4)" stroke-width="0.8"/>
-                <ellipse cx="180" cy="232" rx="8" ry="2.5" fill="rgba(245,240,230,0.38)"/>
-                <line x1="200" y1="305" x2="200" y2="395" stroke="rgba(245,240,230,0.3)" stroke-width="1.2"/>
-                <ellipse cx="200" cy="400" rx="42" ry="5" fill="rgba(245,240,230,0.12)" stroke="rgba(245,240,230,0.28)" stroke-width="0.8"/>
-                <!-- olive -->
-                <circle cx="210" cy="210" r="5" fill="#4A5A2A"/>
-                <circle cx="208" cy="208" r="1.2" fill="#D9C88A"/>
-                </svg>
-                </div>
-                <div class="sig-body">
-                <div class="sig-name">Tokyo Midnight Martini</div>
-                <div class="sig-name-jp">東京 · 夜更けのマティーニ</div>
-                <div class="sig-desc">山椒ジン、白ベルモット、昆布ブライン。着地した街の、ひとくち目のための塩味。</div>
-                <div class="sig-meta"><span>Cocktail · 60ml</span></div>
-                </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </article>
+            <a href="#contact" class="folio-cta" data-hover>依頼日を指定 →</a>
+          </article>
 
-        <article class="folio reveal" data-hover>
-          <div class="folio-num">02</div>
-          <div class="folio-content">
-            <div class="folio-slug meta">njoooy Menu / No. 02</div>
-            <h3 class="folio-jp">メニュー開発</h3>
-            <p class="folio-en">Beverage Program Design</p>
-            <p class="folio-desc body-jp">店舗のドリンクラインナップを、一緒に設計します。ノンアル強化・季節刷新・コンセプト立ち上げ。試作と提案、ドキュメント化まで。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+          <article class="folio reveal" data-hover>
+            <div class="folio-header">
+              <div class="folio-slug">No. 02</div>
+              <h3 class="folio-jp">メニュー開発</h3>
+              <p class="folio-en">Beverage Program Design</p>
+            </div>
+            <div class="folio-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="16" y="16" width="32" height="40"/>
+                <path d="M 22 24 L 42 24 M 22 30 L 42 30 M 22 36 L 34 36"/>
+                <path d="M 30 42 L 38 42 L 38 50 L 30 50 Z" opacity="0.5"/>
+                <text x="32" y="48" font-family="serif" font-size="9" fill="currentColor" text-anchor="middle" font-style="italic">¥</text>
+              </svg>
+            </div>
+            <p class="folio-desc body-jp">目的やコンセプトに合わせたオリジナルカクテルメニューを設計します。季節刷新・コンセプト立ち上げ・ノンアル強化に対応。試作と提案、マニュアル化まで。</p>
             <div class="folio-specs">
-              <div class="folio-spec-row group"><span class="folio-spec-label">Packages</span><span class="folio-spec-value"></span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Starter(試作+提案)</span><span class="folio-spec-value">¥130,000</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Standard(5-8品開発)</span><span class="folio-spec-value">¥480,000</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Non-Alc Package</span><span class="folio-spec-value">¥380,000</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Retainer(月次継続)</span><span class="folio-spec-value">¥130,000 /月</span></div>
-              <div class="folio-spec-row group"><span class="folio-spec-label">Typical process</span><span class="folio-spec-value"></span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Lead time</span><span class="folio-spec-value">2 – 6 週間</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Deliverables</span><span class="folio-spec-value">Recipe + Spec sheet</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
@@ -1388,40 +1578,30 @@
                 <li>複数提案プレゼン(+¥30,000 / 回)</li>
               </ul>
             </div>
-            <a href="#contact" class="folio-cta" data-hover>Start a program →</a>
-          </div>
-          <div class="folio-visual v2">
-            <div class="noise-overlay"></div>
-            <span class="folio-visual-mark">02 / njoooy Menu</span>
-            <span class="folio-visual-label">Placeholder — photography TBD</span>
-            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-              <rect x="60" y="100" width="280" height="1" fill="rgba(245,240,230,0.2)"/>
-              <rect x="60" y="160" width="220" height="1" fill="rgba(245,240,230,0.2)"/>
-              <rect x="60" y="220" width="260" height="1" fill="rgba(245,240,230,0.2)"/>
-              <rect x="60" y="280" width="180" height="1" fill="rgba(245,240,230,0.2)"/>
-              <rect x="60" y="340" width="240" height="1" fill="rgba(245,240,230,0.2)"/>
-              <rect x="60" y="400" width="200" height="1" fill="rgba(245,240,230,0.2)"/>
-              <circle cx="340" cy="100" r="3" fill="rgba(194,139,91,0.9)"/>
-              <circle cx="290" cy="220" r="3" fill="rgba(194,139,91,0.7)"/>
-              <circle cx="310" cy="340" r="3" fill="rgba(194,139,91,0.5)"/>
-            </svg>
-          </div>
-        </article>
+            <a href="#contact" class="folio-cta" data-hover>プログラムを開始 →</a>
+          </article>
 
-        <article class="folio reveal" data-hover>
-          <div class="folio-num">03</div>
-          <div class="folio-content">
-            <div class="folio-slug meta">njoooy Counsel / No. 03</div>
-            <h3 class="folio-jp">店舗相談</h3>
-            <p class="folio-en">Advisory Sessions</p>
-            <p class="folio-desc body-jp">ドリンクメニューの方向性、新店のコンセプト設計、ノンアル導入の進め方。2時間の単発セッションから始められます。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+          <article class="folio reveal" data-hover>
+            <div class="folio-header">
+              <div class="folio-slug">No. 03</div>
+              <h3 class="folio-jp">店舗相談</h3>
+              <p class="folio-en">Advisory Sessions</p>
+            </div>
+            <div class="folio-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="20" cy="22" r="4"/>
+                <circle cx="32" cy="22" r="4"/>
+                <circle cx="44" cy="22" r="4"/>
+                <path d="M 10 42 Q 10 32 20 32 Q 28 32 28 40"/>
+                <path d="M 22 42 Q 22 32 32 32 Q 42 32 42 42"/>
+                <path d="M 36 40 Q 36 32 44 32 Q 54 32 54 42"/>
+                <path d="M 14 46 L 14 52 M 26 46 L 26 52 M 38 46 L 38 52 M 50 46 L 50 52" opacity="0.4"/>
+              </svg>
+            </div>
+            <p class="folio-desc body-jp">カクテルメニューの運営・改善を継続的にサポート。2時間の単発セッションから始められます。</p>
             <div class="folio-specs">
-              <div class="folio-spec-row group"><span class="folio-spec-label">Packages</span><span class="folio-spec-value"></span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">単発(2h セッション)</span><span class="folio-spec-value">¥35,000</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">月次伴走(2回面談)</span><span class="folio-spec-value">¥100,000 /月</span></div>
-              <div class="folio-spec-row group"><span class="folio-spec-label">Format</span><span class="folio-spec-value"></span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">形式</span><span class="folio-spec-value">対面 / オンライン</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">典型テーマ</span><span class="folio-spec-value">Menu / Brand / Non-Alc</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
@@ -1437,48 +1617,78 @@
                 <li>実地サービス(njoooy Bar が適切)</li>
               </ul>
             </div>
-            <a href="#contact" class="folio-cta" data-hover>Book a session →</a>
-          </div>
-          <div class="folio-visual v3">
-            <div class="noise-overlay"></div>
-            <span class="folio-visual-mark">03 / njoooy Counsel</span>
-            <span class="folio-visual-label">Placeholder — photography TBD</span>
-            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 100 150 L 200 350 L 300 150" fill="none" stroke="rgba(245,240,230,0.25)" stroke-width="1"/>
-              <path d="M 80 180 L 200 380 L 320 180" fill="none" stroke="rgba(245,240,230,0.15)" stroke-width="1"/>
-              <circle cx="200" cy="350" r="5" fill="rgba(194,139,91,0.9)"/>
-              <circle cx="100" cy="150" r="3" fill="rgba(245,240,230,0.3)"/>
-              <circle cx="300" cy="150" r="3" fill="rgba(245,240,230,0.3)"/>
-            </svg>
-          </div>
-        </article>
+            <a href="#contact" class="folio-cta" data-hover>セッションを予約 →</a>
+          </article>
 
-        <article class="folio folio-placeholder reveal" data-hover>
-          <div class="folio-num">04</div>
-          <div class="folio-content">
-            <div class="folio-head-inline">
-              <div class="folio-slug meta">njoooy Class / No. 04</div>
-              <span class="folio-coming-chip">Coming Soon — 2026 夏</span>
+          <article class="folio reveal" data-hover>
+            <div class="folio-header">
+              <div class="folio-slug">No. 04</div>
+              <h3 class="folio-jp">研修プログラム</h3>
+              <p class="folio-en">Bartending Training Program</p>
             </div>
-            <h3 class="folio-jp">研修プログラム</h3>
-            <p class="folio-en">Bartending Training Program</p>
-            <p class="folio-desc body-jp">カクテル・ノンアルコールの設計、現場の所作、ホスピタリティの基本を共に学ぶ、少人数制の研修プログラム。2026年夏より開講予定です。詳細は追ってお知らせいたします。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
-            <div class="folio-placeholder-cta" data-hover>Notify me when open ・ 開講お知らせ希望 →</div>
+            <div class="folio-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 28 14 L 36 14 L 36 22 L 38 22 L 38 46 L 40 52 L 24 52 L 26 46 L 26 22 L 28 22 Z"/>
+                <path d="M 28 14 L 28 12 L 36 12 L 36 14"/>
+                <path d="M 26 30 L 38 30" opacity="0.5"/>
+                <circle cx="32" cy="40" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <p class="folio-desc body-jp">新メニューの現場導入・作り方指導をサポート。不慣れな従業員の方でも、味や風味を再現できるようにご指導いたします。</p>
+            <div class="folio-specs">
+              <div class="folio-spec-row"><span class="folio-spec-label"></span><span class="folio-spec-value"></span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"></span><span class="folio-spec-value"></span></div>
+            </div>
+            <div class="folio-includes">
+              <div class="folio-includes-label">Included</div>
+              <ul class="folio-includes-list">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <div class="folio-includes-label" style="margin-top: 16px;">Not included</div>
+              <ul class="folio-includes-list">
+                <li></li>
+              </ul>
+            </div>
+            <a href="#contact" class="folio-cta" data-hover>問い合わせ →</a>
+          </article>
+        </div>
+
+        <div class="sample-menu reveal">
+          <div class="sample-menu-intro">
+            <h4>Sample Menu</h4>
+            <p>オリジナルカクテルの一例。</p>
+            <a href="#contact" class="sample-menu-more" data-hover>メニュー開発の詳細を見る →</a>
           </div>
-          <div class="folio-visual folio-visual-coming">
-            <div class="noise-overlay"></div>
-            <span class="folio-visual-mark">04 / njoooy Class</span>
-            <span class="folio-visual-label">Coming Summer 2026</span>
-            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0" y1="250" x2="400" y2="250" stroke="rgba(245,240,230,0.1)" stroke-width="1" stroke-dasharray="4 8"/>
-              <line x1="200" y1="0" x2="200" y2="500" stroke="rgba(245,240,230,0.1)" stroke-width="1" stroke-dasharray="4 8"/>
-              <circle cx="200" cy="250" r="100" fill="none" stroke="rgba(245,240,230,0.14)" stroke-width="1" stroke-dasharray="6 10"/>
-              <circle cx="200" cy="250" r="140" fill="none" stroke="rgba(245,240,230,0.08)" stroke-width="1" stroke-dasharray="2 10"/>
-              <circle cx="200" cy="250" r="4" fill="rgba(194,139,91,0.5)"/>
-              <text x="200" y="255" text-anchor="middle" font-family="serif" font-style="italic" font-size="40" fill="rgba(224,176,128,0.6)" font-weight="300">04</text>
-            </svg>
+          <div class="sample-item">
+            <div class="sample-thumb t1"></div>
+            <div class="sample-name">Kyoto Old Fashioned</div>
+            <div class="sample-desc">京都の素材と静けさを<br/>閉じ込めた一杯。</div>
+            <div class="sample-tags">
+              <span class="sample-tag">ウイスキー</span>
+              <span class="sample-tag">京番茶</span>
+            </div>
           </div>
-        </article>
+          <div class="sample-item">
+            <div class="sample-thumb t2"></div>
+            <div class="sample-name">Hinoki Garden</div>
+            <div class="sample-desc">檜の香りと柑橘が調和する、<br/>森の余韻。</div>
+            <div class="sample-tags">
+              <span class="sample-tag">ジン</span>
+              <span class="sample-tag">檜・柚子</span>
+            </div>
+          </div>
+          <div class="sample-item">
+            <div class="sample-thumb t3"></div>
+            <div class="sample-name">Tokyo Midnight Martini</div>
+            <div class="sample-desc">都の夜景に寄り添う、<br/>洗練のマティーニ。</div>
+            <div class="sample-tags">
+              <span class="sample-tag">ウォッカ</span>
+              <span class="sample-tag">黒文字</span>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -1486,272 +1696,226 @@
     <section class="for-whom" id="for-whom">
       <div class="for-whom-inner">
         <div class="fw-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 02 — For Whom / こんな場面に</div></div>
+          <div class="meta-col reveal"><div class="meta">Use Cases</div></div>
           <div class="title-col">
-            <h2 class="fw-title reveal"><em>njoooy</em> が迎えにゆく、<br/>6つの場面。</h2>
-            <p class="fw-desc body-jp reveal">個人の記念日から法人レセプションまで、場面ごとに何ができるかを案内します。具体的なパッケージ内容・価格は <a href="#services" data-hover style="color: var(--wine); border-bottom: 1px solid var(--wine);">Chapter 01 Services</a> に集約しています。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+            <h2 class="fw-title spaced reveal">ご 利 用 シ ー ン</h2>
+            <div class="fw-divider reveal">
+              <div class="line"></div>
+              <div class="diamond"></div>
+              <div class="line"></div>
+            </div>
+            <p class="fw-intro reveal">こんなシーンで、ご利用いただいています。</p>
           </div>
         </div>
 
-        <!-- v7.6: case-grid (2-column) replaces stacked case-list
-             Each card has an SVG visual slot (aspect-ratio 4/3) + text body.
-             SVGs are placeholders; user will provide final artwork per case.
-             To swap a placeholder: replace the <svg> inside <div class="case-card-visual">.
-             The subtle [TBD: SVG] marker helps identify non-finalized slots. -->
-        <div class="case-grid reveal">
-
-          <article class="case-card" data-hover data-preview="v1" data-preview-label="Private dinner · Anniversary" data-preview-num="01">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="cg1" cx="50%" cy="40%" r="60%">
-                    <stop offset="0%" stop-color="rgba(224,176,128,0.25)"/>
-                    <stop offset="70%" stop-color="rgba(107,32,36,0.6)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg1)"/>
-                <ellipse cx="200" cy="140" rx="54" ry="6" fill="none" stroke="rgba(245,240,230,0.28)" stroke-width="0.8"/>
-                <path d="M 150 140 Q 150 190 200 198 Q 250 190 250 140 Z" fill="rgba(138,59,63,0.7)" stroke="rgba(245,240,230,0.25)" stroke-width="0.8"/>
-                <line x1="200" y1="198" x2="200" y2="240" stroke="rgba(245,240,230,0.25)" stroke-width="1"/>
-                <ellipse cx="200" cy="244" rx="24" ry="3" fill="none" stroke="rgba(245,240,230,0.25)" stroke-width="0.8"/>
-              </svg>
-              <span class="case-card-num">01</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+        <div class="forwhom-grid reveal">
+          <div class="forwhom-card">
+            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="32" cy="14" r="4"/>
+                <path d="M 32 10 L 32 6 M 28 8 L 30 10 M 36 8 L 34 10"/>
+                <circle cx="20" cy="28" r="5"/>
+                <circle cx="32" cy="28" r="5"/>
+                <circle cx="44" cy="28" r="5"/>
+                <path d="M 10 52 Q 10 38 20 38 Q 28 38 28 48"/>
+                <path d="M 22 52 Q 22 40 32 40 Q 42 40 42 52"/>
+                <path d="M 36 48 Q 36 38 44 38 Q 54 38 54 52"/>
+              </svg></div>
+            <div class="forwhom-body">
+              <h3 class="forwhom-jp">法人レセプション / 周年イベント</h3>
+              <p class="forwhom-en">Corporate Reception / Anniversary Events</p>
+              <p class="forwhom-desc">大切なお客様をおもてなしする、格式ある場に。</p>
             </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Anniversary &amp; Birthday Dinner</div>
-              <h3 class="case-card-jp">記念日・<br/>誕生日ディナー</h3>
-              <p class="case-card-desc">自宅に少人数(4-12名)、2-3時間のコース。その夜のテーマや思い出を伺って、オリジナルの3-5杯を設計します。ノンアル希望にも完全対応。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Private</span>
-                <span class="case-tag">ノンアル対応</span>
-              </div>
+          </div>
+          <div class="forwhom-card">
+            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 14 28 L 14 40 L 22 38 L 40 46 L 44 46 L 44 22 L 40 22 L 22 30 Z"/>
+                <path d="M 22 30 L 22 38"/>
+                <path d="M 44 30 L 52 26 L 52 42 L 44 38"/>
+                <path d="M 24 40 L 24 52 L 32 52 L 30 40"/>
+                <path d="M 12 18 L 8 14 M 12 22 L 6 22 M 14 14 L 12 8"/>
+              </svg></div>
+            <div class="forwhom-body">
+              <h3 class="forwhom-jp">ブランド発表会 / PRイベント</h3>
+              <p class="forwhom-en">Brand Launch / PR Events</p>
+              <p class="forwhom-desc">ブランドの世界観を体験で伝える、印象的な演出に。</p>
             </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v2" data-preview-label="Corporate reception" data-preview-num="02">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg2" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(8,5,3,1)"/>
-                    <stop offset="100%" stop-color="rgba(36,20,18,1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg2)"/>
-                <g stroke="rgba(245,240,230,0.12)" stroke-width="0.8" fill="none">
-                  <rect x="110" y="80" width="50" height="180"/>
-                  <rect x="175" y="100" width="50" height="160"/>
-                  <rect x="240" y="60" width="50" height="200"/>
-                </g>
-                <g fill="rgba(224,176,128,0.25)">
-                  <rect x="118" y="95" width="8" height="8"/><rect x="134" y="95" width="8" height="8"/>
-                  <rect x="118" y="115" width="8" height="8"/><rect x="134" y="115" width="8" height="8"/><rect x="150" y="115" width="8" height="8"/>
-                  <rect x="183" y="115" width="8" height="8"/><rect x="199" y="115" width="8" height="8"/>
-                  <rect x="248" y="80" width="8" height="8"/><rect x="264" y="80" width="8" height="8"/>
-                  <rect x="248" y="100" width="8" height="8"/><rect x="280" y="100" width="8" height="8"/>
-                </g>
-              </svg>
-              <span class="case-card-num">02</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+          </div>
+          <div class="forwhom-card">
+            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 18 18 L 22 40 L 32 40 L 36 18 Z"/>
+                <path d="M 18 18 L 36 18"/>
+                <path d="M 27 40 L 27 52"/>
+                <path d="M 22 52 L 32 52"/>
+                <path d="M 32 18 L 36 14 L 40 16 L 42 22 L 46 24 L 48 28 L 46 32 L 42 34"/>
+                <circle cx="42" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="48" cy="20" r="1.2" fill="currentColor"/>
+                <circle cx="14" cy="16" r="1.2" fill="currentColor"/>
+              </svg></div>
+            <div class="forwhom-body">
+              <h3 class="forwhom-jp">ウェディング二次会・アフターパーティ</h3>
+              <p class="forwhom-en">Wedding After-Party</p>
+              <p class="forwhom-desc">大切な人との特別な時間を、上質な一杯で演出。</p>
             </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Corporate Reception &amp; Anniversary</div>
-              <h3 class="case-card-jp">法人レセプション・<br/>周年イベント</h3>
-              <p class="case-card-desc">オフィスやイベント会場にバーカウンターを持ち込み、3-4時間で40名程度まで対応。企業メッセージをドリンクに落とし込む提案込み。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Corporate</span>
-                <span class="case-tag">英語対応可</span>
-              </div>
+          </div>
+          <div class="forwhom-card">
+            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="12" y="14" width="40" height="38" rx="1"/>
+                <path d="M 12 20 L 52 20"/>
+                <path d="M 32 14 L 32 52"/>
+                <path d="M 16 10 L 16 14 M 20 10 L 20 14 M 44 10 L 44 14 M 48 10 L 48 14"/>
+                <path d="M 18 28 L 28 36 M 28 28 L 18 36"/>
+                <path d="M 37 28 L 46 36 M 46 28 L 37 36"/>
+                <path d="M 18 42 L 28 42 M 36 42 L 46 42"/>
+              </svg></div>
+            <div class="forwhom-body">
+              <h3 class="forwhom-jp">店舗メニュー刷新</h3>
+              <p class="forwhom-en">Menu Refresh</p>
+              <p class="forwhom-desc">新しいペアリング提案で、メニューに付加価値を。</p>
             </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v3" data-preview-label="Brand activation · Media" data-preview-num="03">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="cg3" cx="50%" cy="50%" r="55%">
-                    <stop offset="0%" stop-color="rgba(224,176,128,0.35)"/>
-                    <stop offset="60%" stop-color="rgba(74,20,24,0.6)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg3)"/>
-                <circle cx="200" cy="150" r="80" fill="none" stroke="rgba(245,240,230,0.18)" stroke-width="0.8"/>
-                <circle cx="200" cy="150" r="50" fill="none" stroke="rgba(245,240,230,0.22)" stroke-width="0.8"/>
-                <circle cx="200" cy="150" r="20" fill="rgba(224,176,128,0.4)"/>
-                <line x1="200" y1="40" x2="200" y2="70" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-                <line x1="200" y1="230" x2="200" y2="260" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-                <line x1="60" y1="150" x2="90" y2="150" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-                <line x1="310" y1="150" x2="340" y2="150" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-              </svg>
-              <span class="case-card-num">03</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+          </div>
+          <div class="forwhom-card">
+            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 24 12 Q 14 22 14 34 Q 14 46 24 52 Q 28 48 28 42 Q 28 32 24 24 Q 22 18 24 12 Z"/>
+                <path d="M 28 22 Q 40 18 50 22 Q 44 32 34 36 Q 30 32 28 28 Z"/>
+                <path d="M 32 28 Q 42 32 48 40 Q 40 46 32 42"/>
+                <path d="M 16 10 L 18 14 L 14 14 Z" fill="currentColor"/>
+                <circle cx="52" cy="16" r="1.2" fill="currentColor"/>
+                <circle cx="46" cy="48" r="1.2" fill="currentColor"/>
+              </svg></div>
+            <div class="forwhom-body">
+              <h3 class="forwhom-jp">ノンアル対応が必要な場</h3>
+              <p class="forwhom-en">Non-Alcoholic Events</p>
+              <p class="forwhom-desc">お酒を飲まないゲストにも、特別な体験を。</p>
             </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Brand Activation &amp; Media</div>
-              <h3 class="case-card-jp">ブランド発表会・<br/>PR・メディア</h3>
-              <p class="case-card-desc">新作発表・撮影現場・PRイベントで、世界観に合わせた限定メニューを設計。香り・色・ネーミングを商品軸に沿って組みます。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Premium</span>
-                <span class="case-tag">スタイリング対応</span>
-              </div>
+          </div>
+          <div class="forwhom-card">
+            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="32" cy="32" r="20"/>
+                <ellipse cx="32" cy="32" rx="20" ry="8"/>
+                <ellipse cx="32" cy="32" rx="8" ry="20"/>
+                <path d="M 12 32 L 52 32"/>
+              </svg></div>
+            <div class="forwhom-body">
+              <h3 class="forwhom-jp">バイリンガル対応の現場</h3>
+              <p class="forwhom-en">Bilingual Events</p>
+              <p class="forwhom-desc">国際的な交流を、スムーズにサポート。</p>
             </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v4" data-preview-label="Wedding after-party" data-preview-num="04">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg4" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(74,20,24,0.8)"/>
-                    <stop offset="50%" stop-color="rgba(36,20,18,1)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg4)"/>
-                <circle cx="165" cy="150" r="48" fill="none" stroke="rgba(224,176,128,0.55)" stroke-width="1.2"/>
-                <circle cx="235" cy="150" r="48" fill="none" stroke="rgba(245,240,230,0.4)" stroke-width="1.2"/>
-                <g fill="rgba(224,176,128,0.5)">
-                  <circle cx="100" cy="80" r="1.5"/><circle cx="320" cy="70" r="1"/>
-                  <circle cx="60" cy="200" r="1"/><circle cx="350" cy="220" r="1.5"/>
-                  <circle cx="200" cy="40" r="1"/><circle cx="200" cy="260" r="1"/>
-                </g>
-              </svg>
-              <span class="case-card-num">04</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Wedding After-Party</div>
-              <h3 class="case-card-jp">ウェディング二次会・<br/>アフターパーティ</h3>
-              <p class="case-card-desc">新郎新婦の出会いや記念日をベースに、2-3時間で乾杯用シグネチャーとリラックス用の後半メニューを設計。ノンアル比率の相談も可。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Private</span>
-                <span class="case-tag">シグネチャー1杯</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v5" data-preview-label="Menu refresh" data-preview-num="05">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg5" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(36,20,18,1)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg5)"/>
-                <g stroke="rgba(245,240,230,0.28)" stroke-width="0.8" fill="rgba(107,32,36,0.4)">
-                  <path d="M 120 90 L 120 130 Q 120 150 130 160 L 130 230 Q 130 240 140 240 L 150 240 Q 160 240 160 230 L 160 160 Q 170 150 170 130 L 170 90 L 160 85 L 160 90 L 130 90 L 130 85 Z"/>
-                  <path d="M 190 70 L 190 120 Q 190 140 200 150 L 200 230 Q 200 240 210 240 L 220 240 Q 230 240 230 230 L 230 150 Q 240 140 240 120 L 240 70 L 230 65 L 230 70 L 200 70 L 200 65 Z"/>
-                  <path d="M 260 100 L 260 135 Q 260 155 270 165 L 270 230 Q 270 240 280 240 L 290 240 Q 300 240 300 230 L 300 165 Q 310 155 310 135 L 310 100 L 300 95 L 300 100 L 270 100 L 270 95 Z"/>
-                </g>
-                <g stroke="rgba(224,176,128,0.3)" stroke-width="0.5" fill="none">
-                  <line x1="90" y1="255" x2="330" y2="255"/>
-                </g>
-              </svg>
-              <span class="case-card-num">05</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Beverage Program Refresh</div>
-              <h3 class="case-card-jp">飲食店のメニュー刷新・<br/>ノンアル強化</h3>
-              <p class="case-card-desc">既存店のドリンクラインナップを、コンセプト・食材・客層に合わせて再設計。試作 → 提案 → ドキュメント化 → スタッフ研修まで伴走。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Menu Starter</span>
-                <span class="case-tag">njoooy Menu Standard</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v6" data-preview-label="New concept advisory" data-preview-num="06">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg6" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(8,5,3,1)"/>
-                    <stop offset="100%" stop-color="rgba(74,20,24,0.6)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg6)"/>
-                <g stroke="rgba(245,240,230,0.2)" stroke-width="0.8" fill="none" stroke-dasharray="2 4">
-                  <rect x="80" y="80" width="240" height="140"/>
-                  <line x1="200" y1="80" x2="200" y2="220"/>
-                  <line x1="80" y1="150" x2="320" y2="150"/>
-                </g>
-                <g fill="rgba(224,176,128,0.4)" stroke="rgba(224,176,128,0.6)" stroke-width="0.5">
-                  <circle cx="130" cy="115" r="3"/>
-                  <circle cx="270" cy="115" r="3"/>
-                  <circle cx="130" cy="185" r="3"/>
-                  <circle cx="270" cy="185" r="3"/>
-                  <circle cx="200" cy="150" r="5"/>
-                </g>
-                <text x="200" y="250" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="rgba(224,176,128,0.5)">concept · blueprint</text>
-              </svg>
-              <span class="case-card-num">06</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">New Concept Advisory</div>
-              <h3 class="case-card-jp">新店・新業態の<br/>コンセプト設計</h3>
-              <p class="case-card-desc">ドリンクプログラム構築、コンセプトの方向性、ノンアル導入戦略。2時間の単発セッションから、月次伴走まで、必要なスコープで。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Counsel</span>
-                <span class="case-tag">月次伴走可</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="first-visit">
-          <div class="fv-compact">
-            <div class="fv-compact-label meta">First Visit — 迷ったら、まず</div>
-            <div class="fv-compact-options">
-              <a href="#services" class="fv-opt" data-hover>
-                <span class="fv-opt-q">初めての方</span>
-                <span class="fv-opt-sep">→</span>
-                <span class="fv-opt-rec"><em>Counsel</em> 2時間</span>
-              </a>
-              <a href="#services" class="fv-opt" data-hover>
-                <span class="fv-opt-q">少人数の集まり</span>
-                <span class="fv-opt-sep">→</span>
-                <span class="fv-opt-rec"><em>Bar Private</em></span>
-              </a>
-              <a href="#services" class="fv-opt" data-hover>
-                <span class="fv-opt-q">店舗のメニュー</span>
-                <span class="fv-opt-sep">→</span>
-                <span class="fv-opt-rec"><em>Menu Starter</em></span>
-              </a>
-            </div>
-            <a href="#contact" class="fv-compact-cta" data-hover>どれか迷ったら、直接ご相談 →</a>
           </div>
         </div>
-
       </div>
     </section>
 
     <section class="process" id="process">
       <div class="process-inner">
         <div class="process-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 03 — ご依頼の流れ / Business Flow</div></div>
+          <div class="meta-col reveal"><div class="meta">Process</div></div>
           <div class="title-col">
-            <h2 class="process-title reveal">ご相談から、<br/>当日・<em>そしてその先</em>まで。</h2>
-            <p class="process-desc body-jp reveal">DM もしくはメールでのお問い合わせから、当日のサービス、請求、アフターフォローまでの標準的な流れです。急ぎの案件や規模感に応じて柔軟に調整します。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+            <h2 class="process-title spaced reveal">ご 利 用 の 流 れ</h2>
+            <div class="process-divider reveal">
+              <div class="line"></div>
+              <div class="diamond"></div>
+              <div class="line"></div>
+            </div>
+            <p class="process-intro reveal">ご相談からイベント当日、そしてその先まで、丁寧にサポートいたします。</p>
           </div>
         </div>
-        <div class="timeline reveal">
-          <div class="step"><div class="step-num">Step 01</div><div class="step-jp">お問い合わせ</div><div class="step-en">Inquiry</div><div class="step-desc">DM・メールフォームに日程/場所/人数/ご予算感をご記入ください。</div><div class="step-time">24h 以内に返信</div></div>
-          <div class="step"><div class="step-num">Step 02</div><div class="step-jp">ヒアリング</div><div class="step-en">Hearing</div><div class="step-desc">DM or 15-30分のオンライン面談で、シーン・お好み・制約を整理します。</div><div class="step-time">48h 以内に実施</div></div>
-          <div class="step"><div class="step-num">Step 03</div><div class="step-jp">ご提案・お見積り</div><div class="step-en">Proposal</div><div class="step-desc">プラン2-3案とお見積りを PDF でお送り。ご質問・調整は無料。</div><div class="step-time">48h 以内に送付</div></div>
-          <div class="step"><div class="step-num">Step 04</div><div class="step-jp">ご契約・前金</div><div class="step-en">Contract</div><div class="step-desc">業務委託契約(¥10万以上案件)+ 前金 50% のお振込み。</div><div class="step-time">日程確定時</div></div>
-          <div class="step"><div class="step-num">Step 05</div><div class="step-jp">当日サービス</div><div class="step-en">Event Day</div><div class="step-desc">1-2時間前に現地入り、設営 → サービス → 撤収まで一式対応。</div><div class="step-time">当日</div></div>
-          <div class="step"><div class="step-num">Step 06</div><div class="step-jp">アフター・お支払い</div><div class="step-en">Follow-up</div><div class="step-desc">残額請求書を7日以内に発行。写真共有・次回ご相談も歓迎。</div><div class="step-time">7日以内</div></div>
+        <div class="process-steps">
+          <div class="process-step reveal">
+            <div class="process-num">01</div>
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="12" y="18" width="40" height="28" rx="1"/>
+                <path d="M 12 18 L 32 34 L 52 18"/>
+                <circle cx="32" cy="38" r="6"/>
+                <text x="32" y="41" font-family="serif" font-size="8" fill="currentColor" text-anchor="middle">?</text>
+              </svg>
+            </div>
+            <h4>お問い合わせ</h4>
+            <p class="process-en">Inquiry</p>
+            <p class="process-desc-step">フォーム・お電話より<br/>お気軽にご連絡ください。</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-num">02</div>
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="22" cy="22" r="5"/>
+                <circle cx="42" cy="22" r="5"/>
+                <path d="M 12 44 Q 12 32 22 32 Q 32 32 32 44"/>
+                <path d="M 32 44 Q 32 32 42 32 Q 52 32 52 44"/>
+                <path d="M 18 12 L 22 6 L 26 12 Z" opacity="0.5"/>
+                <path d="M 42 8 L 46 8 L 46 12 Z" opacity="0.5"/>
+              </svg>
+            </div>
+            <h4>ヒアリング</h4>
+            <p class="process-en">Consultation</p>
+            <p class="process-desc-step">ご要望やご予算、イベントの<br/>目的などをお伺いします。</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-num">03</div>
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 16 10 L 44 10 L 52 18 L 52 54 L 16 54 Z"/>
+                <path d="M 44 10 L 44 18 L 52 18"/>
+                <path d="M 22 26 L 46 26 M 22 32 L 42 32 M 22 38 L 38 38"/>
+                <text x="32" y="50" font-family="serif" font-size="9" fill="currentColor" text-anchor="middle" font-style="italic">¥</text>
+              </svg>
+            </div>
+            <h4>ご提案・お見積り</h4>
+            <p class="process-en">Proposal / Quote</p>
+            <p class="process-desc-step">内容に合わせたご提案と<br/>お見積りをご提示します。</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-num">04</div>
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 24 12 L 40 12 L 40 20 L 44 26 L 44 52 L 20 52 L 20 26 L 24 20 Z"/>
+                <path d="M 20 26 L 44 26"/>
+                <path d="M 22 16 L 42 16" opacity="0.4"/>
+                <circle cx="50" cy="48" r="6"/>
+                <path d="M 48 46 L 52 46 M 50 44 L 50 50" opacity="0.6"/>
+                <circle cx="54" cy="40" r="3" fill="currentColor" opacity="0.3"/>
+              </svg>
+            </div>
+            <h4>メニュー設計 / 準備</h4>
+            <p class="process-en">Menu Design / Preparation</p>
+            <p class="process-desc-step">コンセプトに沿ったメニューを<br/>設計し、当日に向けて準備します。</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-num">05</div>
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 18 16 L 32 38 L 46 16 Z"/>
+                <path d="M 32 38 L 32 52"/>
+                <path d="M 24 52 L 40 52"/>
+                <circle cx="28" cy="22" r="1.5" fill="currentColor"/>
+                <path d="M 18 16 L 46 16"/>
+              </svg>
+            </div>
+            <h4>イベント当日 / 提供</h4>
+            <p class="process-en">Event Day / Service</p>
+            <p class="process-desc-step">プロのバーテンダーが<br/>心を込めて提供します。</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-num">06</div>
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M 12 32 L 24 26 L 32 30 L 40 26 L 52 32 L 46 40 L 32 44 L 18 40 Z"/>
+                <path d="M 22 36 L 24 34 M 40 34 L 42 36" opacity="0.5"/>
+                <circle cx="18" cy="28" r="2"/>
+                <circle cx="46" cy="28" r="2"/>
+              </svg>
+            </div>
+            <h4>フォローアップ</h4>
+            <p class="process-en">Follow-Up</p>
+            <p class="process-desc-step">イベント後のご感想を伺い、<br/>次回に活かします。</p>
+          </div>
         </div>
         <div class="past-meta-row">
-          <div class="meta">All steps — No.001</div>
           <div class="meta">キャンセル規定・見積無料については <a href="#faq" class="link-ghost" style="display: inline; padding: 0; border: none;" data-hover>FAQ →</a></div>
         </div>
       </div>
@@ -1760,16 +1924,16 @@
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track" style="animation-duration: 48s;">
         <div class="marquee-group">
-          <span class="jp">業務の流れから、一杯の設計へ</span><span class="sep">✦</span>
-          <span>From business flow, to the craft itself</span><span class="sep">✦</span>
-          <span class="jp">味を聞く、構造を組む、手から届ける</span><span class="sep">✦</span>
-          <span>The njoooy Method</span><span class="sep">✦</span>
+          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
+          <span class="jp">関東近辺</span><span class="sep">✦</span>
+          <span class="jp">即日対応</span><span class="sep">✦</span>
+          <span class="jp">英語対応可</span><span class="sep">✦</span>
         </div>
         <div class="marquee-group" aria-hidden="true">
-          <span class="jp">業務の流れから、一杯の設計へ</span><span class="sep">✦</span>
-          <span>From business flow, to the craft itself</span><span class="sep">✦</span>
-          <span class="jp">味を聞く、構造を組む、手から届ける</span><span class="sep">✦</span>
-          <span>The njoooy Method</span><span class="sep">✦</span>
+          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
+          <span class="jp">関東近辺</span><span class="sep">✦</span>
+          <span class="jp">即日対応</span><span class="sep">✦</span>
+          <span class="jp">英語対応可</span><span class="sep">✦</span>
         </div>
       </div>
     </div>
@@ -1777,111 +1941,68 @@
     <section class="method" id="method">
       <div class="method-inner">
         <div class="method-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 04 — 一杯の哲学 / The njoooy Method</div></div>
+          <div class="meta-col reveal"><div class="meta">Method</div></div>
           <div class="title-col">
-            <div class="method-kicker reveal">The njoooy Method<sup style="font-size: 0.5em; vertical-align: super;">※</sup></div>
-            <h2 class="method-title reveal">一杯を、<br/><em>こうして組みます</em>。</h2>
-            <p class="method-desc body-jp reveal">業務の流れ(Chapter 03)とは別に、ここでは「一杯そのものをどう設計するか」という、作り手側の考え方を3つに分けて言葉にしています。お客様に取っていただく手順ではなく、見えない裏側で働く姿勢の共有です。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+            <h2 class="method-title spaced reveal">私たちが選ばれる理由</h2>
+            <div class="method-divider reveal">
+              <div class="line"></div>
+              <div class="diamond"></div>
+              <div class="line"></div>
+            </div>
           </div>
         </div>
 
         <div class="method-steps reveal">
           <div class="method-step">
             <div class="method-step-num">01</div>
-            <div class="method-step-label">Step One</div>
-            <h3 class="method-step-jp">味を聞く</h3>
-            <div class="method-step-en">Tasting the scene.</div>
-            <p class="method-step-desc">ホストの思い出、ゲストの好み、場の温度、食事の流れ。まずはその夜の文脈を、味の言葉に翻訳します。何を強く出し、何を引き算するかは、ここで決まります。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-            <div class="method-step-tags">
-              <span class="method-step-tag">Scene</span>
-              <span class="method-step-tag">Guests</span>
-              <span class="method-step-tag">Mood</span>
-              <span class="method-step-tag">Dietary</span>
-            </div>
+            <h3 class="method-step-jp">余韻の設計</h3>
+            <div class="method-step-en">Designing the Afterglow</div>
+            <p class="method-step-desc">味わい、香り、時間、空間。そのすべてが心地よく重なり、記憶に残る余韻をつくります。</p>
           </div>
           <div class="method-step">
             <div class="method-step-num">02</div>
-            <div class="method-step-label">Step Two</div>
-            <h3 class="method-step-jp">構造を組む</h3>
-            <div class="method-step-en">Building the structure.</div>
-            <p class="method-step-desc">苦味・甘味・酸味・香り・温度・グラス・時間。一杯の構造と、夜全体の流れを設計します。ノンアルも同じ熱量で、独立した構造を持たせます。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-            <div class="method-step-tags">
-              <span class="method-step-tag">Balance</span>
-              <span class="method-step-tag">Aroma</span>
-              <span class="method-step-tag">Arc</span>
-              <span class="method-step-tag">Pacing</span>
-            </div>
+            <h3 class="method-step-jp">対話から生まれる設計</h3>
+            <div class="method-step-en">Design from Dialogue</div>
+            <p class="method-step-desc">丁寧なヒアリングから本質を捉え、目的やシーンに最適な体験を共に設計していきます。</p>
           </div>
           <div class="method-step">
             <div class="method-step-num">03</div>
-            <div class="method-step-label">Step Three</div>
-            <h3 class="method-step-jp">手から届ける</h3>
-            <div class="method-step-en">Serving, hand to hand.</div>
-            <p class="method-step-desc">当日のカウンターで、設計を実装します。グラスの持ち方、差し出す角度、会話の間、次の一杯への橋渡し。設計が届いた瞬間に、はじめて一杯になります。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-            <div class="method-step-tags">
-              <span class="method-step-tag">Counter</span>
-              <span class="method-step-tag">Dialogue</span>
-              <span class="method-step-tag">Rhythm</span>
-              <span class="method-step-tag">Care</span>
-            </div>
+            <h3 class="method-step-jp">誠実なプロフェッショナル</h3>
+            <div class="method-step-en">Honest Professionalism</div>
+            <p class="method-step-desc">技術と知識を磨き続け、すべての瞬間に誠実に向き合う。信頼が、品質の土台です。</p>
           </div>
-        </div>
-
-        <div class="method-sign">
-          <div class="method-sign-brand">— <span class="logo">njoooy<span class="mark"></span></span>&nbsp; Method, Vol. 001</div>
-          <div class="meta">※ [TBD] 各ステップの命名・呼び方は要推敲 / The njoooy Method 仮</div>
         </div>
       </div>
     </section>
 
-    <div class="marquee dark" aria-hidden="true">
-      <div class="marquee-track" style="animation-duration: 42s;">
-        <div class="marquee-group">
-          <span class="jp">味を聞く／構造を組む／手から届ける</span><span class="sep">✦</span>
-          <span>Tasting · Structure · Service</span><span class="sep">✦</span>
-          <span class="jp">出張バー</span><span class="sep">✦</span>
-          <span>Menu Design</span><span class="sep">✦</span>
-          <span class="jp">店舗相談</span><span class="sep">✦</span>
-          <span>Tokyo 23 Wards</span><span class="sep">✦</span>
-        </div>
-        <div class="marquee-group" aria-hidden="true">
-          <span class="jp">味を聞く／構造を組む／手から届ける</span><span class="sep">✦</span>
-          <span>Tasting · Structure · Service</span><span class="sep">✦</span>
-          <span class="jp">出張バー</span><span class="sep">✦</span>
-          <span>Menu Design</span><span class="sep">✦</span>
-          <span class="jp">店舗相談</span><span class="sep">✦</span>
-          <span>Tokyo 23 Wards</span><span class="sep">✦</span>
-        </div>
-      </div>
-    </div>
-
     <section class="about-section" id="about">
       <div class="about-inner">
-        <div class="about-head-centered">
-          <div class="about-label meta">Chapter 05 — About the Founder</div>
-          <h2 class="about-headline reveal">はじめまして、<br/><em>njoooy</em> です。</h2>
+        <div class="about-head">
+          <div class="meta-col reveal"><div class="meta">About us</div></div>
+          <div class="title-col">
+            <h2 class="about-title spaced reveal">はじめまして、njoooyです。</h2>
+            <div class="about-divider reveal">
+              <div class="line"></div>
+              <div class="diamond"></div>
+              <div class="line"></div>
+            </div>
+            <p class="about-intro reveal">njoooy をこれから育てていく founder の紹介と、これまでの歩みについて。</p>
+          </div>
         </div>
         <div class="about-grid">
           <div class="about-image reveal">
             <div class="noise-overlay"></div>
             <div class="about-image-num">MMXXVI</div>
-            <div class="about-image-label">Portrait · 2026 · [TBD: 差し替え]</div>
-            <svg viewBox="0 0 400 550" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;">
-              <ellipse cx="200" cy="200" rx="75" ry="90" fill="none" stroke="rgba(245,240,230,0.15)" stroke-width="1"/>
-              <path d="M 125 350 Q 200 310 275 350 L 275 500 L 125 500 Z" fill="none" stroke="rgba(245,240,230,0.12)" stroke-width="1"/>
-              <circle cx="200" cy="200" r="3" fill="rgba(194,139,91,0.8)"/>
-            </svg>
+            <div class="about-image-label" style="display:none">Portrait · 2026</div>
+            <img src="/image/senzai.jpg" alt="米山 丈偉 portrait" class="about-photo" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
           </div>
 
           <div class="about-text">
-            <div class="about-body body-jp reveal">
-              <p>京都で<span style="color: var(--muted-2); font-size: 12px;">[TBD: 年数]</span>、ホテルのバーでカウンターに立ってきました。2026年の4月、東京に来ます。21歳です。</p>
-              <p>カクテルを作るのが好きで、それと同じくらい、お客さんが「今日は軽めで」と言う瞬間のことが気になっています。僕自身、お酒に強いタイプではありません。好みの偏りもあります。</p>
-            </div>
-            <p class="about-pull reveal">飲む日も、飲まない日も、<br/>同じ温度で一杯を渡せる場所を。</p>
-            <div class="about-body body-jp reveal">
-              <p>出張バー、メニュー開発、店舗アドバイザリー。東京を拠点に、イベント・飲食店・クリエイティブの現場にうかがいます。英語でも対応します。</p>
-              <p style="color: var(--muted);">このページは、僕がこれから積み上げていく仕事の記録の入り口です。<span style="font-size: 11px;">[TBD: 要推敲]</span></p>
+            <div class="founder-block reveal">
+              <div class="founder-label">Founder</div>
+              <h3 class="founder-name"><ruby>米山<rt>よねやま</rt></ruby>&nbsp;<ruby>丈偉<rt>じょうい</rt></ruby></h3>
+              <div class="founder-meta">21歳</div>
+              <p class="founder-bio">より多くの人と出会い、挑戦の幅を広げるために立ち上げました。未熟ではありますが、一杯一杯に想いを込めて、皆さまの時間に寄り添います。</p>
             </div>
 
             <div class="about-timeline reveal">
@@ -1889,23 +2010,34 @@
               <div class="about-timeline-list">
                 <div class="about-timeline-item">
                   <div class="about-timeline-year">2024</div>
-                  <div class="about-timeline-text">京都・[TBD: 店舗名]でカウンターに立ち始める。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 正確な時期・内容]</span></div>
+                  <div class="about-timeline-text">
+                    <div class="about-timeline-title">学びのはじまり</div>
+                    <p class="about-timeline-desc">京都のバーでバーテンダーとしての基礎を学び、日々経験を積む。</p>
+                  </div>
                 </div>
                 <div class="about-timeline-item">
                   <div class="about-timeline-year">2025</div>
-                  <div class="about-timeline-text">[TBD: この1年で学んだこと・印象的なエピソード 1行]</div>
+                  <div class="about-timeline-text">
+                    <div class="about-timeline-title">表現の幅を広げる</div>
+                    <p class="about-timeline-desc">カクテルの技法や提案力を磨き、自分らしいスタイルを模索。</p>
+                  </div>
+                </div>
+                <div class="about-timeline-item">
+                  <div class="about-timeline-year">2026</div>
+                  <div class="about-timeline-text">
+                    <div class="about-timeline-title">東京へ</div>
+                    <p class="about-timeline-desc">京都から東京へ拠点を移し、新たな挑戦をスタート。</p>
+                  </div>
                 </div>
                 <div class="about-timeline-item current">
-                  <div class="about-timeline-year">2026.04 — いま</div>
-                  <div class="about-timeline-text">東京に着地。njoooy として活動開始。出張バー・メニュー開発・店舗相談の3本立て。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div>
-                </div>
-                <div class="about-timeline-item future">
-                  <div class="about-timeline-year">2026+ →</div>
-                  <div class="about-timeline-text">ここに、最初の案件から順に記録が溜まっていきます。</div>
+                  <div class="about-timeline-year">今 →</div>
+                  <div class="about-timeline-text">
+                    <div class="about-timeline-title">njoooy を育てていく</div>
+                    <p class="about-timeline-desc">一人ひとりとの出会いを大切に、長く愛されるバーテンダーになります。</p>
+                  </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -1927,25 +2059,25 @@
           <div class="meta-col reveal"><div class="meta">Chapter 06 — 京都での日々 / Kyoto Era</div></div>
           <div class="title-col">
             <h2 class="past-title reveal">東京の前、<br/><em>京都で</em>立っていた。</h2>
-            <p class="past-intro body-jp reveal">京都のホテルバーで <em style="font-family: var(--serif-en); font-style: italic; color: var(--wine);">[TBD: 年数]</em> 年、カウンターに立ってきました。そこで培った設計の姿勢と、関わったお客様の記憶が、njoooy の土台になっています。東京での最初の記録は、この続きとして、これから 1件ずつ積み上げていきます。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+            <p class="past-intro body-jp reveal">京都のホテルバーで <em style="font-family: var(--serif-en); font-style: italic; color: var(--wine);"></em> 年、カウンターに立ってきました。そこで培った設計の姿勢と、関わったお客様の記憶が、njoooy の土台になっています。東京での最初の記録は、この続きとして、これから 1件ずつ積み上げていきます。</p>
           </div>
         </div>
 
         <div class="past-grid reveal">
           <div class="past-card" data-hover data-preview="v1" data-preview-label="Kyoto hotel bar" data-preview-num="K1">
             <div class="past-card-top"><div class="past-card-no">K.01</div><div class="past-card-badge">Venue</div></div>
-            <div class="past-card-mid"><div class="past-card-scope">勤務先・環境</div><div class="past-card-date">京都 · [TBD]</div></div>
-            <div class="past-card-foot">[TBD: 京都のホテルバーでの勤務期間・役割・学んだこと、2-3文で]</div>
+            <div class="past-card-mid"><div class="past-card-scope">勤務先・環境</div><div class="past-card-date">京都 · </div></div>
+            <div class="past-card-foot">: 京都のホテルバーでの勤務期間・役割・学んだこと、2-3文で]</div>
           </div>
           <div class="past-card" data-hover data-preview="v3" data-preview-label="Signature design" data-preview-num="K2">
             <div class="past-card-top"><div class="past-card-no">K.02</div><div class="past-card-badge">Craft</div></div>
             <div class="past-card-mid"><div class="past-card-scope">作った定番</div><div class="past-card-date">2024–2026</div></div>
-            <div class="past-card-foot">[TBD: 京都時代に設計に関わった定番カクテル・ノンアル 1-2つの例]</div>
+            <div class="past-card-foot">: 京都時代に設計に関わった定番カクテル・ノンアル 1-2つの例]</div>
           </div>
           <div class="past-card" data-hover data-preview="v5" data-preview-label="Influences" data-preview-num="K3">
             <div class="past-card-top"><div class="past-card-no">K.03</div><div class="past-card-badge">Lineage</div></div>
             <div class="past-card-mid"><div class="past-card-scope">影響・師事</div><div class="past-card-date">2024–</div></div>
-            <div class="past-card-foot">[TBD: 影響を受けた師匠・先輩、参考にしている作り手、思想的な系譜を短く]</div>
+            <div class="past-card-foot">: 影響を受けた師匠・先輩、参考にしている作り手、思想的な系譜を短く]</div>
           </div>
         </div>
 
@@ -1959,99 +2091,148 @@
 
 
     <section class="faq" id="faq">
-      <div class="faq-inner">
+      <div class="section-inner">
         <div class="faq-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 06 — FAQ / 事前にお伝えできること</div></div>
-          <div class="title-col">
-            <h2 class="faq-title reveal">よくある、<br/><em>ご質問</em>。</h2>
-            <p class="faq-desc body-jp reveal">お問い合わせの前にご確認いただけるよう、発注・料金・運用に関する質問を6件まとめています。ここに無い疑問はお気軽に DM / Email でどうぞ。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+          <div class="meta reveal">FAQ</div>
+          <h2 class="faq-title spaced reveal">よ く あ る ご 質 問</h2>
+          <div class="faq-divider reveal">
+            <div class="line"></div>
+            <div class="diamond"></div>
+            <div class="line"></div>
+          </div>
+          <p class="faq-intro reveal">njoooy に多く寄せられるご質問をまとめました。<br/>ご不明点がございましたら、お気軽にお問い合わせください。</p>
+        </div>
+
+        <div class="faq-body">
+          <div class="faq-list">
+            <details class="faq-item reveal">
+              <summary class="faq-q">
+                <span class="faq-num">01.</span>
+                <span class="faq-q-text">対応エリアはどこまでですか?</span>
+                <span class="faq-toggle"></span>
+              </summary>
+              <div class="faq-a">東京都内を中心に、首都圏および日本全国のご依頼に対応しております。遠方の場合は、交通費・宿泊費を別途ご相談ください。</div>
+            </details>
+
+            <details class="faq-item reveal d1" open>
+              <summary class="faq-q">
+                <span class="faq-num">02.</span>
+                <span class="faq-q-text">何日前まで相談できますか?</span>
+                <span class="faq-toggle"></span>
+              </summary>
+              <div class="faq-a">理想は2週間前ですが、直前のご相談も可能な限り対応いたします。まずはスケジュール感をお知らせください。</div>
+            </details>
+
+            <details class="faq-item reveal d2">
+              <summary class="faq-q">
+                <span class="faq-num">03.</span>
+                <span class="faq-q-text">キャンセルポリシーについて教えてください。</span>
+                <span class="faq-toggle"></span>
+              </summary>
+              <div class="faq-a">お申込み後のキャンセルは、実施日までの日数に応じてキャンセル料が発生する場合があります。詳細はご契約時にご案内いたします。</div>
+            </details>
+
+            <details class="faq-item reveal d3">
+              <summary class="faq-q">
+                <span class="faq-num">04.</span>
+                <span class="faq-q-text">お見積もりは無料ですか?</span>
+                <span class="faq-toggle"></span>
+              </summary>
+              <div class="faq-a">はい、お見積りは無料です。お問い合わせいただいてから48時間以内を目処に、プラン2-3案とお見積書 PDF をお送りします。内容の調整・追加相談も費用なしで対応します。</div>
+            </details>
+
+            <details class="faq-item reveal d4">
+              <summary class="faq-q">
+                <span class="faq-num">05.</span>
+                <span class="faq-q-text">アレルギーや特別食対応はできますか?</span>
+                <span class="faq-toggle"></span>
+              </summary>
+              <div class="faq-a">対応可能です。ヴィーガン・ハラール・グルテンフリー・特定素材の避け等、事前ヒアリングで共有いただければメニュー設計に反映します。</div>
+            </details>
           </div>
         </div>
 
-        <div class="faq-list reveal">
-          <details class="faq-item"><summary class="faq-summary"><div class="faq-q-num">Q.01</div><div class="faq-q">お見積りは無料ですか?<span class="faq-q-en">Is the quote free?</span></div><div class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></summary><div class="faq-a">はい、お見積りは無料です。お問い合わせいただいてから48時間以内を目処に、プラン2-3案とお見積書 PDF をお送りします。内容の調整・追加相談も費用なしで対応します。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div></details>
-          <details class="faq-item"><summary class="faq-summary"><div class="faq-q-num">Q.02</div><div class="faq-q">対応エリアはどこまでですか?<span class="faq-q-en">Travel area?</span></div><div class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></summary><div class="faq-a">東京23区を基本の対応エリアとしています。関東近郊(神奈川・埼玉・千葉)も出張費別途で対応可能、それ以外の地域は規模によりご相談ください。海外出張も規模次第で検討します。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div></details>
-          <details class="faq-item"><summary class="faq-summary"><div class="faq-q-num">Q.03</div><div class="faq-q">ノンアルのみのイベントも対応できますか?<span class="faq-q-en">Non-alc only events?</span></div><div class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></summary><div class="faq-a">むしろ得意領域です。njoooy の専門軸の一つが「ノンアルを独立した一皿として設計すること」。ノンアル特化パッケージもご用意しています(njoooy Bar Non-Alc オプション、njoooy Menu Non-Alc Package 参照)。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div></details>
-          <details class="faq-item"><summary class="faq-summary"><div class="faq-q-num">Q.04</div><div class="faq-q">英語対応は可能ですか?<span class="faq-q-en">Can you serve in English?</span></div><div class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></summary><div class="faq-a">はい、英語(B1 相当)で対応可能です。海外からのゲストが多いイベントや、英語メニューの設計もご相談ください。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div></details>
-          <details class="faq-item"><summary class="faq-summary"><div class="faq-q-num">Q.05</div><div class="faq-q">アレルギーや特別食対応はできますか?<span class="faq-q-en">Dietary accommodations?</span></div><div class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></summary><div class="faq-a">対応可能です。ヴィーガン・ハラール・グルテンフリー・特定素材の避け等、事前ヒアリングで共有いただければメニュー設計に反映します。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div></details>
-          <details class="faq-item"><summary class="faq-summary"><div class="faq-q-num">Q.06</div><div class="faq-q">キャンセル料金はどうなりますか?<span class="faq-q-en">Cancellation policy?</span></div><div class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></summary><div class="faq-a">イベント予定日の1ヶ月以前のキャンセルは無料。それ以降は、14日前まで 30% / 7日前まで 50% / 3日以内 100% のキャンセル料を申し受けます。前金制の場合は、前金がキャンセル料に充当されます。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div></details>
-        </div>
-
-        <div class="past-meta-row">
-          <div class="meta">6 questions — No.001 edition</div>
-          <a href="#contact" class="meta" style="color: var(--wine);" data-hover>ここに無い質問は直接どうぞ →</a>
+        <div class="faq-contact-cta reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 4 L 20 4 L 20 16 L 12 16 L 8 20 L 8 16 L 4 16 Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="faq-contact-cta-text">その他のご質問は、いつでもご相談ください。</div>
+            <a href="#contact">お問い合わせはこちら →</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="contact" id="contact">
-      <div class="noise-overlay"></div>
+      <div class="contact-head">
+        <div class="meta reveal">Contact</div>
+        <h2 class="contact-title spaced reveal">お 問 い 合 わ せ</h2>
+        <div class="contact-divider reveal">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="contact-intro reveal">ご相談・ご質問・ご依頼など、お気軽にお問い合わせください。</p>
+      </div>
+
       <div class="contact-inner">
-        <div class="contact-head">
-          <div class="contact-label meta meta-dark reveal">Chapter 07 — Contact</div>
-          <h2 class="contact-headline reveal">njoooy への<br/><em>依頼・相談</em></h2>
-          <p class="contact-body reveal">出張バー・メニュー開発・店舗相談のご依頼や、お見積もりのご相談をお気軽にどうぞ。24時間以内にご返信します。<span style="opacity: 0.6; font-size: 12px;">[TBD]</span></p>
-        </div>
-        <div class="contact-cards">
-          <a href="#contact" class="contact-card" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram(準備中)">
+        <!-- v7.10: Web3Forms 接続(contact-left は footer に移動)-->
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
+          <input type="hidden" name="from_name" value="njoooy.com contact form">
+          <input type="hidden" name="subject" value="[njoooy] お問い合わせ">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form-row">
+            <label for="cf-name">お名前</label>
+            <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" required/>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">メールアドレス</label>
+            <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com" required/>
+          </div>
+          <div class="form-row">
+            <label for="cf-service">ご希望サービス</label>
+            <select id="cf-service" name="service">
+              <option>選択してください</option>
+              <option>njoooy Bar (出張バー)</option>
+              <option>njoooy Menu (メニュー開発)</option>
+              <option>njoooy Counsel (店舗相談)</option>
+              <option>njoooy Class (研修プログラム)</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cf-date">ご利用予定日</label>
+            <input type="text" id="cf-date" name="date" placeholder="例) 2026/04/18"/>
+          </div>
+          <div class="form-row">
+            <label for="cf-guests">人数</label>
+            <div class="with-suffix">
+              <input type="number" id="cf-guests" name="guests" placeholder="例) 4"/>
+              <span class="suffix">名様</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="cf-budget">ご予算</label>
+            <div class="with-suffix">
+              <input type="text" id="cf-budget" name="budget" placeholder="例) ¥100,000"/>
+              <span class="suffix">円程度</span>
+            </div>
+          </div>
+          <div class="form-row tall">
+            <label for="cf-msg">ご相談内容</label>
             <div>
-              <div class="contact-card-label">Primary — Instagram DM</div>
-              <div class="contact-card-value">@njoooy</div>
-              <div class="contact-card-note">[TBD: アカウント準備中、href は公開時に差戻し]</div>
+              <textarea id="cf-msg" name="message" placeholder="ご希望の内容やご要望などをご入力ください。" maxlength="1000" oninput="document.getElementById('msgCount').textContent = this.value.length"></textarea>
+              <div class="form-textarea-count"><span id="msgCount">0</span> / 1000</div>
             </div>
-            <div class="contact-card-arrow">→</div>
-          </a>
-          <a href="mailto:hello@njoooy.com" class="contact-card" data-hover>
-            <div>
-              <div class="contact-card-label">Email</div>
-              <div class="contact-card-value">hello@njoooy.com</div>
-              <div class="contact-card-note">24時間以内に返信します</div>
-            </div>
-            <div class="contact-card-arrow">→</div>
-          </a>
-        </div>
-        <div class="contact-form-wrap">
-          <div class="contact-form-label meta">Or — Send a message directly</div>
-          <!-- v7.10: Web3Forms 接続。access_key は公開 HTML 埋込で仕様通り。
-               追加の防衛線として Web3Forms ダッシュボードで以下を設定:
-               - Allowed domains: njoooy.com のみ
-               - Honeypot (botcheck hidden input、下記 line 参照)
-               送信は fetch() ベース、成功時は contact-form-status にインライン表示。 -->
-          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
-            <input type="hidden" name="from_name" value="njoooy.com contact form">
-            <input type="hidden" name="subject" value="[njoooy] お問い合わせ">
-            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="contact-form-grid">
-              <div class="contact-form-field">
-                <label for="cf-name" class="contact-form-lbl">お名前 / Name <span class="req">*</span></label>
-                <input type="text" id="cf-name" name="name" required placeholder="山田 太郎 / Taro Yamada">
-              </div>
-              <div class="contact-form-field">
-                <label for="cf-email" class="contact-form-lbl">メール / Email <span class="req">*</span></label>
-                <input type="email" id="cf-email" name="email" required placeholder="you@example.com">
-              </div>
-              <div class="contact-form-field contact-form-field-full">
-                <label for="cf-type" class="contact-form-lbl">ご相談の種別 / Inquiry type</label>
-                <select id="cf-type" name="type">
-                  <option value="bar">njoooy Bar(出張バー)</option>
-                  <option value="menu">njoooy Menu(メニュー開発)</option>
-                  <option value="counsel">njoooy Counsel(店舗相談)</option>
-                  <option value="other">その他 / Other</option>
-                </select>
-              </div>
-              <div class="contact-form-field contact-form-field-full">
-                <label for="cf-msg" class="contact-form-lbl">ご相談内容 / Message <span class="req">*</span></label>
-                <textarea id="cf-msg" name="message" rows="5" required placeholder="日程・場所・人数・ご予算感や、ご相談の背景を簡単に教えてください。"></textarea>
-              </div>
-            </div>
-            <div class="contact-form-actions">
-              <button type="submit" class="contact-form-submit" data-hover>送信する / Send →</button>
-              <span class="contact-form-note-inline">24時間以内に返信します。</span>
-            </div>
-            <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
-          </form>
-        </div>
+          </div>
+          <button class="form-submit" type="submit" data-hover>送信する</button>
+          <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
+        </form>
       </div>
     </section>
 
@@ -2059,36 +2240,40 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-logo-col">
-          <span class="footer-logo">njoooy<span class="mark"></span></span>
-          <p class="footer-tagline">— cocktail &amp; non-alcoholic, designed with equal intensity. Based in Tokyo. [TBD]</p>
-        </div>
-        <div class="footer-col footer-col-ch">
-          <div class="label meta">Channels</div>
-          <ul>
-            <li><a href="#contact" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram(準備中)">Instagram <span style="opacity: 0.5; font-size: 10px;">[TBD]</span></a></li>
-            <li><a href="https://note.com/njoooy" data-hover target="_blank" rel="noopener noreferrer" aria-label="note @njoooy(新しいタブで開きます)">note ↗</a></li>
-            <li><a href="#services" data-hover>Services</a></li>
-            <li><a href="#method" data-hover>Method</a></li>
-            <li><a href="#about" data-hover>About</a></li>
-            <li><a href="#faq" data-hover>FAQ</a></li>
-            <li><a href="#contact" data-hover>Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col footer-col-lg">
-          <div class="label meta">Legal</div>
-          <ul>
-            <li><a href="/legal/tokusho.html" class="muted" data-hover>特定商取引法に基づく表記</a></li>
-            <li><a href="/legal/privacy.html" class="muted" data-hover>プライバシーポリシー</a></li>
-            <li><a href="#" class="muted" data-hover>利用規約 [TBD]</a></li>
-          </ul>
-        </div>
+      <div class="footer-brand">
+        <div class="footer-logo">njoooy</div>
+        <div class="footer-url">njoooy.com</div>
       </div>
-      <div class="footer-bottom">
-        <div>© MMXXVI njoooy — Tokyo, JP</div>
-        <div>Vol. 001 · 2026.04 · Documentation</div>
+
+      <div class="footer-contacts">
+        <div class="footer-follow-label">FOLLOW US</div>
+        <a href="#contact" class="footer-contact-item" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram(準備中)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="4"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+          <span>@njoooy.bar</span>
+        </a>
+        <a href="mailto:hello@njoooy.com" class="footer-contact-item" data-hover>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="5" width="18" height="14" rx="1"/>
+            <path d="M3 6 L 12 14 L 21 6"/>
+          </svg>
+          <span>hello@njoooy.com</span>
+        </a>
+        <div class="footer-contact-note">24時間以内にご返信いたします。</div>
       </div>
+
+      <div class="footer-legal">
+        <a href="/legal/tokusho.html" data-hover>特定商取引法に基づく表記</a>
+        <span class="footer-legal-sep">/</span>
+        <a href="/legal/privacy.html" data-hover>プライバシーポリシー</a>
+        <span class="footer-legal-sep">/</span>
+        <a href="#" data-hover>利用規約 </a>
+      </div>
+
+      <div class="footer-copyright">© 2026 njoooy. All rights reserved.</div>
     </div>
   </footer>
 
@@ -2097,65 +2282,10 @@
       const pre = document.getElementById('preloader');
       setTimeout(() => { if (pre) pre.style.display = 'none'; }, 3200);
 
-      const dot = document.querySelector('.cursor-dot');
-      const ring = document.querySelector('.cursor-ring');
-      const preview = document.getElementById('cursorPreview');
-      const previewInner = preview ? preview.querySelector('.pv-inner') : null;
-      const previewLabel = preview ? preview.querySelector('.pv-label') : null;
-      const previewNum = preview ? preview.querySelector('.pv-num') : null;
-
-      if (dot && ring && matchMedia('(hover: hover)').matches) {
-        let mx = 0, my = 0, rx = 0, ry = 0;
-        document.addEventListener('mousemove', (e) => {
-          mx = e.clientX; my = e.clientY;
-          dot.style.transform = `translate(${mx}px, ${my}px)`;
-          if (preview) {
-            // offset preview to upper-right of cursor; flip to left if near right edge
-            const flipX = (window.innerWidth - mx < 340) ? -170 : 170;
-            preview.style.left = (mx + flipX) + 'px';
-            preview.style.top = (my) + 'px';
-          }
-        });
-        function loop() {
-          rx += (mx - rx) * 0.18;
-          ry += (my - ry) * 0.18;
-          ring.style.transform = `translate(${rx}px, ${ry}px)`;
-          requestAnimationFrame(loop);
-        }
-        loop();
-        document.querySelectorAll('[data-hover], a, button, summary').forEach(el => {
-          el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-          el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
-        });
-        document.addEventListener('mousedown', () => ring.classList.add('click'));
-        document.addEventListener('mouseup', () => ring.classList.remove('click'));
-
-        // Cursor image preview (v5)
-        document.querySelectorAll('[data-preview]').forEach(el => {
-          el.addEventListener('mouseenter', () => {
-            if (!preview) return;
-            const variant = el.getAttribute('data-preview');
-            const label = el.getAttribute('data-preview-label') || '';
-            const num = el.getAttribute('data-preview-num') || '';
-            preview.className = 'cursor-preview active pv-' + variant;
-            if (previewLabel) previewLabel.textContent = label;
-            if (previewNum) previewNum.textContent = num;
-          });
-          el.addEventListener('mouseleave', () => {
-            if (preview) preview.className = 'cursor-preview';
-          });
-        });
-      }
-
+      // Scroll progress + scroll index
       const prog = document.getElementById('scrollProgress');
-
-      // Scroll index (v7.1) — determine current section and update NN/TT
       const sIdxCurrent = document.getElementById('scrollIndexCurrent');
       const sIdxTotal = document.getElementById('scrollIndexTotal');
-      // Order matters: Opening first, then chapters in document order
-      const trackedSections = Array.from(document.querySelectorAll('main > section, main > div.marquee + section, main section'))
-        .filter((el, i, arr) => arr.indexOf(el) === i);
-      // Simpler: just grab all <section> children of main
       const mainSections = document.querySelectorAll('main section');
       const totalSections = mainSections.length;
       if (sIdxTotal) sIdxTotal.textContent = String(totalSections).padStart(2, '0');
@@ -2165,7 +2295,6 @@
         const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
         if (prog) prog.style.width = pct + '%';
 
-        // update scroll-index: whichever section's top is closest to viewport top (within 40% below)
         if (sIdxCurrent && mainSections.length) {
           const anchor = window.innerHeight * 0.33;
           let activeIdx = 0;
@@ -2179,9 +2308,11 @@
       document.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
+      // Nav light/dark based on scroll position
       const nav = document.getElementById('nav');
       const creamSections = document.querySelectorAll('.intro, .for-whom, .about-section, .past, .faq, .process, .archive, .method');
       function checkNav() {
+        if (!nav) return;
         const top = window.scrollY + 60;
         let isLight = false;
         creamSections.forEach(s => {
@@ -2193,6 +2324,7 @@
       document.addEventListener('scroll', checkNav, { passive: true });
       checkNav();
 
+      // Reveal animations via IntersectionObserver
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
           entries.forEach(e => {
@@ -2207,15 +2339,15 @@
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
       }
 
-      // v7.10: Contact form (Web3Forms) — fetch-based submit + inline success/error
+      // Contact form (Web3Forms) — fetch-based submit + inline success/error
       const cf = document.getElementById('contact-form');
       const cfStatus = document.getElementById('contact-form-status');
       if (cf && cfStatus) {
         cf.addEventListener('submit', async function (e) {
           e.preventDefault();
-          const submitBtn = cf.querySelector('.contact-form-submit');
+          const submitBtn = cf.querySelector('.form-submit') || cf.querySelector('.contact-form-submit');
           const originalLabel = submitBtn ? submitBtn.textContent : '';
-          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中 / Sending...'; }
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中...'; }
           cfStatus.className = 'contact-form-status';
           cfStatus.textContent = '';
 
@@ -2230,28 +2362,87 @@
             });
             const result = await res.json().catch(() => ({}));
             if (res.ok && result.success) {
-              cfStatus.textContent = '✓ 送信完了しました。24時間以内にご返信いたします。 / Sent. We\'ll get back to you within 24 hours.';
-              cfStatus.classList.add('is-success');
+              cfStatus.textContent = '✓ 送信完了しました。24時間以内にご返信いたします。';
+              cfStatus.classList.add('success');
               cf.reset();
             } else {
-              cfStatus.textContent = '⚠ 送信に失敗しました。お手数ですが Email( hello@njoooy.com )へ直接ご連絡ください。 / Sending failed. Please email us directly.';
-              cfStatus.classList.add('is-error');
+              cfStatus.textContent = '⚠ 送信に失敗しました。お手数ですが hello@njoooy.com へ直接ご連絡ください。';
+              cfStatus.classList.add('error');
             }
           } catch (err) {
-            cfStatus.textContent = '⚠ ネットワークエラーです。Email( hello@njoooy.com )へ直接ご連絡ください。 / Network error. Please email us directly.';
-            cfStatus.classList.add('is-error');
+            cfStatus.textContent = '⚠ ネットワークエラーです。hello@njoooy.com へ直接ご連絡ください。';
+            cfStatus.classList.add('error');
           } finally {
             if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
           }
         });
       }
 
-      // v7.10: inactive link guard (Instagram 準備中 など) — click は #contact にジャンプで無害化、新規タブは開かない
+      // v7.10: inactive link guard (Instagram 準備中 など)
       document.querySelectorAll('[data-inactive="true"]').forEach(el => {
         el.addEventListener('click', function (ev) {
-          // href="#contact" なのでデフォルト挙動で contact section にスクロール、新規タブは不開
+          // href="#contact" でデフォルト挙動
         });
       });
+    })();
+  </script>
+
+  <script>
+    // v8.2 Nav active underbar — track current section in viewport
+    (function(){
+      const sections = document.querySelectorAll('main section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      const linkMap = {};
+      navLinks.forEach(a => {
+        const id = a.getAttribute('href').slice(1);
+        if (id) linkMap[id] = a;
+      });
+
+      let currentActive = null;
+      function setActive(id) {
+        if (currentActive === id) return;
+        if (currentActive && linkMap[currentActive]) linkMap[currentActive].classList.remove('active');
+        if (id && linkMap[id]) linkMap[id].classList.add('active');
+        currentActive = id;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        let bestEntry = null;
+        let bestTop = Infinity;
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const rect = entry.target.getBoundingClientRect();
+            if (rect.top < bestTop && rect.top < window.innerHeight * 0.4) {
+              bestTop = rect.top;
+              bestEntry = entry;
+            }
+          }
+        });
+        if (bestEntry) setActive(bestEntry.target.id);
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.1, 0.5, 1] });
+
+      sections.forEach(sec => observer.observe(sec));
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            let best = null;
+            let bestDist = Infinity;
+            const target = window.innerHeight * 0.3;
+            sections.forEach(sec => {
+              const top = sec.getBoundingClientRect().top;
+              if (top <= target && top > -sec.offsetHeight) {
+                const dist = Math.abs(top - target);
+                if (dist < bestDist) { bestDist = dist; best = sec; }
+              }
+            });
+            if (best) setActive(best.id);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
     })();
   </script>
 </body>
