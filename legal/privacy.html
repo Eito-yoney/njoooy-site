@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>プライバシーポリシー — njoooy</title>
+
+  <!-- [v7.8] Legal page meta — indexable, minimal SEO -->
+  <meta name="description" content="njoooy(米山丈偉、個人事業主)のプライバシーポリシー。個人情報の取得・利用目的、第三者提供、委託、安全管理措置、開示請求、Cookie 等の取扱いについて定めます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#F5F0E6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0F0C08" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://njoooy.com/legal/privacy.html" />
+
+  <!-- Favicon(LP と共通 slot、実ファイルは公開前に用意) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Fonts(LP と同一スタック) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper: #F5F0E6; --paper-2: #EDE6D6; --surface: #FAF6EC;
+      --ink: #1C1712; --ink-deep: #0F0C08; --ink-2: #3A322A;
+      --muted: #766B5C; --muted-2: #A89E8D; --rule: #D9D0BE;
+      --wine: #6B2024; --wine-deep: #4A1418; --wine-bright: #8A3B3F;
+      --gold: #C28B5B; --gold-bright: #E0B080;
+      --serif-en: 'Fraunces', serif;
+      --serif-jp: 'Shippori Mincho', 'Fraunces', serif;
+      --sans-jp: 'Noto Sans JP', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--paper); }
+    body {
+      background: var(--paper); color: var(--ink);
+      font-family: var(--sans-jp); font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "palt";
+      line-height: 1.85;
+    }
+
+    a { color: var(--wine); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color .2s; }
+    a:hover { color: var(--wine-deep); }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute; top: 0; left: 0;
+      padding: 12px 22px;
+      background: var(--ink); color: var(--paper);
+      font-family: var(--mono); font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none;
+      transform: translateY(-120%);
+      transition: transform .2s ease;
+      z-index: 10000;
+      border-bottom-right-radius: 3px;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 3px;
+    }
+
+    .legal-header {
+      max-width: 820px; margin: 0 auto;
+      padding: 36px clamp(20px, 4vw, 48px) 32px;
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .legal-home {
+      font-family: var(--serif-en); font-style: italic; font-weight: 600;
+      font-size: 22px;
+      font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+      color: var(--ink); text-decoration: none;
+    }
+    .legal-home:hover { color: var(--wine); }
+    .legal-header-meta {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    main { padding: clamp(48px, 8vh, 88px) clamp(20px, 4vw, 48px); }
+    main:focus, main:focus-visible { outline: none; }
+    .legal-article { max-width: 720px; margin: 0 auto; }
+
+    h1 {
+      font-family: var(--serif-jp);
+      font-size: clamp(26px, 4.5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 20px;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
+    .legal-dates {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .legal-intro {
+      font-size: 15px; color: var(--ink-2);
+      line-height: 1.95;
+      margin-bottom: 16px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 40px 0;
+    }
+
+    h2 {
+      font-family: var(--serif-jp);
+      font-size: clamp(19px, 2.8vw, 24px);
+      font-weight: 600;
+      color: var(--wine-deep);
+      margin-top: 56px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    h3 {
+      font-family: var(--mono); font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--wine);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+    h4 {
+      font-family: var(--sans-jp);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    p { margin-bottom: 16px; font-size: 15px; color: var(--ink-2); line-height: 1.9; }
+
+    .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 480px;
+    }
+    thead th {
+      background: var(--paper-2);
+      font-family: var(--sans-jp); font-weight: 500;
+      color: var(--ink);
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid var(--rule);
+    }
+    tbody td {
+      padding: 12px 16px;
+      border: 1px solid var(--rule);
+      color: var(--ink-2);
+      vertical-align: top;
+      line-height: 1.75;
+    }
+    tbody td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+      background: rgba(245, 240, 230, 0.5);
+    }
+
+    ul, ol { margin: 12px 0 20px 24px; font-size: 15px; color: var(--ink-2); line-height: 1.9; }
+    li { margin-bottom: 6px; }
+    ul ul, ol ol, ul ol, ol ul { margin: 6px 0 6px 20px; }
+
+    .tbd {
+      display: inline-block;
+      background: rgba(107, 32, 36, 0.08);
+      color: var(--wine);
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      vertical-align: baseline;
+    }
+
+    .legal-footer {
+      max-width: 820px; margin: 0 auto;
+      padding: 48px clamp(20px, 4vw, 48px) 56px;
+      border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 16px;
+      margin-top: 32px;
+    }
+    .legal-footer a.back {
+      font-family: var(--sans-jp); font-size: 14px;
+      color: var(--ink-2); text-decoration: none;
+    }
+    .legal-footer a.back:hover { color: var(--wine); }
+    .legal-footer-meta {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .legal-footer-links {
+      display: flex; gap: 20px; flex-wrap: wrap;
+    }
+    .legal-footer-links a {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .legal-footer-links a:hover { color: var(--wine); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+
+  <header class="legal-header">
+    <a class="legal-home" href="/">njoooy</a>
+    <div class="legal-header-meta">Legal · Privacy</div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="legal-article">
+
+      <h1>プライバシーポリシー</h1>
+      <div class="legal-dates">
+        <div>最終更新日: 2026年4月30日</div>
+        <div>施行日: 2026年4月30日</div>
+      </div>
+
+      <hr />
+
+      <p class="legal-intro">njoooy(以下「当事業者」)は、当事業者が運営するウェブサイト(<a href="https://njoooy.com">https://njoooy.com</a>。以下「本サイト」)、および当事業者が提供する出張バー・メニュー開発・店舗相談等のサービス(以下「本サービス」)における個人情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
+
+      <h2>1. 事業者情報</h2>
+      <ul>
+        <li>事業者の氏名: 米山丈偉</li>
+        <li>屋号: njoooy</li>
+        <li>連絡先: <a href="mailto:hello@njoooy.com">hello@njoooy.com</a></li>
+      </ul>
+      <p>住所・電話番号は「特定商取引法に基づく表記」の定めに従い、請求があった場合に遅滞なく開示いたします。</p>
+
+      <h2>2. 取得する個人情報</h2>
+      <p>当事業者は、本サービスの提供および本サイトの運営にあたり、以下の個人情報を取得します。</p>
+
+      <h4>2.1 お客様から直接ご提供いただく情報</h4>
+      <ul>
+        <li>氏名、会社名・団体名</li>
+        <li>メールアドレス、電話番号</li>
+        <li>ご住所(会場住所を含む)</li>
+        <li>ご依頼内容(イベント内容、規模、日時、予算、食事制限・アレルギー等)</li>
+        <li>お支払いに関する情報(請求書発行先情報、振込人名義等)</li>
+      </ul>
+
+      <h4>2.2 本サイトへのアクセスに伴い自動的に取得する情報</h4>
+      <ul>
+        <li>IP アドレス、ブラウザ種類・バージョン、OS 情報</li>
+        <li>アクセス日時、閲覧ページ、リファラ(参照元 URL)</li>
+        <li>Cookie、ローカルストレージ等に保存される識別子</li>
+      </ul>
+
+      <h4>2.3 第三者サービスを経由して取得する情報</h4>
+      <ul>
+        <li>Tally(お問い合わせフォーム):フォームに入力された情報</li>
+        <li><span class="tbd">[TBD: Google Analytics 導入時はアクセス解析データを明記]</span></li>
+        <li><span class="tbd">[TBD: Instagram / note 等 SNS DM 経由の問合せ内容]</span></li>
+      </ul>
+
+      <h2>3. 個人情報の利用目的</h2>
+      <p>取得した個人情報は、以下の目的で利用します。目的外利用は原則行いません。</p>
+      <ol>
+        <li>お問い合わせへの回答、ご相談対応、お見積・提案書の送付</li>
+        <li>本サービスに関する業務委託契約の締結、契約履行、請求・入金管理</li>
+        <li>本サービスの提供に必要なご連絡、当日運営に関する調整</li>
+        <li>サービス実施後のアフターフォロー、お礼のご連絡、次回ご案内</li>
+        <li>本サービスの品質向上、新サービス開発のための分析(個人を特定できない統計情報として)</li>
+        <li>法令に基づく対応、税務・会計処理、紛争解決</li>
+        <li>ご本人の同意を得た上でのニュースレター・キャンペーン情報等の送付</li>
+      </ol>
+
+      <h2>4. 個人情報の第三者提供</h2>
+      <p>当事業者は、以下の場合を除き、取得した個人情報を第三者に提供しません。</p>
+      <ol>
+        <li>ご本人の同意がある場合</li>
+        <li>法令に基づく場合(裁判所、警察、税務署等からの正式な照会・命令)</li>
+        <li>人の生命・身体・財産の保護のために必要であり、ご本人の同意を得ることが困難な場合</li>
+        <li>国・地方公共団体等が法令の定める事務を遂行するために協力する必要があり、ご本人の同意を得ることにより事務の遂行に支障を及ぼすおそれがある場合</li>
+      </ol>
+
+      <h2>5. 個人情報の取扱いの委託</h2>
+      <p>当事業者は、本サービスの提供および業務運営のため、以下の業務を外部委託することがあります。委託先には個人情報保護法に基づく監督を実施し、適切な取扱いを確保します。</p>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>委託業務</th><th>委託先の例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>お問い合わせフォームの提供</td><td>Tally(米国)</td></tr>
+          <tr><td>メール配信、メールホスティング</td><td><span class="tbd">[TBD: Google Workspace / Resend 等、導入時に記載]</span></td></tr>
+          <tr><td>アクセス解析</td><td><span class="tbd">[TBD: Google Analytics 等、導入時に記載]</span></td></tr>
+          <tr><td>決済代行</td><td><span class="tbd">[TBD: Stripe / 各銀行、導入時に記載]</span></td></tr>
+          <tr><td>会計・税務処理</td><td>税理士、会計ソフト(freee、マネーフォワード等)</td></tr>
+          <tr><td>クラウドストレージ</td><td><span class="tbd">[TBD: Google Drive / Notion 等、導入時に記載]</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>海外事業者への委託を含むため、外国にある第三者への提供について個人情報保護法第28条に定める基準を満たしていることを委託契約上確認しています。</p>
+
+      <h2>6. 個人情報の安全管理措置</h2>
+      <p>当事業者は、取得した個人情報の漏えい、滅失、き損の防止のため、以下の安全管理措置を講じます。</p>
+      <ul>
+        <li><strong>組織的安全管理</strong>: 個人情報取扱責任者を事業者本人が兼務し、取扱状況を自己点検</li>
+        <li><strong>人的安全管理</strong>: 業務委託先を含む関係者に対する守秘義務の契約上の明記</li>
+        <li><strong>物理的安全管理</strong>: 紙媒体の施錠保管、持ち出し時の管理</li>
+        <li><strong>技術的安全管理</strong>: アクセス制御、二要素認証、通信経路の暗号化(TLS)、バックアップ</li>
+      </ul>
+
+      <h2>7. 個人情報の開示・訂正・削除等のご請求</h2>
+      <p>ご本人または代理人の方から、当事業者が保有する個人情報について、以下のご請求を受け付けます。</p>
+      <ul>
+        <li>利用目的の通知</li>
+        <li>保有個人データの開示</li>
+        <li>内容の訂正、追加、削除</li>
+        <li>利用停止、消去、第三者提供の停止</li>
+      </ul>
+      <p>ご請求は <a href="mailto:hello@njoooy.com">hello@njoooy.com</a> までメールにてご連絡ください。ご本人確認の上、法令に定める期間内(原則30日以内)に対応いたします。手数料は無料です。</p>
+
+      <h2>8. Cookie 等の利用および外部送信(電気通信事業法対応)</h2>
+      <p>本サイトでは、サービス提供・品質向上・アクセス解析のため、Cookie および類似技術(ローカルストレージ等)を利用することがあります。これらの技術により取得される情報の一部は、以下の外部事業者に送信される場合があります。</p>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>送信先</th><th>送信される情報</th><th>利用目的</th><th>オプトアウト</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tbd">[TBD: Google LLC(Google Analytics 導入時)]</span></td>
+            <td>IP アドレス、閲覧情報、Cookie 識別子</td>
+            <td>アクセス解析</td>
+            <td><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">ブラウザアドオン</a> またはブラウザ設定で Cookie を無効化</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Cookie の使用を希望されない場合は、ブラウザの設定により無効化できます。ただし、一部の機能がご利用いただけなくなる場合があります。</p>
+
+      <h2>9. 個人情報の保管期間</h2>
+      <p>取得した個人情報は、利用目的の達成に必要な期間のみ保管し、不要となった場合は速やかに削除または匿名化します。</p>
+      <ul>
+        <li>お問い合わせのみで契約に至らなかった場合: 最終連絡から 1年間</li>
+        <li>ご契約いただいた場合: 契約完了後、法令で定める保管期間(税務関係書類は 7年間、会社法関係書類は 10年間)に従い保管</li>
+      </ul>
+
+      <h2>10. 未成年者の個人情報</h2>
+      <p>18歳未満のお客様からお問い合わせ・お申込みをいただく場合は、保護者の同意を得た上でご連絡ください。当事業者は酒類を扱うサービスを含むため、20歳未満の方への酒類提供は一切行いません。</p>
+
+      <h2>11. プライバシーポリシーの変更</h2>
+      <p>当事業者は、法令改正、本サービスの内容変更、その他必要に応じて本ポリシーを変更することがあります。重要な変更を行った場合は、本サイト上での告知または個別のご連絡により周知します。変更後のポリシーは、本サイトに掲載した時点から効力を生じます。</p>
+
+      <h2>12. お問い合わせ窓口</h2>
+      <p>個人情報の取扱いに関するご質問、ご意見、苦情は以下までご連絡ください。</p>
+      <ul>
+        <li>メールアドレス: <a href="mailto:hello@njoooy.com">hello@njoooy.com</a></li>
+        <li>事業者の氏名: 米山丈偉</li>
+        <li>屋号: njoooy</li>
+      </ul>
+
+    </article>
+  </main>
+
+  <footer class="legal-footer">
+    <a class="back" href="/">← トップへ戻る</a>
+    <div class="legal-footer-links">
+      <a href="/legal/tokusho.html">特定商取引法表記</a>
+    </div>
+    <div class="legal-footer-meta">© MMXXVI njoooy — Tokyo, JP</div>
+  </footer>
+
+</body>
+</html>
