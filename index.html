@@ -888,6 +888,51 @@
       color: rgba(245, 240, 230, 0.65);
       line-height: 1.6;
     }
+    /* v7.10: submit loading state */
+    .contact-form-submit:disabled {
+      background: rgba(245, 240, 230, 0.35);
+      color: rgba(28, 23, 18, 0.5);
+      cursor: not-allowed;
+      transform: none;
+    }
+    /* v7.10: inline success / error status message for Web3Forms submission */
+    .contact-form-status {
+      font-family: var(--sans-jp);
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 0;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity .3s ease, max-height .3s ease, padding .3s ease, margin .3s ease;
+      padding: 0;
+      margin: 0;
+    }
+    .contact-form-status:not(:empty) {
+      opacity: 1;
+      max-height: 120px;
+      margin-top: 8px;
+      padding: 14px 18px;
+      border-radius: 2px;
+    }
+    .contact-form-status.is-success {
+      background: rgba(224, 176, 128, 0.12);
+      border-left: 3px solid var(--gold-bright);
+      color: rgba(245, 240, 230, 0.95);
+    }
+    .contact-form-status.is-error {
+      background: rgba(138, 59, 63, 0.18);
+      border-left: 3px solid var(--wine-bright);
+      color: rgba(245, 240, 230, 0.95);
+    }
+    /* v7.10: inactive link styling (Instagram 準備中 など) */
+    [data-inactive="true"] {
+      cursor: default;
+      opacity: 0.7;
+    }
+    [data-inactive="true"]:hover {
+      opacity: 0.85;
+    }
 
     /* FOOTER */
     footer { background: var(--ink-deep); color: var(--paper); padding: clamp(80px, 12vh, 120px) var(--gutter) 40px; }
@@ -1025,16 +1070,16 @@
   <div class="scroll-index" id="scrollIndex" aria-hidden="true">
     <span class="scroll-index-label">Scroll</span>
     <span class="scroll-index-line"></span>
-    <span class="scroll-index-count"><span class="current" id="scrollIndexCurrent">01</span> / <span class="total" id="scrollIndexTotal">09</span></span>
+    <span class="scroll-index-count"><span class="current" id="scrollIndexCurrent">01</span> / <span class="total" id="scrollIndexTotal">08</span></span>
   </div>
 
   <nav class="nav" id="nav">
     <a href="#top" class="nav-logo logo">njoooy<span class="mark"></span></a>
     <div class="nav-links">
-      <a href="#about" data-hover>About</a>
-      <a href="#for-whom" data-hover>For Whom</a>
       <a href="#services" data-hover>Services</a>
+      <a href="#for-whom" data-hover>For Whom</a>
       <a href="#method" data-hover>Method</a>
+      <a href="#about" data-hover>About</a>
       <a href="#faq" data-hover>FAQ</a>
       <a href="#contact" data-hover>Contact</a>
     </div>
@@ -1104,316 +1149,10 @@
       </div>
     </div>
 
-    <section class="about-section" id="about">
-      <div class="about-inner">
-        <div class="about-head-centered">
-          <div class="about-label meta">Chapter 01 — About the Founder</div>
-          <h2 class="about-headline reveal">はじめまして、<br/><em>njoooy</em> です。</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-image reveal">
-            <div class="noise-overlay"></div>
-            <div class="about-image-num">MMXXVI</div>
-            <div class="about-image-label">Portrait · 2026 · [TBD: 差し替え]</div>
-            <svg viewBox="0 0 400 550" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;">
-              <ellipse cx="200" cy="200" rx="75" ry="90" fill="none" stroke="rgba(245,240,230,0.15)" stroke-width="1"/>
-              <path d="M 125 350 Q 200 310 275 350 L 275 500 L 125 500 Z" fill="none" stroke="rgba(245,240,230,0.12)" stroke-width="1"/>
-              <circle cx="200" cy="200" r="3" fill="rgba(194,139,91,0.8)"/>
-            </svg>
-          </div>
-
-          <div class="about-text">
-            <div class="about-body body-jp reveal">
-              <p>京都で<span style="color: var(--muted-2); font-size: 12px;">[TBD: 年数]</span>、ホテルのバーでカウンターに立ってきました。2026年の4月、東京に来ます。21歳です。</p>
-              <p>カクテルを作るのが好きで、それと同じくらい、お客さんが「今日は軽めで」と言う瞬間のことが気になっています。僕自身、お酒に強いタイプではありません。好みの偏りもあります。</p>
-            </div>
-            <p class="about-pull reveal">飲む日も、飲まない日も、<br/>同じ温度で一杯を渡せる場所を。</p>
-            <div class="about-body body-jp reveal">
-              <p>出張バー、メニュー開発、店舗アドバイザリー。東京を拠点に、イベント・飲食店・クリエイティブの現場にうかがいます。英語でも対応します。</p>
-              <p style="color: var(--muted);">このページは、僕がこれから積み上げていく仕事の記録の入り口です。<span style="font-size: 11px;">[TBD: 要推敲]</span></p>
-            </div>
-
-            <div class="about-timeline reveal">
-              <div class="about-timeline-label meta">Journey / 歩み</div>
-              <div class="about-timeline-list">
-                <div class="about-timeline-item">
-                  <div class="about-timeline-year">2024</div>
-                  <div class="about-timeline-text">京都・[TBD: 店舗名]でカウンターに立ち始める。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 正確な時期・内容]</span></div>
-                </div>
-                <div class="about-timeline-item">
-                  <div class="about-timeline-year">2025</div>
-                  <div class="about-timeline-text">[TBD: この1年で学んだこと・印象的なエピソード 1行]</div>
-                </div>
-                <div class="about-timeline-item current">
-                  <div class="about-timeline-year">2026.04 — いま</div>
-                  <div class="about-timeline-text">東京に着地。njoooy として活動開始。出張バー・メニュー開発・店舗相談の3本立て。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div>
-                </div>
-                <div class="about-timeline-item future">
-                  <div class="about-timeline-year">2026+ →</div>
-                  <div class="about-timeline-text">ここに、最初の案件から順に記録が溜まっていきます。</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="for-whom" id="for-whom">
-      <div class="for-whom-inner">
-        <div class="fw-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 02 — For Whom / こんな場面に</div></div>
-          <div class="title-col">
-            <h2 class="fw-title reveal"><em>njoooy</em> が迎えにゆく、<br/>6つの場面。</h2>
-            <p class="fw-desc body-jp reveal">個人の記念日から法人レセプションまで、場面ごとに何ができるかを案内します。具体的なパッケージ内容・価格は <a href="#services" data-hover style="color: var(--wine); border-bottom: 1px solid var(--wine);">Chapter 03 Services</a> に集約しています。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
-          </div>
-        </div>
-
-        <!-- v7.6: case-grid (2-column) replaces stacked case-list
-             Each card has an SVG visual slot (aspect-ratio 4/3) + text body.
-             SVGs are placeholders; user will provide final artwork per case.
-             To swap a placeholder: replace the <svg> inside <div class="case-card-visual">.
-             The subtle [TBD: SVG] marker helps identify non-finalized slots. -->
-        <div class="case-grid reveal">
-
-          <article class="case-card" data-hover data-preview="v1" data-preview-label="Private dinner · Anniversary" data-preview-num="01">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="cg1" cx="50%" cy="40%" r="60%">
-                    <stop offset="0%" stop-color="rgba(224,176,128,0.25)"/>
-                    <stop offset="70%" stop-color="rgba(107,32,36,0.6)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg1)"/>
-                <ellipse cx="200" cy="140" rx="54" ry="6" fill="none" stroke="rgba(245,240,230,0.28)" stroke-width="0.8"/>
-                <path d="M 150 140 Q 150 190 200 198 Q 250 190 250 140 Z" fill="rgba(138,59,63,0.7)" stroke="rgba(245,240,230,0.25)" stroke-width="0.8"/>
-                <line x1="200" y1="198" x2="200" y2="240" stroke="rgba(245,240,230,0.25)" stroke-width="1"/>
-                <ellipse cx="200" cy="244" rx="24" ry="3" fill="none" stroke="rgba(245,240,230,0.25)" stroke-width="0.8"/>
-              </svg>
-              <span class="case-card-num">01</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Anniversary &amp; Birthday Dinner</div>
-              <h3 class="case-card-jp">記念日・<br/>誕生日ディナー</h3>
-              <p class="case-card-desc">自宅に少人数(4-12名)、2-3時間のコース。その夜のテーマや思い出を伺って、オリジナルの3-5杯を設計します。ノンアル希望にも完全対応。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Private</span>
-                <span class="case-tag">ノンアル対応</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v2" data-preview-label="Corporate reception" data-preview-num="02">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg2" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(8,5,3,1)"/>
-                    <stop offset="100%" stop-color="rgba(36,20,18,1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg2)"/>
-                <g stroke="rgba(245,240,230,0.12)" stroke-width="0.8" fill="none">
-                  <rect x="110" y="80" width="50" height="180"/>
-                  <rect x="175" y="100" width="50" height="160"/>
-                  <rect x="240" y="60" width="50" height="200"/>
-                </g>
-                <g fill="rgba(224,176,128,0.25)">
-                  <rect x="118" y="95" width="8" height="8"/><rect x="134" y="95" width="8" height="8"/>
-                  <rect x="118" y="115" width="8" height="8"/><rect x="134" y="115" width="8" height="8"/><rect x="150" y="115" width="8" height="8"/>
-                  <rect x="183" y="115" width="8" height="8"/><rect x="199" y="115" width="8" height="8"/>
-                  <rect x="248" y="80" width="8" height="8"/><rect x="264" y="80" width="8" height="8"/>
-                  <rect x="248" y="100" width="8" height="8"/><rect x="280" y="100" width="8" height="8"/>
-                </g>
-              </svg>
-              <span class="case-card-num">02</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Corporate Reception &amp; Anniversary</div>
-              <h3 class="case-card-jp">法人レセプション・<br/>周年イベント</h3>
-              <p class="case-card-desc">オフィスやイベント会場にバーカウンターを持ち込み、3-4時間で40名程度まで対応。企業メッセージをドリンクに落とし込む提案込み。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Corporate</span>
-                <span class="case-tag">英語対応可</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v3" data-preview-label="Brand activation · Media" data-preview-num="03">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="cg3" cx="50%" cy="50%" r="55%">
-                    <stop offset="0%" stop-color="rgba(224,176,128,0.35)"/>
-                    <stop offset="60%" stop-color="rgba(74,20,24,0.6)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </radialGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg3)"/>
-                <circle cx="200" cy="150" r="80" fill="none" stroke="rgba(245,240,230,0.18)" stroke-width="0.8"/>
-                <circle cx="200" cy="150" r="50" fill="none" stroke="rgba(245,240,230,0.22)" stroke-width="0.8"/>
-                <circle cx="200" cy="150" r="20" fill="rgba(224,176,128,0.4)"/>
-                <line x1="200" y1="40" x2="200" y2="70" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-                <line x1="200" y1="230" x2="200" y2="260" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-                <line x1="60" y1="150" x2="90" y2="150" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-                <line x1="310" y1="150" x2="340" y2="150" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
-              </svg>
-              <span class="case-card-num">03</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Brand Activation &amp; Media</div>
-              <h3 class="case-card-jp">ブランド発表会・<br/>PR・メディア</h3>
-              <p class="case-card-desc">新作発表・撮影現場・PRイベントで、世界観に合わせた限定メニューを設計。香り・色・ネーミングを商品軸に沿って組みます。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Premium</span>
-                <span class="case-tag">スタイリング対応</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v4" data-preview-label="Wedding after-party" data-preview-num="04">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg4" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(74,20,24,0.8)"/>
-                    <stop offset="50%" stop-color="rgba(36,20,18,1)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg4)"/>
-                <circle cx="165" cy="150" r="48" fill="none" stroke="rgba(224,176,128,0.55)" stroke-width="1.2"/>
-                <circle cx="235" cy="150" r="48" fill="none" stroke="rgba(245,240,230,0.4)" stroke-width="1.2"/>
-                <g fill="rgba(224,176,128,0.5)">
-                  <circle cx="100" cy="80" r="1.5"/><circle cx="320" cy="70" r="1"/>
-                  <circle cx="60" cy="200" r="1"/><circle cx="350" cy="220" r="1.5"/>
-                  <circle cx="200" cy="40" r="1"/><circle cx="200" cy="260" r="1"/>
-                </g>
-              </svg>
-              <span class="case-card-num">04</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Wedding After-Party</div>
-              <h3 class="case-card-jp">ウェディング二次会・<br/>アフターパーティ</h3>
-              <p class="case-card-desc">新郎新婦の出会いや記念日をベースに、2-3時間で乾杯用シグネチャーとリラックス用の後半メニューを設計。ノンアル比率の相談も可。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Bar Private</span>
-                <span class="case-tag">シグネチャー1杯</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v5" data-preview-label="Menu refresh" data-preview-num="05">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg5" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(36,20,18,1)"/>
-                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg5)"/>
-                <g stroke="rgba(245,240,230,0.28)" stroke-width="0.8" fill="rgba(107,32,36,0.4)">
-                  <path d="M 120 90 L 120 130 Q 120 150 130 160 L 130 230 Q 130 240 140 240 L 150 240 Q 160 240 160 230 L 160 160 Q 170 150 170 130 L 170 90 L 160 85 L 160 90 L 130 90 L 130 85 Z"/>
-                  <path d="M 190 70 L 190 120 Q 190 140 200 150 L 200 230 Q 200 240 210 240 L 220 240 Q 230 240 230 230 L 230 150 Q 240 140 240 120 L 240 70 L 230 65 L 230 70 L 200 70 L 200 65 Z"/>
-                  <path d="M 260 100 L 260 135 Q 260 155 270 165 L 270 230 Q 270 240 280 240 L 290 240 Q 300 240 300 230 L 300 165 Q 310 155 310 135 L 310 100 L 300 95 L 300 100 L 270 100 L 270 95 Z"/>
-                </g>
-                <g stroke="rgba(224,176,128,0.3)" stroke-width="0.5" fill="none">
-                  <line x1="90" y1="255" x2="330" y2="255"/>
-                </g>
-              </svg>
-              <span class="case-card-num">05</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">Beverage Program Refresh</div>
-              <h3 class="case-card-jp">飲食店のメニュー刷新・<br/>ノンアル強化</h3>
-              <p class="case-card-desc">既存店のドリンクラインナップを、コンセプト・食材・客層に合わせて再設計。試作 → 提案 → ドキュメント化 → スタッフ研修まで伴走。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Menu Starter</span>
-                <span class="case-tag">njoooy Menu Standard</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case-card" data-hover data-preview="v6" data-preview-label="New concept advisory" data-preview-num="06">
-            <div class="case-card-visual">
-              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cg6" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(8,5,3,1)"/>
-                    <stop offset="100%" stop-color="rgba(74,20,24,0.6)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#cg6)"/>
-                <g stroke="rgba(245,240,230,0.2)" stroke-width="0.8" fill="none" stroke-dasharray="2 4">
-                  <rect x="80" y="80" width="240" height="140"/>
-                  <line x1="200" y1="80" x2="200" y2="220"/>
-                  <line x1="80" y1="150" x2="320" y2="150"/>
-                </g>
-                <g fill="rgba(224,176,128,0.4)" stroke="rgba(224,176,128,0.6)" stroke-width="0.5">
-                  <circle cx="130" cy="115" r="3"/>
-                  <circle cx="270" cy="115" r="3"/>
-                  <circle cx="130" cy="185" r="3"/>
-                  <circle cx="270" cy="185" r="3"/>
-                  <circle cx="200" cy="150" r="5"/>
-                </g>
-                <text x="200" y="250" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="rgba(224,176,128,0.5)">concept · blueprint</text>
-              </svg>
-              <span class="case-card-num">06</span>
-              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
-            </div>
-            <div class="case-card-body">
-              <div class="case-card-en meta">New Concept Advisory</div>
-              <h3 class="case-card-jp">新店・新業態の<br/>コンセプト設計</h3>
-              <p class="case-card-desc">ドリンクプログラム構築、コンセプトの方向性、ノンアル導入戦略。2時間の単発セッションから、月次伴走まで、必要なスコープで。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
-              <div class="case-card-tags">
-                <span class="case-tag">njoooy Counsel</span>
-                <span class="case-tag">月次伴走可</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="first-visit">
-          <div class="fv-compact">
-            <div class="fv-compact-label meta">First Visit — 迷ったら、まず</div>
-            <div class="fv-compact-options">
-              <a href="#services" class="fv-opt" data-hover>
-                <span class="fv-opt-q">初めての方</span>
-                <span class="fv-opt-sep">→</span>
-                <span class="fv-opt-rec"><em>Counsel</em> 2時間</span>
-              </a>
-              <a href="#services" class="fv-opt" data-hover>
-                <span class="fv-opt-q">少人数の集まり</span>
-                <span class="fv-opt-sep">→</span>
-                <span class="fv-opt-rec"><em>Bar Private</em></span>
-              </a>
-              <a href="#services" class="fv-opt" data-hover>
-                <span class="fv-opt-q">店舗のメニュー</span>
-                <span class="fv-opt-sep">→</span>
-                <span class="fv-opt-rec"><em>Menu Starter</em></span>
-              </a>
-            </div>
-            <a href="#contact" class="fv-compact-cta" data-hover>どれか迷ったら、直接ご相談 →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <section class="archive" id="services">
       <div class="archive-inner">
         <div class="archive-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 03 — Services / Archive 01–04</div></div>
+          <div class="meta-col reveal"><div class="meta">Chapter 01 — Services / Archive 01–04</div></div>
           <div class="title-col">
             <h2 class="archive-title reveal">
               njoooy<span class="logo" style="display: inline-flex;"><span class="mark" style="width: 14px; height: 14px;"></span></span> が<br/><em>いま開いている</em>、<br/>ひらかれたカウンター。
@@ -1744,10 +1483,260 @@
       </div>
     </section>
 
+    <section class="for-whom" id="for-whom">
+      <div class="for-whom-inner">
+        <div class="fw-head">
+          <div class="meta-col reveal"><div class="meta">Chapter 02 — For Whom / こんな場面に</div></div>
+          <div class="title-col">
+            <h2 class="fw-title reveal"><em>njoooy</em> が迎えにゆく、<br/>6つの場面。</h2>
+            <p class="fw-desc body-jp reveal">個人の記念日から法人レセプションまで、場面ごとに何ができるかを案内します。具体的なパッケージ内容・価格は <a href="#services" data-hover style="color: var(--wine); border-bottom: 1px solid var(--wine);">Chapter 01 Services</a> に集約しています。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+          </div>
+        </div>
+
+        <!-- v7.6: case-grid (2-column) replaces stacked case-list
+             Each card has an SVG visual slot (aspect-ratio 4/3) + text body.
+             SVGs are placeholders; user will provide final artwork per case.
+             To swap a placeholder: replace the <svg> inside <div class="case-card-visual">.
+             The subtle [TBD: SVG] marker helps identify non-finalized slots. -->
+        <div class="case-grid reveal">
+
+          <article class="case-card" data-hover data-preview="v1" data-preview-label="Private dinner · Anniversary" data-preview-num="01">
+            <div class="case-card-visual">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="cg1" cx="50%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="rgba(224,176,128,0.25)"/>
+                    <stop offset="70%" stop-color="rgba(107,32,36,0.6)"/>
+                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
+                  </radialGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#cg1)"/>
+                <ellipse cx="200" cy="140" rx="54" ry="6" fill="none" stroke="rgba(245,240,230,0.28)" stroke-width="0.8"/>
+                <path d="M 150 140 Q 150 190 200 198 Q 250 190 250 140 Z" fill="rgba(138,59,63,0.7)" stroke="rgba(245,240,230,0.25)" stroke-width="0.8"/>
+                <line x1="200" y1="198" x2="200" y2="240" stroke="rgba(245,240,230,0.25)" stroke-width="1"/>
+                <ellipse cx="200" cy="244" rx="24" ry="3" fill="none" stroke="rgba(245,240,230,0.25)" stroke-width="0.8"/>
+              </svg>
+              <span class="case-card-num">01</span>
+              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+            </div>
+            <div class="case-card-body">
+              <div class="case-card-en meta">Anniversary &amp; Birthday Dinner</div>
+              <h3 class="case-card-jp">記念日・<br/>誕生日ディナー</h3>
+              <p class="case-card-desc">自宅に少人数(4-12名)、2-3時間のコース。その夜のテーマや思い出を伺って、オリジナルの3-5杯を設計します。ノンアル希望にも完全対応。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+              <div class="case-card-tags">
+                <span class="case-tag">njoooy Bar Private</span>
+                <span class="case-tag">ノンアル対応</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card" data-hover data-preview="v2" data-preview-label="Corporate reception" data-preview-num="02">
+            <div class="case-card-visual">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cg2" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(8,5,3,1)"/>
+                    <stop offset="100%" stop-color="rgba(36,20,18,1)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#cg2)"/>
+                <g stroke="rgba(245,240,230,0.12)" stroke-width="0.8" fill="none">
+                  <rect x="110" y="80" width="50" height="180"/>
+                  <rect x="175" y="100" width="50" height="160"/>
+                  <rect x="240" y="60" width="50" height="200"/>
+                </g>
+                <g fill="rgba(224,176,128,0.25)">
+                  <rect x="118" y="95" width="8" height="8"/><rect x="134" y="95" width="8" height="8"/>
+                  <rect x="118" y="115" width="8" height="8"/><rect x="134" y="115" width="8" height="8"/><rect x="150" y="115" width="8" height="8"/>
+                  <rect x="183" y="115" width="8" height="8"/><rect x="199" y="115" width="8" height="8"/>
+                  <rect x="248" y="80" width="8" height="8"/><rect x="264" y="80" width="8" height="8"/>
+                  <rect x="248" y="100" width="8" height="8"/><rect x="280" y="100" width="8" height="8"/>
+                </g>
+              </svg>
+              <span class="case-card-num">02</span>
+              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+            </div>
+            <div class="case-card-body">
+              <div class="case-card-en meta">Corporate Reception &amp; Anniversary</div>
+              <h3 class="case-card-jp">法人レセプション・<br/>周年イベント</h3>
+              <p class="case-card-desc">オフィスやイベント会場にバーカウンターを持ち込み、3-4時間で40名程度まで対応。企業メッセージをドリンクに落とし込む提案込み。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+              <div class="case-card-tags">
+                <span class="case-tag">njoooy Bar Corporate</span>
+                <span class="case-tag">英語対応可</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card" data-hover data-preview="v3" data-preview-label="Brand activation · Media" data-preview-num="03">
+            <div class="case-card-visual">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="cg3" cx="50%" cy="50%" r="55%">
+                    <stop offset="0%" stop-color="rgba(224,176,128,0.35)"/>
+                    <stop offset="60%" stop-color="rgba(74,20,24,0.6)"/>
+                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
+                  </radialGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#cg3)"/>
+                <circle cx="200" cy="150" r="80" fill="none" stroke="rgba(245,240,230,0.18)" stroke-width="0.8"/>
+                <circle cx="200" cy="150" r="50" fill="none" stroke="rgba(245,240,230,0.22)" stroke-width="0.8"/>
+                <circle cx="200" cy="150" r="20" fill="rgba(224,176,128,0.4)"/>
+                <line x1="200" y1="40" x2="200" y2="70" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
+                <line x1="200" y1="230" x2="200" y2="260" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
+                <line x1="60" y1="150" x2="90" y2="150" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
+                <line x1="310" y1="150" x2="340" y2="150" stroke="rgba(224,176,128,0.5)" stroke-width="1"/>
+              </svg>
+              <span class="case-card-num">03</span>
+              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+            </div>
+            <div class="case-card-body">
+              <div class="case-card-en meta">Brand Activation &amp; Media</div>
+              <h3 class="case-card-jp">ブランド発表会・<br/>PR・メディア</h3>
+              <p class="case-card-desc">新作発表・撮影現場・PRイベントで、世界観に合わせた限定メニューを設計。香り・色・ネーミングを商品軸に沿って組みます。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+              <div class="case-card-tags">
+                <span class="case-tag">njoooy Bar Premium</span>
+                <span class="case-tag">スタイリング対応</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card" data-hover data-preview="v4" data-preview-label="Wedding after-party" data-preview-num="04">
+            <div class="case-card-visual">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cg4" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(74,20,24,0.8)"/>
+                    <stop offset="50%" stop-color="rgba(36,20,18,1)"/>
+                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#cg4)"/>
+                <circle cx="165" cy="150" r="48" fill="none" stroke="rgba(224,176,128,0.55)" stroke-width="1.2"/>
+                <circle cx="235" cy="150" r="48" fill="none" stroke="rgba(245,240,230,0.4)" stroke-width="1.2"/>
+                <g fill="rgba(224,176,128,0.5)">
+                  <circle cx="100" cy="80" r="1.5"/><circle cx="320" cy="70" r="1"/>
+                  <circle cx="60" cy="200" r="1"/><circle cx="350" cy="220" r="1.5"/>
+                  <circle cx="200" cy="40" r="1"/><circle cx="200" cy="260" r="1"/>
+                </g>
+              </svg>
+              <span class="case-card-num">04</span>
+              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+            </div>
+            <div class="case-card-body">
+              <div class="case-card-en meta">Wedding After-Party</div>
+              <h3 class="case-card-jp">ウェディング二次会・<br/>アフターパーティ</h3>
+              <p class="case-card-desc">新郎新婦の出会いや記念日をベースに、2-3時間で乾杯用シグネチャーとリラックス用の後半メニューを設計。ノンアル比率の相談も可。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+              <div class="case-card-tags">
+                <span class="case-tag">njoooy Bar Private</span>
+                <span class="case-tag">シグネチャー1杯</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card" data-hover data-preview="v5" data-preview-label="Menu refresh" data-preview-num="05">
+            <div class="case-card-visual">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cg5" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(36,20,18,1)"/>
+                    <stop offset="100%" stop-color="rgba(8,5,3,1)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#cg5)"/>
+                <g stroke="rgba(245,240,230,0.28)" stroke-width="0.8" fill="rgba(107,32,36,0.4)">
+                  <path d="M 120 90 L 120 130 Q 120 150 130 160 L 130 230 Q 130 240 140 240 L 150 240 Q 160 240 160 230 L 160 160 Q 170 150 170 130 L 170 90 L 160 85 L 160 90 L 130 90 L 130 85 Z"/>
+                  <path d="M 190 70 L 190 120 Q 190 140 200 150 L 200 230 Q 200 240 210 240 L 220 240 Q 230 240 230 230 L 230 150 Q 240 140 240 120 L 240 70 L 230 65 L 230 70 L 200 70 L 200 65 Z"/>
+                  <path d="M 260 100 L 260 135 Q 260 155 270 165 L 270 230 Q 270 240 280 240 L 290 240 Q 300 240 300 230 L 300 165 Q 310 155 310 135 L 310 100 L 300 95 L 300 100 L 270 100 L 270 95 Z"/>
+                </g>
+                <g stroke="rgba(224,176,128,0.3)" stroke-width="0.5" fill="none">
+                  <line x1="90" y1="255" x2="330" y2="255"/>
+                </g>
+              </svg>
+              <span class="case-card-num">05</span>
+              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+            </div>
+            <div class="case-card-body">
+              <div class="case-card-en meta">Beverage Program Refresh</div>
+              <h3 class="case-card-jp">飲食店のメニュー刷新・<br/>ノンアル強化</h3>
+              <p class="case-card-desc">既存店のドリンクラインナップを、コンセプト・食材・客層に合わせて再設計。試作 → 提案 → ドキュメント化 → スタッフ研修まで伴走。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+              <div class="case-card-tags">
+                <span class="case-tag">njoooy Menu Starter</span>
+                <span class="case-tag">njoooy Menu Standard</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card" data-hover data-preview="v6" data-preview-label="New concept advisory" data-preview-num="06">
+            <div class="case-card-visual">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cg6" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(8,5,3,1)"/>
+                    <stop offset="100%" stop-color="rgba(74,20,24,0.6)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#cg6)"/>
+                <g stroke="rgba(245,240,230,0.2)" stroke-width="0.8" fill="none" stroke-dasharray="2 4">
+                  <rect x="80" y="80" width="240" height="140"/>
+                  <line x1="200" y1="80" x2="200" y2="220"/>
+                  <line x1="80" y1="150" x2="320" y2="150"/>
+                </g>
+                <g fill="rgba(224,176,128,0.4)" stroke="rgba(224,176,128,0.6)" stroke-width="0.5">
+                  <circle cx="130" cy="115" r="3"/>
+                  <circle cx="270" cy="115" r="3"/>
+                  <circle cx="130" cy="185" r="3"/>
+                  <circle cx="270" cy="185" r="3"/>
+                  <circle cx="200" cy="150" r="5"/>
+                </g>
+                <text x="200" y="250" text-anchor="middle" font-family="serif" font-style="italic" font-size="14" fill="rgba(224,176,128,0.5)">concept · blueprint</text>
+              </svg>
+              <span class="case-card-num">06</span>
+              <span class="case-card-svg-tbd">[TBD: SVG 差し替え]</span>
+            </div>
+            <div class="case-card-body">
+              <div class="case-card-en meta">New Concept Advisory</div>
+              <h3 class="case-card-jp">新店・新業態の<br/>コンセプト設計</h3>
+              <p class="case-card-desc">ドリンクプログラム構築、コンセプトの方向性、ノンアル導入戦略。2時間の単発セッションから、月次伴走まで、必要なスコープで。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
+              <div class="case-card-tags">
+                <span class="case-tag">njoooy Counsel</span>
+                <span class="case-tag">月次伴走可</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="first-visit">
+          <div class="fv-compact">
+            <div class="fv-compact-label meta">First Visit — 迷ったら、まず</div>
+            <div class="fv-compact-options">
+              <a href="#services" class="fv-opt" data-hover>
+                <span class="fv-opt-q">初めての方</span>
+                <span class="fv-opt-sep">→</span>
+                <span class="fv-opt-rec"><em>Counsel</em> 2時間</span>
+              </a>
+              <a href="#services" class="fv-opt" data-hover>
+                <span class="fv-opt-q">少人数の集まり</span>
+                <span class="fv-opt-sep">→</span>
+                <span class="fv-opt-rec"><em>Bar Private</em></span>
+              </a>
+              <a href="#services" class="fv-opt" data-hover>
+                <span class="fv-opt-q">店舗のメニュー</span>
+                <span class="fv-opt-sep">→</span>
+                <span class="fv-opt-rec"><em>Menu Starter</em></span>
+              </a>
+            </div>
+            <a href="#contact" class="fv-compact-cta" data-hover>どれか迷ったら、直接ご相談 →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <section class="process" id="process">
       <div class="process-inner">
         <div class="process-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 04 — ご依頼の流れ / Business Flow</div></div>
+          <div class="meta-col reveal"><div class="meta">Chapter 03 — ご依頼の流れ / Business Flow</div></div>
           <div class="title-col">
             <h2 class="process-title reveal">ご相談から、<br/>当日・<em>そしてその先</em>まで。</h2>
             <p class="process-desc body-jp reveal">DM もしくはメールでのお問い合わせから、当日のサービス、請求、アフターフォローまでの標準的な流れです。急ぎの案件や規模感に応じて柔軟に調整します。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></p>
@@ -1788,11 +1777,11 @@
     <section class="method" id="method">
       <div class="method-inner">
         <div class="method-head">
-          <div class="meta-col reveal"><div class="meta">Chapter 05 — 一杯の哲学 / The njoooy Method</div></div>
+          <div class="meta-col reveal"><div class="meta">Chapter 04 — 一杯の哲学 / The njoooy Method</div></div>
           <div class="title-col">
             <div class="method-kicker reveal">The njoooy Method<sup style="font-size: 0.5em; vertical-align: super;">※</sup></div>
             <h2 class="method-title reveal">一杯を、<br/><em>こうして組みます</em>。</h2>
-            <p class="method-desc body-jp reveal">業務の流れ(Chapter 04)とは別に、ここでは「一杯そのものをどう設計するか」という、作り手側の考え方を3つに分けて言葉にしています。お客様に取っていただく手順ではなく、見えない裏側で働く姿勢の共有です。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
+            <p class="method-desc body-jp reveal">業務の流れ(Chapter 03)とは別に、ここでは「一杯そのものをどう設計するか」という、作り手側の考え方を3つに分けて言葉にしています。お客様に取っていただく手順ではなく、見えない裏側で働く姿勢の共有です。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 要推敲]</span></p>
           </div>
         </div>
 
@@ -1865,6 +1854,62 @@
         </div>
       </div>
     </div>
+
+    <section class="about-section" id="about">
+      <div class="about-inner">
+        <div class="about-head-centered">
+          <div class="about-label meta">Chapter 05 — About the Founder</div>
+          <h2 class="about-headline reveal">はじめまして、<br/><em>njoooy</em> です。</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-image reveal">
+            <div class="noise-overlay"></div>
+            <div class="about-image-num">MMXXVI</div>
+            <div class="about-image-label">Portrait · 2026 · [TBD: 差し替え]</div>
+            <svg viewBox="0 0 400 550" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;">
+              <ellipse cx="200" cy="200" rx="75" ry="90" fill="none" stroke="rgba(245,240,230,0.15)" stroke-width="1"/>
+              <path d="M 125 350 Q 200 310 275 350 L 275 500 L 125 500 Z" fill="none" stroke="rgba(245,240,230,0.12)" stroke-width="1"/>
+              <circle cx="200" cy="200" r="3" fill="rgba(194,139,91,0.8)"/>
+            </svg>
+          </div>
+
+          <div class="about-text">
+            <div class="about-body body-jp reveal">
+              <p>京都で<span style="color: var(--muted-2); font-size: 12px;">[TBD: 年数]</span>、ホテルのバーでカウンターに立ってきました。2026年の4月、東京に来ます。21歳です。</p>
+              <p>カクテルを作るのが好きで、それと同じくらい、お客さんが「今日は軽めで」と言う瞬間のことが気になっています。僕自身、お酒に強いタイプではありません。好みの偏りもあります。</p>
+            </div>
+            <p class="about-pull reveal">飲む日も、飲まない日も、<br/>同じ温度で一杯を渡せる場所を。</p>
+            <div class="about-body body-jp reveal">
+              <p>出張バー、メニュー開発、店舗アドバイザリー。東京を拠点に、イベント・飲食店・クリエイティブの現場にうかがいます。英語でも対応します。</p>
+              <p style="color: var(--muted);">このページは、僕がこれから積み上げていく仕事の記録の入り口です。<span style="font-size: 11px;">[TBD: 要推敲]</span></p>
+            </div>
+
+            <div class="about-timeline reveal">
+              <div class="about-timeline-label meta">Journey / 歩み</div>
+              <div class="about-timeline-list">
+                <div class="about-timeline-item">
+                  <div class="about-timeline-year">2024</div>
+                  <div class="about-timeline-text">京都・[TBD: 店舗名]でカウンターに立ち始める。<span style="color: var(--muted-2); font-size: 11px;">[TBD: 正確な時期・内容]</span></div>
+                </div>
+                <div class="about-timeline-item">
+                  <div class="about-timeline-year">2025</div>
+                  <div class="about-timeline-text">[TBD: この1年で学んだこと・印象的なエピソード 1行]</div>
+                </div>
+                <div class="about-timeline-item current">
+                  <div class="about-timeline-year">2026.04 — いま</div>
+                  <div class="about-timeline-text">東京に着地。njoooy として活動開始。出張バー・メニュー開発・店舗相談の3本立て。<span style="color: var(--muted-2); font-size: 11px;">[TBD]</span></div>
+                </div>
+                <div class="about-timeline-item future">
+                  <div class="about-timeline-year">2026+ →</div>
+                  <div class="about-timeline-text">ここに、最初の案件から順に記録が溜まっていきます。</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ==========================================================================
          §Kyoto Era (Chapter 06 when enabled) — HIDDEN in v7.5.
@@ -1948,29 +1993,35 @@
           <p class="contact-body reveal">出張バー・メニュー開発・店舗相談のご依頼や、お見積もりのご相談をお気軽にどうぞ。24時間以内にご返信します。<span style="opacity: 0.6; font-size: 12px;">[TBD]</span></p>
         </div>
         <div class="contact-cards">
-          <a href="https://instagram.com/njoooy" class="contact-card" data-hover target="_blank" rel="noopener noreferrer" aria-label="Instagram @njoooy(新しいタブで開きます)">
+          <a href="#contact" class="contact-card" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram(準備中)">
             <div>
               <div class="contact-card-label">Primary — Instagram DM</div>
               <div class="contact-card-value">@njoooy</div>
-              <div class="contact-card-note">[TBD: 実アカウント未作成]</div>
+              <div class="contact-card-note">[TBD: アカウント準備中、href は公開時に差戻し]</div>
             </div>
             <div class="contact-card-arrow">→</div>
           </a>
           <a href="mailto:hello@njoooy.com" class="contact-card" data-hover>
             <div>
               <div class="contact-card-label">Email</div>
-              <div class="contact-card-value"><span class="__cf_email__" data-cfemail="28404d44444768464247474751064b4745">[email&#160;protected]</span></div>
-              <div class="contact-card-note">[TBD: メールアドレス確定待ち]</div>
+              <div class="contact-card-value">hello@njoooy.com</div>
+              <div class="contact-card-note">24時間以内に返信します</div>
             </div>
             <div class="contact-card-arrow">→</div>
           </a>
         </div>
         <div class="contact-form-wrap">
           <div class="contact-form-label meta">Or — Send a message directly</div>
-          <!-- v7.5: placeholder form markup. Wire up to Formspree by changing
-               `action="[TBD: Formspree endpoint e.g. https://formspree.io/f/xxxxxxx]"`
-               and uncommenting the `method="POST"` attribute below. -->
-          <form class="contact-form" action="[TBD: Formspree endpoint]" method="POST" onsubmit="event.preventDefault(); alert('Form wiring is pending. Please DM / Email for now.'); return false;">
+          <!-- v7.10: Web3Forms 接続。access_key は公開 HTML 埋込で仕様通り。
+               追加の防衛線として Web3Forms ダッシュボードで以下を設定:
+               - Allowed domains: njoooy.com のみ
+               - Honeypot (botcheck hidden input、下記 line 参照)
+               送信は fetch() ベース、成功時は contact-form-status にインライン表示。 -->
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
+            <input type="hidden" name="from_name" value="njoooy.com contact form">
+            <input type="hidden" name="subject" value="[njoooy] お問い合わせ">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="contact-form-grid">
               <div class="contact-form-field">
                 <label for="cf-name" class="contact-form-lbl">お名前 / Name <span class="req">*</span></label>
@@ -1996,8 +2047,9 @@
             </div>
             <div class="contact-form-actions">
               <button type="submit" class="contact-form-submit" data-hover>送信する / Send →</button>
-              <span class="contact-form-note-inline">24h 以内に返信します。<span style="opacity: 0.6; font-size: 11px;">[TBD: Formspree 接続予定]</span></span>
+              <span class="contact-form-note-inline">24時間以内に返信します。</span>
             </div>
+            <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
       </div>
@@ -2015,11 +2067,11 @@
         <div class="footer-col footer-col-ch">
           <div class="label meta">Channels</div>
           <ul>
-            <li><a href="https://instagram.com/njoooy" data-hover target="_blank" rel="noopener noreferrer" aria-label="Instagram @njoooy(新しいタブで開きます)">Instagram ↗</a></li>
+            <li><a href="#contact" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram(準備中)">Instagram <span style="opacity: 0.5; font-size: 10px;">[TBD]</span></a></li>
             <li><a href="https://note.com/njoooy" data-hover target="_blank" rel="noopener noreferrer" aria-label="note @njoooy(新しいタブで開きます)">note ↗</a></li>
-            <li><a href="#about" data-hover>About</a></li>
             <li><a href="#services" data-hover>Services</a></li>
             <li><a href="#method" data-hover>Method</a></li>
+            <li><a href="#about" data-hover>About</a></li>
             <li><a href="#faq" data-hover>FAQ</a></li>
             <li><a href="#contact" data-hover>Contact</a></li>
           </ul>
@@ -2154,6 +2206,52 @@
       } else {
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
       }
+
+      // v7.10: Contact form (Web3Forms) — fetch-based submit + inline success/error
+      const cf = document.getElementById('contact-form');
+      const cfStatus = document.getElementById('contact-form-status');
+      if (cf && cfStatus) {
+        cf.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const submitBtn = cf.querySelector('.contact-form-submit');
+          const originalLabel = submitBtn ? submitBtn.textContent : '';
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中 / Sending...'; }
+          cfStatus.className = 'contact-form-status';
+          cfStatus.textContent = '';
+
+          const formData = new FormData(cf);
+          const payload = Object.fromEntries(formData.entries());
+
+          try {
+            const res = await fetch(cf.action, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const result = await res.json().catch(() => ({}));
+            if (res.ok && result.success) {
+              cfStatus.textContent = '✓ 送信完了しました。24時間以内にご返信いたします。 / Sent. We\'ll get back to you within 24 hours.';
+              cfStatus.classList.add('is-success');
+              cf.reset();
+            } else {
+              cfStatus.textContent = '⚠ 送信に失敗しました。お手数ですが Email( hello@njoooy.com )へ直接ご連絡ください。 / Sending failed. Please email us directly.';
+              cfStatus.classList.add('is-error');
+            }
+          } catch (err) {
+            cfStatus.textContent = '⚠ ネットワークエラーです。Email( hello@njoooy.com )へ直接ご連絡ください。 / Network error. Please email us directly.';
+            cfStatus.classList.add('is-error');
+          } finally {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+          }
+        });
+      }
+
+      // v7.10: inactive link guard (Instagram 準備中 など) — click は #contact にジャンプで無害化、新規タブは開かない
+      document.querySelectorAll('[data-inactive="true"]').forEach(el => {
+        el.addEventListener('click', function (ev) {
+          // href="#contact" なのでデフォルト挙動で contact section にスクロール、新規タブは不開
+        });
+      });
     })();
   </script>
 </body>

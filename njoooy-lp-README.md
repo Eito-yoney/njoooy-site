@@ -1,10 +1,163 @@
-# njoooy LP — v7.8
+# njoooy LP — v7.10
 
-Next.js 15 + React 19 + Tailwind CSS v4 で構築された njoooy(旧 joi)の LP(プレビューはスタンドアロン HTML で iterate。**v7.8 から開発用ファイル名を `index.html` に統一**、Vercel 直接デプロイ用)。
+Next.js 15 + React 19 + Tailwind CSS v4 で構築された njoooy(旧 joi)の LP(プレビューはスタンドアロン HTML で iterate。**v7.8 以降 開発用ファイル名は `index.html` に統一**、Vercel 直接デプロイ用)。
 
 ## Changelog
 
 比較リファレンス駆動で精緻化。各バージョンで採用/却下を記録。
+
+### v7.10 (2026-04-23) — Block 3 技術穴埋め(CVR ブロッカー全除去)
+
+**背景**: v7.9 で構造を「相談直結型」に転換済、Block 3 の技術欠陥(Formspree 未接続、Cloudflare Email Obfuscation 汚染、Instagram 他人アカウントへの誤誘導)が残る状態では流入が来ても変換不可能。これら致命欠陥を順1 の順序で一括解消。ユーザー側で Cloudflare Email Routing / Web3Forms アカウント / note `@njoooy` の取得を完了させたことで Block 3 を実行可能になった。
+
+**変更内容**:
+
+1. **Cloudflare Email Obfuscation 残留除去**(§7-02 Email カード、line 1962)
+   - 旧: `<span class="__cf_email__" data-cfemail="28404d44...">[email protected]</span>`(Cloudflare Proxy 経由時代の Email Obfuscation スクリプトが本番 HTML に書き戻されていた残留汚染。handover §4.4.2 の経験由来)
+   - 新: `hello@njoooy.com`(生テキスト)
+   - note 欄の `[TBD: メールアドレス確定待ち]` も除去、Cloudflare Email Routing 設定完了(ユーザー確認済)を反映し `24時間以内に返信します` に差替
+
+2. **Instagram href 無効化**(§7-01 カード + Footer Channels、計 2 箇所)
+   - 背景: ユーザー確認により `@njoooy` は他人が既取得、弟さんと合流してアカウント作成するため実在化は保留
+   - 変更: `href="https://instagram.com/njoooy"`(誤誘導先)→ `href="#contact"`(placeholder、視覚的に同じ位置にとどまる)
+   - `aria-disabled="true"` + `data-inactive="true"` 追加、aria-label を「Instagram(準備中)」に、`target="_blank"` / `rel="noopener noreferrer"` を削除(新規タブで他人 account に飛ぶ事故防止)
+   - `[TBD: アカウント準備中、href は公開時に差戻し]` に note 差替(Instagram 作成時の作業指示を明記)
+   - Footer Channels 側も同様、Instagram 表記を `Instagram <span>[TBD]</span>` に
+
+3. **Web3Forms 接続**(§7-form、access_key = 6bd01f4d-9bb4-4a01-985a-33ae07f6b18c)
+   - `action="[TBD: Formspree endpoint]"` + `onsubmit="event.preventDefault(); alert(...); return false;"` → `action="https://api.web3forms.com/submit"`(onsubmit 削除)
+   - hidden input 追加:`access_key`(Web3Forms 認証)/ `from_name`(送信メール From 名)/ `subject`(件名テンプレ)/ `botcheck`(honeypot、`display:none` で人間には不可視、bot は埋めてしまうのでフィルタ可能)
+   - form に `id="contact-form"` 付与、JS で fetch ベースの async submit ハンドラを追加
+   - 新規要素: `<div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite">` をフォーム末尾に追加(成功/失敗メッセージのインライン表示領域)
+   - 送信時の UX: ボタン disabled + "送信中 / Sending..." → 成功時 `✓ 送信完了しました。24時間以内にご返信いたします。` / 失敗時 `⚠ 送信に失敗しました。Email( hello@njoooy.com )へ直接ご連絡ください。` / ネットワークエラー時は同様に Email への fallback を案内
+   - form.reset() で成功時にフィールドクリア
+
+4. **CSS 追加**(contact-form-wrap ブロック末尾)
+   - `.contact-form-submit:disabled`:送信中のボタン disabled 状態(muted bg + cursor not-allowed)
+   - `.contact-form-status`:空状態は `opacity: 0 / max-height: 0` で完全に collapse、`:not(:empty)` でフェードイン展開
+   - `.contact-form-status.is-success`:gold-bright border-left + paper text(controlled celebration)
+   - `.contact-form-status.is-error`:wine-bright border-left(alert 色として既存 token 流用)
+   - `[data-inactive="true"]`:opacity 0.7 + cursor default(Instagram 無効化リンクの視覚的ダウントーン)
+
+5. **JS 追加**(IIFE 内、IntersectionObserver 後)
+   - Contact form fetch ハンドラ(約 45 行):Web3Forms への JSON POST、成功/失敗の状態クラス付与、ボタン loading / reset
+   - inactive link guard:`data-inactive="true"` 要素のクリック挙動ログ(href="#contact" で contact セクションへスクロール、外部遷移なし)
+
+6. **favicon 3種の実ファイル生成**(R-7 遵守、タイポグラフィ配置のみ)
+   - `/favicon.svg`:Fraunces italic "n" を glyph path として抽出(fontTools で OTF/TTF から SVG path 化)、viewBox 512×512、wine の n + gold breathing dot、paper 背景、1.5KB、フォント依存なしで全ブラウザで同一レンダ
+   - `/favicon-32x32.png`:Pillow で supersample 4x レンダ後 LANCZOS 縮小、1.1KB、同意匠
+   - `/apple-touch-icon.png`:180×180、同意匠、7.0KB
+   - 意匠:LP の既存タイポ資産(Fraunces italic、LP Opening headline と同系統)+ LP の既存 design token(paper/wine/gold)のみで構成、新規ロゴマークや新規文字要素は導入していない
+
+7. **OG image 生成**(`/og-image.png`、1200×630、35.6KB)
+   - R-7 最重要:**新規コピー・新規キャッチコピー・新規訴求文は一切含まれていない**
+   - 含む要素:
+     - 大型ワードマーク `njoooy`(Fraunces italic bold 240px、ink 色、左上安全ゾーン内)
+     - Gold breathing dot(ワードマーク直後、半径 12px)
+     - `Tokyo · Est. MMXXVI`(Fraunces regular bold 38px、muted — LP §0 Opening のメタ表記と同一)
+     - 区切り線(rule 色、下部 padding 直上)
+     - `VOL. 001  ·  DOCUMENTATION`(JetBrains Mono Medium 20px、muted — LP Footer F-6 と同一)
+     - `njoooy.com`(JetBrains Mono Medium 20px、wine)
+     - 右上メタ `— njoooy — TOKYO, JP`(18px、muted — LP §0-head の「njoooy — Tokyo, JP」と同一)
+   - 背景:paper から paper-2 への極薄 vertical gradient(視覚深度のため)
+   - 全文字要素は LP 既存の固定表現のみ、[TBD] コピーは一切含まない
+
+**保持したもの**: v7.9 の章順(Services=01 / For Whom=02 / Flow=03 / Method=04 / About=05 / FAQ=06 / Contact=07)、v7.9 の Nav / Footer Channels 順序、Head/meta scaffold([TBD] コピーは R-1 で維持)、Schema.org JSON-LD、Legal 2 ページ、robots.txt / sitemap.xml、全ての構造・Marquee・Preloader・Cursor・Scroll Index
+
+**手を付けなかった項目**(意図的):
+- title / description / OG title / OG description / Twitter title 等の [TBD] コピー → R-1 遵守、ユーザー確定待ち(OG image ファイルは実装済だが、title/description は [TBD])
+- Schema.org の description / image / sameAs → Instagram 実在化後に sameAs 追加、image は og-image.png を参照する形で [TBD] 維持
+- Footer 利用規約 HTML 化 → スコープ外、R-6 遵守
+- Next.js 15 化 → Block 4 / 別セッション
+- Web3Forms ダッシュボードでの Allowed domains / Honeypot 設定 → ユーザー側作業(5分)
+
+**数値まとめ**:
+- v7.9 2160行 → v7.10 2258行(+98行。CSS 約 +45 行、JS 約 +50 行、その他差分)
+- 新規アセット 4:`favicon.svg`(1.5KB)、`favicon-32x32.png`(1.1KB)、`apple-touch-icon.png`(7.0KB)、`og-image.png`(35.6KB)
+- 合計アセット追加 44.7KB、LP 初回ロードには影響なし(favicon は non-blocking、OG image は SNS シェア時のみ取得)
+
+**検証項目**(デプロイ前チェック、ユーザー側):
+- Web3Forms ダッシュボード:Allowed domains = `njoooy.com` のみ、Honeypot ON の確認(5分)
+- `/favicon.svg` を直接 curl でアクセス → 正しく SVG が返る
+- `og-image.png` を `https://www.opengraph.xyz/` 等で検証 → 画像が正しく表示、サイズ警告なし
+- Instagram href が `#contact` で、ブラウザで他人の Instagram アカウントに飛ばないこと
+- Email カードで「hello@njoooy.com」が obfuscate されず素のメアドとして表示されること(mailto: リンクも生きている)
+
+**次セッションへの引き継ぎ(Block 4 / 別セッション)**:
+- L-A Next.js 15 App Router 移植(`app/page.tsx` + `app/legal/*` + `components/` 分割 + Tailwind v4 化)
+- Instagram `@njoooy.tokyo`(または代替)取得後:href 2 箇所を復元、Schema.org sameAs に追加、`[TBD]` note 削除
+- [TBD] コピーの段階的確定:title / description / OG title / OG description / About 京都年数 / §1-WHY 文言 / §4 step 名 / Sample Menu 3種 等(ユーザー確定 → Claude 反映)
+- Google Analytics or Plausible 導入 → プラポリ §8 の [TBD] 埋め、流入計測開始
+- CVR 検証:v7.10 公開後、問合せ件数・フォーム送信数を 2週間トラック、v7.9 の Services-first 仮説の検証
+
+### v7.9 (2026-04-23) — 相談直結型への章順再設計(Block 2、CVR 改善)
+
+**背景**: ユーザー診断「LP 完成度 10% / CVR 0%、流入ゼロ」から、(b) 流入→変換の穴 + (e) メッセージ設計・訴求順序・価格構造 の改善を最大レバレッジと判断。Claude の 5-step 診断で現 LP は「ポートフォリオ / ブランドブック型」と判定、訪問者欲求(A 個人:価格を即判断したい / B 法人:規模と稟議資料が欲しい)にフィットしないと結論。方針決定:
+
+- **桁2 中侵襲**: §Services を §Opening 直後に繰り上げ、§About を §Method 後に降格
+- **セグメント C バランス型**(A/B 両睨み継続):Services 内で既に両価格帯を網羅しているため追加工事不要
+- **順1**: Block 2(構造変更)先 → Block 3(技術穴埋め、次ターン)後。§7 Contact の構造変更リスクを回避
+
+**変更内容**:
+
+1. **章順の全面再編**(並び替えのみ、コピー・CSS・Marquee 文言は不変)
+   - 旧: Opening → About(01) → For Whom(02) → Services(03) → Flow(04) → Method(05) → FAQ(06) → Contact(07)
+   - 新: Opening → **Services(01)** → For Whom(02) → Flow(03) → Method(04) → **About(05)** → FAQ(06) → Contact(07)
+   - 意図: WHAT(何を・いくらから)を最速で提示、WHO(人物背景)は判断材料として後段配置
+   - §Past(Kyoto Era、コメントアウト継続)は §About の直後という相対位置を保持(再有効化時の Chapter 06 位置も整合)
+
+2. **Chapter 番号の振り直し**(セクション内 meta label)
+   - Services: 03 → 01 / Flow: 04 → 03 / Method: 05 → 04 / About: 01 → 05
+   - For Whom (02)、FAQ (06)、Contact (07) は番号据え置き
+
+3. **セクション内クロスリファレンスの更新**
+   - §For Whom desc 内リンク「Chapter 03 Services」→「Chapter 01 Services」
+   - §Method desc 内参照「業務の流れ(Chapter 04)」→「業務の流れ(Chapter 03)」
+
+4. **Nav メニューの順序更新**(6 リンク)
+   - 旧: About / For Whom / Services / Method / FAQ / Contact
+   - 新: Services / For Whom / Method / About / FAQ / Contact
+
+5. **Footer Channels の順序更新**(5 リンク、For Whom 元々なし)
+   - 旧: About / Services / Method / FAQ / Contact
+   - 新: Services / Method / About / FAQ / Contact
+
+6. **Scroll Index フォールバック値**: 09 → 08(JS で動的上書きされるため視覚的影響なし、no-JS 時の整合目的のみ)
+
+7. **structure-map の §-アドレス体系 remap**(v7.9 以降)
+   - §N を Chapter N と一致させるように remap
+   - 旧 §1(About)→ 新 §5 / 旧 §3(Services)→ 新 §1 / 旧 §4(Flow)→ 新 §3 / 旧 §5(Method)→ 新 §4
+   - 過去 changelog(v7.8 以前)に出てくる §-番号は旧体系であることに注意
+
+**保持したもの**: 全てのコピー([TBD] 71 箇所を含む)、CSS、JS、Preloader / Cursor / Scroll Index 等のグローバル UI、Marquee 2 本の文言と配置、§Past Kyoto Era の HTML コメントアウト状態、Head/meta scaffold、Schema.org JSON-LD、Legal 2 ページ、robots.txt / sitemap.xml
+
+**手を付けなかった項目**(意図的):
+- §7 Contact の Cloudflare Email Obfuscation 汚染(line 1962 → reorder 後も保持、Block 3 で対処予定)
+- Formspree endpoint 差替 → Block 3 で対処
+- Instagram `@njoooy` 実在化反映 → Block 3 で対処
+- favicon 3種 / OG image 作成 → Block 3 で対処
+- title / description の [TBD] コピー → R-1 遵守、ユーザー確定待ち
+- Next.js 15 化 → Block 4 / 別セッション(診断結果の上書きリスク回避)
+
+**数値まとめ**:
+- v7.8 2160行 → v7.9 2160行(並び替えのみ、行数変化なし)
+- 編集は Python スクリプト経由(`reorder.py`、slice-and-reassemble 方式)。タグ境界の事前検証 + section open/close 数が原本と一致することを確認済(HTML balance 確認:section 9+1 selector / div 386+1 selector、元ファイルと同値)
+
+**構造的 CVR 仮説**(検証は Block 3 完了後 Analytics 導入時):
+- 現状(v7.8)は A 個人層に「価格が 3スクロール奥」「信頼材料が [TBD] で欠損」「問合せ動線死」の 3 重欠陥 → CVR 0% の主因は Block 3 の技術穴埋めで大部分が解消
+- v7.9 の再編で Services-first にすることで、流入(= 人脈経由の A/B 両セグメント)の「何を売ってる・いくらから」の初見判断を 1 スクロール以内に完了可能化
+- About を後段化することで、判断フロー「何を → 誰の case か → どう依頼 → どう作る → 誰が → 疑問 → 問合せ」の相談直結型に転換
+
+**次セッションへの引き継ぎ(Block 3 / Block 4)**:
+- Block 3(技術穴埋め、次ターン):
+  - P-D Formspree 接続(endpoint 差替、onsubmit alert 削除)
+  - P-E Instagram `@njoooy` 実在化反映(§7-01 の `[TBD: 実アカウント未作成]` 削除、Footer Channels アクセシビリティ継続)
+  - Cloudflare Email Obfuscation 残留除去(§7-02 line 1962、`__cf_email__` → `hello@njoooy.com` 生テキスト)
+  - P-A favicon 3種(SVG / 32x32 PNG / 180x180 PNG、R-7 遵守でタイポ配置のみ)
+  - P-B OG image(1200×630、R-7 遵守でコピーは [TBD] 維持)
+- Block 4 / 別セッション:
+  - L-A Next.js 15 App Router 移植(`app/page.tsx` + `app/legal/*` + `components/` 分割 + Tailwind v4 化)
+- structure-map の §-アドレス体系は v7.9 から remap 済、以降の指示は新体系で。
 
 ### v7.8 (2026-04-22) — 公開ビルド(Vercel 直接デプロイ用)
 
