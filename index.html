@@ -31,10 +31,8 @@
   <meta name="twitter:image" content="https://njoooy.com/og-image.png" /> <!-- : OG と共通 or 別素材] -->
   <!-- : twitter:site / twitter:creator を Twitter アカウント取得後に追加] -->
 
-  <!-- [v7.7 Track A] Favicon slot — SVG 優先 / PNG fallback / iOS -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> <!-- : favicon.svg 作成・配置] -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> <!-- : 32x32 PNG 作成] -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> <!-- : 180x180 PNG 作成] -->
+  <!-- [v8.28] Favicon — 32x32 PNG(配置済み)-->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,37 +124,66 @@
     .preloader { position: fixed; inset: 0; z-index: 9000; pointer-events: none; }
     .preloader-half { position: absolute; inset: 0; background: var(--ink); overflow: hidden; }
     .preloader-half-top {
-      clip-path: polygon(
-        0 0, 100% 0, 100% 49%,
-        96% 51%, 91% 49.3%, 86% 51.5%, 80% 49.1%, 74% 51.2%, 68% 49.5%, 62% 51.8%,
-        56% 49.2%, 50% 51.4%, 44% 49%, 38% 51.7%, 32% 49.3%, 26% 51.1%, 20% 49.6%, 14% 51.5%,
-        9% 49.2%, 4% 51%, 0 49.5%
-      );
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
       animation: preloaderTearTop 1.1s cubic-bezier(.5,0,.3,1) 3.4s forwards;
     }
     .preloader-half-bot {
-      clip-path: polygon(
-        0 50.5%, 4% 52%, 9% 50.2%, 14% 52.5%, 20% 50.6%, 26% 52.1%, 32% 50.3%, 38% 52.7%,
-        44% 50%, 50% 52.4%, 56% 50.2%, 62% 52.8%, 68% 50.5%, 74% 52.2%, 80% 50.1%, 86% 52.5%,
-        91% 50.3%, 96% 52%, 100% 50.5%, 100% 100%, 0 100%
-      );
+      clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
       animation: preloaderTearBot 1.1s cubic-bezier(.5,0,.3,1) 3.48s forwards;
     }
     .preloader-inner { position: absolute; inset: 0; display: flex; flex-direction: column; padding: clamp(24px, 4vw, 44px) clamp(24px, 4vw, 44px); color: var(--paper); }
     .preloader-top, .preloader-bot { display: flex; justify-content: space-between; color: var(--paper); }
     .preloader-top .meta, .preloader-bot .meta { opacity: 0.55; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--paper); text-transform: uppercase; }
     .preloader-center { flex: 1; display: flex; align-items: center; justify-content: center; padding: 4vh 0; }
-    .preloader-wordmark { font-family: var(--serif-en); font-size: clamp(120px, 22vw, 340px); line-height: 0.82; font-weight: 300; letter-spacing: -0.05em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; color: var(--paper); display: inline-flex; align-items: baseline; white-space: nowrap; animation: preloaderWordmarkIn 1.2s cubic-bezier(.2,.7,.2,1) 0.15s both; }
+    .preloader-wordmark { font-family: var(--serif-en); font-size: clamp(120px, 22vw, 340px); line-height: 0.82; font-weight: 300; letter-spacing: -0.05em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; color: transparent; display: inline-flex; align-items: baseline; white-space: nowrap; animation: preloaderWordmarkIn 1.2s cubic-bezier(.2,.7,.2,1) 0.15s both; }
+    /* v8.21: 液体充填アニメーション(2 層 wordmark) */
+    .preloader-wordmark .wordmark-stack { position: relative; display: inline-block; line-height: inherit; }
+    .preloader-wordmark .wordmark-outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(245, 240, 230, 0.42);
+      display: inline-block;
+      padding-right: 0.12em;
+    }
+    .preloader-wordmark .wordmark-fill {
+      position: absolute; top: 0; left: 0;
+      color: var(--paper);
+      -webkit-text-stroke: 0;
+      display: inline-block;
+      white-space: nowrap;
+      pointer-events: none;
+      padding-right: 0.12em;
+      clip-path: polygon(0 150%, 100% 150%, 100% 150%, 0 150%);
+      animation: liquidRise 3s cubic-bezier(.5, .2, .3, 1) 0.35s forwards;
+    }
+    @keyframes liquidRise {
+      0% {
+        clip-path: polygon(0 150%, 100% 150%, 100% 150%, 0 150%);
+      }
+      15% {
+        clip-path: polygon(
+          0 90%, 12% 88%, 28% 91%, 48% 88%, 68% 90%, 85% 88%, 100% 89%,
+          100% 150%, 0 150%
+        );
+      }
+      40% {
+        clip-path: polygon(
+          0 55%, 15% 53%, 32% 56%, 55% 53%, 72% 55%, 88% 53%, 100% 54%,
+          100% 150%, 0 150%
+        );
+      }
+      70% {
+        clip-path: polygon(
+          0 20%, 18% 18%, 36% 21%, 58% 18%, 78% 20%, 92% 18%, 100% 19%,
+          100% 150%, 0 150%
+        );
+      }
+      100% {
+        clip-path: polygon(0 -5%, 100% -5%, 100% 150%, 0 150%);
+      }
+    }
     .preloader-wordmark .mark { display: inline-block; width: 0.18em; height: 0.18em; background: var(--gold); border-radius: 50%; margin-left: 0.04em; align-self: flex-end; margin-bottom: 0.12em; animation: breathe 4.2s ease-in-out infinite; }
     .preloader-count { position: absolute; bottom: 32px; left: 32px; color: var(--paper); opacity: 0.55; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; }
     .preloader-label { position: absolute; bottom: 32px; right: 32px; color: var(--paper); opacity: 0.55; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; }
-    /* torn edge — subtle gold highlight on the jagged line */
-    .preloader-half-top::after, .preloader-half-bot::before {
-      content: ""; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(224, 176, 128, 0.5), transparent);
-      pointer-events: none;
-    }
-    .preloader-half-top::after { bottom: 48%; }
-    .preloader-half-bot::before { top: 50%; }
     @keyframes preloaderTearTop { to { transform: translateY(-110%); } }
     @keyframes preloaderTearBot { to { transform: translateY(110%); } }
     @keyframes preloaderWordmarkIn { from { opacity: 0; transform: translateY(14px); letter-spacing: -0.02em; } to { opacity: 1; transform: translateY(0); } }
@@ -546,7 +573,7 @@
     @media (max-width: 640px) { .forwhom-grid { grid-template-columns: 1fr; } }
     .forwhom-card { display: flex; gap: 16px; padding: 24px 22px; background: #FBF7ED; border: 1px solid rgba(27, 18, 14, 0.08); border-radius: 2px; align-items: flex-start; }
     .forwhom-card:hover { }
-    .forwhom-icon { flex-shrink: 0; width: 56px; height: 56px; color: var(--wine); }
+    .forwhom-icon { flex-shrink: 0; width: 96px; height: 96px; color: var(--wine); }
     .forwhom-icon svg, .forwhom-icon img { width: 100%; height: 100%; display: block; object-fit: contain; }
     .forwhom-body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
     .forwhom-jp { font-family: var(--serif-jp); font-weight: 600; font-size: 14px; line-height: 1.45; color: var(--ink); margin: 0; }
@@ -597,7 +624,7 @@
     .folio-slug { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin: 0; }
     .folio-jp { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(20px, 2vw, 26px); line-height: 1.3; letter-spacing: 0.01em; color: var(--ink); }
     .folio-en { font-family: var(--serif-en); font-style: italic; font-size: 14px; color: var(--muted); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; margin: 0; }
-    .folio-icon { width: 72px; height: 72px; color: var(--wine); margin: 0 auto; }
+    .folio-icon { width: 180px; height: 180px; color: var(--wine); margin: 0 auto; }
     .folio-icon svg, .folio-icon img { width: 100%; height: 100%; display: block; object-fit: contain; }
     .folio-num { display: none; }
     .folio-visual { display: none; }
@@ -636,7 +663,7 @@
     .sample-menu-more { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); padding-bottom: 3px; border-bottom: 1px solid var(--ink); align-self: flex-start; transition: color .25s, border-color .25s, gap .25s; margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; }
     .sample-menu-more:hover { color: var(--wine); border-color: var(--wine); gap: 14px; }
     .sample-item { display: flex; flex-direction: column; gap: 10px; }
-    .sample-thumb { aspect-ratio: 4 / 3; background: var(--wine-deep); border-radius: 2px; position: relative; overflow: hidden; }
+    .sample-thumb { width: 70%; aspect-ratio: 4 / 3; background: var(--wine-deep); border-radius: 2px; position: relative; overflow: hidden; }
     .sample-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .sample-thumb.t1 { background: radial-gradient(ellipse at 30% 28%, rgba(224, 176, 128, 0.4), transparent 55%), radial-gradient(ellipse at 72% 82%, rgba(138, 59, 63, 0.55), transparent 60%), linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%); }
     .sample-thumb.t2 { background: radial-gradient(ellipse at 28% 30%, rgba(245, 240, 230, 0.18), transparent 52%), radial-gradient(ellipse at 75% 72%, rgba(107, 122, 74, 0.48), transparent 58%), linear-gradient(135deg, #3B4A2E 0%, #1A2412 100%); }
@@ -1255,6 +1282,322 @@
     .contact-form-status { color: rgba(245, 240, 230, 0.7); }
     .contact-form-status.success { color: var(--gold-bright); }
     .contact-form-status.error { color: #FF9090; }
+    /* v8.26: ラジオボタングループ(contact form 内) */
+    .contact-form .form-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    @media (min-width: 720px) {
+      .contact-form .form-radio-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+    .contact-form .form-radio-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      background: rgba(15, 12, 8, 0.35);
+      border: 1px solid rgba(245, 240, 230, 0.2);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color .25s, background .25s;
+      font-family: var(--serif-jp);
+      font-size: 14px;
+      color: rgba(245, 240, 230, 0.9);
+      letter-spacing: 0;
+      text-transform: none;
+      flex: 1;
+      min-width: 0;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .contact-form .form-radio-item:hover {
+      border-color: rgba(245, 240, 230, 0.4);
+      background: rgba(15, 12, 8, 0.5);
+    }
+    .contact-form .form-radio-item:has(input:checked) {
+      border-color: var(--gold-bright);
+      background: rgba(224, 176, 128, 0.1);
+    }
+    .contact-form .form-radio-item input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid rgba(245, 240, 230, 0.4);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: border-color .25s, background .25s;
+    }
+    .contact-form .form-radio-item input[type="radio"]:checked {
+      border-color: var(--gold-bright);
+    }
+    .contact-form .form-radio-item input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-bright);
+    }
+    .contact-form .form-radio-item span {
+      flex: 1;
+      line-height: 1.4;
+    }
+    /* v8.26: 面談希望日時 3 候補 */
+    .contact-form .form-date-candidates {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-form .form-date-hint {
+      font-family: var(--sans-jp);
+      font-size: 11px;
+      line-height: 1.7;
+      color: rgba(245, 240, 230, 0.55);
+      margin-top: 6px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    /* v8.27: Meeting Picker — 自前カレンダー UI */
+    .contact-form .meeting-picker {
+      background: rgba(15, 12, 8, 0.28);
+      border: 1px solid rgba(245, 240, 230, 0.16);
+      border-radius: 2px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 2px;
+    }
+    /* Calendar header */
+    .contact-form .meeting-picker-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .contact-form .meeting-picker-nav {
+      width: 34px;
+      height: 34px;
+      background: transparent;
+      border: 1px solid rgba(245, 240, 230, 0.3);
+      border-radius: 2px;
+      color: rgba(245, 240, 230, 0.9);
+      font-family: var(--serif-en);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      transition: border-color .2s, background .2s, color .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-form .meeting-picker-nav:hover:not(:disabled) {
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+      background: rgba(224, 176, 128, 0.08);
+    }
+    .contact-form .meeting-picker-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .contact-form .meeting-picker-month {
+      font-family: var(--serif-jp);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--paper);
+      letter-spacing: 0.02em;
+      flex: 1;
+      text-align: center;
+    }
+    /* Weekday labels */
+    .contact-form .meeting-picker-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .contact-form .meeting-picker-weekdays span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(245, 240, 230, 0.5);
+      text-align: center;
+      padding: 4px 0;
+    }
+    /* Day grid */
+    .contact-form .meeting-picker-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .contact-form .mtg-day {
+      aspect-ratio: 1 / 1;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      color: var(--paper);
+      font-family: var(--serif-en);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 0;
+      transition: border-color .2s, background .2s, color .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .contact-form .mtg-day:hover:not(:disabled):not(.mtg-day-empty) {
+      border-color: rgba(245, 240, 230, 0.4);
+      background: rgba(245, 240, 230, 0.06);
+    }
+    .contact-form .mtg-day-empty {
+      cursor: default;
+      border: none;
+    }
+    .contact-form .mtg-day-past {
+      color: rgba(245, 240, 230, 0.2);
+      cursor: not-allowed;
+    }
+    .contact-form .mtg-day-today {
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+    .contact-form .mtg-day-selected,
+    .contact-form .mtg-day-selected:hover {
+      background: var(--gold-bright);
+      color: var(--ink);
+      border-color: var(--gold-bright);
+      font-weight: 600;
+    }
+    /* Time grid */
+    .contact-form .meeting-picker-times {
+      padding-top: 14px;
+      border-top: 1px solid rgba(245, 240, 230, 0.1);
+    }
+    .contact-form .meeting-picker-times-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 230, 0.6);
+      margin-bottom: 12px;
+    }
+    .contact-form .meeting-picker-times-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+      gap: 6px;
+    }
+    .contact-form .meeting-picker-times-grid:empty {
+      display: none;
+    }
+    .contact-form .mtg-time {
+      padding: 10px 8px;
+      background: rgba(15, 12, 8, 0.35);
+      border: 1px solid rgba(245, 240, 230, 0.2);
+      border-radius: 2px;
+      color: rgba(245, 240, 230, 0.9);
+      font-family: var(--serif-en);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, color .2s, transform .2s;
+    }
+    .contact-form .mtg-time:hover:not(.mtg-time-picked) {
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+    }
+    .contact-form .mtg-time-picked {
+      background: rgba(224, 176, 128, 0.2);
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+    .contact-form .mtg-time-denied {
+      animation: mtgDenyShake .35s;
+    }
+    @keyframes mtgDenyShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+    /* Picked list */
+    .contact-form .meeting-picker-picked {
+      padding-top: 14px;
+      border-top: 1px solid rgba(245, 240, 230, 0.1);
+    }
+    .contact-form .meeting-picker-picked-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 230, 0.6);
+      margin-bottom: 10px;
+    }
+    .contact-form .meeting-picker-picked-empty {
+      font-family: var(--serif-jp);
+      font-size: 13px;
+      color: rgba(245, 240, 230, 0.4);
+      padding: 6px 0;
+    }
+    .contact-form .meeting-picker-picked-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-form .meeting-picker-picked-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(224, 176, 128, 0.08);
+      border: 1px solid rgba(224, 176, 128, 0.3);
+      border-radius: 2px;
+    }
+    .contact-form .mtg-picked-no {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      flex-shrink: 0;
+      min-width: 54px;
+    }
+    .contact-form .mtg-picked-date {
+      font-family: var(--serif-jp);
+      font-size: 14px;
+      color: var(--paper);
+      flex: 1;
+      line-height: 1.4;
+    }
+    .contact-form .mtg-picked-remove {
+      background: transparent;
+      border: none;
+      color: rgba(245, 240, 230, 0.5);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color .2s;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .contact-form .mtg-picked-remove:hover {
+      color: var(--gold-bright);
+    }
 
     /* v8.2 Unified section title format — 全セクションでタイトル下の divider + intro を統一 */
     /* 各セクションの .{prefix}-title.spaced rule は既存のタイトル CSS に依存、letter-spacing を追加 */
@@ -1501,7 +1844,7 @@
           <div class="meta">Tokyo · 2026</div>
         </div>
         <div class="preloader-center">
-          <div class="preloader-wordmark">njoooy<span class="mark"></span></div>
+          <div class="preloader-wordmark"><span class="wordmark-stack"><span class="wordmark-outline" aria-hidden="true">njoooy</span><span class="wordmark-fill">njoooy</span></span><span class="mark"></span></div>
         </div>
         <div class="preloader-bot">
           <div class="meta">Cocktail &amp; Non-Alc</div>
@@ -1518,7 +1861,7 @@
           <div class="meta">Tokyo · 2026</div>
         </div>
         <div class="preloader-center">
-          <div class="preloader-wordmark">njoooy<span class="mark"></span></div>
+          <div class="preloader-wordmark"><span class="wordmark-stack"><span class="wordmark-outline" aria-hidden="true">njoooy</span><span class="wordmark-fill">njoooy</span></span><span class="mark"></span></div>
         </div>
         <div class="preloader-bot">
           <div class="meta">Cocktail &amp; Non-Alc</div>
@@ -2034,11 +2377,14 @@
           <div class="process-step reveal">
             <div class="process-num">06</div>
             <div class="process-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M 12 32 L 24 26 L 32 30 L 40 26 L 52 32 L 46 40 L 32 44 L 18 40 Z"/>
-                <path d="M 22 36 L 24 34 M 40 34 L 42 36" opacity="0.5"/>
-                <circle cx="18" cy="28" r="2"/>
-                <circle cx="46" cy="28" r="2"/>
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 32 46 C 22 38 18 30 22 24 C 25 20 30 22 32 26 C 34 22 39 20 42 24 C 46 30 42 38 32 46 Z"/>
+                <path d="M 12 24 L 8 24" opacity="0.5"/>
+                <path d="M 14 28 L 6 28" opacity="0.4"/>
+                <path d="M 12 32 L 9 32" opacity="0.5"/>
+                <path d="M 52 24 L 56 24" opacity="0.5"/>
+                <path d="M 50 28 L 58 28" opacity="0.4"/>
+                <path d="M 52 32 L 55 32" opacity="0.5"/>
               </svg>
             </div>
             <h4>フォローアップ</h4>
@@ -2335,8 +2681,53 @@
             </select>
           </div>
           <div class="form-row">
-            <label for="cf-date">ご利用予定日</label>
-            <input type="text" id="cf-date" name="date" placeholder="例) 2026/04/18"/>
+            <label>ご希望相談方法</label>
+            <div class="form-radio-group" role="radiogroup" aria-label="ご希望相談方法">
+              <label class="form-radio-item">
+                <input type="radio" name="meeting_format" value="対面" />
+                <span>対面</span>
+              </label>
+              <label class="form-radio-item">
+                <input type="radio" name="meeting_format" value="オンライン (Google Meet)" />
+                <span>オンライン (Google Meet)</span>
+              </label>
+              <label class="form-radio-item">
+                <input type="radio" name="meeting_format" value="どちらでも" />
+                <span>どちらでも</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>ご面談希望日時</label>
+            <div class="meeting-picker" id="mtg-picker">
+              <div class="meeting-picker-head">
+                <button type="button" class="meeting-picker-nav" id="mtg-prev" aria-label="前の月">‹</button>
+                <div class="meeting-picker-month" id="mtg-month-label" aria-live="polite"></div>
+                <button type="button" class="meeting-picker-nav" id="mtg-next" aria-label="次の月">›</button>
+              </div>
+              <div class="meeting-picker-weekdays" aria-hidden="true">
+                <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+              </div>
+              <div class="meeting-picker-days" id="mtg-days"></div>
+              <div class="meeting-picker-times">
+                <div class="meeting-picker-times-label" id="mtg-times-label">日付を選択してください</div>
+                <div class="meeting-picker-times-grid" id="mtg-times-grid"></div>
+              </div>
+              <div class="meeting-picker-picked">
+                <div class="meeting-picker-picked-label">候補 (最大 3 つ)</div>
+                <div class="meeting-picker-picked-list" id="mtg-picked-list">
+                  <div class="meeting-picker-picked-empty">時間帯をタップして追加してください</div>
+                </div>
+              </div>
+              <input type="hidden" name="meeting_date_1" id="mtg-hidden-1" />
+              <input type="hidden" name="meeting_date_2" id="mtg-hidden-2" />
+              <input type="hidden" name="meeting_date_3" id="mtg-hidden-3" />
+            </div>
+            <div class="form-date-hint">初回ミーティングのご希望日時を最大 3 つ、カレンダーからお選びください。24 時間以内にご返信いたします。</div>
+          </div>
+          <div class="form-row">
+            <label for="cf-date">ご利用予定日 (イベント当日)</label>
+            <input type="text" id="cf-date" name="date" placeholder="例) 2026/05/18 — 未定でも OK"/>
           </div>
           <div class="form-row">
             <label for="cf-guests">人数</label>
@@ -2512,6 +2903,164 @@
           // href="#contact" でデフォルト挙動
         });
       });
+
+      // v8.27: Meeting Picker — 自前カレンダー UI
+      (function initMeetingPicker() {
+        const picker = document.getElementById('mtg-picker');
+        if (!picker) return;
+        const MAX_PICKS = 3;
+        const HOURS = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+        const WEEKDAY_JP = ['日', '月', '火', '水', '木', '金', '土'];
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const state = {
+          viewYear: now.getFullYear(),
+          viewMonth: now.getMonth(),
+          selected: [],
+          activeDayBtn: null
+        };
+        const monthLabel = document.getElementById('mtg-month-label');
+        const daysGrid = document.getElementById('mtg-days');
+        const timesLabel = document.getElementById('mtg-times-label');
+        const timesGrid = document.getElementById('mtg-times-grid');
+        const pickedList = document.getElementById('mtg-picked-list');
+        const prevBtn = document.getElementById('mtg-prev');
+        const nextBtn = document.getElementById('mtg-next');
+
+        function pad(n) { return String(n).padStart(2, '0'); }
+        function fmtDate(s) {
+          const w = WEEKDAY_JP[new Date(s.year, s.month, s.day).getDay()];
+          return `${s.year}/${pad(s.month + 1)}/${pad(s.day)} (${w}) ${pad(s.hour)}:00`;
+        }
+
+        function renderCalendar() {
+          monthLabel.textContent = `${state.viewYear} 年 ${state.viewMonth + 1} 月`;
+          daysGrid.innerHTML = '';
+          // prev ボタン disable(現在月以前)
+          const isCurrentMonth = state.viewYear === now.getFullYear() && state.viewMonth === now.getMonth();
+          prevBtn.disabled = isCurrentMonth;
+          const firstWeekday = new Date(state.viewYear, state.viewMonth, 1).getDay();
+          const lastDate = new Date(state.viewYear, state.viewMonth + 1, 0).getDate();
+          for (let i = 0; i < firstWeekday; i++) {
+            const e = document.createElement('span');
+            e.className = 'mtg-day mtg-day-empty';
+            daysGrid.appendChild(e);
+          }
+          for (let day = 1; day <= lastDate; day++) {
+            const d = new Date(state.viewYear, state.viewMonth, day);
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'mtg-day';
+            btn.textContent = day;
+            if (d < today) {
+              btn.classList.add('mtg-day-past');
+              btn.disabled = true;
+            } else {
+              btn.addEventListener('click', () => selectDay(state.viewYear, state.viewMonth, day, btn));
+            }
+            if (d.getTime() === today.getTime()) btn.classList.add('mtg-day-today');
+            daysGrid.appendChild(btn);
+          }
+          state.activeDayBtn = null;
+          timesLabel.textContent = '日付を選択してください';
+          timesGrid.innerHTML = '';
+        }
+
+        function selectDay(year, month, day, btn) {
+          document.querySelectorAll('.mtg-day-selected').forEach(el => el.classList.remove('mtg-day-selected'));
+          btn.classList.add('mtg-day-selected');
+          state.activeDayBtn = btn;
+          const w = WEEKDAY_JP[new Date(year, month, day).getDay()];
+          timesLabel.textContent = `${month + 1}/${day} (${w}) の時間帯`;
+          timesGrid.innerHTML = '';
+          HOURS.forEach(hour => {
+            const t = document.createElement('button');
+            t.type = 'button';
+            t.className = 'mtg-time';
+            t.textContent = `${pad(hour)}:00`;
+            const isPicked = state.selected.some(s => s.year === year && s.month === month && s.day === day && s.hour === hour);
+            if (isPicked) t.classList.add('mtg-time-picked');
+            t.addEventListener('click', () => toggleTime(year, month, day, hour, t));
+            timesGrid.appendChild(t);
+          });
+        }
+
+        function toggleTime(year, month, day, hour, btn) {
+          const idx = state.selected.findIndex(s => s.year === year && s.month === month && s.day === day && s.hour === hour);
+          if (idx >= 0) {
+            state.selected.splice(idx, 1);
+            btn.classList.remove('mtg-time-picked');
+          } else {
+            if (state.selected.length >= MAX_PICKS) {
+              btn.classList.add('mtg-time-denied');
+              setTimeout(() => btn.classList.remove('mtg-time-denied'), 400);
+              return;
+            }
+            state.selected.push({ year, month, day, hour });
+            btn.classList.add('mtg-time-picked');
+          }
+          renderPicked();
+          updateHidden();
+        }
+
+        function renderPicked() {
+          pickedList.innerHTML = '';
+          if (state.selected.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'meeting-picker-picked-empty';
+            empty.textContent = '時間帯をタップして追加してください';
+            pickedList.appendChild(empty);
+            return;
+          }
+          state.selected.forEach((s, i) => {
+            const row = document.createElement('div');
+            row.className = 'meeting-picker-picked-item';
+            const no = document.createElement('span');
+            no.className = 'mtg-picked-no';
+            no.textContent = `第${i + 1}希望`;
+            const dt = document.createElement('span');
+            dt.className = 'mtg-picked-date';
+            dt.textContent = fmtDate(s);
+            const rm = document.createElement('button');
+            rm.type = 'button';
+            rm.className = 'mtg-picked-remove';
+            rm.setAttribute('aria-label', '候補を削除');
+            rm.textContent = '✕';
+            rm.addEventListener('click', () => {
+              state.selected.splice(i, 1);
+              renderPicked();
+              updateHidden();
+              if (state.activeDayBtn) state.activeDayBtn.click();
+            });
+            row.appendChild(no);
+            row.appendChild(dt);
+            row.appendChild(rm);
+            pickedList.appendChild(row);
+          });
+        }
+
+        function updateHidden() {
+          for (let i = 0; i < MAX_PICKS; i++) {
+            const inp = document.getElementById(`mtg-hidden-${i + 1}`);
+            if (!inp) continue;
+            inp.value = i < state.selected.length ? fmtDate(state.selected[i]) : '';
+          }
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (prevBtn.disabled) return;
+          state.viewMonth--;
+          if (state.viewMonth < 0) { state.viewMonth = 11; state.viewYear--; }
+          renderCalendar();
+        });
+        nextBtn.addEventListener('click', () => {
+          state.viewMonth++;
+          if (state.viewMonth > 11) { state.viewMonth = 0; state.viewYear++; }
+          renderCalendar();
+        });
+
+        renderCalendar();
+      })();
     })();
   </script>
 
