@@ -196,7 +196,7 @@
     }
     .opening-inner { max-width: var(--max); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
     .opening-top { display: flex; justify-content: flex-end; margin-bottom: clamp(80px, 12vh, 150px); flex-wrap: wrap; gap: 20px; }
-    .opening-headline { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(48px, 7.5vw, 120px); line-height: 1.08; letter-spacing: -0.02em; color: var(--paper); max-width: 1400px; }
+    .opening-headline { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(42px, 6.5vw, 96px); line-height: 1.1; letter-spacing: -0.02em; color: var(--paper); max-width: 1400px; }
     .opening-headline em { font-family: var(--serif-en); font-style: italic; font-weight: 500; color: var(--gold-bright); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
     .opening-sub { font-family: var(--serif-en); font-style: italic; font-size: clamp(20px, 2.4vw, 34px); line-height: 1.5; color: rgba(245, 240, 230, 0.75); margin-top: 24px; max-width: 820px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
     .opening-sub.jp { font-family: var(--serif-jp); font-style: normal; font-weight: 500; font-size: clamp(18px, 2vw, 28px); line-height: 1.6; color: rgba(245, 240, 230, 0.82); }
@@ -546,8 +546,8 @@
     @media (max-width: 640px) { .forwhom-grid { grid-template-columns: 1fr; } }
     .forwhom-card { display: flex; gap: 16px; padding: 24px 22px; background: #FBF7ED; border: 1px solid rgba(27, 18, 14, 0.08); border-radius: 2px; align-items: flex-start; }
     .forwhom-card:hover { }
-    .forwhom-icon { flex-shrink: 0; width: 44px; height: 44px; color: var(--wine); }
-    .forwhom-icon svg { width: 100%; height: 100%; display: block; }
+    .forwhom-icon { flex-shrink: 0; width: 56px; height: 56px; color: var(--wine); }
+    .forwhom-icon svg, .forwhom-icon img { width: 100%; height: 100%; display: block; object-fit: contain; }
     .forwhom-body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
     .forwhom-jp { font-family: var(--serif-jp); font-weight: 600; font-size: 14px; line-height: 1.45; color: var(--ink); margin: 0; }
     .forwhom-en { font-family: var(--serif-en); font-style: italic; font-size: 11px; color: var(--muted); line-height: 1.3; margin: 0; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; letter-spacing: 0.01em; }
@@ -597,7 +597,7 @@
     .folio-slug { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin: 0; }
     .folio-jp { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(20px, 2vw, 26px); line-height: 1.3; letter-spacing: 0.01em; color: var(--ink); }
     .folio-en { font-family: var(--serif-en); font-style: italic; font-size: 14px; color: var(--muted); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; margin: 0; }
-    .folio-icon { width: 48px; height: 48px; color: var(--wine); margin: 0 auto; }
+    .folio-icon { width: 72px; height: 72px; color: var(--wine); margin: 0 auto; }
     .folio-icon svg, .folio-icon img { width: 100%; height: 100%; display: block; object-fit: contain; }
     .folio-num { display: none; }
     .folio-visual { display: none; }
@@ -693,16 +693,17 @@
     @media (max-width: 1100px) { .process-steps { grid-template-columns: repeat(3, 1fr); gap: 48px 24px; } }
     @media (max-width: 600px) { .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
     .process-step { display: flex; flex-direction: column; gap: 8px; text-align: center; align-items: center; }
-    .process-num { width: 34px; height: 34px; background: var(--wine); color: var(--paper); border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-family: var(--serif-en); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; position: relative; }
-    /* v8.17: 番号間に矢印(最後のステップを除く)— デスクトップ 6-col のみ */
-    .process-step:not(:last-child) .process-num::after {
+    .process-num { width: 34px; height: 34px; background: var(--wine); color: var(--paper); border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-family: var(--serif-en); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; }
+    /* v8.18: 番号間に矢印 — .process-step を基準に gap 16px の中央に配置 */
+    .process-step { position: relative; }
+    .process-step:not(:last-child)::after {
       content: "→";
       position: absolute;
-      left: 100%;
-      top: 50%;
-      transform: translate(14px, -50%);
+      top: 17px;
+      right: -8px;
+      transform: translate(50%, -50%);
       color: var(--wine);
-      opacity: 0.42;
+      opacity: 0.48;
       font-family: var(--serif-en);
       font-weight: 400;
       font-size: 18px;
@@ -712,9 +713,8 @@
       font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
     }
     @media (max-width: 1100px) {
-      .process-step:not(:last-child) .process-num::after { display: none; }
+      .process-step:not(:last-child)::after { display: none; }
     }
-    .process-step:last-child::after { display: none; }
     .process-icon { width: 56px; height: 56px; color: var(--wine); margin: 6px 0 4px; position: relative; }
     /* v8.17: SVG 後ろに透明円で強調 */
     .process-icon::before {
@@ -763,6 +763,17 @@
     .method-step-desc { font-family: var(--sans-jp); font-size: 14px; line-height: 1.9; color: var(--ink-2); max-width: 400px; }
     .method-step-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
     .method-step-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 4px 10px; border: 1px solid var(--rule); border-radius: 999px; }
+    /* --- v8.18: Method → Why njoooy box 構造(添付コード準拠) --- */
+    .why-njoooy { margin: 0 auto; padding: clamp(40px, 5vh, 72px) clamp(28px, 4vw, 56px); background: var(--surface); border: 1px solid var(--rule); max-width: var(--max); border-radius: 2px; }
+    .why-head { text-align: center; margin-bottom: clamp(32px, 4vh, 48px); }
+    .why-head .meta { color: var(--wine); letter-spacing: 0.22em; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 48px); }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .why-item { display: flex; flex-direction: column; gap: 14px; }
+    .why-num { font-family: var(--serif-en); font-style: italic; font-size: 40px; color: var(--gold); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; font-weight: 300; line-height: 1; }
+    .why-title { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.45; letter-spacing: -0.005em; color: var(--ink); }
+    .why-title em { font-family: var(--serif-en); font-style: italic; color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; font-weight: 500; }
+    .why-desc { font-family: var(--sans-jp); font-size: 13.5px; line-height: 1.9; color: var(--ink-2); }
     .method-sign { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: baseline; }
     .method-sign-brand { font-family: var(--serif-en); font-style: italic; font-size: clamp(22px, 2.4vw, 30px); color: var(--wine); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
     .method-sign-brand .logo { font-size: inherit; }
@@ -826,11 +837,11 @@
     .about-head-centered .about-label { margin-bottom: 28px; margin-left: 0; }
     .about-head-centered .about-headline { margin-bottom: 0; }
     .about-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: start; }
-    .about-image { grid-column: 1 / span 5; aspect-ratio: 3 / 4; position: relative; overflow: hidden; background: var(--ink); border-radius: 2px; position: sticky; top: 80px; }
+    .about-image { grid-column: 1 / span 3; aspect-ratio: 3 / 4; position: relative; overflow: hidden; background: var(--ink); border-radius: 2px; position: sticky; top: 80px; }
     .about-image::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(194, 139, 91, 0.3), transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(107, 32, 36, 0.5), transparent 60%), linear-gradient(135deg, var(--ink) 0%, var(--wine-deep) 100%); }
     .about-image-label { position: absolute; bottom: 24px; left: 24px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(245, 240, 230, 0.6); z-index: 2; }
     .about-image-num { position: absolute; top: 24px; right: 24px; font-family: var(--serif-en); font-style: italic; font-size: 28px; color: var(--gold-bright); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; z-index: 2; }
-    .about-text { grid-column: 7 / span 6; }
+    .about-text { grid-column: 5 / span 8; }
     @media (max-width: 900px) { .about-image { grid-column: 1 / -1; aspect-ratio: 16 / 10; position: relative; top: auto; } .about-text { grid-column: 1 / -1; margin-top: 32px; } }
     .about-label { margin-bottom: 24px; }
     .about-headline { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(36px, 5vw, 64px); line-height: 1.15; margin-bottom: 40px; }
@@ -890,7 +901,7 @@
     .past-card.reserved .past-card-no { color: var(--wine); }
     .past-card.reserved .past-card-scope { color: var(--ink); }
     .past-card.reserved .past-card-badge { color: var(--wine); border-color: var(--wine); }
-    .past-meta-row { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .past-meta-row { margin-top: 48px; padding-top: 32px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     /* §3 Process は 1 子要素のみ:space-between だと左寄せになるので右寄せに override */
     .process .past-meta-row { justify-content: flex-end; }
 
@@ -1268,6 +1279,9 @@
     .about-head .title-col { grid-column: span 8; }
     @media (max-width: 900px) { .about-head .meta-col, .about-head .title-col { grid-column: span 12; } }
     .about-title { font-family: var(--serif-jp); font-weight: 600; font-size: clamp(36px, 5.5vw, 72px); line-height: 1.1; letter-spacing: -0.01em; }
+    /* v8.18: about-intro を 1 行表示 */
+    section.about-section .about-head .about-intro { white-space: nowrap; max-width: 100%; overflow: visible; }
+    @media (max-width: 720px) { section.about-section .about-head .about-intro { white-space: normal; } }
     /* §7 Contact: contact-title.spaced override — dark bg adj */
     .contact .meta { color: var(--gold-bright); margin-bottom: 16px; }
     .contact-divider { margin: 16px 0 24px; max-width: 180px; }
@@ -1859,47 +1873,29 @@
 
         <div class="forwhom-grid reveal">
           <div class="forwhom-card">
-            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <circle cx="32" cy="14" r="4"/>
-                <path d="M 32 10 L 32 6 M 28 8 L 30 10 M 36 8 L 34 10"/>
-                <circle cx="20" cy="28" r="5"/>
-                <circle cx="32" cy="28" r="5"/>
-                <circle cx="44" cy="28" r="5"/>
-                <path d="M 10 52 Q 10 38 20 38 Q 28 38 28 48"/>
-                <path d="M 22 52 Q 22 40 32 40 Q 42 40 42 52"/>
-                <path d="M 36 48 Q 36 38 44 38 Q 54 38 54 52"/>
-              </svg></div>
+            <div class="forwhom-icon" aria-hidden="true">
+              <img src="/image/homeparty.svg" alt="" width="56" height="56" />
+            </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">法人レセプション / 周年イベント</h3>
-              <p class="forwhom-en">Corporate Reception / Anniversary Events</p>
-              <p class="forwhom-desc">大切なお客様をおもてなしする、格式ある場に。</p>
+              <h3 class="forwhom-jp">ホームパーティー</h3>
+              <p class="forwhom-en">Home Party</p>
+              <p class="forwhom-desc">友人・家族との特別な集まりに、プロの一杯を。</p>
             </div>
           </div>
           <div class="forwhom-card">
-            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M 14 28 L 14 40 L 22 38 L 40 46 L 44 46 L 44 22 L 40 22 L 22 30 Z"/>
-                <path d="M 22 30 L 22 38"/>
-                <path d="M 44 30 L 52 26 L 52 42 L 44 38"/>
-                <path d="M 24 40 L 24 52 L 32 52 L 30 40"/>
-                <path d="M 12 18 L 8 14 M 12 22 L 6 22 M 14 14 L 12 8"/>
-              </svg></div>
+            <div class="forwhom-icon" aria-hidden="true">
+              <img src="/image/reception.svg" alt="" width="56" height="56" />
+            </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">ブランド発表会 / PRイベント</h3>
-              <p class="forwhom-en">Brand Launch / PR Events</p>
-              <p class="forwhom-desc">ブランドの世界観を体験で伝える、印象的な演出に。</p>
+              <h3 class="forwhom-jp">レセプションパーティ</h3>
+              <p class="forwhom-en">Corporate Reception / Brand Launch</p>
+              <p class="forwhom-desc">法人のおもてなしやブランド体験を、上質な演出で。</p>
             </div>
           </div>
           <div class="forwhom-card">
-            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M 18 18 L 22 40 L 32 40 L 36 18 Z"/>
-                <path d="M 18 18 L 36 18"/>
-                <path d="M 27 40 L 27 52"/>
-                <path d="M 22 52 L 32 52"/>
-                <path d="M 32 18 L 36 14 L 40 16 L 42 22 L 46 24 L 48 28 L 46 32 L 42 34"/>
-                <circle cx="42" cy="12" r="1.5" fill="currentColor"/>
-                <circle cx="48" cy="20" r="1.2" fill="currentColor"/>
-                <circle cx="14" cy="16" r="1.2" fill="currentColor"/>
-              </svg></div>
+            <div class="forwhom-icon" aria-hidden="true">
+              <img src="/image/wedding.svg" alt="" width="56" height="56" />
+            </div>
             <div class="forwhom-body">
               <h3 class="forwhom-jp">ウェディング二次会・アフターパーティ</h3>
               <p class="forwhom-en">Wedding After-Party</p>
@@ -1907,15 +1903,9 @@
             </div>
           </div>
           <div class="forwhom-card">
-            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="12" y="14" width="40" height="38" rx="1"/>
-                <path d="M 12 20 L 52 20"/>
-                <path d="M 32 14 L 32 52"/>
-                <path d="M 16 10 L 16 14 M 20 10 L 20 14 M 44 10 L 44 14 M 48 10 L 48 14"/>
-                <path d="M 18 28 L 28 36 M 28 28 L 18 36"/>
-                <path d="M 37 28 L 46 36 M 46 28 L 37 36"/>
-                <path d="M 18 42 L 28 42 M 36 42 L 46 42"/>
-              </svg></div>
+            <div class="forwhom-icon" aria-hidden="true">
+              <img src="/image/new_menu.svg" alt="" width="56" height="56" />
+            </div>
             <div class="forwhom-body">
               <h3 class="forwhom-jp">店舗メニュー刷新</h3>
               <p class="forwhom-en">Menu Refresh</p>
@@ -1923,14 +1913,9 @@
             </div>
           </div>
           <div class="forwhom-card">
-            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M 24 12 Q 14 22 14 34 Q 14 46 24 52 Q 28 48 28 42 Q 28 32 24 24 Q 22 18 24 12 Z"/>
-                <path d="M 28 22 Q 40 18 50 22 Q 44 32 34 36 Q 30 32 28 28 Z"/>
-                <path d="M 32 28 Q 42 32 48 40 Q 40 46 32 42"/>
-                <path d="M 16 10 L 18 14 L 14 14 Z" fill="currentColor"/>
-                <circle cx="52" cy="16" r="1.2" fill="currentColor"/>
-                <circle cx="46" cy="48" r="1.2" fill="currentColor"/>
-              </svg></div>
+            <div class="forwhom-icon" aria-hidden="true">
+              <img src="/image/non_al.svg" alt="" width="56" height="56" />
+            </div>
             <div class="forwhom-body">
               <h3 class="forwhom-jp">ノンアル対応が必要な場</h3>
               <p class="forwhom-en">Non-Alcoholic Events</p>
@@ -1938,12 +1923,9 @@
             </div>
           </div>
           <div class="forwhom-card">
-            <div class="forwhom-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-                <circle cx="32" cy="32" r="20"/>
-                <ellipse cx="32" cy="32" rx="20" ry="8"/>
-                <ellipse cx="32" cy="32" rx="8" ry="20"/>
-                <path d="M 12 32 L 52 32"/>
-              </svg></div>
+            <div class="forwhom-icon" aria-hidden="true">
+              <img src="/image/bi.svg" alt="" width="56" height="56" />
+            </div>
             <div class="forwhom-body">
               <h3 class="forwhom-jp">バイリンガル対応の現場</h3>
               <p class="forwhom-en">Bilingual Events</p>
@@ -2100,25 +2082,23 @@
             </div>
           </div>
         </div>
-
-        <div class="method-steps reveal">
-          <div class="method-step">
-            <div class="method-step-num">01</div>
-            <h3 class="method-step-jp">余韻の設計</h3>
-            <div class="method-step-en">Designing the Afterglow</div>
-            <p class="method-step-desc">味わい、香り、時間、空間。そのすべてが心地よく重なり、記憶に残る余韻をつくります。</p>
-          </div>
-          <div class="method-step">
-            <div class="method-step-num">02</div>
-            <h3 class="method-step-jp">対話から生まれる設計</h3>
-            <div class="method-step-en">Design from Dialogue</div>
-            <p class="method-step-desc">丁寧なヒアリングから本質を捉え、目的やシーンに最適な体験を共に設計していきます。</p>
-          </div>
-          <div class="method-step">
-            <div class="method-step-num">03</div>
-            <h3 class="method-step-jp">誠実なプロフェッショナル</h3>
-            <div class="method-step-en">Honest Professionalism</div>
-            <p class="method-step-desc">技術と知識を磨き続け、すべての瞬間に誠実に向き合う。信頼が、品質の土台です。</p>
+        <div class="why-njoooy reveal">
+          <div class="why-grid">
+            <div class="why-item">
+              <div class="why-num">01</div>
+              <div class="why-title">余韻の設計</div>
+              <div class="why-desc">味わい、香り、時間、空間。そのすべてが心地よく重なり、記憶に残る余韻をつくります。</div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">02</div>
+              <div class="why-title">対話から生まれる設計</div>
+              <div class="why-desc">丁寧なヒアリングから本質を捉え、目的やシーンに最適な体験を共に設計していきます。</div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">03</div>
+              <div class="why-title">誠実なプロフェッショナル</div>
+              <div class="why-desc">技術と知識を磨き続け、すべての瞬間に誠実に向き合う。信頼が、品質の土台です。</div>
+            </div>
           </div>
         </div>
       </div>
