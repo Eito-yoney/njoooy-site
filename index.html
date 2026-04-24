@@ -212,6 +212,28 @@
     @media (max-width: 900px) { .nav-links { gap: 20px; font-size: 14px; } }
     @media (max-width: 720px) { .nav-links { display: none; } .nav { padding: 14px var(--gutter); } }
 
+    /* [v8.30] Bilingual toggle infrastructure — html[lang] 属性で JA/EN を切替。classless要素は常時表示(翻訳未実装コンテンツのJA fallback)。display:revert で UA 既定を復元(block/inline 要素双方対応)。 */
+    .lang-en { display: none; }
+    html[lang="en"] .lang-ja { display: none; }
+    html[lang="en"] .lang-en { display: revert; }
+
+    .nav-right { display: inline-flex; align-items: center; gap: 12px; }
+    .nav-lang-toggle { display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: inherit; opacity: 0.7; background: transparent; border: 1px solid currentColor; border-radius: 999px; padding: 6px 10px; cursor: pointer; transition: opacity .2s, background .2s, color .2s; }
+    .nav-lang-toggle:hover { opacity: 1; }
+    .nav-lang-toggle .nav-lang-divider { opacity: 0.35; }
+    .nav-lang-toggle .nav-lang-opt { transition: opacity .2s, color .2s; }
+    .nav-lang-toggle .nav-lang-opt[data-active="false"] { opacity: 0.4; }
+    .nav-lang-toggle .nav-lang-opt[data-active="true"] { opacity: 1; }
+    html[lang="en"] .nav-lang-toggle .nav-lang-opt[data-lang="ja"] { opacity: 0.4; }
+    html[lang="en"] .nav-lang-toggle .nav-lang-opt[data-lang="en"] { opacity: 1; }
+    @media (max-width: 720px) { .nav-lang-toggle { padding: 5px 8px; font-size: 9px; } .nav-right { gap: 8px; } }
+
+    /* [v8.31] EN mode promotes sublabel elements (pillar-en, folio-en, forwhom-en, process-en) to primary label styling when their JA sibling is hidden. Italic stays as design accent. */
+    html[lang="en"] .opening-pillar-en { font-size: 13px; color: rgba(245, 240, 230, 0.92); font-weight: 500; letter-spacing: 0.04em; font-style: normal; }
+    html[lang="en"] .folio-en { font-size: clamp(18px, 1.8vw, 22px); color: var(--ink); font-style: normal; font-weight: 600; font-family: var(--serif-en); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+    html[lang="en"] .forwhom-en { font-size: 14px; color: var(--ink); font-style: normal; font-weight: 600; line-height: 1.45; }
+    html[lang="en"] .process-en { font-size: 17px; color: var(--ink); font-style: normal; font-weight: 600; font-family: var(--serif-jp); line-height: 1.35; }
+
     /* OPENING */
     .opening { position: relative; background: var(--wine); color: var(--paper); min-height: 100vh; padding: clamp(180px, 24vh, 280px) var(--gutter) clamp(40px, 5vh, 60px); display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
     .opening::before { content: ""; position: absolute; inset: -8%; background: radial-gradient(ellipse at 92% 6%, rgba(20, 6, 8, 0.48) 0%, transparent 55%), radial-gradient(ellipse at 10% 90%, rgba(194, 139, 91, 0.05) 0%, transparent 55%); pointer-events: none; animation: openingDrift 28s ease-in-out infinite alternate; will-change: transform, opacity; }
@@ -640,7 +662,8 @@
     .folio-includes-list { list-style: none; font-family: var(--sans-jp); font-size: 12px; color: var(--ink-2); line-height: 1.75; }
     .folio-includes-list li::before { content: "– "; color: var(--wine); font-weight: 600; }
     /* --- v8.15 新案 X: scenes / note / spec--primary --- */
-    .folio-scenes { padding-top: 4px; margin: 0; min-height: 128px; }
+    /* [v8.30] scenes 上余白を 22px(row-gap 18 + padding-top 4)→ ~8px(≈ 1/3)に縮小。margin-top: -14 で subgrid row track 内で上方に pull。 */
+    .folio-scenes { padding-top: 4px; margin: -14px 0 0 0; min-height: 128px; }
     .folio-scenes-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
     .folio-scenes-list { list-style: none; font-family: var(--sans-jp); font-size: 12px; color: var(--ink-2); line-height: 1.75; padding: 0; margin: 0; }
     .folio-scenes-list li::before { content: "– "; color: var(--wine); font-weight: 600; }
@@ -901,6 +924,18 @@
     .about-timeline-item.future .about-timeline-year { color: var(--muted-2); }
     .about-timeline-text { font-family: var(--sans-jp); font-size: 14px; color: var(--ink-2); line-height: 1.85; margin-top: 6px; max-width: 480px; }
     .about-timeline-item.future .about-timeline-text { color: var(--muted); font-style: italic; }
+
+    /* [v8.30] about-voice 3 段落 scaffold — 弟さん素材受け皿(R-1/R-7 遵守、構造のみ Claude 用意、本文は弟さん確定待ち) */
+    .about-voice { margin-top: 48px; padding-top: 8px; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+    .about-voice-label { margin-bottom: 32px; }
+    .about-voice-list { display: flex; flex-direction: column; gap: 32px; }
+    .about-voice-item { display: flex; gap: 24px; align-items: flex-start; }
+    .about-voice-num { font-family: var(--serif-en); font-style: italic; font-weight: 300; font-size: 32px; color: var(--gold); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; line-height: 1; min-width: 44px; flex-shrink: 0; padding-top: 4px; }
+    .about-voice-body { flex: 1; min-width: 0; }
+    .about-voice-title { font-family: var(--serif-jp); font-weight: 600; font-size: 15px; color: var(--ink); line-height: 1.5; margin: 0 0 10px 0; letter-spacing: 0.02em; }
+    .about-voice-desc { font-family: var(--serif-jp); font-size: 13.5px; color: var(--ink-2); line-height: 1.95; margin: 0; max-width: 520px; }
+    .about-voice-placeholder { color: var(--muted-2); font-style: italic; font-size: 12px; line-height: 1.75; letter-spacing: 0.01em; font-family: var(--sans-jp); font-weight: 400; }
+    @media (max-width: 600px) { .about-voice-item { gap: 18px; } .about-voice-num { font-size: 26px; min-width: 36px; } }
 
     /* PAST CASE */
     .past { padding: clamp(120px, 18vh, 200px) var(--gutter); background: var(--paper); }
@@ -1892,7 +1927,17 @@
       <a href="#faq" data-hover>FAQ</a>
       <a href="#contact" data-hover>Contact</a>
     </div>
-    <a href="#contact" class="nav-cta" data-hover>ご相談・ご予約 →</a>
+    <!-- [v8.30] 日英切替 toggle — html[lang] 属性を切替、localStorage 永続化。JS は nav script 末尾に追加。 -->
+    <div class="nav-right">
+      <button type="button" class="nav-lang-toggle" id="nav-lang-toggle" aria-label="Switch language / 言語切替">
+        <span class="nav-lang-opt" data-lang="ja" data-active="true">JA</span>
+        <span class="nav-lang-divider" aria-hidden="true">/</span>
+        <span class="nav-lang-opt" data-lang="en" data-active="false">EN</span>
+      </button>
+      <a href="#contact" class="nav-cta" data-hover>
+        <span class="lang-ja">ご相談・ご予約 →</span><span class="lang-en">Consult · Book →</span>
+      </a>
+    </div>
   </nav>
 
   <main id="top" tabindex="-1">
@@ -1903,27 +1948,35 @@
         <div class="opening-top">
           <div class="meta meta-dark">Est. 2026 — Tokyo, JP</div>
         </div>
-        <!-- : ヘッドライン要推敲。現行「僕なんていかがでしょうか?」はユーザー直指定、自己紹介型の謙譲・親しみトーン。差替え可、grep で : ヘッドライン要推敲] から一発] -->
-        <h1 class="opening-headline">
-          <span class="kin"><span style="--d:.6s">僕なんて</span></span><br/>
-          <span class="kin"><span style="--d:.9s">いかがでしょうか</span></span><span class="kin"><span style="--d:1.15s">?</span></span>
+        <!-- [v8.30] ヘッドライン差替 — 兄直指示「今夜、どんな夜にしましょう」(R-7 持ち込み確定)。旧:「僕なんていかがでしょうか?」(自己紹介型の謙譲) → 新:接客型(お客様の夜を共に設計する姿勢)。終助詞・句読点なしの原文どおり。 -->
+        <h1 class="opening-headline lang-ja">
+          <span class="kin"><span style="--d:.6s">今夜、</span></span><br/>
+          <span class="kin"><span style="--d:.9s">どんな夜にしましょう</span></span>
+        </h1>
+        <h1 class="opening-headline lang-en">
+          <span class="kin"><span style="--d:.6s">Tonight —</span></span><br/>
+          <span class="kin"><span style="--d:.9s">what kind of night shall we craft?</span></span>
         </h1>
         <div class="opening-bottom">
-          <div class="meta meta-dark" style="max-width: 520px; line-height: 1.9; text-transform: none; letter-spacing: 0.02em; font-family: var(--serif-jp); font-size: 14px; font-weight: 500;">
+          <div class="meta meta-dark lang-ja" style="max-width: 520px; line-height: 1.9; text-transform: none; letter-spacing: 0.02em; font-family: var(--serif-jp); font-size: 14px; font-weight: 500;">
             味わいのバランスから世界観まで、ひとつひとつを丁寧に設計。<br/>
             イベントや店舗、ブランドの体験価値を高める一杯と時間をお届けします。
+          </div>
+          <div class="meta meta-dark lang-en" style="max-width: 520px; line-height: 1.9; text-transform: none; letter-spacing: 0.02em; font-family: var(--serif-en); font-size: 14px; font-weight: 400;">
+            Every detail — from flavor balance to atmosphere — crafted with care.<br/>
+            A drink and a moment that elevate the experience of your event, venue, or brand.
           </div>
         </div>
 
         <div class="opening-meta-row reveal" role="list">
           <div class="opening-meta-item" role="listitem">
             <span class="opening-meta-label">Language</span>
-            <span class="opening-meta-value">日本語・English</span>
+            <span class="opening-meta-value"><span class="lang-ja">日本語・English</span><span class="lang-en">Japanese &amp; English</span></span>
           </div>
           <span class="opening-meta-sep" aria-hidden="true">∙</span>
           <div class="opening-meta-item" role="listitem">
             <span class="opening-meta-label">Response</span>
-            <span class="opening-meta-value">即日対応可</span>
+            <span class="opening-meta-value"><span class="lang-ja">即日対応可</span><span class="lang-en">Same-day available</span></span>
           </div>
           <span class="opening-meta-sep" aria-hidden="true">∙</span>
           <div class="opening-meta-item" role="listitem">
@@ -1933,45 +1986,45 @@
           <span class="opening-meta-sep" aria-hidden="true">∙</span>
           <div class="opening-meta-item" role="listitem">
             <span class="opening-meta-label">Area</span>
-            <span class="opening-meta-value">東京・神奈川・千葉・埼玉</span>
+            <span class="opening-meta-value"><span class="lang-ja">東京・神奈川・千葉・埼玉</span><span class="lang-en">Tokyo · Kanagawa · Chiba · Saitama</span></span>
           </div>
         </div>
 
         <div class="opening-pillars reveal" role="list">
-          <a href="#services" class="opening-pillar" role="listitem" aria-label="出張バーについて見る">
+          <a href="#services" class="opening-pillar" role="listitem" aria-label="出張バーについて見る / View Pop-up Bar">
             <div class="opening-pillar-ic" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 5h16l-8 9z"/><path d="M12 14v6"/><path d="M8 20h8"/><circle cx="17" cy="4" r="1"/>
               </svg>
             </div>
-            <div class="opening-pillar-ja">出張バー</div>
+            <div class="opening-pillar-ja lang-ja">出張バー</div>
             <div class="opening-pillar-en">Pop-up Bar</div>
           </a>
-          <a href="#services" class="opening-pillar" role="listitem" aria-label="メニュー開発について見る">
+          <a href="#services" class="opening-pillar" role="listitem" aria-label="メニュー開発について見る / View Menu Development">
             <div class="opening-pillar-ic" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M6 3h10l2 3v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V3z"/><path d="M9 8h6M9 12h6M9 16h4"/>
               </svg>
             </div>
-            <div class="opening-pillar-ja">メニュー開発</div>
+            <div class="opening-pillar-ja lang-ja">メニュー開発</div>
             <div class="opening-pillar-en">Menu Development</div>
           </a>
-          <a href="#services" class="opening-pillar" role="listitem" aria-label="店舗相談について見る">
+          <a href="#services" class="opening-pillar" role="listitem" aria-label="店舗相談について見る / View Bar Consulting">
             <div class="opening-pillar-ic" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 10h16v10H4z"/><path d="M4 10l2-5h12l2 5"/><path d="M9 14h6v6H9z"/>
               </svg>
             </div>
-            <div class="opening-pillar-ja">店舗相談</div>
+            <div class="opening-pillar-ja lang-ja">店舗相談</div>
             <div class="opening-pillar-en">Bar Consulting</div>
           </a>
-          <a href="#services" class="opening-pillar" role="listitem" aria-label="研修プログラムについて見る">
+          <a href="#services" class="opening-pillar" role="listitem" aria-label="研修プログラムについて見る / View Training">
             <div class="opening-pillar-ic" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="8" r="3"/><path d="M5 21a7 7 0 0 1 14 0"/>
               </svg>
             </div>
-            <div class="opening-pillar-ja">研修プログラム</div>
+            <div class="opening-pillar-ja lang-ja">研修プログラム</div>
             <div class="opening-pillar-en">Training</div>
           </a>
         </div>
@@ -1981,16 +2034,24 @@
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <div class="marquee-group">
-          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
-          <span class="jp">関東近辺</span><span class="sep">✦</span>
-          <span class="jp">即日対応</span><span class="sep">✦</span>
-          <span class="jp">英語対応可</span><span class="sep">✦</span>
+          <span class="jp lang-ja">出張バー／メニュー開発／店舗相談／研修</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">関東近辺</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">即日対応</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">英語対応可</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-en">Pop-up Bar / Menu Development / Bar Consulting / Training</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Greater Tokyo Area</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Same-day response</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">English available</span><span class="sep lang-en">✦</span>
         </div>
         <div class="marquee-group" aria-hidden="true">
-          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
-          <span class="jp">関東近辺</span><span class="sep">✦</span>
-          <span class="jp">即日対応</span><span class="sep">✦</span>
-          <span class="jp">英語対応可</span><span class="sep">✦</span>
+          <span class="jp lang-ja">出張バー／メニュー開発／店舗相談／研修</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">関東近辺</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">即日対応</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">英語対応可</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-en">Pop-up Bar / Menu Development / Bar Consulting / Training</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Greater Tokyo Area</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Same-day response</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">English available</span><span class="sep lang-en">✦</span>
         </div>
       </div>
     </div>
@@ -2000,13 +2061,13 @@
         <div class="archive-head">
           <div class="meta-col reveal"><div class="meta">Services</div></div>
           <div class="title-col">
-            <h2 class="archive-title spaced reveal">サービス一覧</h2>
+            <h2 class="archive-title spaced reveal"><span class="lang-ja">サービス一覧</span><span class="lang-en">Services</span></h2>
             <div class="archive-divider reveal">
               <div class="line"></div>
               <div class="diamond"></div>
               <div class="line"></div>
             </div>
-            <p class="archive-intro reveal">4つのサービスで、あらゆるシーンに寄り添います。</p>
+            <p class="archive-intro reveal"><span class="lang-ja">4つのサービスで、あらゆるシーンに寄り添います。</span><span class="lang-en">Four services, tuned to every occasion.</span></p>
           </div>
         </div>
 
@@ -2014,184 +2075,186 @@
           <article class="folio reveal" data-hover>
             <div class="folio-header">
               <div class="folio-slug">No. 01</div>
-              <h3 class="folio-jp">出張バー</h3>
+              <h3 class="folio-jp lang-ja">出張バー</h3>
               <p class="folio-en">Pop-up Bar Service</p>
             </div>
             <div class="folio-icon" aria-hidden="true">
               <img src="/image/bar.svg" alt="" width="48" height="48" />
             </div>
-            <p class="folio-desc body-jp">個人の集まりから法人イベントまで、プロのバーテンダーが出張し、ご指定のシーンに合わせた一杯をお届けします。</p>
+            <p class="folio-desc body-jp"><span class="lang-ja">個人の集まりから法人イベントまで、プロのバーテンダーが出張し、ご指定のシーンに合わせた一杯をお届けします。</span><span class="lang-en">From private gatherings to corporate events, a professional bartender comes on-site to serve drinks crafted for the occasion.</span></p>
             <div class="folio-scenes">
-              <div class="folio-scenes-label">こんなシーンに</div>
+              <div class="folio-scenes-label"><span class="lang-ja">こんなシーンに</span><span class="lang-en">Scenarios</span></div>
               <ul class="folio-scenes-list">
-                <li>法人懇親会・周年パーティー</li>
-                <li>ブランドPR/商品発表会</li>
-                <li>結婚式二次会</li>
-                <li>ホームパーティー(10-30 名)</li>
+                <li><span class="lang-ja">法人懇親会・周年パーティー</span><span class="lang-en">Corporate receptions, anniversary parties</span></li>
+                <li><span class="lang-ja">ブランドPR/商品発表会</span><span class="lang-en">Brand PR, product launches</span></li>
+                <li><span class="lang-ja">結婚式二次会</span><span class="lang-en">Wedding after-parties</span></li>
+                <li><span class="lang-ja">ホームパーティー(10-30 名)</span><span class="lang-en">Home parties (10–30 guests)</span></li>
               </ul>
             </div>
             <div class="folio-specs">
-              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label">Private(個人・少人数)</span><span class="folio-spec-value">¥50,000 ~</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Corporate(法人)</span><span class="folio-spec-value">¥130,000 ~</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Premium(Brand / PR)</span><span class="folio-spec-value">¥280,000 ~</span></div>
+              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label"><span class="lang-ja">Private(個人・少人数)</span><span class="lang-en">Private (intimate)</span></span><span class="folio-spec-value">¥50,000 ~</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">Corporate(法人)</span><span class="lang-en">Corporate</span></span><span class="folio-spec-value">¥130,000 ~</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">Premium(Brand / PR)</span><span class="lang-en">Premium (Brand / PR)</span></span><span class="folio-spec-value">¥280,000 ~</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
               <ul class="folio-includes-list">
-                <li>ヒアリング+オリジナルメニュー設計</li>
-                <li>バーテンダー 1名(Corporate は+1名相談可)</li>
-                <li>カウンター設営・撤収・片付け一式</li>
-                <li>アルコール・ノンアル・ソフトドリンク提供</li>
+                <li><span class="lang-ja">ヒアリング+オリジナルメニュー設計</span><span class="lang-en">Discovery call + original menu design</span></li>
+                <li><span class="lang-ja">バーテンダー 1名(Corporate は+1名相談可)</span><span class="lang-en">1 bartender (Corporate: +1 negotiable)</span></li>
+                <li><span class="lang-ja">カウンター設営・撤収・片付け一式</span><span class="lang-en">Counter setup, teardown, and cleanup</span></li>
+                <li><span class="lang-ja">アルコール・ノンアル・ソフトドリンク提供</span><span class="lang-en">Alcoholic, non-alcoholic, and soft drinks</span></li>
+                <!-- [v8.30] 弟さん直指示(「ちっちゃい机・シェイカー等、備品持込を書いておいてほしい」v8.29 LP レビュー)。具体機材リストは弟さん確定待ち — シェイカー / 計量 / グラス / 小型提供台 の内訳と「これ以上は別途」のライン -->
+                <li><span class="lang-ja">機材・備品の持込(シェイカー類・計量・グラス・小型提供台 等)</span><span class="lang-en">On-site equipment supplied (shakers, jiggers, glassware, small serving tables, etc.)</span></li>
               </ul>
             </div>
-            <div class="folio-note">※ 交通費・会場費は別途。希少酒の手配は要相談。</div>
-            <a href="#contact" class="folio-cta" data-hover>依頼日を指定 →</a>
+            <div class="folio-note"><span class="lang-ja">※ 交通費・会場費は別途。希少酒の手配は要相談。</span><span class="lang-en">* Travel and venue fees are separate. Rare-spirit sourcing is quoted separately.</span></div>
+            <a href="#contact" class="folio-cta" data-hover><span class="lang-ja">依頼日を指定 →</span><span class="lang-en">Book a date →</span></a>
           </article>
 
           <article class="folio reveal" data-hover>
             <div class="folio-header">
               <div class="folio-slug">No. 02</div>
-              <h3 class="folio-jp">メニュー開発</h3>
+              <h3 class="folio-jp lang-ja">メニュー開発</h3>
               <p class="folio-en">Beverage Program Design</p>
             </div>
             <div class="folio-icon" aria-hidden="true">
               <img src="/image/menu.svg" alt="" width="48" height="48" />
             </div>
-            <p class="folio-desc body-jp">目的やコンセプトに合わせたオリジナルカクテルメニューを設計します。季節刷新・コンセプト立ち上げ・ノンアル強化に対応。</p>
+            <p class="folio-desc body-jp"><span class="lang-ja">目的やコンセプトに合わせたオリジナルカクテルメニューを設計します。季節刷新・コンセプト立ち上げ・ノンアル強化に対応。</span><span class="lang-en">Original cocktail menus designed around your concept and goals — seasonal refreshes, new-concept launches, non-alcoholic programs.</span></p>
             <div class="folio-scenes">
-              <div class="folio-scenes-label">こんなシーンに</div>
+              <div class="folio-scenes-label"><span class="lang-ja">こんなシーンに</span><span class="lang-en">Scenarios</span></div>
               <ul class="folio-scenes-list">
-                <li>季節メニュー刷新</li>
-                <li>新業態・新店オープン</li>
-                <li>ノンアル・モクテル強化</li>
-                <li>法人ブランド用オリジナル</li>
+                <li><span class="lang-ja">季節メニュー刷新</span><span class="lang-en">Seasonal menu refresh</span></li>
+                <li><span class="lang-ja">新業態・新店オープン</span><span class="lang-en">New concept, new venue launch</span></li>
+                <li><span class="lang-ja">ノンアル・モクテル強化</span><span class="lang-en">Non-alcoholic and mocktail programs</span></li>
+                <li><span class="lang-ja">法人ブランド用オリジナル</span><span class="lang-en">Custom recipes for corporate brands</span></li>
               </ul>
             </div>
             <div class="folio-specs">
-              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label">Starter(試作+提案)</span><span class="folio-spec-value">¥130,000</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Standard(5-8品開発)</span><span class="folio-spec-value">¥480,000</span></div>
+              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label"><span class="lang-ja">Starter(試作+提案)</span><span class="lang-en">Starter (prototype + pitch)</span></span><span class="folio-spec-value">¥130,000</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">Standard(5-8品開発)</span><span class="lang-en">Standard (5–8 items)</span></span><span class="folio-spec-value">¥480,000</span></div>
               <div class="folio-spec-row"><span class="folio-spec-label">Non-Alc Package</span><span class="folio-spec-value">¥380,000</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Retainer(月次継続)</span><span class="folio-spec-value">¥130,000 /月</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">Retainer(月次継続)</span><span class="lang-en">Retainer (monthly)</span></span><span class="folio-spec-value">¥130,000 /月</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
               <ul class="folio-includes-list">
-                <li>コンセプト・食材・客層のヒアリング</li>
-                <li>試作 2-8品(パッケージ依存)</li>
-                <li>提案プレゼン 1回(対面/オンライン)</li>
-                <li>レシピ文書化(量・作り方・原価目安)</li>
-                <li>Standard 以上:スタッフ研修 1回(2h 目安)込み</li>
+                <li><span class="lang-ja">コンセプト・食材・客層のヒアリング</span><span class="lang-en">Concept, ingredient, and audience discovery</span></li>
+                <li><span class="lang-ja">試作 2-8品(パッケージ依存)</span><span class="lang-en">2–8 prototypes (package-dependent)</span></li>
+                <li><span class="lang-ja">提案プレゼン 1回(対面/オンライン)</span><span class="lang-en">1 presentation (in-person or online)</span></li>
+                <li><span class="lang-ja">レシピ文書化(量・作り方・原価目安)</span><span class="lang-en">Recipe documentation (quantities, method, cost estimates)</span></li>
+                <li><span class="lang-ja">Standard 以上:スタッフ研修 1回(2h 目安)込み</span><span class="lang-en">Standard and above: 1 staff training session (~2h)</span></li>
               </ul>
             </div>
-            <div class="folio-note">※ 素材・機材は店舗手配。追加プレゼンは別途オプション。</div>
-            <a href="#contact" class="folio-cta" data-hover>プログラムを開始 →</a>
+            <div class="folio-note"><span class="lang-ja">※ 素材・機材は店舗手配。追加プレゼンは別途オプション。</span><span class="lang-en">* Ingredients and equipment arranged by the venue. Additional presentations are optional add-ons.</span></div>
+            <a href="#contact" class="folio-cta" data-hover><span class="lang-ja">プログラムを開始 →</span><span class="lang-en">Start a program →</span></a>
           </article>
 
           <article class="folio reveal" data-hover>
             <div class="folio-header">
               <div class="folio-slug">No. 03</div>
-              <h3 class="folio-jp">店舗相談</h3>
+              <h3 class="folio-jp lang-ja">店舗相談</h3>
               <p class="folio-en">Advisory Sessions</p>
             </div>
             <div class="folio-icon" aria-hidden="true">
               <img src="/image/brand.svg" alt="" width="48" height="48" />
             </div>
-            <p class="folio-desc body-jp">カクテルメニューの運営・改善を継続的にサポート。2時間の単発セッションから始められます。</p>
+            <p class="folio-desc body-jp"><span class="lang-ja">カクテルメニューの運営・改善を継続的にサポート。2時間の単発セッションから始められます。</span><span class="lang-en">Ongoing support for cocktail menu operations and improvements. Start with a single 2-hour session.</span></p>
             <div class="folio-scenes">
-              <div class="folio-scenes-label">こんなシーンに</div>
+              <div class="folio-scenes-label"><span class="lang-ja">こんなシーンに</span><span class="lang-en">Scenarios</span></div>
               <ul class="folio-scenes-list">
-                <li>メニュー見直し・原価改善</li>
-                <li>オペレーション改善</li>
-                <li>客単価/回転率の改善</li>
-                <li>新人オンボーディング設計</li>
+                <li><span class="lang-ja">メニュー見直し・原価改善</span><span class="lang-en">Menu review, cost optimization</span></li>
+                <li><span class="lang-ja">オペレーション改善</span><span class="lang-en">Operations improvement</span></li>
+                <li><span class="lang-ja">客単価/回転率の改善</span><span class="lang-en">Check average and table turnover</span></li>
+                <li><span class="lang-ja">新人オンボーディング設計</span><span class="lang-en">New-hire onboarding design</span></li>
               </ul>
             </div>
             <div class="folio-specs">
-              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label">単発(2h セッション)</span><span class="folio-spec-value">¥35,000</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">月次伴走(2回面談)</span><span class="folio-spec-value">¥100,000 /月</span></div>
+              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label"><span class="lang-ja">単発(2h セッション)</span><span class="lang-en">One-off (2h session)</span></span><span class="folio-spec-value">¥35,000</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">月次伴走(2回面談)</span><span class="lang-en">Monthly advisory (2 sessions)</span></span><span class="folio-spec-value">¥100,000 /月</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
               <ul class="folio-includes-list">
-                <li>事前アジェンダ共有(24h 前目処)</li>
-                <li>セッション 2h(対面 or Google Meet)</li>
-                <li>議事メモ・アクション案サマリ(PDF)</li>
-                <li>月次伴走:随時 Slack / Email 相談無制限</li>
+                <li><span class="lang-ja">事前アジェンダ共有(24h 前目処)</span><span class="lang-en">Pre-session agenda shared (~24h prior)</span></li>
+                <li><span class="lang-ja">セッション 2h(対面 or Google Meet)</span><span class="lang-en">2h session (in-person or Google Meet)</span></li>
+                <li><span class="lang-ja">議事メモ・アクション案サマリ(PDF)</span><span class="lang-en">Meeting notes and action-item summary (PDF)</span></li>
+                <li><span class="lang-ja">月次伴走:随時 Slack / Email 相談無制限</span><span class="lang-en">Monthly advisory: unlimited Slack / Email support</span></li>
               </ul>
             </div>
-            <div class="folio-note">※ 試作・実地提供は別サービスで対応。</div>
-            <a href="#contact" class="folio-cta" data-hover>セッションを予約 →</a>
+            <div class="folio-note"><span class="lang-ja">※ 試作・実地提供は別サービスで対応。</span><span class="lang-en">* Prototyping and on-site service are handled under separate services.</span></div>
+            <a href="#contact" class="folio-cta" data-hover><span class="lang-ja">セッションを予約 →</span><span class="lang-en">Book a session →</span></a>
           </article>
 
           <article class="folio reveal" data-hover>
             <div class="folio-header">
               <div class="folio-slug">No. 04</div>
-              <h3 class="folio-jp">研修プログラム</h3>
+              <h3 class="folio-jp lang-ja">研修プログラム</h3>
               <p class="folio-en">Training Program</p>
             </div>
             <div class="folio-icon" aria-hidden="true">
               <img src="/image/kensyu.svg" alt="" width="48" height="48" />
             </div>
-            <p class="folio-desc body-jp">新メニューの現場導入・作り方指導をサポート。不慣れな従業員の方でも、味や風味を再現できるようにご指導いたします。</p>
+            <p class="folio-desc body-jp"><span class="lang-ja">新メニューの現場導入・作り方指導をサポート。不慣れな従業員の方でも、味や風味を再現できるようにご指導いたします。</span><span class="lang-en">Support for introducing new menus on-site, including hands-on training so even less-experienced staff can reproduce the intended flavor.</span></p>
             <div class="folio-scenes">
-              <div class="folio-scenes-label">こんなシーンに</div>
+              <div class="folio-scenes-label"><span class="lang-ja">こんなシーンに</span><span class="lang-en">Scenarios</span></div>
               <ul class="folio-scenes-list">
-                <li>新スタッフの立ち上げ</li>
-                <li>新メニューの現場定着</li>
-                <li>カクテル基礎から応用</li>
-                <li>既存スタッフのスキルアップ</li>
+                <li><span class="lang-ja">新スタッフの立ち上げ</span><span class="lang-en">New-staff ramp-up</span></li>
+                <li><span class="lang-ja">新メニューの現場定着</span><span class="lang-en">Rolling out a new menu on-site</span></li>
+                <li><span class="lang-ja">カクテル基礎から応用</span><span class="lang-en">Cocktail fundamentals to advanced</span></li>
+                <li><span class="lang-ja">既存スタッフのスキルアップ</span><span class="lang-en">Upskilling existing staff</span></li>
               </ul>
             </div>
             <div class="folio-specs">
-              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label">Basic(単発 / 3h)</span><span class="folio-spec-value">¥80,000</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Standard(月次 / 3回)</span><span class="folio-spec-value">¥200,000</span></div>
-              <div class="folio-spec-row"><span class="folio-spec-label">Onboarding(新人 / 5回)</span><span class="folio-spec-value">¥350,000</span></div>
+              <div class="folio-spec-row folio-spec-row--primary"><span class="folio-spec-label"><span class="lang-ja">Basic(単発 / 3h)</span><span class="lang-en">Basic (one-off / 3h)</span></span><span class="folio-spec-value">¥80,000</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">Standard(月次 / 3回)</span><span class="lang-en">Standard (monthly / 3 sessions)</span></span><span class="folio-spec-value">¥200,000</span></div>
+              <div class="folio-spec-row"><span class="folio-spec-label"><span class="lang-ja">Onboarding(新人 / 5回)</span><span class="lang-en">Onboarding (new-hire / 5 sessions)</span></span><span class="folio-spec-value">¥350,000</span></div>
             </div>
             <div class="folio-includes">
               <div class="folio-includes-label">Included</div>
               <ul class="folio-includes-list">
-                <li>事前ヒアリング+カリキュラム設計</li>
-                <li>実技指導(店舗内 / 2-3h 目安)</li>
-                <li>レシピ文書化・手順書提供</li>
-                <li>受講後フォロー(Slack / Email 相談 2週間)</li>
+                <li><span class="lang-ja">事前ヒアリング+カリキュラム設計</span><span class="lang-en">Pre-session discovery + curriculum design</span></li>
+                <li><span class="lang-ja">実技指導(店舗内 / 2-3h 目安)</span><span class="lang-en">Hands-on instruction (on-site / ~2–3h)</span></li>
+                <li><span class="lang-ja">レシピ文書化・手順書提供</span><span class="lang-en">Recipe documentation and procedure manual</span></li>
+                <li><span class="lang-ja">受講後フォロー(Slack / Email 相談 2週間)</span><span class="lang-en">Post-training follow-up (Slack / Email for 2 weeks)</span></li>
               </ul>
             </div>
-            <div class="folio-note">※ 材料費は店舗側。遠方の交通費・宿泊費は実費。</div>
-            <a href="#contact" class="folio-cta" data-hover>研修を予約 →</a>
+            <div class="folio-note"><span class="lang-ja">※ 材料費は店舗側。遠方の交通費・宿泊費は実費。</span><span class="lang-en">* Materials are covered by the venue. For distant locations, travel and lodging are billed at cost.</span></div>
+            <a href="#contact" class="folio-cta" data-hover><span class="lang-ja">研修を予約 →</span><span class="lang-en">Book training →</span></a>
           </article>
         </div>
 
         <div class="sample-menu reveal">
           <div class="sample-menu-intro">
             <h4>Sample Menu</h4>
-            <p>オリジナルカクテルの一例。</p>
-            <a href="#contact" class="sample-menu-more" data-hover>メニュー開発の詳細を見る →</a>
+            <p><span class="lang-ja">オリジナルカクテルの一例。</span><span class="lang-en">A selection of original cocktails.</span></p>
+            <a href="#contact" class="sample-menu-more" data-hover><span class="lang-ja">メニュー開発の詳細を見る →</span><span class="lang-en">See menu development details →</span></a>
           </div>
           <div class="sample-item">
             <div class="sample-thumb t1"><img src="/image/sample1.svg" alt="Kyoto Old Fashioned" /></div>
             <div class="sample-name">Kyoto Old Fashioned</div>
-            <div class="sample-desc">京都の素材と静けさを<br/>閉じ込めた一杯。</div>
+            <div class="sample-desc"><span class="lang-ja">京都の素材と静けさを<br/>閉じ込めた一杯。</span><span class="lang-en">Kyoto ingredients and stillness,<br/>captured in a single glass.</span></div>
             <div class="sample-tags">
-              <span class="sample-tag">ウイスキー</span>
-              <span class="sample-tag">京番茶</span>
+              <span class="sample-tag"><span class="lang-ja">ウイスキー</span><span class="lang-en">Whiskey</span></span>
+              <span class="sample-tag"><span class="lang-ja">京番茶</span><span class="lang-en">Kyo-bancha</span></span>
             </div>
           </div>
           <div class="sample-item">
             <div class="sample-thumb t2"><img src="/image/sample2.svg" alt="Hinoki Garden" /></div>
             <div class="sample-name">Hinoki Garden</div>
-            <div class="sample-desc">檜の香りと柑橘が調和する、<br/>森の余韻。</div>
+            <div class="sample-desc"><span class="lang-ja">檜の香りと柑橘が調和する、<br/>森の余韻。</span><span class="lang-en">Hinoki aroma and citrus<br/>in a forest echo.</span></div>
             <div class="sample-tags">
-              <span class="sample-tag">ジン</span>
-              <span class="sample-tag">檜・柚子</span>
+              <span class="sample-tag"><span class="lang-ja">ジン</span><span class="lang-en">Gin</span></span>
+              <span class="sample-tag"><span class="lang-ja">檜・柚子</span><span class="lang-en">Hinoki · Yuzu</span></span>
             </div>
           </div>
           <div class="sample-item">
             <div class="sample-thumb t3"><img src="/image/sample3.svg" alt="Tokyo Midnight Martini" /></div>
             <div class="sample-name">Tokyo Midnight Martini</div>
-            <div class="sample-desc">都の夜景に寄り添う、<br/>洗練のマティーニ。</div>
+            <div class="sample-desc"><span class="lang-ja">都の夜景に寄り添う、<br/>洗練のマティーニ。</span><span class="lang-en">A refined martini for<br/>the Tokyo skyline at night.</span></div>
             <div class="sample-tags">
-              <span class="sample-tag">ウォッカ</span>
-              <span class="sample-tag">黒文字</span>
+              <span class="sample-tag"><span class="lang-ja">ウォッカ</span><span class="lang-en">Vodka</span></span>
+              <span class="sample-tag"><span class="lang-ja">黒文字</span><span class="lang-en">Kuromoji</span></span>
             </div>
           </div>
         </div>
@@ -2204,13 +2267,13 @@
         <div class="fw-head">
           <div class="meta-col reveal"><div class="meta">Use Cases</div></div>
           <div class="title-col">
-            <h2 class="fw-title spaced reveal">ご 利 用 シ ー ン</h2>
+            <h2 class="fw-title spaced reveal"><span class="lang-ja">ご 利 用 シ ー ン</span><span class="lang-en">Use Cases</span></h2>
             <div class="fw-divider reveal">
               <div class="line"></div>
               <div class="diamond"></div>
               <div class="line"></div>
             </div>
-            <p class="fw-intro reveal">こんなシーンで、ご利用いただいています。</p>
+            <p class="fw-intro reveal"><span class="lang-ja">こんなシーンで、ご利用いただいています。</span><span class="lang-en">Here's where njoooy fits in.</span></p>
           </div>
         </div>
 
@@ -2220,9 +2283,9 @@
               <img src="/image/homeparty.svg" alt="" width="56" height="56" />
             </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">ホームパーティー</h3>
+              <h3 class="forwhom-jp lang-ja">ホームパーティー</h3>
               <p class="forwhom-en">Home Party</p>
-              <p class="forwhom-desc">友人・家族との特別な集まりに、プロの一杯を。</p>
+              <p class="forwhom-desc"><span class="lang-ja">友人・家族との特別な集まりに、プロの一杯を。</span><span class="lang-en">For special gatherings with friends and family — a professional's drink.</span></p>
             </div>
           </div>
           <div class="forwhom-card">
@@ -2230,9 +2293,9 @@
               <img src="/image/reception.svg" alt="" width="56" height="56" />
             </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">レセプションパーティ</h3>
+              <h3 class="forwhom-jp lang-ja">レセプションパーティ</h3>
               <p class="forwhom-en">Corporate Reception / Brand Launch</p>
-              <p class="forwhom-desc">法人のおもてなしやブランド体験を、上質な演出で。</p>
+              <p class="forwhom-desc"><span class="lang-ja">法人のおもてなしやブランド体験を、上質な演出で。</span><span class="lang-en">Corporate hospitality and brand experiences — produced with polish.</span></p>
             </div>
           </div>
           <div class="forwhom-card">
@@ -2240,9 +2303,9 @@
               <img src="/image/wedding.svg" alt="" width="56" height="56" />
             </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">ウェディング二次会・アフターパーティ</h3>
+              <h3 class="forwhom-jp lang-ja">ウェディング二次会・アフターパーティ</h3>
               <p class="forwhom-en">Wedding After-Party</p>
-              <p class="forwhom-desc">大切な人との特別な時間を、上質な一杯で演出。</p>
+              <p class="forwhom-desc"><span class="lang-ja">大切な人との特別な時間を、上質な一杯で演出。</span><span class="lang-en">Elevate the special moments with loved ones through a refined drink.</span></p>
             </div>
           </div>
           <div class="forwhom-card">
@@ -2250,9 +2313,9 @@
               <img src="/image/new_menu.svg" alt="" width="56" height="56" />
             </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">店舗メニュー刷新</h3>
+              <h3 class="forwhom-jp lang-ja">店舗メニュー刷新</h3>
               <p class="forwhom-en">Menu Refresh</p>
-              <p class="forwhom-desc">新しいペアリング提案で、メニューに付加価値を。</p>
+              <p class="forwhom-desc"><span class="lang-ja">新しいペアリング提案で、メニューに付加価値を。</span><span class="lang-en">New pairing ideas that add value to your menu.</span></p>
             </div>
           </div>
           <div class="forwhom-card">
@@ -2260,9 +2323,9 @@
               <img src="/image/non_al.svg" alt="" width="56" height="56" />
             </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">ノンアル対応が必要な場</h3>
+              <h3 class="forwhom-jp lang-ja">ノンアル対応が必要な場</h3>
               <p class="forwhom-en">Non-Alcoholic Events</p>
-              <p class="forwhom-desc">お酒を飲まないゲストにも、特別な体験を。</p>
+              <p class="forwhom-desc"><span class="lang-ja">お酒を飲まないゲストにも、特別な体験を。</span><span class="lang-en">A special experience — even for guests who don't drink.</span></p>
             </div>
           </div>
           <div class="forwhom-card">
@@ -2270,9 +2333,9 @@
               <img src="/image/bi.svg" alt="" width="56" height="56" />
             </div>
             <div class="forwhom-body">
-              <h3 class="forwhom-jp">バイリンガル対応の現場</h3>
+              <h3 class="forwhom-jp lang-ja">バイリンガル対応の現場</h3>
               <p class="forwhom-en">Bilingual Events</p>
-              <p class="forwhom-desc">国際的な交流を、スムーズにサポート。</p>
+              <p class="forwhom-desc"><span class="lang-ja">国際的な交流を、スムーズにサポート。</span><span class="lang-en">Smooth support for international gatherings.</span></p>
             </div>
           </div>
         </div>
@@ -2284,13 +2347,13 @@
         <div class="process-head">
           <div class="meta-col reveal"><div class="meta">Process</div></div>
           <div class="title-col">
-            <h2 class="process-title spaced reveal">ご 利 用 の 流 れ</h2>
+            <h2 class="process-title spaced reveal"><span class="lang-ja">ご 利 用 の 流 れ</span><span class="lang-en">Process</span></h2>
             <div class="process-divider reveal">
               <div class="line"></div>
               <div class="diamond"></div>
               <div class="line"></div>
             </div>
-            <p class="process-intro reveal">ご相談からイベント当日、そしてその先まで、丁寧にサポートいたします。</p>
+            <p class="process-intro reveal"><span class="lang-ja">ご相談からイベント当日、そしてその先まで、丁寧にサポートいたします。</span><span class="lang-en">From first inquiry through the event day and beyond — attentive support, end to end.</span></p>
           </div>
         </div>
         <div class="process-steps">
@@ -2304,9 +2367,9 @@
                 <text x="32" y="41" font-family="serif" font-size="8" fill="currentColor" text-anchor="middle">?</text>
               </svg>
             </div>
-            <h4>お問い合わせ</h4>
+            <h4 class="lang-ja">お問い合わせ</h4>
             <p class="process-en">Inquiry</p>
-            <p class="process-desc-step">フォーム・お電話より<br/>お気軽にご連絡ください。</p>
+            <p class="process-desc-step"><span class="lang-ja">フォーム・お電話より<br/>お気軽にご連絡ください。</span><span class="lang-en">Reach out by form<br/>or phone, any time.</span></p>
           </div>
 
           <div class="process-step reveal">
@@ -2321,9 +2384,9 @@
                 <path d="M 42 8 L 46 8 L 46 12 Z" opacity="0.5"/>
               </svg>
             </div>
-            <h4>ヒアリング</h4>
+            <h4 class="lang-ja">ヒアリング</h4>
             <p class="process-en">Consultation</p>
-            <p class="process-desc-step">ご要望やご予算、イベントの<br/>目的などをお伺いします。</p>
+            <p class="process-desc-step"><span class="lang-ja">ご要望やご予算、イベントの<br/>目的などをお伺いします。</span><span class="lang-en">We listen to your goals,<br/>budget, and event purpose.</span></p>
           </div>
 
           <div class="process-step reveal">
@@ -2336,9 +2399,9 @@
                 <text x="32" y="50" font-family="serif" font-size="9" fill="currentColor" text-anchor="middle" font-style="italic">¥</text>
               </svg>
             </div>
-            <h4>ご提案・お見積り</h4>
+            <h4 class="lang-ja">ご提案・お見積り</h4>
             <p class="process-en">Proposal / Quote</p>
-            <p class="process-desc-step">内容に合わせたご提案と<br/>お見積りをご提示します。</p>
+            <p class="process-desc-step"><span class="lang-ja">内容に合わせたご提案と<br/>お見積りをご提示します。</span><span class="lang-en">A tailored proposal<br/>and quote for your needs.</span></p>
           </div>
 
           <div class="process-step reveal">
@@ -2353,9 +2416,9 @@
                 <circle cx="54" cy="40" r="3" fill="currentColor" opacity="0.3"/>
               </svg>
             </div>
-            <h4>メニュー設計 / 準備</h4>
+            <h4 class="lang-ja">メニュー設計 / 準備</h4>
             <p class="process-en">Menu Design / Preparation</p>
-            <p class="process-desc-step">コンセプトに沿ったメニューを<br/>設計し、当日に向けて準備します。</p>
+            <p class="process-desc-step"><span class="lang-ja">コンセプトに沿ったメニューを<br/>設計し、当日に向けて準備します。</span><span class="lang-en">Menu designed to the concept,<br/>fully prepared for the day.</span></p>
           </div>
 
           <div class="process-step reveal">
@@ -2369,9 +2432,9 @@
                 <path d="M 18 16 L 46 16"/>
               </svg>
             </div>
-            <h4>イベント当日 / 提供</h4>
+            <h4 class="lang-ja">イベント当日 / 提供</h4>
             <p class="process-en">Event Day / Service</p>
-            <p class="process-desc-step">プロのバーテンダーが<br/>心を込めて提供します。</p>
+            <p class="process-desc-step"><span class="lang-ja">プロのバーテンダーが<br/>心を込めて提供します。</span><span class="lang-en">A professional bartender<br/>serves with care.</span></p>
           </div>
 
           <div class="process-step reveal">
@@ -2387,9 +2450,9 @@
                 <path d="M 52 32 L 55 32" opacity="0.5"/>
               </svg>
             </div>
-            <h4>フォローアップ</h4>
+            <h4 class="lang-ja">フォローアップ</h4>
             <p class="process-en">Follow-Up</p>
-            <p class="process-desc-step">イベント後のご感想を伺い、<br/>次回に活かします。</p>
+            <p class="process-desc-step"><span class="lang-ja">イベント後のご感想を伺い、<br/>次回に活かします。</span><span class="lang-en">We gather feedback<br/>and carry it into the next.</span></p>
           </div>
         </div>
         <div class="past-meta-row">
@@ -2401,16 +2464,24 @@
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track" style="animation-duration: 48s;">
         <div class="marquee-group">
-          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
-          <span class="jp">関東近辺</span><span class="sep">✦</span>
-          <span class="jp">即日対応</span><span class="sep">✦</span>
-          <span class="jp">英語対応可</span><span class="sep">✦</span>
+          <span class="jp lang-ja">出張バー／メニュー開発／店舗相談／研修</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">関東近辺</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">即日対応</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">英語対応可</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-en">Pop-up Bar / Menu Development / Bar Consulting / Training</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Greater Tokyo Area</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Same-day response</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">English available</span><span class="sep lang-en">✦</span>
         </div>
         <div class="marquee-group" aria-hidden="true">
-          <span class="jp">出張バー／メニュー開発／店舗相談／研修</span><span class="sep">✦</span>
-          <span class="jp">関東近辺</span><span class="sep">✦</span>
-          <span class="jp">即日対応</span><span class="sep">✦</span>
-          <span class="jp">英語対応可</span><span class="sep">✦</span>
+          <span class="jp lang-ja">出張バー／メニュー開発／店舗相談／研修</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">関東近辺</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">即日対応</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-ja">英語対応可</span><span class="sep lang-ja">✦</span>
+          <span class="jp lang-en">Pop-up Bar / Menu Development / Bar Consulting / Training</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Greater Tokyo Area</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">Same-day response</span><span class="sep lang-en">✦</span>
+          <span class="jp lang-en">English available</span><span class="sep lang-en">✦</span>
         </div>
       </div>
     </div>
@@ -2420,7 +2491,7 @@
         <div class="method-head">
           <div class="meta-col reveal"><div class="meta">Method</div></div>
           <div class="title-col">
-            <h2 class="method-title spaced reveal">私たちが選ばれる理由</h2>
+            <h2 class="method-title spaced reveal"><span class="lang-ja">私たちが選ばれる理由</span><span class="lang-en">Why njoooy</span></h2>
             <div class="method-divider reveal">
               <div class="line"></div>
               <div class="diamond"></div>
@@ -2432,18 +2503,18 @@
           <div class="why-grid">
             <div class="why-item">
               <div class="why-num">01</div>
-              <div class="why-title">余韻の設計</div>
-              <div class="why-desc">味わい、香り、時間、空間。そのすべてが心地よく重なり、記憶に残る余韻をつくります。</div>
+              <div class="why-title"><span class="lang-ja">余韻の設計</span><span class="lang-en">Designing the Afterglow</span></div>
+              <div class="why-desc"><span class="lang-ja">味わい、香り、時間、空間。そのすべてが心地よく重なり、記憶に残る余韻をつくります。</span><span class="lang-en">Flavor, aroma, time, and space — layered so gently that what remains is a memory.</span></div>
             </div>
             <div class="why-item">
               <div class="why-num">02</div>
-              <div class="why-title">対話から生まれる設計</div>
-              <div class="why-desc">丁寧なヒアリングから本質を捉え、目的やシーンに最適な体験を共に設計していきます。</div>
+              <div class="why-title"><span class="lang-ja">対話から生まれる設計</span><span class="lang-en">Shaped Through Dialogue</span></div>
+              <div class="why-desc"><span class="lang-ja">丁寧なヒアリングから本質を捉え、目的やシーンに最適な体験を共に設計していきます。</span><span class="lang-en">Careful listening reveals the intent; we design the experience together, fit to purpose and place.</span></div>
             </div>
             <div class="why-item">
               <div class="why-num">03</div>
-              <div class="why-title">誠実なプロフェッショナル</div>
-              <div class="why-desc">技術と知識を磨き続け、すべての瞬間に誠実に向き合う。信頼が、品質の土台です。</div>
+              <div class="why-title"><span class="lang-ja">誠実なプロフェッショナル</span><span class="lang-en">Honest Professionalism</span></div>
+              <div class="why-desc"><span class="lang-ja">技術と知識を磨き続け、すべての瞬間に誠実に向き合う。信頼が、品質の土台です。</span><span class="lang-en">Continually honing craft and knowledge, meeting every moment with honesty. Trust is the foundation of quality.</span></div>
             </div>
           </div>
         </div>
@@ -2455,13 +2526,13 @@
         <div class="about-head">
           <div class="meta-col reveal"><div class="meta">About us</div></div>
           <div class="title-col">
-            <h2 class="about-title spaced reveal">はじめまして、njoooyです。</h2>
+            <h2 class="about-title spaced reveal"><span class="lang-ja">はじめまして、njoooyです。</span><span class="lang-en">Hello — we're njoooy.</span></h2>
             <div class="about-divider reveal">
               <div class="line"></div>
               <div class="diamond"></div>
               <div class="line"></div>
             </div>
-            <p class="about-intro reveal">njoooy をこれから育てていく founder の紹介と、これまでの歩みについて。</p>
+            <p class="about-intro reveal"><span class="lang-ja">njoooy をこれから育てていく founder の紹介と、これまでの歩みについて。</span><span class="lang-en">Meet the founder behind njoooy, and the journey so far.</span></p>
           </div>
         </div>
         <div class="about-grid">
@@ -2476,8 +2547,40 @@
             <div class="founder-block reveal">
               <div class="founder-label">Founder</div>
               <h3 class="founder-name"><ruby>米山<rt>よねやま</rt></ruby>&nbsp;<ruby>丈偉<rt>じょうい</rt></ruby></h3>
-              <div class="founder-meta">21歳</div>
-              <p class="founder-bio">より多くの人と出会い、挑戦の幅を広げるために立ち上げました。未熟ではありますが、一杯一杯に想いを込めて、皆さまの時間に寄り添います。</p>
+              <div class="founder-meta"><span class="lang-ja">21歳</span><span class="lang-en">Age 21</span></div>
+              <p class="founder-bio"><span class="lang-ja">より多くの人と出会い、挑戦の幅を広げるために立ち上げました。未熟ではありますが、一杯一杯に想いを込めて、皆さまの時間に寄り添います。</span><span class="lang-en">I started njoooy to meet more people and widen the scope of what I take on. Still learning — but every drink is made with intent, and my aim is to be present in the time you spend.</span></p>
+            </div>
+
+            <!-- [v8.30] About 自己紹介 3-paragraph scaffold — 弟さん LP review(「強みが弱い / 若さ・Z世代の視点を足す」)を受けた受け皿。構造・番号・見出し位置・文字数ガイドのみ Claude 用意、本文は弟さん記述を待って差替(R-1/R-7 遵守)。 -->
+            <div class="about-voice reveal">
+              <div class="about-voice-label meta"><span class="lang-ja">Voice / 自己紹介</span><span class="lang-en">Voice / About</span></div>
+              <div class="about-voice-list">
+
+                <div class="about-voice-item">
+                  <div class="about-voice-num">01</div>
+                  <div class="about-voice-body">
+                    <h4 class="about-voice-title about-voice-placeholder">[: 第1段落の見出し — 弟さん確定待ち / 14-20字目安(テーマ例:京都時代の修練・技術の基盤)]</h4>
+                    <p class="about-voice-desc about-voice-placeholder">[: 第1段落本文 — 事実軸、弟さん記述 / 120-180字目安。内容例:京都ホテルバーでの勤務期間・師事したメンター・学んだ技術領域・カクテル構成力の源。LP 読者に「この人は何を基盤にしているか」を提示する段落。]</p>
+                  </div>
+                </div>
+
+                <div class="about-voice-item">
+                  <div class="about-voice-num">02</div>
+                  <div class="about-voice-body">
+                    <h4 class="about-voice-title about-voice-placeholder">[: 第2段落の見出し — 弟さん確定待ち / 14-20字目安(テーマ例:「酒が飲めない」立場からの視点、ノンアル着想)]</h4>
+                    <p class="about-voice-desc about-voice-placeholder">[: 第2段落本文 — 差別化核、弟さん記述 / 120-180字目安。内容例:自分自身が酒を飲めない(半分事実、handover §2)立場から見えた「乾杯の外に置かれる人」の体験と、ノンアル設計への問題意識。LP 戦略文書 business §2 の核心フレーミングと直結する最重要段落。]</p>
+                  </div>
+                </div>
+
+                <div class="about-voice-item">
+                  <div class="about-voice-num">03</div>
+                  <div class="about-voice-body">
+                    <h4 class="about-voice-title about-voice-placeholder">[: 第3段落の見出し — 弟さん確定待ち / 14-20字目安(テーマ例:Z世代として読む飲酒文化の変化・届けたい体験)]</h4>
+                    <p class="about-voice-desc about-voice-placeholder">[: 第3段落本文 — 世代軸、弟さん記述 / 120-180字目安。内容例:ソバーキュリアス・健康志向・選択の多様化等、Z世代として肌で感じる飲酒文化の変化への読み、そしてそこに向けた新しい一杯・新しい時間の届け方。若手 Founder ならではの独自ポジションを明示する段落。]</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             <div class="about-timeline reveal">
@@ -2486,29 +2589,29 @@
                 <div class="about-timeline-item">
                   <div class="about-timeline-year">2024</div>
                   <div class="about-timeline-text">
-                    <div class="about-timeline-title">学びのはじまり</div>
-                    <p class="about-timeline-desc">京都のバーでバーテンダーとしての基礎を学び、日々経験を積む。</p>
+                    <div class="about-timeline-title"><span class="lang-ja">学びのはじまり</span><span class="lang-en">Learning begins</span></div>
+                    <p class="about-timeline-desc"><span class="lang-ja">京都のバーでバーテンダーとしての基礎を学び、日々経験を積む。</span><span class="lang-en">Learning the fundamentals of bartending at a Kyoto bar, day by day.</span></p>
                   </div>
                 </div>
                 <div class="about-timeline-item">
                   <div class="about-timeline-year">2025</div>
                   <div class="about-timeline-text">
-                    <div class="about-timeline-title">表現の幅を広げる</div>
-                    <p class="about-timeline-desc">カクテルの技法や提案力を磨き、自分らしいスタイルを模索。</p>
+                    <div class="about-timeline-title"><span class="lang-ja">表現の幅を広げる</span><span class="lang-en">Widening the range</span></div>
+                    <p class="about-timeline-desc"><span class="lang-ja">カクテルの技法や提案力を磨き、自分らしいスタイルを模索。</span><span class="lang-en">Sharpening technique and pitching ability; searching for a personal style.</span></p>
                   </div>
                 </div>
                 <div class="about-timeline-item">
                   <div class="about-timeline-year">2026</div>
                   <div class="about-timeline-text">
-                    <div class="about-timeline-title">東京へ</div>
-                    <p class="about-timeline-desc">京都から東京へ拠点を移し、新たな挑戦をスタート。</p>
+                    <div class="about-timeline-title"><span class="lang-ja">東京へ</span><span class="lang-en">On to Tokyo</span></div>
+                    <p class="about-timeline-desc"><span class="lang-ja">京都から東京へ拠点を移し、新たな挑戦をスタート。</span><span class="lang-en">Moving base from Kyoto to Tokyo, starting a new chapter.</span></p>
                   </div>
                 </div>
                 <div class="about-timeline-item current">
-                  <div class="about-timeline-year">今 →</div>
+                  <div class="about-timeline-year"><span class="lang-ja">今 →</span><span class="lang-en">Now →</span></div>
                   <div class="about-timeline-text">
-                    <div class="about-timeline-title">njoooy を育てていく</div>
-                    <p class="about-timeline-desc">一人ひとりとの出会いを大切に、長く愛されるバーテンダーになります。</p>
+                    <div class="about-timeline-title"><span class="lang-ja">njoooy を育てていく</span><span class="lang-en">Growing njoooy</span></div>
+                    <p class="about-timeline-desc"><span class="lang-ja">一人ひとりとの出会いを大切に、長く愛されるバーテンダーになります。</span><span class="lang-en">Valuing each encounter, aiming to be a bartender people come back to for years.</span></p>
                   </div>
                 </div>
               </div>
@@ -2569,13 +2672,13 @@
       <div class="section-inner">
         <div class="faq-head">
           <div class="meta reveal">FAQ</div>
-          <h2 class="faq-title spaced reveal">よ く あ る ご 質 問</h2>
+          <h2 class="faq-title spaced reveal"><span class="lang-ja">よ く あ る ご 質 問</span><span class="lang-en">Frequently Asked Questions</span></h2>
           <div class="faq-divider reveal">
             <div class="line"></div>
             <div class="diamond"></div>
             <div class="line"></div>
           </div>
-          <p class="faq-intro reveal">njoooy に多く寄せられるご質問をまとめました。<br/>ご不明点がございましたら、お気軽にお問い合わせください。</p>
+          <p class="faq-intro reveal"><span class="lang-ja">njoooy に多く寄せられるご質問をまとめました。<br/>ご不明点がございましたら、お気軽にお問い合わせください。</span><span class="lang-en">Common questions answered below.<br/>Anything else — please feel free to ask.</span></p>
         </div>
 
         <div class="faq-body">
@@ -2583,46 +2686,46 @@
             <details class="faq-item reveal">
               <summary class="faq-q">
                 <span class="faq-num">01.</span>
-                <span class="faq-q-text">対応エリアはどこまでですか?</span>
+                <span class="faq-q-text"><span class="lang-ja">対応エリアはどこまでですか?</span><span class="lang-en">Which areas do you serve?</span></span>
                 <span class="faq-toggle"></span>
               </summary>
-              <div class="faq-a">東京都内を中心に、首都圏および日本全国のご依頼に対応しております。遠方の場合は、交通費・宿泊費を別途ご相談ください。</div>
+              <div class="faq-a"><span class="lang-ja">東京都内を中心に、首都圏および日本全国のご依頼に対応しております。遠方の場合は、交通費・宿泊費を別途ご相談ください。</span><span class="lang-en">Centered on Tokyo, serving the greater metropolitan area and all of Japan. For distant locations, travel and lodging are discussed separately.</span></div>
             </details>
 
             <details class="faq-item reveal d1" open>
               <summary class="faq-q">
                 <span class="faq-num">02.</span>
-                <span class="faq-q-text">何日前まで相談できますか?</span>
+                <span class="faq-q-text"><span class="lang-ja">何日前まで相談できますか?</span><span class="lang-en">How far in advance should I book?</span></span>
                 <span class="faq-toggle"></span>
               </summary>
-              <div class="faq-a">理想は2週間前ですが、直前のご相談も可能な限り対応いたします。まずはスケジュール感をお知らせください。</div>
+              <div class="faq-a"><span class="lang-ja">理想は2週間前ですが、直前のご相談も可能な限り対応いたします。まずはスケジュール感をお知らせください。</span><span class="lang-en">Two weeks ahead is ideal, but we do our best with shorter notice. Let us know your timing first.</span></div>
             </details>
 
             <details class="faq-item reveal d2">
               <summary class="faq-q">
                 <span class="faq-num">03.</span>
-                <span class="faq-q-text">キャンセルポリシーについて教えてください。</span>
+                <span class="faq-q-text"><span class="lang-ja">キャンセルポリシーについて教えてください。</span><span class="lang-en">What's the cancellation policy?</span></span>
                 <span class="faq-toggle"></span>
               </summary>
-              <div class="faq-a">お申込み後のキャンセルは、実施日までの日数に応じてキャンセル料が発生する場合があります。詳細はご契約時にご案内いたします。</div>
+              <div class="faq-a"><span class="lang-ja">お申込み後のキャンセルは、実施日までの日数に応じてキャンセル料が発生する場合があります。詳細はご契約時にご案内いたします。</span><span class="lang-en">Cancellation fees may apply depending on how close to the event date. Full details are shared at contracting.</span></div>
             </details>
 
             <details class="faq-item reveal d3">
               <summary class="faq-q">
                 <span class="faq-num">04.</span>
-                <span class="faq-q-text">お見積もりは無料ですか?</span>
+                <span class="faq-q-text"><span class="lang-ja">お見積もりは無料ですか?</span><span class="lang-en">Are quotes free?</span></span>
                 <span class="faq-toggle"></span>
               </summary>
-              <div class="faq-a">はい、お見積りは無料です。お問い合わせいただいてから48時間以内を目処に、プラン2-3案とお見積書 PDF をお送りします。内容の調整・追加相談も費用なしで対応します。</div>
+              <div class="faq-a"><span class="lang-ja">はい、お見積りは無料です。お問い合わせいただいてから48時間以内を目処に、プラン2-3案とお見積書 PDF をお送りします。内容の調整・追加相談も費用なしで対応します。</span><span class="lang-en">Yes — quotes are free. Within about 48 hours of your inquiry we'll send 2–3 plan options and a PDF quote. Revisions and follow-up conversations are also no charge.</span></div>
             </details>
 
             <details class="faq-item reveal d4">
               <summary class="faq-q">
                 <span class="faq-num">05.</span>
-                <span class="faq-q-text">アレルギーや特別食対応はできますか?</span>
+                <span class="faq-q-text"><span class="lang-ja">アレルギーや特別食対応はできますか?</span><span class="lang-en">Can you accommodate allergies or dietary needs?</span></span>
                 <span class="faq-toggle"></span>
               </summary>
-              <div class="faq-a">対応可能です。ヴィーガン・ハラール・グルテンフリー・特定素材の避け等、事前ヒアリングで共有いただければメニュー設計に反映します。</div>
+              <div class="faq-a"><span class="lang-ja">対応可能です。ヴィーガン・ハラール・グルテンフリー・特定素材の避け等、事前ヒアリングで共有いただければメニュー設計に反映します。</span><span class="lang-en">Yes. Vegan, halal, gluten-free, specific-ingredient avoidance — share the details during discovery and we'll build it into the menu.</span></div>
             </details>
           </div>
         </div>
@@ -2634,8 +2737,8 @@
             </svg>
           </div>
           <div>
-            <div class="faq-contact-cta-text">その他のご質問は、いつでもご相談ください。</div>
-            <a href="#contact">お問い合わせはこちら →</a>
+            <div class="faq-contact-cta-text"><span class="lang-ja">その他のご質問は、いつでもご相談ください。</span><span class="lang-en">Have another question? Reach out any time.</span></div>
+            <a href="#contact"><span class="lang-ja">お問い合わせはこちら →</span><span class="lang-en">Contact us →</span></a>
           </div>
         </div>
       </div>
@@ -2644,13 +2747,13 @@
     <section class="contact" id="contact">
       <div class="contact-head">
         <div class="meta reveal">Contact</div>
-        <h2 class="contact-title spaced reveal">お 問 い 合 わ せ</h2>
+        <h2 class="contact-title spaced reveal"><span class="lang-ja">お 問 い 合 わ せ</span><span class="lang-en">Contact</span></h2>
         <div class="contact-divider reveal">
           <div class="line"></div>
           <div class="diamond"></div>
           <div class="line"></div>
         </div>
-        <p class="contact-intro reveal">ご相談・ご質問・ご依頼など、お気軽にお問い合わせください。</p>
+        <p class="contact-intro reveal"><span class="lang-ja">ご相談・ご質問・ご依頼など、お気軽にお問い合わせください。</span><span class="lang-en">Consultations, questions, requests — please feel free to reach out.</span></p>
       </div>
 
       <div class="contact-inner">
@@ -2662,95 +2765,95 @@
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="form-row">
-            <label for="cf-name">お名前</label>
-            <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" required/>
+            <label for="cf-name"><span class="lang-ja">お名前</span><span class="lang-en">Name</span></label>
+            <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" data-ph-ja="例) 山田 太郎" data-ph-en="e.g. John Smith" required/>
           </div>
           <div class="form-row">
-            <label for="cf-email">メールアドレス</label>
-            <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com" required/>
+            <label for="cf-email"><span class="lang-ja">メールアドレス</span><span class="lang-en">Email</span></label>
+            <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com" data-ph-ja="例) yamada@example.com" data-ph-en="e.g. you@example.com" required/>
           </div>
           <div class="form-row">
-            <label for="cf-service">ご希望サービス</label>
+            <label for="cf-service"><span class="lang-ja">ご希望サービス</span><span class="lang-en">Service of interest</span></label>
             <select id="cf-service" name="service">
-              <option>選択してください</option>
+              <option>— 選択してください / Please select —</option>
               <option>njoooy Bar (出張バー)</option>
               <option>njoooy Menu (メニュー開発)</option>
               <option>njoooy Counsel (店舗相談)</option>
               <option>njoooy Class (研修プログラム)</option>
-              <option>その他</option>
+              <option>その他 / Other</option>
             </select>
           </div>
           <div class="form-row">
-            <label>ご希望相談方法</label>
-            <div class="form-radio-group" role="radiogroup" aria-label="ご希望相談方法">
+            <label><span class="lang-ja">ご希望相談方法</span><span class="lang-en">Preferred meeting format</span></label>
+            <div class="form-radio-group" role="radiogroup" aria-label="Preferred meeting format">
               <label class="form-radio-item">
                 <input type="radio" name="meeting_format" value="対面" />
-                <span>対面</span>
+                <span><span class="lang-ja">対面</span><span class="lang-en">In-person</span></span>
               </label>
               <label class="form-radio-item">
                 <input type="radio" name="meeting_format" value="オンライン (Google Meet)" />
-                <span>オンライン (Google Meet)</span>
+                <span><span class="lang-ja">オンライン (Google Meet)</span><span class="lang-en">Online (Google Meet)</span></span>
               </label>
               <label class="form-radio-item">
                 <input type="radio" name="meeting_format" value="どちらでも" />
-                <span>どちらでも</span>
+                <span><span class="lang-ja">どちらでも</span><span class="lang-en">Either works</span></span>
               </label>
             </div>
           </div>
           <div class="form-row">
-            <label>ご面談希望日時</label>
+            <label><span class="lang-ja">ご面談希望日時</span><span class="lang-en">Preferred meeting date &amp; time</span></label>
             <div class="meeting-picker" id="mtg-picker">
               <div class="meeting-picker-head">
-                <button type="button" class="meeting-picker-nav" id="mtg-prev" aria-label="前の月">‹</button>
+                <button type="button" class="meeting-picker-nav" id="mtg-prev" aria-label="前の月 / Previous month">‹</button>
                 <div class="meeting-picker-month" id="mtg-month-label" aria-live="polite"></div>
-                <button type="button" class="meeting-picker-nav" id="mtg-next" aria-label="次の月">›</button>
+                <button type="button" class="meeting-picker-nav" id="mtg-next" aria-label="次の月 / Next month">›</button>
               </div>
               <div class="meeting-picker-weekdays" aria-hidden="true">
-                <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+                <span><span class="lang-ja">日</span><span class="lang-en">S</span></span><span><span class="lang-ja">月</span><span class="lang-en">M</span></span><span><span class="lang-ja">火</span><span class="lang-en">T</span></span><span><span class="lang-ja">水</span><span class="lang-en">W</span></span><span><span class="lang-ja">木</span><span class="lang-en">T</span></span><span><span class="lang-ja">金</span><span class="lang-en">F</span></span><span><span class="lang-ja">土</span><span class="lang-en">S</span></span>
               </div>
               <div class="meeting-picker-days" id="mtg-days"></div>
               <div class="meeting-picker-times">
-                <div class="meeting-picker-times-label" id="mtg-times-label">日付を選択してください</div>
+                <div class="meeting-picker-times-label" id="mtg-times-label"><span class="lang-ja">日付を選択してください</span><span class="lang-en">Select a date</span></div>
                 <div class="meeting-picker-times-grid" id="mtg-times-grid"></div>
               </div>
               <div class="meeting-picker-picked">
-                <div class="meeting-picker-picked-label">候補 (最大 3 つ)</div>
+                <div class="meeting-picker-picked-label"><span class="lang-ja">候補 (最大 3 つ)</span><span class="lang-en">Picks (max 3)</span></div>
                 <div class="meeting-picker-picked-list" id="mtg-picked-list">
-                  <div class="meeting-picker-picked-empty">時間帯をタップして追加してください</div>
+                  <div class="meeting-picker-picked-empty"><span class="lang-ja">時間帯をタップして追加してください</span><span class="lang-en">Tap a time slot to add it</span></div>
                 </div>
               </div>
               <input type="hidden" name="meeting_date_1" id="mtg-hidden-1" />
               <input type="hidden" name="meeting_date_2" id="mtg-hidden-2" />
               <input type="hidden" name="meeting_date_3" id="mtg-hidden-3" />
             </div>
-            <div class="form-date-hint">初回ミーティングのご希望日時を最大 3 つ、カレンダーからお選びください。24 時間以内にご返信いたします。</div>
+            <div class="form-date-hint"><span class="lang-ja">初回ミーティングのご希望日時を最大 3 つ、カレンダーからお選びください。24 時間以内にご返信いたします。</span><span class="lang-en">Pick up to 3 preferred slots from the calendar for the first meeting. We'll respond within 24 hours.</span></div>
           </div>
           <div class="form-row">
-            <label for="cf-date">ご利用予定日 (イベント当日)</label>
-            <input type="text" id="cf-date" name="date" placeholder="例) 2026/05/18 — 未定でも OK"/>
+            <label for="cf-date"><span class="lang-ja">ご利用予定日 (イベント当日)</span><span class="lang-en">Event date</span></label>
+            <input type="text" id="cf-date" name="date" placeholder="例) 2026/05/18 — 未定でも OK" data-ph-ja="例) 2026/05/18 — 未定でも OK" data-ph-en="e.g. 2026/05/18 — TBD is fine"/>
           </div>
           <div class="form-row">
-            <label for="cf-guests">人数</label>
+            <label for="cf-guests"><span class="lang-ja">人数</span><span class="lang-en">Guest count</span></label>
             <div class="with-suffix">
-              <input type="number" id="cf-guests" name="guests" placeholder="例) 4"/>
-              <span class="suffix">名様</span>
+              <input type="number" id="cf-guests" name="guests" placeholder="例) 4" data-ph-ja="例) 4" data-ph-en="e.g. 4"/>
+              <span class="suffix"><span class="lang-ja">名様</span><span class="lang-en">guests</span></span>
             </div>
           </div>
           <div class="form-row">
-            <label for="cf-budget">ご予算</label>
+            <label for="cf-budget"><span class="lang-ja">ご予算</span><span class="lang-en">Budget</span></label>
             <div class="with-suffix">
-              <input type="text" id="cf-budget" name="budget" placeholder="例) ¥100,000"/>
-              <span class="suffix">円程度</span>
+              <input type="text" id="cf-budget" name="budget" placeholder="例) ¥100,000" data-ph-ja="例) ¥100,000" data-ph-en="e.g. ¥100,000"/>
+              <span class="suffix"><span class="lang-ja">円程度</span><span class="lang-en">(approx.)</span></span>
             </div>
           </div>
           <div class="form-row tall">
-            <label for="cf-msg">ご相談内容</label>
+            <label for="cf-msg"><span class="lang-ja">ご相談内容</span><span class="lang-en">Message</span></label>
             <div>
-              <textarea id="cf-msg" name="message" placeholder="ご希望の内容やご要望などをご入力ください。" maxlength="1000" oninput="document.getElementById('msgCount').textContent = this.value.length"></textarea>
+              <textarea id="cf-msg" name="message" placeholder="ご希望の内容やご要望などをご入力ください。" data-ph-ja="ご希望の内容やご要望などをご入力ください。" data-ph-en="Tell us about your plans or requests." maxlength="1000" oninput="document.getElementById('msgCount').textContent = this.value.length"></textarea>
               <div class="form-textarea-count"><span id="msgCount">0</span> / 1000</div>
             </div>
           </div>
-          <button class="form-submit" type="submit" data-hover>送信する</button>
+          <button class="form-submit" type="submit" data-hover><span class="lang-ja">送信する</span><span class="lang-en">Submit</span></button>
           <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -2764,10 +2867,10 @@
         <div class="footer-logo">njoooy</div>
         <div class="footer-email-block">
           <a href="mailto:hello@njoooy.com" class="footer-email" data-hover>hello@njoooy.com</a>
-          <span class="footer-email-note">24時間以内にご返信いたします。</span>
+          <span class="footer-email-note"><span class="lang-ja">24時間以内にご返信いたします。</span><span class="lang-en">We respond within 24 hours.</span></span>
         </div>
         <div class="footer-social">
-          <a href="#contact" class="footer-social-icon" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram(準備中)">
+          <a href="#contact" class="footer-social-icon" data-hover aria-disabled="true" data-inactive="true" aria-label="Instagram (coming soon)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
               <rect x="3" y="3" width="18" height="18" rx="4"/>
               <circle cx="12" cy="12" r="4.5"/>
@@ -2786,11 +2889,11 @@
       <div class="footer-bottom">
         <div class="footer-copyright">© 2026 njoooy. All rights reserved.</div>
         <div class="footer-legal">
-          <a href="/legal/tokusho.html" data-hover>特定商取引法に基づく表記</a>
+          <a href="/legal/tokusho.html" data-hover><span class="lang-ja">特定商取引法に基づく表記</span><span class="lang-en">Commercial Transactions Notice</span></a>
           <span class="footer-legal-sep">/</span>
-          <a href="/legal/privacy.html" data-hover>プライバシーポリシー</a>
+          <a href="/legal/privacy.html" data-hover><span class="lang-ja">プライバシーポリシー</span><span class="lang-en">Privacy Policy</span></a>
           <span class="footer-legal-sep">/</span>
-          <a href="#" data-hover>利用規約</a>
+          <a href="#" data-hover><span class="lang-ja">利用規約</span><span class="lang-en">Terms of Service</span></a>
         </div>
       </div>
     </div>
@@ -2865,8 +2968,21 @@
         cf.addEventListener('submit', async function (e) {
           e.preventDefault();
           const submitBtn = cf.querySelector('.form-submit') || cf.querySelector('.contact-form-submit');
-          const originalLabel = submitBtn ? submitBtn.textContent : '';
-          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中...'; }
+          const originalInner = submitBtn ? submitBtn.innerHTML : '';
+          // [v8.31] lang-aware messages
+          const isEn = (document.documentElement.getAttribute('lang') === 'en');
+          const msgSending = isEn ? 'Sending…' : '送信中...';
+          const msgSuccess = isEn
+            ? '✓ Message sent. We\'ll reply within 24 hours.'
+            : '✓ 送信完了しました。24時間以内にご返信いたします。';
+          const msgFail = isEn
+            ? '⚠ Submission failed. Please email hello@njoooy.com directly.'
+            : '⚠ 送信に失敗しました。お手数ですが hello@njoooy.com へ直接ご連絡ください。';
+          const msgNetErr = isEn
+            ? '⚠ Network error. Please email hello@njoooy.com directly.'
+            : '⚠ ネットワークエラーです。hello@njoooy.com へ直接ご連絡ください。';
+
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = msgSending; }
           cfStatus.className = 'contact-form-status';
           cfStatus.textContent = '';
 
@@ -2881,18 +2997,18 @@
             });
             const result = await res.json().catch(() => ({}));
             if (res.ok && result.success) {
-              cfStatus.textContent = '✓ 送信完了しました。24時間以内にご返信いたします。';
+              cfStatus.textContent = msgSuccess;
               cfStatus.classList.add('success');
               cf.reset();
             } else {
-              cfStatus.textContent = '⚠ 送信に失敗しました。お手数ですが hello@njoooy.com へ直接ご連絡ください。';
+              cfStatus.textContent = msgFail;
               cfStatus.classList.add('error');
             }
           } catch (err) {
-            cfStatus.textContent = '⚠ ネットワークエラーです。hello@njoooy.com へ直接ご連絡ください。';
+            cfStatus.textContent = msgNetErr;
             cfStatus.classList.add('error');
           } finally {
-            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalInner; }
           }
         });
       }
@@ -2911,6 +3027,8 @@
         const MAX_PICKS = 3;
         const HOURS = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
         const WEEKDAY_JP = ['日', '月', '火', '水', '木', '金', '土'];
+        const WEEKDAY_EN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const MONTH_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         const now = new Date();
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const state = {
@@ -2927,14 +3045,29 @@
         const prevBtn = document.getElementById('mtg-prev');
         const nextBtn = document.getElementById('mtg-next');
 
+        // [v8.31] i18n helper — reads current html[lang] at call time
+        function isEn() { return document.documentElement.getAttribute('lang') === 'en'; }
+        function t(keys) { return isEn() ? keys.en : keys.ja; }
+
         function pad(n) { return String(n).padStart(2, '0'); }
+        // [v8.31] fmtDate — always JP for hidden form values (backend consistency)
         function fmtDate(s) {
           const w = WEEKDAY_JP[new Date(s.year, s.month, s.day).getDay()];
           return `${s.year}/${pad(s.month + 1)}/${pad(s.day)} (${w}) ${pad(s.hour)}:00`;
         }
+        // [v8.31] fmtDateDisplay — lang-aware for UI
+        function fmtDateDisplay(s) {
+          const dow = new Date(s.year, s.month, s.day).getDay();
+          if (isEn()) {
+            return `${s.year}/${pad(s.month + 1)}/${pad(s.day)} (${WEEKDAY_EN[dow]}) ${pad(s.hour)}:00`;
+          }
+          return `${s.year}/${pad(s.month + 1)}/${pad(s.day)} (${WEEKDAY_JP[dow]}) ${pad(s.hour)}:00`;
+        }
 
         function renderCalendar() {
-          monthLabel.textContent = `${state.viewYear} 年 ${state.viewMonth + 1} 月`;
+          monthLabel.textContent = isEn()
+            ? `${MONTH_EN[state.viewMonth]} ${state.viewYear}`
+            : `${state.viewYear} 年 ${state.viewMonth + 1} 月`;
           daysGrid.innerHTML = '';
           // prev ボタン disable(現在月以前)
           const isCurrentMonth = state.viewYear === now.getFullYear() && state.viewMonth === now.getMonth();
@@ -2962,7 +3095,7 @@
             daysGrid.appendChild(btn);
           }
           state.activeDayBtn = null;
-          timesLabel.textContent = '日付を選択してください';
+          timesLabel.textContent = t({ ja: '日付を選択してください', en: 'Select a date' });
           timesGrid.innerHTML = '';
         }
 
@@ -2970,18 +3103,21 @@
           document.querySelectorAll('.mtg-day-selected').forEach(el => el.classList.remove('mtg-day-selected'));
           btn.classList.add('mtg-day-selected');
           state.activeDayBtn = btn;
-          const w = WEEKDAY_JP[new Date(year, month, day).getDay()];
-          timesLabel.textContent = `${month + 1}/${day} (${w}) の時間帯`;
+          const dow = new Date(year, month, day).getDay();
+          const w = isEn() ? WEEKDAY_EN[dow] : WEEKDAY_JP[dow];
+          timesLabel.textContent = isEn()
+            ? `Time slots on ${month + 1}/${day} (${w})`
+            : `${month + 1}/${day} (${w}) の時間帯`;
           timesGrid.innerHTML = '';
           HOURS.forEach(hour => {
-            const t = document.createElement('button');
-            t.type = 'button';
-            t.className = 'mtg-time';
-            t.textContent = `${pad(hour)}:00`;
+            const tb = document.createElement('button');
+            tb.type = 'button';
+            tb.className = 'mtg-time';
+            tb.textContent = `${pad(hour)}:00`;
             const isPicked = state.selected.some(s => s.year === year && s.month === month && s.day === day && s.hour === hour);
-            if (isPicked) t.classList.add('mtg-time-picked');
-            t.addEventListener('click', () => toggleTime(year, month, day, hour, t));
-            timesGrid.appendChild(t);
+            if (isPicked) tb.classList.add('mtg-time-picked');
+            tb.addEventListener('click', () => toggleTime(year, month, day, hour, tb));
+            timesGrid.appendChild(tb);
           });
         }
 
@@ -3008,7 +3144,7 @@
           if (state.selected.length === 0) {
             const empty = document.createElement('div');
             empty.className = 'meeting-picker-picked-empty';
-            empty.textContent = '時間帯をタップして追加してください';
+            empty.textContent = t({ ja: '時間帯をタップして追加してください', en: 'Tap a time slot to add it' });
             pickedList.appendChild(empty);
             return;
           }
@@ -3017,14 +3153,14 @@
             row.className = 'meeting-picker-picked-item';
             const no = document.createElement('span');
             no.className = 'mtg-picked-no';
-            no.textContent = `第${i + 1}希望`;
+            no.textContent = isEn() ? `Option ${i + 1}` : `第${i + 1}希望`;
             const dt = document.createElement('span');
             dt.className = 'mtg-picked-date';
-            dt.textContent = fmtDate(s);
+            dt.textContent = fmtDateDisplay(s);
             const rm = document.createElement('button');
             rm.type = 'button';
             rm.className = 'mtg-picked-remove';
-            rm.setAttribute('aria-label', '候補を削除');
+            rm.setAttribute('aria-label', t({ ja: '候補を削除', en: 'Remove pick' }));
             rm.textContent = '✕';
             rm.addEventListener('click', () => {
               state.selected.splice(i, 1);
@@ -3057,6 +3193,14 @@
           state.viewMonth++;
           if (state.viewMonth > 11) { state.viewMonth = 0; state.viewYear++; }
           renderCalendar();
+        });
+
+        // [v8.31] Re-render on langchange so UI strings follow toggle
+        document.addEventListener('njoooy:langchange', () => {
+          renderCalendar();
+          // If a day was selected, re-trigger to regenerate time label
+          if (state.activeDayBtn) state.activeDayBtn.click();
+          renderPicked();
         });
 
         renderCalendar();
@@ -3120,6 +3264,47 @@
           ticking = true;
         }
       }, { passive: true });
+    })();
+
+    // [v8.30] Language toggle — html[lang] 属性切替 + localStorage 永続化
+    // [v8.31] Extended: placeholders (data-ph-ja/en) + button labels swap on lang change
+    (function(){
+      const toggle = document.getElementById('nav-lang-toggle');
+      if (!toggle) return;
+      const STORAGE_KEY = 'njoooy-lang';
+      const html = document.documentElement;
+
+      function updatePlaceholders(lang) {
+        const attr = lang === 'en' ? 'data-ph-en' : 'data-ph-ja';
+        document.querySelectorAll('[data-ph-ja], [data-ph-en]').forEach(el => {
+          const val = el.getAttribute(attr);
+          if (val !== null) el.setAttribute('placeholder', val);
+        });
+      }
+
+      function applyLang(lang) {
+        if (lang !== 'ja' && lang !== 'en') lang = 'ja';
+        html.setAttribute('lang', lang);
+        const jaOpt = toggle.querySelector('[data-lang="ja"]');
+        const enOpt = toggle.querySelector('[data-lang="en"]');
+        if (jaOpt) jaOpt.setAttribute('data-active', lang === 'ja' ? 'true' : 'false');
+        if (enOpt) enOpt.setAttribute('data-active', lang === 'en' ? 'true' : 'false');
+        updatePlaceholders(lang);
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+        // [v8.31] Broadcast for dynamic components (meeting picker, form handler)
+        document.dispatchEvent(new CustomEvent('njoooy:langchange', { detail: { lang } }));
+      }
+
+      // Restore saved preference (fallback to HTML-authored default)
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'ja' || saved === 'en') applyLang(saved);
+      } catch(e) {}
+
+      toggle.addEventListener('click', () => {
+        const current = html.getAttribute('lang') || 'ja';
+        applyLang(current === 'ja' ? 'en' : 'ja');
+      });
     })();
   </script>
 </body>
