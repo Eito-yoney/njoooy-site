@@ -15418,3 +15418,10 @@ h3 {
           margin-right: auto !important;
           display: block !important;
         }
+
+
+.site-header,
+.site-header a,
+.site-header button {
+  font-family: var(--serif);
+}

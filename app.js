@@ -65,9 +65,9 @@
     };
 
     if (document.readyState === "complete") {
-      window.setTimeout(hide, 350);
+      window.setTimeout(hide, 3200);
     } else {
-      window.addEventListener("load", () => window.setTimeout(hide, 350), { once: true });
+      window.addEventListener("load", () => window.setTimeout(hide, 3200), { once: true });
     }
   }
 
