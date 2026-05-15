@@ -3,13 +3,75 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>njoooy | Mocktail Studio by Joe Yoneyama</title>
+    <title>njoooy | Mocktail Studio by Joy Yoneyama</title>
     <meta
       name="description"
       content="njoooyは米山丈偉が主宰する東京発のモクテルブランド。サービス、レシピ、Shop、AI productをつなぐブランドサイトです。"
     />
     <link rel="canonical" href="https://njoooy.com/" />
     <link rel="stylesheet" href="./styles.css" />
+      <!-- [v7.7 Track A] Open Graph -->
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="njoooy" />
+      <meta property="og:title" content="njoooy — 東京のバーテンダー / Mobile Bartending in Tokyo" />
+      <meta property="og:description" content="出張バー・メニュー開発・店舗相談・研修。ひとつひとつの夜に寄り添う一杯を、東京を拠点に設計します。ノンアル対応・英語対応可。" />
+      <meta property="og:url" content="https://njoooy.com/" />
+      <meta property="og:locale" content="ja_JP" />
+      <meta property="og:image" content="https://njoooy.com/og-image.png" /> <!-- : 1200x630 OG image 作成・配置] -->
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="njoooy — 東京のバーテンダー" />
+      
+      <!-- [v7.7 Track A] Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="njoooy — 東京のバーテンダー" />
+      <meta name="twitter:description" content="出張バー・メニュー開発・店舗相談・研修。ひとつひとつの夜に寄り添う一杯を、東京を拠点に。" />
+      <meta name="twitter:image" content="https://njoooy.com/og-image.png" /> <!-- : OG と共通 or 別素材] -->
+      <!-- : twitter:site / twitter:creator を Twitter アカウント取得後に追加] -->
+      
+      <!-- [v8.28] Favicon — 32x32 PNG(配置済み)-->
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+      
+      <!-- [v7.7 Track A] Schema.org — ProfessionalService + Person(事実ベースのみ。description/image/sameAs は公開前追加) -->
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ProfessionalService",
+              "@id": "https://njoooy.com/#business",
+              "name": "njoooy",
+              "url": "https://njoooy.com",
+              "email": "hello@njoooy.com",
+              "priceRange": "¥30,000 – ¥350,000",
+              "areaServed": { "@type": "City", "name": "Tokyo, Japan" },
+              "serviceType": [
+                "Mobile Bartending",
+                "Beverage Menu Development",
+                "Bar Consulting",
+                "Bartending Training"
+              ],
+              "description": "東京を拠点とする出張バーテンダー。出張バー・メニュー開発・店舗相談・研修プログラムを、ノンアル対応・英語対応可で提供。",
+              "founder": { "@id": "https://njoooy.com/#founder" }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://njoooy.com/#founder",
+              "name": "米山丈偉",
+              "jobTitle": "Bartender, Founder",
+              "worksFor": { "@id": "https://njoooy.com/#business" },
+              "knowsLanguage": ["ja", "en"]
+            }
+          ]
+        }
+        </script>
   </head>
   <body data-page="home">
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -44,10 +106,10 @@
     <main id="main">
       <section class="home-hero">
         <div class="hero-copy">
-          <p class="kicker">Tokyo mocktail studio</p>
+          <!-- <p class="kicker">Tokyo mocktail studio</p> -->
           <h1>Mocktail creator,<br />bartender &amp;<br />non-alcoholic craft studio.</h1>
           <p class="lead">
-            Hi, I’m Joe Yoneyama. njoooy is where mocktail recipes, non-alcoholic bar service,
+            Hi, I’m Joy Yoneyama. njoooy is where mocktail recipes, non-alcoholic bar service,
             craft products, and AI-assisted operations grow under one brand.
           </p>
           <div class="button-row">
@@ -56,32 +118,44 @@
           </div>
         </div>
         <div class="hero-image-wrap">
-          <img src="./assets/njoooy-hero.png" alt="njoooyのノンアルスピリッツとモクテル" />
+          <img src="./image/senzai.jpg" alt="宣材画像" />
         </div>
       </section>
 
-      <section class="home-social section-pad">
-        <div class="section-heading center">
-          <p class="kicker">Social media</p>
-          <h2>@njoooy everywhere</h2>
+
+      <section class="recipes-preview section-pad warm">
+        <div class="section-heading split">
+          <div>
+            <p class="kicker">Recent recipes</p>
+            <h2>Straight from the bar lab</h2>
+          </div>
+          <a class="text-link" href="./recipes/">View all recipes</a>
         </div>
-        <div class="social-card-grid">
-          <a class="social-card" href="https://www.youtube.com/" target="_blank" rel="noopener">
-            <span>YouTube</span>
-            <strong>レシピ実演と開発ログ</strong>
-          </a>
-          <a class="social-card" href="https://www.tiktok.com/" target="_blank" rel="noopener">
-            <span>TikTok</span>
-            <strong>短尺モクテルと試作の裏側</strong>
-          </a>
-          <a class="social-card" href="https://www.instagram.com/" target="_blank" rel="noopener">
-            <span>Instagram</span>
-            <strong>写真で伝えるTokyo-craftの質感</strong>
-          </a>
-          <a class="social-card" href="https://discord.com/" target="_blank" rel="noopener">
-            <span>Discord</span>
-            <strong>試飲・ローンチ前コミュニティ</strong>
-          </a>
+        <div class="recipe-grid">
+          <article class="recipe-card" data-tone="green">
+            <div class="recipe-thumb"></div>
+            <p>Mocktail</p>
+            <h3>Sea &amp; Mountain Highball</h3>
+            <span>柑橘、山椒、微かなumami note。</span>
+          </article>
+          <article class="recipe-card" data-tone="gold">
+            <div class="recipe-thumb"></div>
+            <p>Non-alcoholic</p>
+            <h3>Bitter Yuzu Ginger</h3>
+            <span>飲んだ感を作るヒートと余韻。</span>
+          </article>
+          <article class="recipe-card" data-tone="rose">
+            <div class="recipe-thumb"></div>
+            <p>Cocktail</p>
+            <h3>Tokyo Garden Fizz</h3>
+            <span>紫蘇とジンのクラシックアレンジ。</span>
+          </article>
+          <article class="recipe-card" data-tone="ink">
+            <div class="recipe-thumb"></div>
+            <p>Technique</p>
+            <h3>Clear Ice &amp; Citrus Oil</h3>
+            <span>香りを立てるための基礎技法。</span>
+          </article>
         </div>
       </section>
 
@@ -120,52 +194,81 @@
           </article>
         </div>
       </section>
+      <section class="recipes-preview section-pad warm">
+        <div class="section-heading split">
+          <div>
+            <p class="kicker">Recent recipes</p>
+            <h2>Straight from the bar lab</h2>
+          </div>
+          <a class="text-link" href="./recipes/">View all recipes</a>
+        </div>
+        <div class="recipe-grid">
+          <article class="recipe-card" data-tone="green">
+            <div class="recipe-thumb"></div>
+            <p>Mocktail</p>
+            <h3>Sea &amp; Mountain Highball</h3>
+            <span>柑橘、山椒、微かなumami note。</span>
+          </article>
+          <article class="recipe-card" data-tone="gold">
+            <div class="recipe-thumb"></div>
+            <p>Non-alcoholic</p>
+            <h3>Bitter Yuzu Ginger</h3>
+            <span>飲んだ感を作るヒートと余韻。</span>
+          </article>
+          <article class="recipe-card" data-tone="rose">
+            <div class="recipe-thumb"></div>
+            <p>Cocktail</p>
+            <h3>Tokyo Garden Fizz</h3>
+            <span>紫蘇とジンのクラシックアレンジ。</span>
+          </article>
+          <article class="recipe-card" data-tone="ink">
+            <div class="recipe-thumb"></div>
+            <p>Technique</p>
+            <h3>Clear Ice &amp; Citrus Oil</h3>
+            <span>香りを立てるための基礎技法。</span>
+          </article>
+        </div>
+      </section>
 
-      <section class="route-preview section-pad">
+
+
+      <section class="home-social section-pad">
         <div class="section-heading center">
-          <p class="kicker">Site map</p>
-          <h2>Service, Shop, AI product — one njoooy.</h2>
+          <p class="kicker">Social media</p>
+          <h2>@njoooy everywhere</h2>
         </div>
-        <div class="feature-grid">
-          <a class="feature-card" href="./service/">
-            <span>01 / Service</span>
-            <h3>出張バー・メニュー開発・ノンアル体験</h3>
-            <p>既存のサービスLPを入口に、法人・飲食店・イベントの相談へつなげます。</p>
+        <div class="social-card-grid">
+          <a class="social-card" href="https://www.youtube.com/" target="_blank" rel="noopener">
+            <span>YouTube</span>
+            <strong>レシピ実演と開発ログ</strong>
           </a>
-          <a class="feature-card" href="./shop/">
-            <span>02 / Shop</span>
-            <h3>Headless Shopify on njoooy.com/shop</h3>
-            <p>Shopifyをバックエンドにし、フロントはブランドサイト内で統一します。</p>
+          <a class="social-card" href="https://www.tiktok.com/" target="_blank" rel="noopener">
+            <span>TikTok</span>
+            <strong>短尺モクテルと試作の裏側</strong>
           </a>
-          <a class="feature-card" href="./ai-product/">
-            <span>03 / AI product</span>
-            <h3>レシピDB・投稿変換・KPIレポートAgent</h3>
-            <p>Writingの代替として、デジタルプロダクトの思想と実装を見せます。</p>
+          <a class="social-card" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <span>Instagram</span>
+            <strong>写真で伝えるTokyo-craftの質感</strong>
+          </a>
+          <a class="social-card" href="https://discord.com/" target="_blank" rel="noopener">
+            <span>Discord</span>
+            <strong>試飲・ローンチ前コミュニティ</strong>
           </a>
         </div>
       </section>
 
-      <section class="press-strip">
-        <p class="kicker">Press / Progress</p>
-        <div class="press-items">
-          <span>Makuake prep</span>
-          <span>Mocktail recipes</span>
-          <span>Non-alcoholic service</span>
-          <span>AI-native operations</span>
-        </div>
-      </section>
 
       <section class="work-together section-pad compact">
         <p class="kicker">Want to work together?</p>
         <h2>イベント、店舗メニュー、商品開発、取材相談まで。</h2>
-        <a class="button primary" href="./contact/">Contact Joe</a>
+        <a class="button primary" href="./contact/">Contact Joy</a>
       </section>
     </main>
 
     <footer class="site-footer">
       <div>
         <a class="footer-logo" href="./">njoooy</a>
-        <p>Mocktail studio by Joe Yoneyama.</p>
+        <p>Mocktail studio by Joy Yoneyama.</p>
       </div>
       <nav aria-label="Footer navigation">
         <a href="./recipes/">Recipes</a>

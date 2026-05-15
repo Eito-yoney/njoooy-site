@@ -22,7 +22,143 @@
           <p>サービス依頼、商品開発、Shop、AI product、取材、コラボレーションの相談はこちらから。</p>
         </div>
       </section>
-      <section class="section-pad warm">
+    <section class="contact" id="contact">
+      <div class="contact-head">
+        <div class="meta reveal">Contact</div>
+        <h2 class="contact-title spaced reveal"><span class="lang-ja" style="letter-spacing: 0.4em;">お問い合わせ</span><span
+            class="lang-en">Contact</span></h2>
+        <div class="contact-divider reveal">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="contact-intro reveal"><span class="lang-ja">ご相談・ご質問・ご依頼など、お気軽にお問い合わせください。</span><span
+            class="lang-en">Consultations, questions, requests — please feel free to reach out.</span></p>
+      </div>
+    
+      <div class="contact-inner">
+        <!-- v7.10: Web3Forms 接続(contact-left は footer に移動)-->
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
+          <input type="hidden" name="from_name" value="njoooy.com contact form">
+          <input type="hidden" name="subject" value="[njoooy] お問い合わせ">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+    
+          <div class="form-row">
+            <label for="cf-name"><span class="lang-ja">お名前</span><span class="lang-en">Name</span></label>
+            <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" data-ph-ja="例) 山田 太郎"
+              data-ph-en="e.g. John Smith" required />
+          </div>
+          <div class="form-row">
+            <label for="cf-email"><span class="lang-ja">メールアドレス</span><span class="lang-en">Email</span></label>
+            <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com"
+              data-ph-ja="例) yamada@example.com" data-ph-en="e.g. you@example.com" required />
+          </div>
+          <div class="form-row">
+            <label for="cf-service"><span class="lang-ja">ご希望サービス</span><span class="lang-en">Service of
+                interest</span></label>
+            <select id="cf-service" name="service" required>
+              <option value="" disabled selected>— 選択してください / Please select —</option>
+              <option>njoooy Bar (出張バー)</option>
+              <option>njoooy Menu (メニュー開発)</option>
+              <option>njoooy Counsel (店舗相談)</option>
+              <option>njoooy Class (研修プログラム)</option>
+              <option>その他 / Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label><span class="lang-ja">ご希望相談方法</span><span class="lang-en">Preferred meeting format</span></label>
+            <div class="form-radio-group" role="radiogroup" aria-label="Preferred meeting format">
+              <label class="form-radio-item">
+                <input type="radio" name="meeting_format" value="対面" />
+                <span><span class="lang-ja">対面</span><span class="lang-en">In-person</span></span>
+              </label>
+              <label class="form-radio-item">
+                <input type="radio" name="meeting_format" value="オンライン (Google Meet)" />
+                <span><span class="lang-ja">オンライン (Google Meet)</span><span class="lang-en">Online (Google
+                    Meet)</span></span>
+              </label>
+              <label class="form-radio-item">
+                <input type="radio" name="meeting_format" value="どちらでも" />
+                <span><span class="lang-ja">どちらでも</span><span class="lang-en">Either works</span></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label><span class="lang-ja">ご面談希望日時</span><span class="lang-en">Preferred meeting date &amp;
+                time</span></label>
+            <div class="meeting-picker" id="mtg-picker">
+              <div class="meeting-picker-head">
+                <button type="button" class="meeting-picker-nav" id="mtg-prev" aria-label="前の月 / Previous month">‹</button>
+                <div class="meeting-picker-month" id="mtg-month-label" aria-live="polite"></div>
+                <button type="button" class="meeting-picker-nav" id="mtg-next" aria-label="次の月 / Next month">›</button>
+              </div>
+              <div class="meeting-picker-weekdays" aria-hidden="true">
+                <span><span class="lang-ja">日</span><span class="lang-en">S</span></span><span><span
+                    class="lang-ja">月</span><span class="lang-en">M</span></span><span><span class="lang-ja">火</span><span
+                    class="lang-en">T</span></span><span><span class="lang-ja">水</span><span
+                    class="lang-en">W</span></span><span><span class="lang-ja">木</span><span
+                    class="lang-en">T</span></span><span><span class="lang-ja">金</span><span
+                    class="lang-en">F</span></span><span><span class="lang-ja">土</span><span class="lang-en">S</span></span>
+              </div>
+              <div class="meeting-picker-days" id="mtg-days"></div>
+              <div class="meeting-picker-times">
+                <div class="meeting-picker-times-label" id="mtg-times-label"><span class="lang-ja">日付を選択してください</span><span
+                    class="lang-en">Select a date</span></div>
+                <div class="meeting-picker-times-grid" id="mtg-times-grid"></div>
+              </div>
+              <div class="meeting-picker-picked">
+                <div class="meeting-picker-picked-label"><span class="lang-ja">候補 (最大 3 つ)</span><span class="lang-en">Picks
+                    (max 3)</span></div>
+                <div class="meeting-picker-picked-list" id="mtg-picked-list">
+                  <div class="meeting-picker-picked-empty"><span class="lang-ja">時間帯をタップして追加してください</span><span
+                      class="lang-en">Tap a time slot to add it</span></div>
+                </div>
+              </div>
+              <input type="hidden" name="meeting_date_1" id="mtg-hidden-1" />
+              <input type="hidden" name="meeting_date_2" id="mtg-hidden-2" />
+              <input type="hidden" name="meeting_date_3" id="mtg-hidden-3" />
+            </div>
+            <div class="form-date-hint"><span class="lang-ja">初回ミーティングのご希望日時を最大 3 つ、カレンダーからお選びください。24
+                時間以内にご返信いたします。</span><span class="lang-en">Pick up to 3 preferred slots from the calendar for the first
+                meeting. We'll respond within 24 hours.</span></div>
+          </div>
+          <div class="form-row">
+            <label for="cf-date"><span class="lang-ja">ご利用予定日 (イベント当日)</span><span class="lang-en">Event date</span></label>
+            <input type="text" id="cf-date" name="date" placeholder="例) 2026/05/18 — 未定でも OK"
+              data-ph-ja="例) 2026/05/18 — 未定でも OK" data-ph-en="e.g. 2026/05/18 — TBD is fine" />
+          </div>
+          <div class="form-row">
+            <label for="cf-guests"><span class="lang-ja">人数</span><span class="lang-en">Guest count</span></label>
+            <div class="with-suffix">
+              <input type="number" id="cf-guests" name="guests" placeholder="例) 4" data-ph-ja="例) 4" data-ph-en="e.g. 4" />
+              <span class="suffix"><span class="lang-ja">名様</span><span class="lang-en">guests</span></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="cf-budget"><span class="lang-ja">ご予算</span><span class="lang-en">Budget</span></label>
+            <div class="with-suffix">
+              <input type="text" id="cf-budget" name="budget" placeholder="例) ¥100,000" data-ph-ja="例) ¥100,000"
+                data-ph-en="e.g. ¥100,000" />
+              <span class="suffix"><span class="lang-ja">円程度</span><span class="lang-en">(approx.)</span></span>
+            </div>
+          </div>
+          <div class="form-row tall">
+            <label for="cf-msg"><span class="lang-ja">ご相談内容</span><span class="lang-en">Message</span></label>
+            <div>
+              <textarea id="cf-msg" name="message" placeholder="ご希望の内容やご要望などをご入力ください。" data-ph-ja="ご希望の内容やご要望などをご入力ください。"
+                data-ph-en="Tell us about your plans or requests." maxlength="1000"
+                oninput="document.getElementById('msgCount').textContent = this.value.length"></textarea>
+              <div class="form-textarea-count"><span id="msgCount">0</span> / 1000</div>
+            </div>
+          </div>
+          <button class="form-submit" type="submit" data-hover><span class="lang-ja">送信する</span><span
+              class="lang-en">Submit</span></button>
+          <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+      <!-- <section class="section-pad warm">
         <div class="contact-grid">
           <aside class="contact-card">
             <p class="kicker">Direct</p>
@@ -38,7 +174,7 @@
             <div class="status-note" data-contact-status role="status"></div>
           </form>
         </div>
-      </section>
+      </section> -->
     </main>
     <footer class="site-footer"><div><a class="footer-logo" href="../">njoooy</a><p>Mocktail studio by Joe Yoneyama.</p></div><nav><a href="../recipes/">Recipes</a><a href="../service/">Service</a><a href="../shop/">Shop</a><a href="../about/">About</a><a href="../contact/">Contact</a><a href="../ai-product/">AI product</a></nav><form class="newsletter-form"><label for="newsletter">Newsletter</label><div><input id="newsletter" type="email" placeholder="Email" /><button type="button">Join</button></div></form></footer>
     <script src="../app.js"></script>
