@@ -102,7 +102,122 @@
         </a>
       </nav>
     </header>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="njoooy home">
+        <span class="brand-word">njoooy</span>
+        <span class="brand-sub">mocktail studio</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="./service/">Service</a>
+        <a href="./shop/">Shop</a>
+        <a href="./about/">About</a>
+        <a href="./contact/">Contact</a>
+        <a href="./ai-product/">AI product</a>
+      </nav>
+      <nav class="social-nav" aria-label="Social links">
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3.5 8.2c.2-1.5 1.3-2.4 2.8-2.6 3.8-.4 7.6-.4 11.4 0 1.5.2 2.6 1.1 2.8 2.6.3 2.5.3 5.1 0 7.6-.2 1.5-1.3 2.4-2.8 2.6-3.8.4-7.6.4-11.4 0-1.5-.2-2.6-1.1-2.8-2.6-.3-2.5-.3-5.1 0-7.6Z" />
+            <path d="m10 9 5 3-5 3V9Z" />
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 4v10.2a4.2 4.2 0 1 1-3.6-4.1" />
+            <path d="M14 4c.8 2.8 2.7 4.4 5.3 4.8" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="4" />
+            <circle cx="12" cy="12" r="3.7" />
+            <path d="M17.4 6.8h.1" />
+          </svg>
+        </a>
+        <a href="https://discord.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M7.5 18.2c-1.3-.4-2.4-1-3.5-1.8.4-4.1 1.5-7.2 3.2-9.7 1.1-.5 2.2-.8 3.4-1l.5 1.1c1.2-.2 2.4-.2 3.6 0l.5-1.1c1.2.2 2.3.6 3.4 1 1.8 2.7 2.9 5.8 3.2 9.7-1 .8-2.2 1.4-3.5 1.8l-.8-1.2c-1.8.6-3.8.6-5.6 0l-.8 1.2Z" />
+            <path d="M9.4 13.2h.1M14.5 13.2h.1" />
+          </svg>
+        </a>
+      </nav>
+    </header>
 
+<div class="preloader" id="preloader">
+  <div class="preloader-half preloader-half-top">
+    <div class="preloader-inner">
+      <div class="preloader-top">
+        <div class="meta">No. 001</div>
+        <div class="meta">Tokyo · 2026</div>
+      </div>
+      <div class="preloader-center">
+        <div class="preloader-wordmark"><span class="wordmark-stack"><span class="wordmark-outline"
+              aria-hidden="true">njoooy</span><span class="wordmark-fill">njoooy</span></span><span class="mark"></span>
+        </div>
+      </div>
+      <div class="preloader-bot">
+        <div class="meta">Cocktail &amp; Non-Alc</div>
+        <div class="meta">Documentation Vol.001 —</div>
+      </div>
+    </div>
+    <div class="preloader-count">Vol. 001 — 2026.04</div>
+    <div class="preloader-label">Loading ✦</div>
+  </div>
+  <div class="preloader-half preloader-half-bot" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-top">
+        <div class="meta">No. 001</div>
+        <div class="meta">Tokyo · 2026</div>
+      </div>
+      <div class="preloader-center">
+        <div class="preloader-wordmark"><span class="wordmark-stack"><span class="wordmark-outline"
+              aria-hidden="true">njoooy</span><span class="wordmark-fill">njoooy</span></span><span class="mark"></span>
+        </div>
+      </div>
+      <div class="preloader-bot">
+        <div class="meta">Cocktail &amp; Non-Alc</div>
+        <div class="meta">Documentation Vol.001 —</div>
+      </div>
+    </div>
+    <div class="preloader-count">Vol. 001 — 2026.04</div>
+    <div class="preloader-label">Loading ✦</div>
+  </div>
+</div>
+
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="scroll-index" id="scrollIndex" aria-hidden="true">
+  <span class="scroll-index-label">Scroll</span>
+  <span class="scroll-index-line"></span>
+  <span class="scroll-index-count"><span class="current" id="scrollIndexCurrent">01</span> / <span class="total"
+      id="scrollIndexTotal">08</span></span>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo logo">njoooy<span class="mark"></span></a>
+  <div class="nav-links">
+    <a href="#services" data-hover>Services</a>
+    <a href="#for-whom" data-hover>Use Cases</a>
+    <a href="#method" data-hover>Method</a>
+    <a href="#about" data-hover>About</a>
+    <a href="#faq" data-hover>FAQ</a>
+    <a href="#contact" data-hover>Contact</a>
+  </div>
+  <!-- [v8.30] 日英切替 toggle — html[lang] 属性を切替、localStorage 永続化。JS は nav script 末尾に追加。 -->
+  <div class="nav-right">
+    <button type="button" class="nav-lang-toggle" id="nav-lang-toggle" aria-label="Switch language / 言語切替">
+      <span class="nav-lang-opt" data-lang="ja" data-active="true">JA</span>
+      <span class="nav-lang-divider" aria-hidden="true">/</span>
+      <span class="nav-lang-opt" data-lang="en" data-active="false">EN</span>
+    </button>
+    <a href="#contact" class="nav-cta" data-hover>
+      <span class="lang-ja">ご相談・ご予約 →</span><span class="lang-en">Consult · Book →</span>
+    </a>
+  </div>
+</nav>
     <main id="main">
       <section class="home-hero">
         <div class="hero-copy">
