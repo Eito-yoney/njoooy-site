@@ -1,6 +1,3 @@
-# robots.txt for njoooy.com
-# Generated: 2026-04-22 (v7.8)
-
 User-agent: *
 Allow: /
 
