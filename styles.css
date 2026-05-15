@@ -15425,3 +15425,22 @@ h3 {
 .site-header button {
   font-family: var(--serif);
 }
+
+
+.instagram-embed-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.instagram-media {
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+@media (max-width: 760px) {
+  .instagram-embed-grid {
+    grid-template-columns: 1fr;
+  }
+}
