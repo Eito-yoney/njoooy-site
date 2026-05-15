@@ -186,7 +186,7 @@
   </div>
 </div>
 
-
+<!-- 
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <div class="scroll-index" id="scrollIndex" aria-hidden="true">
@@ -194,7 +194,7 @@
     <span class="scroll-index-line"></span>
     <span class="scroll-index-count"><span class="current" id="scrollIndexCurrent">01</span> / <span class="total"
         id="scrollIndexTotal">08</span></span>
-  </div>
+  </div> -->
 <!-- 
   <nav class="nav" id="nav">
     <a href="#top" class="nav-logo logo">njoooy<span class="mark"></span></a>
@@ -343,28 +343,48 @@
         <a class="button primary" href="./contact/">Contact Joy</a>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <div>
-        <a class="footer-logo" href="./">njoooy</a>
-        <p>Mocktail studio by Joy Yoneyama.</p>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-row">
+      <div class="footer-logo">njoooy</div>
+      <div class="footer-email-block">
+        <a href="mailto:hello@njoooy.com" class="footer-email" data-hover>hello@njoooy.com</a>
+        <span class="footer-email-note"><span class="lang-ja">24時間以内にご返信いたします。</span><span class="lang-en">We respond
+            within 24 hours.</span></span>
       </div>
-      <nav aria-label="Footer navigation">
-        <a href="./recipes/">Recipes</a>
-        <a href="./service/">Service</a>
-        <a href="./shop/">Shop</a>
-        <a href="./about/">About</a>
-        <a href="./contact/">Contact</a>
-        <a href="./ai-product/">AI product</a>
-      </nav>
-      <form class="newsletter-form" aria-label="Newsletter signup">
-        <label for="newsletter">Newsletter</label>
-        <div>
-          <input id="newsletter" type="email" placeholder="Email" />
-          <button type="button">Join</button>
-        </div>
-      </form>
-    </footer>
+      <div class="footer-social">
+        <button type="button" class="footer-social-icon" data-hover disabled aria-label="Instagram (coming soon)"
+          title="Coming soon" style="cursor: not-allowed; opacity: 0.45;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="4" />
+            <circle cx="12" cy="12" r="4.5" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+          </svg>
+        </button>
+        <a href="mailto:hello@njoooy.com" class="footer-social-icon" data-hover aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="5" width="18" height="14" rx="1" />
+            <path d="M3 6 L 12 14 L 21 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2026 njoooy. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/legal/tokusho.html" data-hover><span class="lang-ja">特定商取引法に基づく表記</span><span
+            class="lang-en">Commercial Transactions Notice</span></a>
+        <span class="footer-legal-sep">/</span>
+        <a href="/legal/privacy.html" data-hover><span class="lang-ja">プライバシーポリシー</span><span class="lang-en">Privacy
+            Policy</span></a>
+        <span class="footer-legal-sep">/</span>
+        <span style="opacity: 0.5; cursor: not-allowed;" title="Coming soon"><span class="lang-ja">利用規約(準備中)</span><span
+            class="lang-en">Terms of Service (coming soon)</span></span>
+      </div>
+    </div>
+  </div>
+</footer>
     <script src="./app.js"></script>
   </body>
 </html>
