@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>お問い合わせ | njoooy</title>
-    <meta name="description" content="njoooyへのお問い合わせ。サービス支援、SNS運用支援、IT/AI導入支援、取材、コラボレーションの相談。" />
+    <meta name="description" content="njoooyの無料診断・お問い合わせ。バー・飲食店など店舗のGoogleマップ、口コミ、写真、予約導線、運用改善の相談はこちら。" />
     <link rel="canonical" href="https://njoooy.com/contact/" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
@@ -58,164 +58,225 @@
     </header>
 
     <main>
-    <section class="contact" id="contact">
-      <!-- <div>
-        <p class="kicker">Contact</p>
-        <h1>Let’s connect.</h1>
-        <p>サービス依頼、商品開発、Shop、AI product、取材、コラボレーションの相談はこちらから。</p>
-      </div> -->
-      <div class="contact-head">
-        <div class="meta reveal">Contact</div>
-        <h2 class="contact-title spaced reveal"><span class="lang-ja" style="letter-spacing: 0.4em;">お問い合わせ</span><span
-            class="lang-en">Contact</span></h2>
-        <div class="contact-divider reveal">
-          <div class="line"></div>
-          <div class="diamond"></div>
-          <div class="line"></div>
+      <section class="contact" id="contact">
+        <div class="contact-head">
+          <div class="meta reveal">Free Diagnosis / Contact</div>
+          <h1 class="contact-title spaced reveal"><span class="lang-ja">無料診断・お問い合わせ</span><span
+              class="lang-en">Free Diagnosis / Contact</span></h1>
+          <div class="contact-divider reveal">
+            <div class="line"></div>
+            <div class="diamond"></div>
+            <div class="line"></div>
+          </div>
+          <p class="contact-intro reveal"><span class="lang-ja">店舗名とURLがあれば、Googleマップ・口コミ・写真・予約導線の改善余地を確認します。取材・コラボレーション・その他のご相談もこちらから。</span><span
+              class="lang-en">Share your store name and URL, and we will review opportunities around Maps, reviews, photos, and booking paths. Press, collaboration, and general inquiries are welcome too.</span></p>
         </div>
-        <p class="contact-intro reveal"><span class="lang-ja">ご相談・ご質問・ご依頼など、お気軽にお問い合わせください。</span><span
-            class="lang-en">Consultations, questions, requests — please feel free to reach out.</span></p>
-      </div>
-    
-      <div class="contact-inner">
-        <!-- v7.10: Web3Forms 接続(contact-left は footer に移動)-->
-        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
-          <input type="hidden" name="from_name" value="njoooy.com contact form">
-          <input type="hidden" name="subject" value="[njoooy] お問い合わせ">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-    
-          <div class="form-row">
-            <label for="cf-name"><span class="lang-ja">お名前</span><span class="lang-en">Name</span></label>
-            <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" data-ph-ja="例) 山田 太郎"
-              data-ph-en="e.g. John Smith" required />
-          </div>
-          <div class="form-row">
-            <label for="cf-email"><span class="lang-ja">メールアドレス</span><span class="lang-en">Email</span></label>
-            <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com"
-              data-ph-ja="例) yamada@example.com" data-ph-en="e.g. you@example.com" required />
-          </div>
-          <div class="form-row">
-            <label for="cf-service"><span class="lang-ja">ご希望サービス</span><span class="lang-en">Service of
-                interest</span></label>
-            <select id="cf-service" name="service" required>
-              <option value="" disabled selected>— 選択してください / Please select —</option>
-              <option>サービス支援</option>
-              <option>SNS運用支援</option>
-              <option>IT/AI導入支援</option>
-              <option>取材・コラボレーション</option>
-              <option>その他 / Other</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label><span class="lang-ja">ご希望相談方法</span><span class="lang-en">Preferred meeting format</span></label>
-            <div class="form-radio-group" role="radiogroup" aria-label="Preferred meeting format">
-              <label class="form-radio-item">
-                <input type="radio" name="meeting_format" value="対面" />
-                <span><span class="lang-ja">対面</span><span class="lang-en">In-person</span></span>
-              </label>
-              <label class="form-radio-item">
-                <input type="radio" name="meeting_format" value="オンライン (Google Meet)" />
-                <span><span class="lang-ja">オンライン (Google Meet)</span><span class="lang-en">Online (Google
-                    Meet)</span></span>
-              </label>
-              <label class="form-radio-item">
-                <input type="radio" name="meeting_format" value="どちらでも" />
-                <span><span class="lang-ja">どちらでも</span><span class="lang-en">Either works</span></span>
-              </label>
+
+        <div class="contact-inner">
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
+            <input type="hidden" name="from_name" value="njoooy contact form">
+            <input type="hidden" name="subject" value="[njoooy] 無料診断・お問い合わせ">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-row">
+              <label for="cf-inquiry"><span class="lang-ja">相談内容</span><span class="lang-en">Inquiry type</span></label>
+              <select id="cf-inquiry" name="inquiry_type" required>
+                <option value="" disabled selected>選択してください / Please select</option>
+                <option value="無料診断">無料診断 / Free diagnosis</option>
+                <option value="有償スプリント相談">有償スプリント相談 / Sprint consultation</option>
+                <option value="月額運用相談">月額運用相談 / Monthly operations</option>
+                <option value="取材・コラボレーション">取材・コラボレーション / Press or collaboration</option>
+                <option value="その他">その他 / Other</option>
+              </select>
             </div>
-          </div>
-          <div class="form-row">
-            <label><span class="lang-ja">ご面談希望日時</span><span class="lang-en">Preferred meeting date &amp;
-                time</span></label>
-            <div class="meeting-picker" id="mtg-picker">
-              <div class="meeting-picker-head">
-                <button type="button" class="meeting-picker-nav" id="mtg-prev" aria-label="前の月 / Previous month">‹</button>
-                <div class="meeting-picker-month" id="mtg-month-label" aria-live="polite"></div>
-                <button type="button" class="meeting-picker-nav" id="mtg-next" aria-label="次の月 / Next month">›</button>
+
+            <div class="form-row">
+              <label for="cf-name"><span class="lang-ja">お名前</span><span class="lang-en">Name</span></label>
+              <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" data-ph-ja="例) 山田 太郎"
+                data-ph-en="e.g. John Smith" autocomplete="name" required />
+            </div>
+
+            <div class="form-row">
+              <label for="cf-email"><span class="lang-ja">メールアドレス</span><span class="lang-en">Email</span></label>
+              <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com"
+                data-ph-ja="例) yamada@example.com" data-ph-en="e.g. you@example.com" autocomplete="email" required />
+            </div>
+
+            <div class="form-row">
+              <label for="cf-store-name"><span class="lang-ja">店舗名</span><span class="lang-en">Store name</span></label>
+              <input type="text" id="cf-store-name" name="store_name" placeholder="例) BAR njoooy"
+                data-ph-ja="例) BAR njoooy" data-ph-en="e.g. BAR njoooy" />
+            </div>
+
+            <div class="form-row">
+              <label for="cf-store-url"><span class="lang-ja">店舗URL</span><span class="lang-en">Store URL</span></label>
+              <input type="url" id="cf-store-url" name="store_url" placeholder="Googleマップ・Instagram・公式サイトなど"
+                data-ph-ja="Googleマップ・Instagram・公式サイトなど" data-ph-en="Google Maps, Instagram, official site, etc." />
+              <div class="form-date-hint"><span class="lang-ja">無料診断の場合は、見てほしいページのURLがあると具体的に確認できます。</span><span
+                  class="lang-en">For a free diagnosis, a URL helps us review specific improvement points.</span></div>
+            </div>
+
+            <div class="form-row">
+              <label><span class="lang-ja">困っていること</span><span class="lang-en">Pain points</span></label>
+              <div class="form-checkbox-group" role="group" aria-label="困っていること">
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="Googleマップ/検索" />
+                  <span><span class="lang-ja">Googleマップ・検索</span><span class="lang-en">Maps / search</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="口コミ" />
+                  <span><span class="lang-ja">口コミ</span><span class="lang-en">Reviews</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="写真/メニュー" />
+                  <span><span class="lang-ja">写真・メニュー</span><span class="lang-en">Photos / menu</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="予約/LINE導線" />
+                  <span><span class="lang-ja">予約・LINE導線</span><span class="lang-en">Booking / LINE path</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="SNS発信" />
+                  <span><span class="lang-ja">SNS発信</span><span class="lang-en">Social posts</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="採用/繁忙期オペレーション" />
+                  <span><span class="lang-ja">採用・繁忙期オペレーション</span><span class="lang-en">Hiring / peak season ops</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="客単価/再来店" />
+                  <span><span class="lang-ja">客単価・再来店</span><span class="lang-en">Spend / repeat visits</span></span>
+                </label>
+                <label class="form-checkbox-item">
+                  <input type="checkbox" name="pain_points" value="その他" />
+                  <span><span class="lang-ja">その他</span><span class="lang-en">Other</span></span>
+                </label>
               </div>
-              <div class="meeting-picker-weekdays" aria-hidden="true">
-                <span><span class="lang-ja">日</span><span class="lang-en">S</span></span><span><span
-                    class="lang-ja">月</span><span class="lang-en">M</span></span><span><span class="lang-ja">火</span><span
-                    class="lang-en">T</span></span><span><span class="lang-ja">水</span><span
-                    class="lang-en">W</span></span><span><span class="lang-ja">木</span><span
-                    class="lang-en">T</span></span><span><span class="lang-ja">金</span><span
-                    class="lang-en">F</span></span><span><span class="lang-ja">土</span><span class="lang-en">S</span></span>
+            </div>
+
+            <div class="form-row tall">
+              <label for="cf-msg"><span class="lang-ja">見てほしいこと・相談内容</span><span class="lang-en">Message</span></label>
+              <div>
+                <textarea id="cf-msg" name="message" placeholder="例) Googleマップから予約につながっているか見てほしい。口コミ返信も整えたい。"
+                  data-ph-ja="例) Googleマップから予約につながっているか見てほしい。口コミ返信も整えたい。"
+                  data-ph-en="e.g. Please review whether our Google Maps page leads to bookings, and how we can improve review replies."
+                  maxlength="1000" required oninput="document.getElementById('msgCount').textContent = this.value.length"></textarea>
+                <div class="form-textarea-count"><span id="msgCount">0</span> / 1000</div>
               </div>
-              <div class="meeting-picker-days" id="mtg-days"></div>
-              <div class="meeting-picker-times">
-                <div class="meeting-picker-times-label" id="mtg-times-label"><span class="lang-ja">日付を選択してください</span><span
-                    class="lang-en">Select a date</span></div>
-                <div class="meeting-picker-times-grid" id="mtg-times-grid"></div>
-              </div>
-              <div class="meeting-picker-picked">
-                <div class="meeting-picker-picked-label"><span class="lang-ja">候補 (最大 3 つ)</span><span class="lang-en">Picks
-                    (max 3)</span></div>
-                <div class="meeting-picker-picked-list" id="mtg-picked-list">
-                  <div class="meeting-picker-picked-empty"><span class="lang-ja">時間帯をタップして追加してください</span><span
-                      class="lang-en">Tap a time slot to add it</span></div>
+            </div>
+
+            <details class="form-detail-block">
+              <summary><span class="lang-ja">診断精度を上げる追加情報</span><span class="lang-en">Optional details for a sharper diagnosis</span></summary>
+              <div class="form-detail-body">
+                <div class="form-row">
+                  <label for="cf-business-type"><span class="lang-ja">業態</span><span class="lang-en">Business type</span></label>
+                  <select id="cf-business-type" name="business_type">
+                    <option value="" selected>選択してください / Please select</option>
+                    <option value="バー">バー / Bar</option>
+                    <option value="飲食店">飲食店 / Restaurant</option>
+                    <option value="カフェ">カフェ / Cafe</option>
+                    <option value="美容/サロン">美容・サロン / Beauty or salon</option>
+                    <option value="整体/ジム">整体・ジム / Wellness or gym</option>
+                    <option value="クリニック/士業">クリニック・士業 / Clinic or professional service</option>
+                    <option value="その他">その他 / Other</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label><span class="lang-ja">現在使っている導線</span><span class="lang-en">Current channels</span></label>
+                  <div class="form-checkbox-group compact" role="group" aria-label="現在使っている導線">
+                    <label class="form-checkbox-item">
+                      <input type="checkbox" name="current_channels" value="Googleビジネスプロフィール" />
+                      <span>Googleビジネスプロフィール</span>
+                    </label>
+                    <label class="form-checkbox-item">
+                      <input type="checkbox" name="current_channels" value="Instagram" />
+                      <span>Instagram</span>
+                    </label>
+                    <label class="form-checkbox-item">
+                      <input type="checkbox" name="current_channels" value="公式サイト" />
+                      <span><span class="lang-ja">公式サイト</span><span class="lang-en">Official site</span></span>
+                    </label>
+                    <label class="form-checkbox-item">
+                      <input type="checkbox" name="current_channels" value="LINE" />
+                      <span>LINE</span>
+                    </label>
+                    <label class="form-checkbox-item">
+                      <input type="checkbox" name="current_channels" value="予約サイト" />
+                      <span><span class="lang-ja">予約サイト</span><span class="lang-en">Reservation site</span></span>
+                    </label>
+                    <label class="form-checkbox-item">
+                      <input type="checkbox" name="current_channels" value="未整備" />
+                      <span><span class="lang-ja">まだ未整備</span><span class="lang-en">Not yet organized</span></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <label><span class="lang-ja">希望連絡方法</span><span class="lang-en">Preferred contact</span></label>
+                  <div class="form-radio-group" role="radiogroup" aria-label="希望連絡方法">
+                    <label class="form-radio-item">
+                      <input type="radio" name="preferred_contact" value="メールで返信" />
+                      <span><span class="lang-ja">まずメールで返信がほしい</span><span class="lang-en">Email reply first</span></span>
+                    </label>
+                    <label class="form-radio-item">
+                      <input type="radio" name="preferred_contact" value="オンライン面談" />
+                      <span><span class="lang-ja">オンラインで相談したい</span><span class="lang-en">Online meeting</span></span>
+                    </label>
+                    <label class="form-radio-item">
+                      <input type="radio" name="preferred_contact" value="見積もり/提案" />
+                      <span><span class="lang-ja">見積もり・提案がほしい</span><span class="lang-en">Proposal or estimate</span></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <label><span class="lang-ja">面談候補日時</span><span class="lang-en">Preferred meeting date &amp; time</span></label>
+                  <div class="meeting-picker" id="mtg-picker">
+                    <div class="meeting-picker-head">
+                      <button type="button" class="meeting-picker-nav" id="mtg-prev" aria-label="前の月 / Previous month">‹</button>
+                      <div class="meeting-picker-month" id="mtg-month-label" aria-live="polite"></div>
+                      <button type="button" class="meeting-picker-nav" id="mtg-next" aria-label="次の月 / Next month">›</button>
+                    </div>
+                    <div class="meeting-picker-weekdays" aria-hidden="true">
+                      <span><span class="lang-ja">日</span><span class="lang-en">S</span></span><span><span
+                          class="lang-ja">月</span><span class="lang-en">M</span></span><span><span class="lang-ja">火</span><span
+                          class="lang-en">T</span></span><span><span class="lang-ja">水</span><span
+                          class="lang-en">W</span></span><span><span class="lang-ja">木</span><span
+                          class="lang-en">T</span></span><span><span class="lang-ja">金</span><span
+                          class="lang-en">F</span></span><span><span class="lang-ja">土</span><span class="lang-en">S</span></span>
+                    </div>
+                    <div class="meeting-picker-days" id="mtg-days"></div>
+                    <div class="meeting-picker-times">
+                      <div class="meeting-picker-times-label" id="mtg-times-label"><span class="lang-ja">日付を選択してください</span><span
+                          class="lang-en">Select a date</span></div>
+                      <div class="meeting-picker-times-grid" id="mtg-times-grid"></div>
+                    </div>
+                    <div class="meeting-picker-picked">
+                      <div class="meeting-picker-picked-label"><span class="lang-ja">候補 (最大 3 つ)</span><span
+                          class="lang-en">Picks (max 3)</span></div>
+                      <div class="meeting-picker-picked-list" id="mtg-picked-list">
+                        <div class="meeting-picker-picked-empty"><span class="lang-ja">任意です。時間帯をタップすると候補に追加されます。</span><span
+                            class="lang-en">Optional. Tap a time slot to add it.</span></div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="meeting_date_1" id="mtg-hidden-1" />
+                    <input type="hidden" name="meeting_date_2" id="mtg-hidden-2" />
+                    <input type="hidden" name="meeting_date_3" id="mtg-hidden-3" />
+                  </div>
+                  <div class="form-date-hint"><span class="lang-ja">面談が必要な場合のみ、候補を最大3つお選びください。未選択でも送信できます。</span><span
+                      class="lang-en">Choose up to 3 slots only if a meeting would help. You can submit without selecting any.</span></div>
                 </div>
               </div>
-              <input type="hidden" name="meeting_date_1" id="mtg-hidden-1" />
-              <input type="hidden" name="meeting_date_2" id="mtg-hidden-2" />
-              <input type="hidden" name="meeting_date_3" id="mtg-hidden-3" />
-            </div>
-            <div class="form-date-hint"><span class="lang-ja">初回ミーティングのご希望日時を最大 3 つ、カレンダーからお選びください。24
-                時間以内にご返信いたします。</span><span class="lang-en">Pick up to 3 preferred slots from the calendar for the first
-                meeting. We'll respond within 24 hours.</span></div>
-          </div>
-          <div class="form-row">
-            <label for="cf-date"><span class="lang-ja">ご利用予定日 (イベント当日)</span><span class="lang-en">Event date</span></label>
-            <input type="text" id="cf-date" name="date" placeholder="例) 2026/05/18 — 未定でも OK"
-              data-ph-ja="例) 2026/05/18 — 未定でも OK" data-ph-en="e.g. 2026/05/18 — TBD is fine" />
-          </div>
-          <div class="form-row">
-            <label for="cf-guests"><span class="lang-ja">人数</span><span class="lang-en">Guest count</span></label>
-            <div class="with-suffix">
-              <input type="number" id="cf-guests" name="guests" placeholder="例) 4" data-ph-ja="例) 4" data-ph-en="e.g. 4" />
-              <span class="suffix"><span class="lang-ja">名様</span><span class="lang-en">guests</span></span>
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="cf-budget"><span class="lang-ja">ご予算</span><span class="lang-en">Budget</span></label>
-            <div class="with-suffix">
-              <input type="text" id="cf-budget" name="budget" placeholder="例) ¥100,000" data-ph-ja="例) ¥100,000"
-                data-ph-en="e.g. ¥100,000" />
-              <span class="suffix"><span class="lang-ja">円程度</span><span class="lang-en">(approx.)</span></span>
-            </div>
-          </div>
-          <div class="form-row tall">
-            <label for="cf-msg"><span class="lang-ja">ご相談内容</span><span class="lang-en">Message</span></label>
-            <div>
-              <textarea id="cf-msg" name="message" placeholder="ご希望の内容やご要望などをご入力ください。" data-ph-ja="ご希望の内容やご要望などをご入力ください。"
-                data-ph-en="Tell us about your plans or requests." maxlength="1000"
-                oninput="document.getElementById('msgCount').textContent = this.value.length"></textarea>
-              <div class="form-textarea-count"><span id="msgCount">0</span> / 1000</div>
-            </div>
-          </div>
-          <button class="form-submit" type="submit" data-hover><span class="lang-ja">送信する</span><span
-              class="lang-en">Submit</span></button>
-          <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
-      <!-- <section class="section-pad warm">
-        <div class="contact-grid">
-          <aside class="contact-card">
-            <p class="kicker">Direct</p>
-            <h3>hello@njoooy.com</h3>
-            <p>フォームは現在メール起動型です。本番ではWeb3Forms、HubSpot、Shopify customer accountなどに接続できます。</p>
-          </aside>
-          <form class="contact-card contact-form" data-contact-form>
-            <div class="form-row"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
-            <div class="form-row"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
-            <div class="form-row"><label for="topic">Topic</label><select id="topic" name="topic"><option>サービス支援</option><option>SNS運用支援</option><option>IT/AI導入支援</option><option>Press / Collaboration</option></select></div>
-            <div class="form-row"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
-            <button class="button primary" type="submit">Send message</button>
-            <div class="status-note" data-contact-status role="status"></div>
+            </details>
+
+            <button class="form-submit" type="submit" data-hover><span class="lang-ja">無料診断・相談を送る</span><span
+                class="lang-en">Send inquiry</span></button>
+            <div class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
-      </section> -->
+      </section>
     </main>
 <footer>
   <div class="footer-inner">

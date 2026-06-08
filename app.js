@@ -192,7 +192,15 @@
 
       try {
         if (!form.action || form.action === window.location.href) throw new Error("Missing form action");
-        const payload = Object.fromEntries(new FormData(form).entries());
+        const payload = {};
+        new FormData(form).forEach((value, key) => {
+          if (typeof value === "string" && value.trim() === "" && key.startsWith("meeting_date_")) return;
+          if (payload[key] === undefined) {
+            payload[key] = value;
+          } else {
+            payload[key] = `${payload[key]}, ${value}`;
+          }
+        });
         const response = await fetch(form.action, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -203,6 +211,8 @@
         status.textContent = messages.success;
         status.classList.add("success");
         form.reset();
+        const messageCount = document.getElementById("msgCount");
+        if (messageCount) messageCount.textContent = "0";
       } catch (_) {
         status.textContent = messages.fail;
         status.classList.add("error");
@@ -222,34 +232,206 @@
     const days = document.getElementById("mtg-days");
     const timesLabel = document.getElementById("mtg-times-label");
     const times = document.getElementById("mtg-times-grid");
-    if (label && !label.textContent) label.textContent = "日程候補";
-    if (days && !days.children.length) {
-      const today = new Date();
-      for (let index = 1; index <= 14; index += 1) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + index);
+    const pickedList = document.getElementById("mtg-picked-list");
+    const prev = document.getElementById("mtg-prev");
+    const next = document.getElementById("mtg-next");
+    const hiddenFields = [1, 2, 3].map((index) => document.getElementById(`mtg-hidden-${index}`));
+    if (!label || !days || !timesLabel || !times || !pickedList) return;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    let currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    let selectedDate = null;
+    let picks = [];
+
+    const getLang = () => (html.getAttribute("lang") === "en" ? "en" : "ja");
+    const pad = (value) => String(value).padStart(2, "0");
+    const dateValue = (date) => `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+    const timeValue = (hour) => `${pad(hour)}:00`;
+    const isSameDate = (a, b) =>
+      a &&
+      b &&
+      a.getFullYear() === b.getFullYear() &&
+      a.getMonth() === b.getMonth() &&
+      a.getDate() === b.getDate();
+    const monthText = (date) =>
+      getLang() === "en" ? `${date.toLocaleString("en-US", { month: "long" })} ${date.getFullYear()}` : `${date.getFullYear()}年${date.getMonth() + 1}月`;
+    const dayText = (date) => (getLang() === "en" ? `${date.getMonth() + 1}/${date.getDate()}` : `${date.getMonth() + 1}/${date.getDate()}`);
+    const pickLabel = (pick) => `${dayText(pick.date)} ${pick.time}`;
+
+    const updateHiddenFields = () => {
+      hiddenFields.forEach((field, index) => {
+        if (field) field.value = picks[index] ? picks[index].value : "";
+      });
+    };
+
+    const renderPicked = () => {
+      pickedList.innerHTML = "";
+      if (!picks.length) {
+        const empty = document.createElement("div");
+        empty.className = "meeting-picker-picked-empty";
+        empty.textContent = getLang() === "en" ? "Optional. Tap a time slot to add it." : "任意です。時間帯をタップすると候補に追加されます。";
+        pickedList.appendChild(empty);
+        updateHiddenFields();
+        return;
+      }
+
+      picks.forEach((pick, index) => {
+        const item = document.createElement("div");
+        item.className = "meeting-picker-picked-item";
+
+        const number = document.createElement("span");
+        number.className = "mtg-picked-no";
+        number.textContent = `#${pad(index + 1)}`;
+
+        const date = document.createElement("span");
+        date.className = "mtg-picked-date";
+        date.textContent = pickLabel(pick);
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "mtg-picked-remove";
+        remove.setAttribute("aria-label", getLang() === "en" ? "Remove this slot" : "この候補を削除");
+        remove.textContent = "×";
+        remove.addEventListener("click", () => {
+          picks.splice(index, 1);
+          updateHiddenFields();
+          renderPicked();
+          renderTimes();
+        });
+
+        item.append(number, date, remove);
+        pickedList.appendChild(item);
+      });
+      updateHiddenFields();
+    };
+
+    const makePick = (date, hour) => {
+      const time = timeValue(hour);
+      return {
+        date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
+        time,
+        value: `${dateValue(date)} ${time}`,
+      };
+    };
+
+    function renderTimes() {
+      times.innerHTML = "";
+      if (!selectedDate) {
+        timesLabel.textContent = getLang() === "en" ? "Select a date" : "日付を選択してください";
+        return;
+      }
+
+      timesLabel.textContent = getLang() === "en" ? `Slots for ${dayText(selectedDate)}` : `${dayText(selectedDate)} の時間帯`;
+      [10, 13, 16, 19].forEach((hour) => {
+        const pick = makePick(selectedDate, hour);
+        const isPicked = picks.some((item) => item.value === pick.value);
+        const timeButton = document.createElement("button");
+        timeButton.type = "button";
+        timeButton.className = isPicked ? "mtg-time mtg-time-picked" : "mtg-time";
+        timeButton.setAttribute("aria-pressed", String(isPicked));
+        timeButton.textContent = pick.time;
+        timeButton.addEventListener("click", () => {
+          const existingIndex = picks.findIndex((item) => item.value === pick.value);
+          if (existingIndex >= 0) {
+            picks.splice(existingIndex, 1);
+          } else if (picks.length >= 3) {
+            timeButton.classList.add("mtg-time-denied");
+            window.setTimeout(() => timeButton.classList.remove("mtg-time-denied"), 380);
+            return;
+          } else {
+            picks.push(pick);
+          }
+          updateHiddenFields();
+          renderPicked();
+          renderTimes();
+        });
+        times.appendChild(timeButton);
+      });
+    }
+
+    function renderDays() {
+      days.innerHTML = "";
+      label.textContent = monthText(currentMonth);
+
+      const firstDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+      const lastDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
+      for (let index = 0; index < firstDate.getDay(); index += 1) {
+        const empty = document.createElement("button");
+        empty.type = "button";
+        empty.className = "mtg-day mtg-day-empty";
+        empty.disabled = true;
+        empty.setAttribute("aria-hidden", "true");
+        days.appendChild(empty);
+      }
+
+      for (let day = 1; day <= lastDate.getDate(); day += 1) {
+        const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+        const isPastOrToday = date <= today;
         const button = document.createElement("button");
         button.type = "button";
         button.className = "mtg-day";
-        button.textContent = String(date.getDate());
+        button.textContent = String(day);
+        button.disabled = isPastOrToday;
+        button.setAttribute("aria-label", `${dateValue(date)}`);
+        if (isPastOrToday) button.classList.add("mtg-day-past");
+        if (isSameDate(date, today)) button.classList.add("mtg-day-today");
+        if (isSameDate(date, selectedDate)) button.classList.add("mtg-day-selected");
         button.addEventListener("click", () => {
-          document.querySelectorAll(".mtg-day-selected").forEach((item) => item.classList.remove("mtg-day-selected"));
-          button.classList.add("mtg-day-selected");
-          if (timesLabel) timesLabel.textContent = `${date.getMonth() + 1}/${date.getDate()} の時間帯`;
-          if (times) {
-            times.innerHTML = "";
-            [10, 13, 16, 19].forEach((hour) => {
-              const timeButton = document.createElement("button");
-              timeButton.type = "button";
-              timeButton.className = "mtg-time";
-              timeButton.textContent = `${String(hour).padStart(2, "0")}:00`;
-              times.appendChild(timeButton);
-            });
-          }
+          selectedDate = date;
+          renderDays();
+          renderTimes();
         });
         days.appendChild(button);
       }
+
+      if (prev) {
+        const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        prev.disabled = currentMonth <= minMonth;
+      }
     }
+
+    if (prev) {
+      prev.addEventListener("click", () => {
+        currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
+        selectedDate = null;
+        renderDays();
+        renderTimes();
+      });
+    }
+
+    if (next) {
+      next.addEventListener("click", () => {
+        currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+        selectedDate = null;
+        renderDays();
+        renderTimes();
+      });
+    }
+
+    const form = picker.closest("form");
+    if (form) {
+      form.addEventListener("reset", () => {
+        window.setTimeout(() => {
+          picks = [];
+          selectedDate = null;
+          updateHiddenFields();
+          renderDays();
+          renderTimes();
+          renderPicked();
+        }, 0);
+      });
+    }
+
+    document.addEventListener("njoooy:langchange", () => {
+      renderDays();
+      renderTimes();
+      renderPicked();
+    });
+
+    renderDays();
+    renderTimes();
+    renderPicked();
   }
 
   function init() {

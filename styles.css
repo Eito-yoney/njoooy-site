@@ -14253,6 +14253,144 @@ h3 {
           flex: 1;
           line-height: 1.4;
         }
+
+        .contact-form .form-checkbox-group {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+          margin-top: 2px;
+        }
+
+        .contact-form .form-checkbox-group.compact {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .contact-form .form-checkbox-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          min-width: 0;
+          padding: 11px 14px;
+          background: rgba(15, 12, 8, 0.35);
+          border: 1px solid rgba(245, 240, 230, 0.2);
+          border-radius: 2px;
+          cursor: pointer;
+          transition: border-color .25s, background .25s;
+          font-family: var(--serif-jp);
+          font-size: 14px;
+          color: rgba(245, 240, 230, 0.9);
+          letter-spacing: 0;
+          text-transform: none;
+          line-height: 1.4;
+        }
+
+        .contact-form .form-checkbox-item:hover {
+          border-color: rgba(245, 240, 230, 0.4);
+          background: rgba(15, 12, 8, 0.5);
+        }
+
+        .contact-form .form-checkbox-item:has(input:checked) {
+          border-color: var(--gold-bright);
+          background: rgba(224, 176, 128, 0.1);
+        }
+
+        .contact-form .form-checkbox-item input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          position: relative;
+          width: 16px;
+          height: 16px;
+          margin: 0;
+          padding: 0;
+          flex-shrink: 0;
+          border: 1px solid rgba(245, 240, 230, 0.4);
+          border-radius: 2px;
+          background: transparent;
+          cursor: pointer;
+          transition: border-color .25s, background .25s;
+        }
+
+        .contact-form .form-checkbox-item input[type="checkbox"]:checked {
+          border-color: var(--gold-bright);
+          background: var(--gold-bright);
+        }
+
+        .contact-form .form-checkbox-item input[type="checkbox"]:checked::after {
+          content: "";
+          position: absolute;
+          left: 5px;
+          top: 2px;
+          width: 4px;
+          height: 8px;
+          border: solid var(--ink);
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+
+        .contact-form .form-checkbox-item span {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .contact-form .form-detail-block {
+          margin-top: 6px;
+          padding-top: 18px;
+          border-top: 1px solid rgba(245, 240, 230, 0.14);
+        }
+
+        .contact-form .form-detail-block summary {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 18px;
+          list-style: none;
+          cursor: pointer;
+          font-family: var(--mono);
+          font-size: 11px;
+          letter-spacing: 0;
+          text-transform: uppercase;
+          color: var(--gold-bright);
+          padding: 4px 0;
+        }
+
+        .contact-form .form-detail-block summary::-webkit-details-marker {
+          display: none;
+        }
+
+        .contact-form .form-detail-block summary::after {
+          content: "+";
+          flex-shrink: 0;
+          width: 28px;
+          height: 28px;
+          display: grid;
+          place-items: center;
+          border: 1px solid rgba(245, 240, 230, 0.22);
+          color: rgba(245, 240, 230, 0.82);
+          font-family: var(--serif-en);
+          font-size: 18px;
+          line-height: 1;
+        }
+
+        .contact-form .form-detail-block[open] summary::after {
+          content: "-";
+        }
+
+        .contact-form .form-detail-body {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          margin-top: 18px;
+          padding: 18px;
+          border: 1px solid rgba(245, 240, 230, 0.12);
+          background: rgba(15, 12, 8, 0.18);
+        }
+
+        @media (max-width: 640px) {
+          .contact-form .form-checkbox-group,
+          .contact-form .form-checkbox-group.compact {
+            grid-template-columns: 1fr;
+          }
+        }
     
         /* v8.26: 面談希望日時 3 候補 */
         .contact-form .form-date-candidates {
@@ -15417,6 +15555,13 @@ h3 {
           margin-left: auto !important;
           margin-right: auto !important;
           display: block !important;
+        }
+
+        @media (max-width: 480px) {
+          section.contact .contact-title.spaced {
+            font-size: 26px !important;
+            letter-spacing: 0 !important;
+          }
         }
 
 
