@@ -1,0 +1,1589 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SNS運用支援 | njoooy</title>
+    <meta name="description" content="採用SNS向けの縦型ショート動画を、企画・撮影指示・編集・修正・レポートまで月額定額で支援します。" />
+    <link rel="canonical" href="https://njoooy.com/sns-support/" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0a0a0a;--paper:#fafaf8;--white:#fff;
+  --accent:#1a56ff;--accent-light:#e8eeff;--accent-dark:#0f3db8;--accent-glow:rgba(26,86,255,0.25);
+  --warm:#f5f0e8;--muted:#6b6b6b;--border:#e0ddd6;
+  --green:#22c55e;--green-soft:rgba(34,197,94,0.1);
+  --orange:#f59e0b;--orange-soft:rgba(245,158,11,0.1);
+  --red:#ef4444;
+  --radius:14px;
+  --shadow-soft:0 2px 20px rgba(0,0,0,0.06);--shadow-card:0 4px 32px rgba(0,0,0,0.08);
+  --dark:#111;--dark-card:#1a1a1a;--dark-border:rgba(255,255,255,0.08);--dark-border-l:rgba(255,255,255,0.12);
+  --dark-text:#f5f5f5;--dark-text-s:#999;--dark-text-m:#666;
+}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.ctn{max-width:1120px;margin:0 auto;padding:0 24px}
+.sec{padding:56px 0}
+.slbl{font-size:.88rem;font-weight:700;color:var(--accent);margin-bottom:12px;display:block;letter-spacing:.06em;text-transform:uppercase}
+.stl{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.4;letter-spacing:-.02em;margin-bottom:20px}
+.ssub{font-size:1rem;color:var(--muted);max-width:640px;line-height:1.9}
+.tc{text-align:center}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.06)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-weight:800;font-size:1.1rem;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
+.nav-logo-icon{width:32px;height:32px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800}
+.nav-logo-sub{font-size:.7rem;font-weight:600;color:var(--accent);margin-left:2px}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:.84rem;font-weight:500;color:var(--muted)}
+.nav-links a{position:relative;padding:6px 0;transition:color .2s,font-weight .2s}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);border-radius:999px;transform:scaleX(0);transform-origin:center;transition:transform .25s ease}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{font-weight:700}
+.nav-cta-btn{padding:9px 22px;border-radius:999px;font-size:.82rem;font-weight:700;border:1.5px solid var(--ink);background:transparent;color:var(--ink);transition:all .2s;cursor:pointer;font-family:inherit}
+.nav-cta-btn:hover{background:var(--ink);color:#fff}
+@media(max-width:768px){.nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);flex-direction:column;padding:24px;gap:20px;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-cta-btn.mobile-hide{display:none}}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:16px 36px;border-radius:999px;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px var(--accent-glow);font-family:inherit}
+.btn-p:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.btn-p svg{width:18px;height:18px}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:16px 28px;border-radius:999px;font-size:.95rem;font-weight:600;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-s:hover{border-color:var(--ink)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--ink);padding:14px 28px;border-radius:999px;font-size:.9rem;font-weight:600;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== MODAL FORM ===== */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--white);border-radius:20px;width:100%;max-width:520px;max-height:90vh;box-shadow:0 24px 80px rgba(0,0,0,.2);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:var(--paper);color:var(--muted);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;font-family:inherit;transition:background .2s}
+.modal-close:hover{background:var(--border)}
+
+/* Progress */
+.form-progress{padding:24px 32px 0;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.form-progress-step{height:3px;flex:1;border-radius:2px;background:var(--border);transition:background .3s}
+.form-progress-step.done{background:var(--accent)}
+.form-progress-step.current{background:var(--accent);opacity:.5}
+.form-step-count{font-size:.72rem;color:var(--muted);font-weight:600;margin-left:8px;white-space:nowrap}
+
+/* Steps */
+.form-body{padding:32px;flex:1;overflow-y:auto;min-height:0}
+.form-step{display:none;animation:fadeUp .35s ease}
+.form-step.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.form-step-label{font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;display:block}
+.form-step-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:4px}
+.form-step-icon{width:36px;height:36px;flex-shrink:0;margin-top:2px}
+.form-step-header h3{font-size:1.15rem;font-weight:800;margin-bottom:6px;line-height:1.4}
+.form-step-header .hint{font-size:.82rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.form-step h3{font-size:1.15rem;font-weight:800;margin-bottom:6px;line-height:1.4}
+.form-step .hint{font-size:.82rem;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.form-section-label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.form-skip{display:block;margin:16px auto 0;background:none;border:none;color:var(--muted);font-size:.82rem;cursor:pointer;text-decoration:underline;padding:8px}
+.form-skip:hover{color:var(--text)}
+.fi-hint{font-size:.72rem;color:var(--muted);margin-top:4px}
+.form-note{font-size:.72rem;color:var(--muted);margin-top:10px;line-height:1.5;padding:10px 12px;background:var(--paper);border-radius:8px;border-left:2px solid var(--border)}
+
+/* Inputs */
+.fi{margin-bottom:16px}
+.fi label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.fi label .req{color:var(--red);margin-left:2px}
+.fi input,.fi select,.fi textarea{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:.9rem;font-family:inherit;transition:border-color .2s;outline:none;background:var(--paper);color:var(--ink)}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--accent)}
+.fi textarea{resize:vertical;min-height:100px}
+.fi .err{font-size:.75rem;color:var(--red);margin-top:4px;display:none}
+.fi.invalid input,.fi.invalid select,.fi.invalid textarea{border-color:var(--red)}
+.fi.invalid .err{display:block}
+
+/* Checkbox / Radio group */
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice-item{position:relative}
+.choice-item input{position:absolute;opacity:0;width:0;height:0}
+.choice-item label{display:flex;align-items:center;gap:10px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:.88rem;font-weight:500;transition:all .2s}
+.choice-item input:checked+label{border-color:var(--accent);background:var(--accent-light);color:var(--accent);font-weight:600}
+.choice-item label .check-icon{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;font-size:.7rem;color:transparent}
+.choice-item input:checked+label .check-icon{border-color:var(--accent);background:var(--accent);color:#fff}
+.choice-item.radio-item label .check-icon{border-radius:50%}
+
+/* Form navigation */
+.form-nav{padding:16px 32px 28px;display:flex;gap:12px;align-items:center;border-top:1px solid var(--border);background:var(--white);flex-shrink:0}
+.form-back{padding:12px 24px;border-radius:999px;border:1.5px solid var(--border);background:transparent;font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit;color:var(--muted);transition:all .2s}
+.form-back:hover{border-color:var(--ink);color:var(--ink)}
+.form-next{padding:14px 36px;border-radius:999px;border:none;background:var(--accent);color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-left:auto;display:flex;align-items:center;gap:6px;min-height:48px;box-shadow:0 2px 12px var(--accent-glow)}
+.form-next:hover{background:var(--accent-dark)}
+.form-next:disabled{opacity:.4;cursor:not-allowed}
+
+/* Thank you */
+.form-thanks{display:none;text-align:center;padding:32px 24px}
+.form-thanks.active{display:block;animation:fadeUp .4s ease}
+.form-thanks-icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.form-thanks h3{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+.thanks-msg{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.thanks-video{margin-bottom:20px}
+.thanks-video-label{font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+.thanks-video-placeholder{background:var(--dark);border-radius:10px;padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.thanks-video-placeholder p{font-size:.72rem;color:rgba(255,255,255,.4);margin:0}
+.thanks-timeline{display:flex;gap:8px;margin-bottom:20px}
+.thanks-step{flex:1;background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:14px 10px;text-align:center}
+.thanks-step-num{font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.thanks-step-title{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.thanks-step-desc{font-size:.72rem;color:var(--muted);line-height:1.5}
+.thanks-step-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.9rem;font-weight:800;flex-shrink:0;width:16px}
+.thanks-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.thanks-btn{display:block;padding:12px 20px;border-radius:10px;font-size:.88rem;font-weight:700;text-align:center;cursor:pointer;border:none;font-family:inherit;text-decoration:none}
+.thanks-btn-primary{background:var(--accent);color:#fff}
+.thanks-btn-primary:hover{opacity:.9}
+.thanks-btn-secondary{background:var(--paper);color:var(--ink);border:1.5px solid var(--border)}
+.thanks-btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.thanks-contact{font-size:.78rem;color:var(--muted);line-height:1.7}
+.thanks-contact a{color:var(--accent);text-decoration:underline}
+.thanks-teaser{background:var(--paper);border-radius:12px;padding:18px 16px;margin-bottom:18px;text-align:left;border:1.5px solid var(--border)}
+.thanks-teaser-label{font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:6px}
+.thanks-teaser-title{font-size:.95rem;font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.5}
+.thanks-teaser-cards{display:flex;gap:10px}
+.thanks-teaser-card{flex:1;background:var(--white);border-radius:10px;padding:14px 12px;text-align:center;border:1px solid var(--border)}
+.thanks-teaser-card svg{width:48px;height:48px;margin-bottom:8px}
+.thanks-teaser-card-title{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.thanks-teaser-card-desc{font-size:.7rem;color:var(--muted);line-height:1.5}
+
+/* DOC form (simple) */
+.doc-form{display:none}
+.doc-form.active{display:block;animation:fadeUp .35s ease}
+
+/* ===== PAGE SECTIONS (inherited from previous version) ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding-top:64px;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(26,86,255,.06),transparent),radial-gradient(ellipse 60% 50% at 85% 20%,rgba(26,86,255,.04),transparent),var(--paper);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='.6' fill='%23000' fill-opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1040px;width:100%;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;justify-items:center;flex:1}
+.hero-copy{text-align:left;justify-self:center;max-width:560px;transform:translateX(44px)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);padding:6px 16px;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-hl{font-size:clamp(2rem,5.5vw,3.2rem);font-weight:900;line-height:1.35;letter-spacing:-.03em;margin-bottom:24px}
+.hero-hl em{font-style:normal;background:linear-gradient(135deg,var(--accent),#4f7fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.9;margin:0 0 36px;max-width:480px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:flex-start}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;justify-self:center;width:100%;transform:translateX(-44px)}
+.phone-mockup{width:min(280px, 38vh);background:var(--ink);border-radius:36px;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,.15),inset 0 0 0 2px rgba(255,255,255,.1);overflow:hidden}
+.phone-screen{width:100%;aspect-ratio:9/16;border-radius:26px;overflow:hidden;position:relative}
+.phone-slide-track{display:flex;flex-direction:column;animation:vslide 18s ease-in-out infinite}
+@keyframes vslide{0%,13%{transform:translateY(0)}16.67%,29.67%{transform:translateY(-16.667%)}33.33%,46.33%{transform:translateY(-33.333%)}50%,63%{transform:translateY(-50%)}66.67%,79.67%{transform:translateY(-66.667%)}83.33%,95%{transform:translateY(-83.333%)}95.01%,100%{transform:translateY(0)}}
+.ps{width:100%;height:0;padding-bottom:177.78%;flex-shrink:0;position:relative;overflow:hidden}
+.ps video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ps::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 50%);z-index:1}
+.ps-c{position:absolute;bottom:20px;left:20px;right:20px;z-index:2;color:#fff}
+.ps-tag{font-size:.6rem;font-weight:700;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:8px}
+.ps-t{font-size:.85rem;font-weight:700;line-height:1.4}
+.ps-s{font-size:.65rem;color:var(--muted);margin-top:3px}
+.phone-float-1,.phone-float-2{position:absolute;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-card);padding:14px 18px;font-size:.78rem;font-weight:600;animation:float 4s ease-in-out infinite}
+.phone-float-1{top:52px;right:30px;display:flex;align-items:center;gap:8px}
+.phone-float-1 .dot{width:8px;height:8px;background:var(--green);border-radius:50%}
+.phone-float-2{bottom:120px;left:32px;display:flex;align-items:center;gap:8px;animation-delay:-2s}
+.phone-float-2 .ib{width:28px;height:28px;background:var(--accent-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.trust{position:relative;z-index:1;flex-shrink:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;background:var(--white);margin-top:0}
+.trust-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-stat{text-align:center}
+.trust-num{font-family:'Inter',sans-serif;font-size:2rem;font-weight:900;letter-spacing:-.03em}
+.trust-num .a{color:var(--accent)}
+.trust-lbl{font-size:.75rem;color:var(--muted);margin-top:2px}
+.whynow{background:var(--warm);color:var(--ink)}
+.whynow-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:center}
+.whynow-data{display:flex;flex-direction:column;gap:20px}
+.whynow-item{background:var(--white);border-radius:var(--radius);padding:24px 28px;border:1px solid var(--border)}
+.whynow-item strong{color:var(--accent);font-size:1.5rem;font-family:'Inter',sans-serif;font-weight:800}
+.whynow-right{background:var(--accent-light);border-radius:var(--radius);padding:32px;border:1px solid rgba(26,86,255,.2)}
+.whynow-right h3{font-size:1.2rem;font-weight:800;margin-bottom:12px;color:var(--ink)}
+.projects{padding:56px 0;overflow:hidden;max-width:100vw}
+
+/* Carousel */
+.carousel-wrap{position:relative;margin-top:48px;overflow:hidden;padding:60px 0;min-height:560px}
+.carousel-track{display:flex;gap:20px;transition:transform .6s cubic-bezier(.4,0,.2,1);align-items:center}
+.carousel-track .project-card{flex:0 0 240px;aspect-ratio:9/16;overflow:hidden;transition:transform .5s ease,opacity .5s ease;opacity:.55;transform:scale(.9)}
+.carousel-track .project-card.active{opacity:1;transform:scale(1.25);box-shadow:var(--shadow-card);z-index:2}
+
+.project-row{display:flex;gap:20px;justify-content:center;overflow-x:auto;padding:0 24px;margin-top:48px;scrollbar-width:none}
+.project-row::-webkit-scrollbar{display:none}
+.project-card{flex:0 0 220px;background:#fff;border-radius:24px;border:1px solid var(--border);overflow:hidden;transition:transform .3s;box-shadow:var(--shadow-soft)}
+.project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}
+.project-screen{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#000}
+.project-screen video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.project-play{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:2}
+.project-play::after{content:'';width:0;height:0;margin-left:4px;border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.project-overlay{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.project-tag{font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:6px}
+.project-cap{font-size:.75rem;color:rgba(255,255,255,.8)}
+.project-meta{padding:14px 16px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--border)}
+.project-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#fff;flex-shrink:0}
+.project-who{font-size:.75rem;color:var(--muted)}.project-views{font-size:.7rem;color:var(--muted);margin-left:auto}
+.reasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.reason-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px}
+.reason-icon{width:92px;height:92px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.reason-icon img{width:100%;height:100%;object-fit:contain;display:block}
+.reason-num{font-size:.7rem;font-weight:800;color:var(--accent);letter-spacing:.05em;margin-bottom:10px}
+.reason-title{font-size:1.15rem;font-weight:800;margin-bottom:10px;line-height:1.5}
+.reason-desc{font-size:.88rem;color:var(--muted);line-height:1.8}
+.reason-metric{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:6px 14px;border-radius:999px;font-size:.75rem;font-weight:700}
+.flow{background:var(--paper);color:var(--ink);padding:56px 0}
+.flow .slbl{color:var(--accent)}.flow .stl{color:var(--ink)}.flow .ssub{color:var(--muted)}
+.flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;margin-top:56px}
+.flow-card{background:var(--white);border-radius:16px;padding:24px 20px;border:1px solid var(--border);position:relative;box-shadow:var(--shadow-soft)}
+.flow-card::after{display:none}
+.flow-card:last-child::after{display:none}
+.flow-card-label{font-size:.82rem;font-weight:800;color:var(--accent);letter-spacing:.04em;margin-bottom:14px;display:inline-block;background:var(--accent-light);padding:4px 12px;border-radius:999px}
+.flow-card-visual{width:100%;aspect-ratio:16/10;border-radius:10px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--paper)}
+.flow-card-visual img{width:100%;height:100%;object-fit:contain}
+.flow-card h3{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.flow-card p{font-size:.78rem;color:var(--muted);line-height:1.7}
+.flow-badge{display:inline-block;font-size:.65rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:12px}
+.mid-cta{background:var(--accent-light);padding:48px 0;text-align:center}
+.mid-cta-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.mid-cta p{font-size:1rem;font-weight:700;margin-right:8px}
+.usecases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.usecase-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.usecase-card::before{content:'';display:block;height:3px;background:var(--accent)}
+.usecase-illust{width:100%;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:12px}
+.usecase-illust img{width:100%;height:100%;object-fit:contain}
+.usecase-body{padding:28px 24px}
+.usecase-persona{font-size:.78rem;font-weight:700;color:var(--accent);margin-bottom:10px}
+.usecase-pain{font-size:1.15rem;font-weight:800;margin-bottom:10px;line-height:1.5}
+.usecase-solution{font-size:.85rem;color:var(--muted);line-height:1.8}
+.pricing{background:var(--warm)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.pr-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:36px 28px;position:relative;display:flex;flex-direction:column}
+.pr-card.rec{border-color:var(--accent);box-shadow:0 4px 32px rgba(26,86,255,.12)}
+.pr-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:4px 18px;border-radius:999px;font-size:.72rem;font-weight:700}
+.pr-name{font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.pr-price{font-family:'Inter',sans-serif;font-size:2.4rem;font-weight:800;letter-spacing:-.04em;margin-bottom:4px}
+.pr-price span{font-size:.9rem;font-weight:600;color:var(--muted)}
+.pr-unit{font-size:.78rem;color:var(--accent);font-weight:600;margin-bottom:4px}
+.pr-note{font-size:.78rem;color:var(--muted);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.pr-ft{list-style:none}
+.pr-ft li{font-size:.85rem;padding:8px 0;display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.pr-ft li::before{content:'✓';color:var(--accent);font-weight:800;flex-shrink:0;margin-top:2px}
+.pr-cta-btn{display:block;width:100%;margin-top:auto;padding-top:28px;padding:14px;border-radius:999px;font-size:.9rem;font-weight:700;text-align:center;border:1.5px solid var(--border);color:var(--ink);background:#fff;cursor:pointer;transition:all .2s;font-family:inherit}
+.pr-cta-btn:hover{border-color:var(--accent);color:var(--accent)}
+.pr-card.rec .pr-cta-btn{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pr-card.rec .pr-cta-btn:hover{background:var(--accent-dark)}
+.pr-extras{margin-top:36px;text-align:center;font-size:.85rem;color:var(--muted);line-height:2}
+.pr-common{margin-top:24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.pr-common span{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+.pr-common span::before{content:'✓';color:var(--green);font-weight:800;font-size:.75rem}
+.comparison{background:var(--white);color:var(--ink);padding:56px 0;border-top:1px solid var(--border)}
+.comparison .slbl{color:var(--accent)}.comparison .stl{color:var(--ink)}.comparison .ssub{color:var(--muted)}
+.comparison-head{text-align:center}
+.comparison-head .ssub{margin-left:auto;margin-right:auto}
+.comp-wrap{overflow-x:auto;margin-top:48px}
+.comp-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:740px}
+.comp-table th{font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.05em;padding:16px 20px;text-align:left;border-bottom:2px solid var(--border)}
+.comp-table td{padding:16px 20px;border-bottom:1px solid var(--border);color:var(--muted);font-size:.84rem}
+.comp-table td:first-child{font-weight:600;color:var(--ink)}
+.comp-table th:last-child,.comp-table td:last-child{color:var(--accent);font-weight:700;background:var(--accent-light)}
+.comp-note{text-align:center;margin-top:20px;font-size:.75rem;color:var(--muted)}
+.testimonials{overflow:hidden;padding:100px 0}
+.testi-track{display:flex;gap:20px;margin-top:48px}
+@keyframes tscroll{0%{transform:translateX(0)}100%{transform:translateX(var(--scroll-dist))}}
+.testi-card{flex:0 0 360px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.testi-quote{font-size:.92rem;line-height:1.8;margin-bottom:16px}
+.testi-quote::before{content:'\201C';font-size:1.6rem;font-weight:800;color:var(--accent);display:block;margin-bottom:4px}
+.testi-result{display:inline-block;font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff;flex-shrink:0}
+.testi-name{font-size:.85rem;font-weight:600}.testi-role{font-size:.75rem;color:var(--muted)}
+.testi-note{text-align:center;margin-top:24px;font-size:.75rem;color:var(--muted)}
+.faq-list{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:22px 0;font-size:.95rem;font-weight:700;cursor:pointer;background:none;border:none;width:100%;text-align:left;color:var(--ink);font-family:inherit;line-height:1.6}
+.faq-q::after{content:'+';font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:400;color:var(--muted);flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 0 22px;font-size:.88rem;color:var(--muted);line-height:1.9}
+.cta-final{text-align:center;padding:90px 24px;position:relative;background:var(--paper)}
+.cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(26,86,255,.06),transparent 70%);pointer-events:none}
+.cta-final>*{position:relative}
+.cta-badge-f{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);border:1px solid rgba(26,86,255,.15);padding:8px 18px;border-radius:999px;font-size:.82rem;color:var(--accent);font-weight:600;margin-bottom:28px}
+.cta-badge-f .dg{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.cta-final h2{font-size:clamp(1.8rem,5vw,3rem);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:20px}
+.cta-final>p{font-size:1rem;color:var(--muted);margin-bottom:36px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-final-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.cta-assurance{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.cta-assurance span{font-size:.82rem;color:var(--green);font-weight:600;display:flex;align-items:center;gap:4px}
+footer.footer{border-top:1px solid var(--border);padding:40px 24px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand{font-weight:800;font-size:1.1rem}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:.82rem;color:var(--muted)}.footer-links a:hover{color:var(--ink)}
+.footer-copy{font-size:.75rem;color:var(--muted);width:100%;text-align:center;margin-top:16px}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:24px}
+  .hero-copy{text-align:center;transform:none}
+  .hero-sub{margin:0 auto 36px}
+  .hero-actions{justify-content:center}
+  .hero-visual{order:1;transform:none}
+  .hero{min-height:100svh;padding-top:76px;padding-bottom:0}
+  .trust{margin-top:0}
+  .phone-float-1,.phone-float-2{display:none}
+  .phone-mockup{width:200px;padding:6px;border-radius:24px}
+  .phone-screen{border-radius:20px}
+  .trust-stats{gap:24px}
+  .trust-num{font-size:1.5rem}
+  
+  
+  .reasons-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .reason-card{padding:28px 24px}
+  .usecases-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .pricing-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}
+  .flow-row{grid-template-columns:1fr!important;gap:16px!important}
+  .flow-row>div[style*="font-size:1.6rem"]{display:none}
+  .carousel-track .project-card{flex:0 0 180px}
+  .carousel-wrap{min-height:360px;overflow:hidden;margin-top:24px;padding:40px 0}
+  .testi-card{flex:0 0 300px;padding:20px}
+  .testi-quote{font-size:.85rem}
+  .comp-table{min-width:0;font-size:.78rem;width:100%}
+  .comp-table th,.comp-table td{padding:12px 10px}
+  .comp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .whynow .ctn > .reveal:nth-child(2){grid-template-columns:1fr!important;max-width:480px;margin-left:auto;margin-right:auto}
+  .testimonials{overflow:hidden}
+  .footer{flex-direction:column;align-items:flex-start}
+  .footer-links{gap:16px}
+  .cta-final{padding:60px 24px}
+  .cta-assurance{gap:12px}
+  .cta-assurance span{font-size:.75rem}
+}
+@media(max-width:600px){
+  .sec{padding:36px 0}
+  .stl{font-size:1.4rem}
+  .hero-hl{font-size:1.8rem}
+  .hero-sub{font-size:.92rem;margin-bottom:24px}
+  .hero-badge{font-size:.72rem;margin-bottom:16px}
+  .phone-mockup{width:150px;padding:5px;border-radius:20px}
+  .phone-screen{border-radius:16px}
+  .trust-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 10px}
+  .trust-num{font-size:1rem;white-space:nowrap}
+  .trust-lbl{font-size:.58rem;line-height:1.4}
+  .trust{padding:12px 0;margin-top:0}
+  
+  
+  .reasons-grid,.usecases-grid{max-width:100%}
+  .reason-card{padding:24px 20px}
+  .flow-row{grid-template-columns:1fr!important}
+  .flow-row>div[style*="font-size:1.6rem"]{display:none!important}
+  .flow-card{padding:20px 16px}
+  .carousel-track .project-card{flex:0 0 160px}
+  .carousel-wrap{min-height:320px;overflow:hidden;margin-top:16px;padding:30px 0}
+  .project-cap{font-size:.65rem}
+  .project-tag{font-size:.6rem;padding:3px 8px}
+  .pr-price{font-size:1.8rem}
+  .pr-card{padding:28px 20px}
+  .comp-table{min-width:0;font-size:.72rem;width:100%}
+  .comp-table th,.comp-table td{padding:10px 8px}
+  .testi-card{flex:0 0 260px;padding:16px}
+  .testi-quote{font-size:.8rem}
+  .faq-q{font-size:.88rem;padding:18px 0}
+  .faq-a-inner{font-size:.82rem}
+  .btn-p{padding:14px 28px;font-size:.9rem}
+  .btn-s,.btn-ghost{padding:12px 20px;font-size:.85rem}
+  .mid-cta{padding:32px 0}
+  .mid-cta-inner{flex-direction:column;gap:12px}
+  .mid-cta p{margin-right:0}
+  .cta-final{padding:48px 16px}
+  .cta-final h2{font-size:1.6rem}
+  .cta-final-actions{flex-direction:column;align-items:center}
+  .cta-assurance{flex-direction:column;align-items:center;gap:8px}
+  .choice-grid{grid-template-columns:1fr}
+  .usecase-illust{aspect-ratio:16/8}
+  .usecase-body{padding:20px 16px}
+  .usecase-pain{font-size:1rem}
+  .footer-links{gap:12px;flex-wrap:wrap}
+  .footer-links a{font-size:.75rem}
+  .roi-grid{grid-template-columns:1fr!important}
+  .whynow .ctn > .reveal:nth-child(2){grid-template-columns:1fr!important;gap:16px!important}
+}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(min-width:1400px){
+  .ctn{max-width:1280px}
+  .hero-inner{max-width:1280px;gap:80px}
+  .stl{font-size:clamp(1.6rem,3.5vw,2.8rem)}
+  .reasons-grid,.usecases-grid{gap:32px}
+  .pricing-grid{gap:32px}
+  .pr-card{padding:40px 32px}
+  .reason-card{padding:40px 32px}
+  .faq-list{max-width:800px}
+}
+</style>
+<style>
+  body[data-page="sns-support"] {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body[data-page="sns-support"] .site-header,
+  body[data-page="sns-support"] .site-header a,
+  body[data-page="sns-support"] .site-header button,
+  body[data-page="sns-support"] .site-footer,
+  body[data-page="sns-support"] .site-footer * {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  body[data-page="sns-support"] .site-header {
+    min-height: 64px;
+    padding: 0 24px;
+    gap: 24px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(250, 250, 248, .85);
+    box-shadow: none;
+    backdrop-filter: blur(16px);
+  }
+
+  body[data-page="sns-support"] .site-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    color: var(--ink);
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1;
+  }
+
+  body[data-page="sns-support"] .site-brand-logo .mark {
+    width: .34em;
+    height: .34em;
+    margin-left: .08em;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: none;
+  }
+
+  body[data-page="sns-support"] .primary-nav {
+    gap: 24px;
+    color: var(--muted);
+    font-size: .84rem;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  body[data-page="sns-support"] .primary-nav a {
+    position: relative;
+    padding: 6px 0;
+    color: inherit;
+  }
+
+  body[data-page="sns-support"] .primary-nav a::after {
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  body[data-page="sns-support"] .primary-nav a:hover,
+  body[data-page="sns-support"] .primary-nav a[aria-current="page"] {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  body[data-page="sns-support"] .social-nav {
+    gap: 8px;
+  }
+
+  body[data-page="sns-support"] .social-nav a {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    color: var(--ink);
+    background: transparent;
+  }
+
+  body[data-page="sns-support"] .social-nav a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  body[data-page="sns-support"] .nav-lang-toggle {
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--muted);
+  }
+
+  body[data-page="sns-support"] .nav-lang-opt[data-active="true"] {
+    color: var(--accent);
+  }
+
+  body[data-page="sns-support"] .site-footer {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(280px, 1fr) minmax(260px, .8fr);
+    gap: 28px;
+    padding: 44px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body[data-page="sns-support"] .footer-logo {
+    color: var(--ink);
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-size: 1.35rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+
+  body[data-page="sns-support"] .footer-logo::after {
+    width: .34em;
+    height: .34em;
+    margin-left: .08em;
+    background: var(--accent);
+    vertical-align: .07em;
+  }
+
+  body[data-page="sns-support"] .site-footer p {
+    color: var(--muted);
+    font-size: .82rem;
+    line-height: 1.8;
+  }
+
+  body[data-page="sns-support"] .site-footer nav {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 8px 28px;
+    align-content: start;
+    color: var(--muted);
+    font-size: .86rem;
+    font-weight: 500;
+  }
+
+  body[data-page="sns-support"] .site-footer nav a:hover {
+    color: var(--accent);
+  }
+
+  body[data-page="sns-support"] .newsletter-form {
+    gap: 9px;
+  }
+
+  body[data-page="sns-support"] .newsletter-form label {
+    color: var(--muted);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+  }
+
+  body[data-page="sns-support"] .newsletter-form div {
+    display: flex;
+    gap: 8px;
+  }
+
+  body[data-page="sns-support"] .newsletter-form input {
+    min-width: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--ink);
+    font-family: inherit;
+  }
+
+  body[data-page="sns-support"] .newsletter-form button {
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: inherit;
+    font-weight: 700;
+  }
+
+  body[data-page="sns-support"] .modal-overlay {
+    z-index: 1000;
+    padding: 24px;
+  }
+
+  body[data-page="sns-support"] .modal {
+    border-radius: 20px;
+    max-width: 520px;
+    max-height: 90vh;
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .2);
+  }
+
+  body[data-page="sns-support"] .form-body {
+    padding: 32px;
+  }
+
+  @media(max-width: 768px) {
+    body[data-page="sns-support"] .site-header {
+      min-height: 64px;
+      padding: 0 18px;
+      grid-template-columns: 1fr auto;
+    }
+
+    body[data-page="sns-support"] .primary-nav {
+      display: none;
+    }
+
+    body[data-page="sns-support"] .social-nav {
+      justify-content: flex-end;
+    }
+
+    body[data-page="sns-support"] .site-footer {
+      grid-template-columns: 1fr;
+      padding: 36px 24px;
+    }
+  }
+</style>
+  </head>
+  <body data-page="sns-support">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <a href="../" class="site-brand-logo logo">njoooy<span class="mark"></span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="../service/">サービス支援</a>
+        <a href="../sns-support/" aria-current="page">SNS運用支援</a>
+        <a href="../ai-product/">IT/AI導入支援</a>
+        <a href="../about/">私たちについて</a>
+        <a href="../contact/">お問い合わせ</a>
+      </nav>
+      <nav class="social-nav" aria-label="Social links">
+        <a href="https://www.tiktok.com/@njoooy_bar" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 4v10.2a4.2 4.2 0 1 1-3.6-4.1" />
+            <path d="M14 4c.8 2.8 2.7 4.4 5.3 4.8" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/njoooy.bar/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="4" />
+            <circle cx="12" cy="12" r="3.7" />
+            <path d="M17.4 6.8h.1" />
+          </svg>
+        </a>
+        <div class="nav-right">
+          <button type="button" class="nav-lang-toggle" id="nav-lang-toggle" aria-label="Switch language / 言語切替">
+            <span class="nav-lang-opt" data-lang="ja" data-active="true">JA</span>
+            <span class="nav-lang-divider" aria-hidden="true">/</span>
+            <span class="nav-lang-opt" data-lang="en" data-active="false">EN</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+<!-- ===== MODAL: Multi-step Form ===== -->
+<div class="modal-overlay" id="formModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <!-- Progress bar -->
+    <div class="form-progress" id="formProgress"></div>
+
+    <div class="form-body">
+      <!-- TRIAL FORM: 4 steps -->
+      <div id="trialForm">
+        <!-- Step 1: 基本情報 + 会社URL -->
+        <div class="form-step active" data-step="1">
+          <span class="form-step-label">STEP 1</span>
+          <div class="form-step-header"><svg class="form-step-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="11" r="5" stroke="#1a56ff" stroke-width="1.5"/><path d="M6 28c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#1a56ff" stroke-width="1.5" stroke-linecap="round"/></svg><div><h3>まず、お名前とご連絡先を教えてください。</h3><p class="hint">無料トライアル（動画1本）のお申し込みフォームです。約1分で完了します。</p></div></div>
+          <div class="fi"><label>会社名<span class="req">*</span></label><input type="text" id="f_company" placeholder="株式会社○○" required><div class="err">会社名を入力してください</div></div>
+          <div class="fi"><label>担当者名<span class="req">*</span></label><input type="text" id="f_name" placeholder="山田 太郎" required><div class="err">お名前を入力してください</div></div>
+          <div class="fi"><label>メールアドレス<span class="req">*</span></label><input type="email" id="f_email" placeholder="yamada@example.co.jp" required><div class="err">正しいメールアドレスを入力してください</div></div>
+          <div class="fi"><label>会社URL</label><input type="url" id="f_url" placeholder="https://example.co.jp"><div class="fi-hint">事前に拝見し、御社に合ったサンプル動画を制作します</div></div>
+        </div>
+
+        <!-- Step 2: トライアルについて -->
+        <div class="form-step" data-step="2">
+          <span class="form-step-label">STEP 2</span>
+          <div class="form-step-header"><svg class="form-step-icon" viewBox="0 0 32 32" fill="none"><rect x="3" y="8" width="18" height="16" rx="3" stroke="#1a56ff" stroke-width="1.5"/><path d="M21 13l8-4v14l-8-4V13z" stroke="#1a56ff" stroke-width="1.5" stroke-linejoin="round"/></svg><div><h3>無料トライアルについて教えてください。</h3><p class="hint">ここではお気軽にお答えください。詳しいヒアリングはトライアル動画の納品後に行います。</p></div></div>
+
+          <label class="form-section-label">トライアルの目的</label>
+          <div class="choice-grid" style="grid-template-columns:1fr">
+            <div class="choice-item radio-item"><input type="radio" id="tp1" name="trial_purpose" value="クオリティ確認"><label for="tp1"><span class="check-icon">✓</span>サービスのクオリティを確かめたい</label></div>
+            <div class="choice-item radio-item"><input type="radio" id="tp2" name="trial_purpose" value="効果検証"><label for="tp2"><span class="check-icon">✓</span>動画を使った採用の効果を試したい</label></div>
+            <div class="choice-item radio-item"><input type="radio" id="tp3" name="trial_purpose" value="比較検討"><label for="tp3"><span class="check-icon">✓</span>他社サービスと比較検討している</label></div>
+            <div class="choice-item radio-item"><input type="radio" id="tp4" name="trial_purpose" value="社内提案"><label for="tp4"><span class="check-icon">✓</span>社内提案・稟議用の実績がほしい</label></div>
+          </div>
+
+          <label class="form-section-label" style="margin-top:20px">動画素材の共有方法</label>
+          <div class="choice-grid" style="grid-template-columns:1fr">
+            <div class="choice-item radio-item"><input type="radio" id="m1" name="material" value="撮影指示書をもとに新規撮影"><label for="m1"><span class="check-icon">✓</span><span><span style="display:block">撮影指示書をもとに新規撮影する</span><span style="display:block;font-size:.72rem;color:var(--muted);font-weight:400;margin-top:2px">撮り方のガイドをお送りします。スマホで15〜35秒撮影するだけです</span></span></label></div>
+            <div class="choice-item radio-item"><input type="radio" id="m2" name="material" value="既存素材を共有"><label for="m2"><span class="check-icon">✓</span><span><span style="display:block">既存の動画素材を共有する</span><span style="display:block;font-size:.72rem;color:var(--muted);font-weight:400;margin-top:2px">お手持ちの動画や写真をそのままお送りください。画質調整はこちらで行います</span></span></label></div>
+            <div class="choice-item radio-item"><input type="radio" id="m3" name="material" value="素材提供が難しい"><label for="m3"><span class="check-icon">✓</span><span><span style="display:block">現段階で素材を提供するのは難しい</span><span style="display:block;font-size:.72rem;color:var(--muted);font-weight:400;margin-top:2px">御社の公開情報（採用ページ・SNS等）をもとにトライアル動画をお作りします</span></span></label></div>
+          </div>
+
+          <label class="form-section-label" style="margin-top:20px">ご利用プラン</label>
+          <div class="fi" style="margin-bottom:0">
+            <select id="f_volume">
+              <option value="まずは1本試したい" selected>まずは無料トライアルで1本試したい</option>
+              <option value="5本">週1本プラン（ライト ¥50,000/月）</option>
+              <option value="10本">週2本プラン（スタンダード ¥98,000/月）</option>
+              <option value="15本">週3本プラン（プレミアム ¥200,000/月）</option>
+              <option value="それ以上">それ以上（ご相談）</option>
+            </select>
+          </div>
+          <div class="form-note">まずは無料トライアルがおすすめです。すぐに本契約をご希望の方はプランをお選びください。初回の1本はプラン本数とは別に無料で制作します。</div>
+        </div>
+
+        <!-- Step 3: 採用課題と配信先 -->
+        <div class="form-step" data-step="3">
+          <span class="form-step-label">STEP 3</span>
+          <div class="form-step-header"><svg class="form-step-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#1a56ff" stroke-width="1.5"/><circle cx="16" cy="16" r="7" stroke="#1a56ff" stroke-width="1.5" opacity=".5"/><circle cx="16" cy="16" r="2.5" fill="#1a56ff"/></svg><div><h3>解決したい採用課題と配信先を教えてください。</h3><p class="hint">複数選択できます。未定の項目は飛ばしてOKです。</p></div></div>
+
+          <label class="form-section-label">動画で解決したい採用課題</label>
+          <div class="choice-grid" style="grid-template-columns:1fr">
+            <div class="choice-item"><input type="checkbox" id="g1" name="goals" value="応募数不足"><label for="g1"><span class="check-icon">✓</span>応募が集まらない</label></div>
+            <div class="choice-item"><input type="checkbox" id="g2" name="goals" value="人材ミスマッチ"><label for="g2"><span class="check-icon">✓</span>求める人材からの応募が少ない</label></div>
+            <div class="choice-item"><input type="checkbox" id="g3" name="goals" value="内定辞退・早期離職"><label for="g3"><span class="check-icon">✓</span>内定辞退・早期離職が多い</label></div>
+            <div class="choice-item"><input type="checkbox" id="g4" name="goals" value="魅力発信不足"><label for="g4"><span class="check-icon">✓</span>自社の魅力をうまく発信できていない</label></div>
+            <div class="choice-item"><input type="checkbox" id="g5" name="goals" value="SNS採用立ち上げ"><label for="g5"><span class="check-icon">✓</span>採用SNSを始めたい・強化したい</label></div>
+          </div>
+
+          <label class="form-section-label" style="margin-top:20px">動画の配信先・掲載先</label>
+          <div class="choice-grid" style="grid-template-columns:1fr">
+            <div class="choice-item"><input type="checkbox" id="p1" name="platform" value="ショート動画SNS"><label for="p1"><span class="check-icon">✓</span>ショート動画SNS（Instagram / TikTok / YouTube Shorts）</label></div>
+            <div class="choice-item"><input type="checkbox" id="p2" name="platform" value="X"><label for="p2"><span class="check-icon">✓</span>X（Twitter）</label></div>
+            <div class="choice-item"><input type="checkbox" id="p3" name="platform" value="LinkedIn"><label for="p3"><span class="check-icon">✓</span>LinkedIn</label></div>
+            <div class="choice-item"><input type="checkbox" id="p4" name="platform" value="自社HP・採用ページ"><label for="p4"><span class="check-icon">✓</span>自社HP・採用ページ</label></div>
+            <div class="choice-item"><input type="checkbox" id="p5" name="platform" value="求人媒体"><label for="p5"><span class="check-icon">✓</span>求人媒体（Wantedly / Indeed / リクナビ 等）</label></div>
+            <div class="choice-item"><input type="checkbox" id="p6" name="platform" value="未定"><label for="p6"><span class="check-icon">✓</span>まだ決めていない</label></div>
+          </div>
+
+          <label class="form-section-label" style="margin-top:20px">採用SNSアカウントの状況</label>
+          <div class="choice-grid" style="grid-template-columns:1fr">
+            <div class="choice-item radio-item"><input type="radio" id="sns1" name="sns_account" value="運用中"><label for="sns1"><span class="check-icon">✓</span>採用向けSNSアカウントを運用中</label></div>
+            <div class="choice-item radio-item"><input type="radio" id="sns2" name="sns_account" value="アカウントはあるが未運用"><label for="sns2"><span class="check-icon">✓</span>アカウントはあるが、あまり運用していない</label></div>
+            <div class="choice-item radio-item"><input type="radio" id="sns3" name="sns_account" value="持っていない"><label for="sns3"><span class="check-icon">✓</span>採用用のSNSアカウントは持っていない</label></div>
+          </div>
+        </div>
+
+        <!-- Step 4: 動画のイメージ -->
+        <div class="form-step" data-step="4">
+          <span class="form-step-label">STEP 4</span>
+          <div class="form-step-header"><svg class="form-step-icon" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" stroke="#1a56ff" stroke-width="1.5"/><path d="M12 20l4-5 3 3.5 5-6.5" stroke="#1a56ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="12" r="2" fill="#1a56ff" opacity=".4"/></svg><div><h3>どんな動画を作りたいですか？</h3><p class="hint">トライアルの1本を制作するための参考にします。未定の場合はスキップして送信できます。</p></div></div>
+
+          <label class="form-section-label">希望の動画スタイル</label>
+          <div class="choice-grid">
+            <div class="choice-item"><input type="checkbox" id="vs1" name="video_style" value="社員インタビュー"><label for="vs1"><span class="check-icon">✓</span>社員インタビュー</label></div>
+            <div class="choice-item"><input type="checkbox" id="vs2" name="video_style" value="1日密着"><label for="vs2"><span class="check-icon">✓</span>1日密着ドキュメント</label></div>
+            <div class="choice-item"><input type="checkbox" id="vs3" name="video_style" value="オフィスツアー"><label for="vs3"><span class="check-icon">✓</span>オフィスツアー</label></div>
+            <div class="choice-item"><input type="checkbox" id="vs4" name="video_style" value="経営者メッセージ"><label for="vs4"><span class="check-icon">✓</span>経営者メッセージ</label></div>
+            <div class="choice-item"><input type="checkbox" id="vs5" name="video_style" value="会社紹介"><label for="vs5"><span class="check-icon">✓</span>会社紹介・事業説明</label></div>
+            <div class="choice-item"><input type="checkbox" id="vs6" name="video_style" value="おまかせ"><label for="vs6"><span class="check-icon">✓</span>おまかせ</label></div>
+          </div>
+
+          <label class="form-section-label" style="margin-top:20px">伝えたいメッセージ・自社のウリ</label>
+          <div class="fi"><textarea id="f_appeal" placeholder="例: エンジニアチームの雰囲気が温かい / 代表が毎朝コーヒーを淹れる文化 / 週3リモートでも仲がいい / 若手に裁量権がある" maxlength="200"></textarea><div style="font-size:.72rem;color:var(--muted);margin-top:4px;text-align:right"><span id="charCount">0</span>/200</div></div>
+          <button type="button" class="form-skip" onclick="submitForm()">スキップして送信</button>
+        </div>
+      </div>
+
+      <!-- DOC FORM: simple 3 fields -->
+      <div id="docForm" class="doc-form">
+        <div class="form-step active" data-step="1">
+          <span class="form-step-label">サービス資料のお届け</span>
+          <h3>3分で読めるサービス資料をお送りします。</h3>
+          <p class="hint">以下を入力いただければ、すぐにメールでお届けします。</p>
+          <div class="fi"><label>会社名<span class="req">*</span></label><input type="text" id="d_company" placeholder="株式会社○○" required><div class="err">会社名を入力してください</div></div>
+          <div class="fi"><label>担当者名<span class="req">*</span></label><input type="text" id="d_name" placeholder="山田 太郎" required><div class="err">お名前を入力してください</div></div>
+          <div class="fi"><label>メールアドレス<span class="req">*</span></label><input type="email" id="d_email" placeholder="yamada@example.co.jp" required><div class="err">正しいメールアドレスを入力してください</div></div>
+        </div>
+      </div>
+
+      <!-- Thank you -->
+      <div class="form-thanks" id="formThanks">
+        <div class="form-thanks-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36"><circle cx="24" cy="24" r="20" fill="#22c55e" opacity=".12"/><circle cx="24" cy="24" r="14" fill="#22c55e" opacity=".2"/><path d="M16 24l5 5 11-11" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="12" r="2" fill="#1a56ff" opacity=".3"/><circle cx="38" cy="14" r="1.5" fill="#1a56ff" opacity=".25"/><circle cx="36" cy="38" r="2" fill="#22c55e" opacity=".2"/><circle cx="8" cy="34" r="1" fill="#1a56ff" opacity=".2"/></svg></div>
+        <h3 id="thanksTitle">お申し込みありがとうございます！</h3>
+        <p id="thanksMsg" class="thanks-msg"></p>
+
+        <!-- Creator reel -->
+        <div class="thanks-video" id="thanksVideo">
+          <div class="thanks-video-label" id="thanksVideoLabel">担当者の紹介動画</div>
+          <div class="thanks-video-placeholder">
+            <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:140px;height:70px;margin-bottom:4px">
+              <!-- Person at desk -->
+              <circle cx="50" cy="35" r="12" fill="#1a56ff" opacity=".3"/>
+              <rect x="38" y="47" width="24" height="16" rx="4" fill="#1a56ff" opacity=".2"/>
+              <!-- Screen/monitor -->
+              <rect x="75" y="20" width="55" height="36" rx="4" stroke="#1a56ff" stroke-width="1.5" opacity=".6"/>
+              <rect x="80" y="25" width="45" height="24" rx="2" fill="#1a56ff" opacity=".12"/>
+              <!-- Play button on screen -->
+              <path d="M98 37l10 6-10 6V37z" fill="#1a56ff" opacity=".7"/>
+              <!-- Timeline bars -->
+              <rect x="75" y="62" width="20" height="3" rx="1.5" fill="#22c55e" opacity=".5"/>
+              <rect x="98" y="62" width="14" height="3" rx="1.5" fill="#1a56ff" opacity=".4"/>
+              <rect x="115" y="62" width="15" height="3" rx="1.5" fill="#1a56ff" opacity=".2"/>
+              <!-- Sparkles -->
+              <circle cx="145" cy="25" r="2" fill="#22c55e" opacity=".6"/>
+              <circle cx="155" cy="35" r="1.5" fill="#1a56ff" opacity=".4"/>
+              <circle cx="148" cy="50" r="1" fill="#22c55e" opacity=".4"/>
+            </svg>
+            <p>動画準備中 ── メールでお届けします</p>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="thanks-timeline" id="thanksTimeline"></div>
+
+        <!-- Paid teaser (trial only) -->
+        <div class="thanks-teaser" id="thanksPaidTeaser"></div>
+
+        <!-- Actions -->
+        <div class="thanks-actions" id="thanksActions"></div>
+
+        <!-- Contact -->
+        <p class="thanks-contact">ご不明な点がございましたら、お気軽にご連絡ください。<br><a href="mailto:contact@maruoma.com">contact@maruoma.com</a></p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="form-nav" id="formNav">
+      <button class="form-back" id="btnBack" onclick="prevStep()" style="display:none">戻る</button>
+      <p id="formConsent" style="display:none;font-size:.7rem;color:var(--muted);line-height:1.6;margin-right:auto;max-width:280px">送信をもって<a href="#" onclick="event.preventDefault();event.stopPropagation();document.getElementById('legalModal').classList.add('active');document.getElementById('legalContent').innerHTML=LEGAL.terms;document.body.style.overflow='hidden'" style="color:var(--accent);text-decoration:underline">利用規約</a>および<a href="#" onclick="event.preventDefault();event.stopPropagation();document.getElementById('legalModal').classList.add('active');document.getElementById('legalContent').innerHTML=LEGAL.privacy;document.body.style.overflow='hidden'" style="color:var(--accent);text-decoration:underline">プライバシーポリシー</a>に同意したものとします。</p>
+      <button class="form-next" id="btnNext" onclick="nextStep()">次へ <span style="font-size:.8rem">→</span></button>
+    </div>
+  </div>
+</div>
+
+
+<section class="hero"><div class="hero-inner"><div class="hero-copy">
+  <div class="hero-badge">今月残り3枠・無料トライアル受付中</div>
+  <h1 class="hero-hl"><em>スマホで撮るだけ。</em><br>仕上げは、<br>まるッとお任せ。</h1>
+  <p class="hero-sub">企画・編集・レポートまで、<strong>まるッとお任せ</strong>の月額定額サービス。スマホで撮影したら平均2営業日で採用ショート動画が完成。</p>
+  <div class="hero-actions">
+    <button class="btn-p" onclick="openTrial()">無料で1本つくる <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn-s" onclick="openDoc()">サービス資料を見る</button>
+  </div>
+</div>
+<div class="hero-visual">
+  <div class="phone-mockup"><div class="phone-screen"><div class="phone-slide-track">
+    <div class="ps"><video muted loop playsinline autoplay preload="metadata" src="videos/01_recruit_announce.mp4"></video><div class="ps-c"><span class="ps-tag" style="background:rgba(26,86,255,.8);color:#fff">採用告知</span><div class="ps-t">アナウンス動画</div></div></div>
+    <div class="ps"><video muted loop playsinline preload="none" data-lazy-src="videos/02_personality.mp4"></video><div class="ps-c"><span class="ps-tag" style="background:rgba(34,197,94,.7);color:#fff">社員紹介</span><div class="ps-t">社員の紹介</div></div></div>
+    <div class="ps"><video muted loop playsinline preload="none" data-lazy-src="videos/03_chat_welfare.mp4"></video><div class="ps-c"><span class="ps-tag" style="background:rgba(232,196,42,.8);color:#fff">社内制度</span><div class="ps-t">福利厚生の紹介</div></div></div>
+    <div class="ps"><video muted loop playsinline preload="none" data-lazy-src="videos/04_branding_smiles.mp4"></video><div class="ps-c"><span class="ps-tag" style="background:rgba(212,83,126,.8);color:#fff">ブランディング</span><div class="ps-t">採用ブランディング</div></div></div>
+    <div class="ps"><video muted loop playsinline preload="none" data-lazy-src="videos/05_employee_day.mp4"></video><div class="ps-c"><span class="ps-tag" style="background:rgba(55,138,221,.8);color:#fff">密着</span><div class="ps-t">社員1日密着</div></div></div>
+  <div class="ps"><video muted loop playsinline preload="none" data-lazy-src="videos/01_recruit_announce.mp4"></video><div class="ps-c"><span class="ps-tag" style="background:rgba(26,86,255,.8);color:#fff">採用告知</span><div class="ps-t">アナウンス動画</div></div></div>
+  </div></div></div>
+  <div class="phone-float-1"><span class="dot"></span> 2営業日で納品</div>
+  <div class="phone-float-2"><span class="ib">📋</span> 打ち合わせ不要</div>
+</div></div>
+
+<div class="trust reveal"><div class="trust-stats">
+  <div class="trust-stat"><div class="trust-num"><span class="a">2</span>営業日</div><div class="trust-lbl">平均納期</div></div>
+  <div class="trust-stat"><div class="trust-num">¥<span class="a">8,800</span>〜</div><div class="trust-lbl">1本あたり単価</div></div>
+  <div class="trust-stat"><div class="trust-num"><span class="a">0</span>回</div><div class="trust-lbl">最低打ち合わせ回数</div></div>
+  <div class="trust-stat"><div class="trust-num">週<span class="a">1〜3</span>本</div><div class="trust-lbl">投稿可能本数</div></div>
+</div></div>
+</section>
+
+<section class="sec projects" id="projects"><div class="ctn"><div class="reveal tc"><span class="slbl">納品イメージ</span><h2 class="stl">スマホ映像が採用ショートに</h2></div></div>
+<div class="carousel-wrap reveal" id="projectCarousel">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="project-card"><div class="project-screen"><video muted loop playsinline preload="none" data-lazy-src="videos/01_recruit_announce.mp4"></video><div style="position:absolute;top:12px;left:12px;z-index:3"><span class="project-tag" style="background:rgba(26,86,255,.85);color:#fff">採用告知</span></div><div class="project-overlay"><div class="project-cap">🎬 一緒に働く仲間を募集中！ #採用 #新卒採用</div></div></div></div>
+    <div class="project-card"><div class="project-screen"><video muted loop playsinline preload="none" data-lazy-src="videos/02_personality.mp4"></video><div style="position:absolute;top:12px;left:12px;z-index:3"><span class="project-tag" style="background:rgba(34,197,94,.85);color:#fff">社員紹介</span></div><div class="project-overlay"><div class="project-cap">💬 うちのエース😏 #昨季MVP</div></div></div></div>
+    <div class="project-card active"><div class="project-screen"><video muted loop playsinline preload="none" data-lazy-src="videos/03_chat_welfare.mp4"></video><div style="position:absolute;top:12px;left:12px;z-index:3"><span class="project-tag" style="background:rgba(232,196,42,.85);color:#fff">社内制度</span></div><div class="project-overlay"><div class="project-cap">✨ こんな福利厚生はうちしかない！ #福利厚生</div></div></div></div>
+    <div class="project-card"><div class="project-screen"><video muted loop playsinline preload="none" data-lazy-src="videos/04_branding_smiles.mp4"></video><div style="position:absolute;top:12px;left:12px;z-index:3"><span class="project-tag" style="background:rgba(212,83,126,.85);color:#fff">ブランディング</span></div><div class="project-overlay"><div class="project-cap">😊 うちの自慢は社員の笑顔</div></div></div></div>
+    <div class="project-card"><div class="project-screen"><video muted loop playsinline preload="none" data-lazy-src="videos/05_employee_day.mp4"></video><div style="position:absolute;top:12px;left:12px;z-index:3"><span class="project-tag" style="background:rgba(55,138,221,.85);color:#fff">密着</span></div><div class="project-overlay"><div class="project-cap">📹 社員の1日に密着してみた #1日密着</div></div></div></div>
+  </div>
+</div></section>
+
+<section class="flow" id="flow"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">つくり方</span><h2 class="stl">4ステップで完結</h2><p class="ssub" style="margin:0 auto">フォーム入力・スマホ撮影・修正依頼・確認の4ステップで投稿動画が完成。<br>はじめての方でも、会議を増やさずに始められます。</p></div>
+  <div class="flow-row reveal" style="align-items:center">
+    <div class="flow-card"><span class="flow-card-label">ステップ 1</span><div class="flow-card-visual"><img src="images/1_Forms.svg" alt="フォーム記入" loading="lazy"></div><h3>フォームに記入</h3><p>採用ターゲット・伝えたいことを入力いただきます。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">所要3分</span></div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent);font-weight:800">▶</div>
+    <div class="flow-card"><span class="flow-card-label">ステップ 2</span><div class="flow-card-visual"><img src="images/2_Record.svg" alt="テンプレに沿って撮影" loading="lazy"></div><h3>社内の魅力を撮影</h3><p>会社の魅力を伝える動画素材を撮影していただきます。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">スマホで撮影</span></div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent);font-weight:800">▶</div>
+    <div class="flow-card"><span class="flow-card-label">ステップ 3</span><div class="flow-card-visual"><img src="images/3_Check.svg" alt="平均2営業日で初稿が届く" loading="lazy"></div><h3>納品物を確認し修正指示</h3><p>平均2営業日で初稿を受け取り、専用ツール上で修正依頼。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">コメントで修正依頼</span></div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent);font-weight:800">▶</div>
+    <div class="flow-card"><span class="flow-card-label">ステップ 4</span><div class="flow-card-visual"><img src="images/4_Report.svg" alt="確認・修正・投稿" loading="lazy"></div><h3>納品物を確認</h3><p>修正依頼を反映した動画を納品いたします。SNSやHPにご掲載ください。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">最短翌営業日納品</span></div>
+  </div>
+</div></section>
+
+<div class="mid-cta reveal"><div class="ctn"><div class="mid-cta-inner">
+  <p>まずは無料でお試し。</p>
+  <button class="btn-p" style="padding:12px 28px;font-size:.9rem" onclick="openTrial()">無料で1本つくる →</button>
+  <button class="btn-ghost" onclick="openDoc()">サービス資料を見る</button>
+</div></div></div>
+
+<section class="sec" id="usecases"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">こんなお悩みに</span><h2 class="stl">採用動画でお困りではないですか？</h2></div>
+  <div class="usecases-grid reveal">
+    <div class="usecase-card"><div class="usecase-illust" style="background:linear-gradient(135deg,#eef2ff,#dde4ff)"><img src="images/a_wandering.svg" alt="何から始めればいいか分からない" loading="lazy"></div><div class="usecase-body"><p class="usecase-persona">採用に動画を使っていない企業さま</p><h4 class="usecase-pain">『動画が効くのは分かるけど、何から始めればいいか分からない』</h4><p class="usecase-solution">業種に合った構図・台本・NGリストをお送りします。「何を・どう撮るか」は私たちにまるッとお任せください。</p></div></div>
+    <div class="usecase-card"><div class="usecase-illust" style="background:linear-gradient(135deg,#fef3e2,#fde8c8)"><img src="images/b_deadline.svg" alt="担当者が編集までやっている" loading="lazy"></div><div class="usecase-body"><p class="usecase-persona">自社制作で時間を使っている企業さま</p><h4 class="usecase-pain">『担当者が編集までやっていて、採用業務に集中できない』</h4><p class="usecase-solution">編集・テロップ・BGM・確認フローは弊社にまるッとお任せください。動画素材をご共有いただけましたらご希望に沿った動画を納品いたします。</p></div></div>
+    <div class="usecase-card"><div class="usecase-illust" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><img src="images/c_cost.svg" alt="求人票だけでは空気感が伝わらない" loading="lazy"></div><div class="usecase-body"><p class="usecase-persona">求人媒体頼みから抜け出したい企業さま</p><h4 class="usecase-pain">『求人票だけでは、社風や働く人の空気感が伝わらない』</h4><p class="usecase-solution">まるおまは、表情・声・職場の雰囲気を30〜60秒で届け、SNSと採用サイトに残る採用資産をつくるためのサービスです。</p></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="reasons"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">選ばれる3つの理由</span><h2 class="stl">撮影はサクッと。仕上げはまるッとお任せ。</h2></div>
+  <div class="reasons-grid reveal">
+    <div class="reason-card"><div class="reason-icon"><img src="images/11_movie.svg" alt="" loading="lazy"></div><span class="reason-num">01</span><h3 class="reason-title">企画・構図で迷わない。</h3><p class="reason-desc">ヒアリング回答をもとに、構図図解・台本カンペ・NGリストをセットでお届け。撮影経験ゼロでも迷いません。</p><span class="reason-metric" style="background:var(--green-soft);color:var(--green)">企画工数ゼロ</span></div>
+    <div class="reason-card"><div class="reason-icon"><img src="images/12_mtg.svg" alt="" loading="lazy"></div><span class="reason-num">02</span><h3 class="reason-title">打ち合わせ不要。</h3><p class="reason-desc">わずらわしい会議は一切不要。企画はフォーム入力で完結。修正依頼は動画上の秒数をクリックしてコメントするだけ。採用業務を止めずに進めることが可能です。</p><span class="reason-metric" style="background:var(--green-soft);color:var(--green)">完全非同期</span></div>
+    <div class="reason-card"><div class="reason-icon"><img src="images/13_budget.svg" alt="" loading="lazy"></div><span class="reason-num">03</span><h3 class="reason-title">月額定額。月5万円から。</h3><p class="reason-desc">採用用投稿を無理なく継続していただくために、リーズナブルな価格設定・月額定額にしています。</p><span class="reason-metric" style="background:var(--green-soft);color:var(--green)">1本¥8,800〜</span></div>
+  </div>
+</div></section>
+
+<section class="comparison" id="comparison"><div class="ctn">
+  <!-- 採用手段としての投資対効果（メイン比較） -->
+  <div class="reveal comparison-head"><span class="slbl">採用手段としての投資対効果</span><h2 class="stl">求人媒体・エージェントと比べてみてください</h2><p class="ssub">採用コストを下げ、応募の質を上げることを目的として本サービスは立ち上げられました</p></div>
+  <div class="comp-wrap reveal"><table class="comp-table">
+    <thead><tr><th>比較項目</th><th>求人媒体</th><th>人材エージェント</th><th>まるおま 採用ショート</th></tr></thead>
+    <tbody>
+      <tr><td>年間コスト目安</td><td>120〜600万円</td><td>100〜300万円/1名</td><td>60〜240万円</td></tr>
+      <tr><td>掲載・契約終了後資産</td><td>残りにくい</td><td>残りにくい</td><td>動画がSNS上に蓄積</td></tr>
+      <tr><td>ターゲット世代</td><td>全世代</td><td>30代以上が中心</td><td>Z世代・ミレニアル世代に強い</td></tr>
+      <tr><td>効果の持続性</td><td>掲載期間のみ</td><td>都度リセット</td><td>蓄積型</td></tr>
+      <tr><td>社風・雰囲気の伝達</td><td>テキストのみ</td><td>口頭で伝わる範囲</td><td>動画で直感的に伝わる</td></tr>
+    </tbody>
+  </table></div>
+  <p class="comp-note">※ 求人媒体やエージェントを否定するものではありません。予算の一部を "資産になる採用手段" に振り分けるご提案です。</p>
+
+  <!-- 動画制作手段の比較（サブ比較） -->
+  <div class="reveal" style="margin-top:56px"><h3 style="font-size:1.15rem;font-weight:800;margin-bottom:8px">動画制作の手段を比較する</h3><p class="ssub">「動画をどこに頼むか」という観点での比較です。</p></div>
+  <div class="comp-wrap reveal"><table class="comp-table">
+    <thead><tr><th>比較項目</th><th>動画制作会社</th><th>フリーランス</th><th>SNS運用代行</th><th>まるおま 採用ショート</th></tr></thead>
+    <tbody>
+      <tr><td>1本あたり単価</td><td>5〜50万円</td><td>0.8〜3.3万円</td><td>2〜5万円</td><td>実質 ¥8,800〜</td></tr>
+      <tr><td>納品スピード</td><td>2〜4週間</td><td>3〜7日</td><td>週次バッチ</td><td>最短翌営業日</td></tr>
+      <tr><td>撮影ディレクション</td><td>◎ 込み</td><td>✕ 自社で用意</td><td>△ 一部のみ</td><td>◎ 構図指示書＋台本付き</td></tr>
+      <tr><td>打ち合わせ</td><td>必須（複数回）</td><td>個人差あり</td><td>月次MTG</td><td>不要（完全非同期）</td></tr>
+      <tr><td>効果レポート</td><td>△ 別料金</td><td>✕</td><td>◎</td><td>◎ 全プラン標準</td></tr>
+    </tbody>
+  </table></div>
+  <p class="comp-note">※ 各社の一般的な相場感をもとに当社が整理したものです。</p>
+</div></section>
+
+<section class="sec pricing" id="pricing"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">料金プラン</span><h2 class="stl">シンプルな月額定額。投稿ペースを選ぶだけ。</h2></div>
+  <div class="pricing-grid reveal">
+    <div class="pr-card"><p class="pr-name">ライト</p><p class="pr-price">¥50,000<span>/月（税抜）</span></p><p class="pr-unit">→ 1本あたり ¥10,000</p><p class="pr-note">週1本（月5本）・ 1ヶ月更新 ・ いつでも解約可能</p><ul class="pr-ft"><li>縦型ショート動画 週1本（月5本まで）</li><li>最短翌営業日納品（平均2営業日）</li><li>修正2回/本（誤字・事実誤認の修正は無償）</li><li>テンプレ撮影指示書</li><li>納品一覧レポート</li></ul><button class="pr-cta-btn" onclick="openTrial()">無料トライアルから始める</button></div>
+    <div class="pr-card rec"><span class="pr-badge">おすすめ</span><p class="pr-name">スタンダード</p><p class="pr-price">¥98,000<span>/月（税抜）</span></p><p class="pr-unit">→ 6ヶ月一括 ¥88,000/月（1本 ¥8,800）</p><p class="pr-note">週2本（月10本）・ 1ヶ月更新 ・ 長期契約で割引</p><ul class="pr-ft"><li>縦型ショート動画 週2本（月10本まで）</li><li>最短翌営業日納品（平均2営業日）</li><li>修正3回/本（誤字・事実誤認の修正は無償）</li><li>御社専用の撮影指示書＋事前レビュー</li><li>成果レポート＋次月の制作提案</li></ul><button class="pr-cta-btn" onclick="openTrial()">無料トライアルから始める</button></div>
+    <div class="pr-card"><p class="pr-name">プレミアム</p><p class="pr-price">¥200,000<span>/月（税抜）</span></p><p class="pr-unit">→ 12ヶ月一括 ¥180,000/月（1本 ¥12,000）</p><p class="pr-note">週3本（月15本）・ 3ヶ月更新 ・ 長期契約で割引</p><ul class="pr-ft"><li>縦型ショート動画 週3本（月15本まで）</li><li>最短翌営業日納品（平均2営業日）</li><li>修正無制限</li><li>月1回30分の振り返りセッション</li><li>成果分析＋競合モニタリング</li><li>投稿カレンダー＋キャプション案</li></ul><button class="pr-cta-btn" onclick="openTrial()">無料トライアルから始める</button></div>
+  </div>
+  <div class="pr-common reveal"><span>撮影ディレクション込み</span><span>初期費用なし</span><span>追加1本 ¥10,000〜</span><span>LinkedIn正方形 +¥1,000/本</span><span>YouTube横型 +¥3,000/本</span></div>
+</div></section>
+
+<section class="sec faq" id="faq"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">FAQ</span><h2 class="stl">よくいただくご質問</h2></div>
+  <div class="faq-list reveal">
+    <!-- <div class="faq-item"><button class="faq-q">撮影の経験がなくても大丈夫？</button><div class="faq-a"><div class="faq-a-inner">撮り方でお困りの方は、弊社の方から構図・台本・NGリストをお届けいたします。お預かりした動画素材は、プロの編集者が責任を持って仕上げますので、</div></div></div> -->
+    <div class="faq-item"><button class="faq-q">フォームではなく直接話すことはできますか？</button><div class="faq-a"><div class="faq-a-inner">はい。有料プランのご契約期間中は、お好みのタイミングでオンラインミーティングをすることが可能です。有料プランをご契約いただいた方には、キックオフミーティング（30分・オンライン・任意）をご案内しています。撮影の進め方や制作計画を画面共有でご説明します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">出演するキャストがいない場合は？</button><div class="faq-a"><div class="faq-a-inner">出演者がいなくても大丈夫です。ウェビナー録画・会社紹介スライド・画面収録を使った動画を制作いたします。</div></div></div>
+    <div class="faq-item"><button class="faq-q">修正依頼はどのように行うのでしょうか？</button><div class="faq-a"><div class="faq-a-inner">専用の動画確認ツールで、修正したい箇所をクリック（タップ）してコメントを入力いただきます。ログイン不要・スマホでも操作可能です。翌営業日に修正版をお届けします。</div></div></div>
+    <div class="faq-item"><button class="faq-q">無料トライアルでも修正できますか？</button><div class="faq-a"><div class="faq-a-inner">はい。無料トライアル動画は1回まで無料で修正できます。誤字・事実誤認など、こちらの確認不足による修正は回数に含めず対応します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">対応しているSNSは？</button><div class="faq-a"><div class="faq-a-inner">Instagram Reels・TikTok・YouTube Shorts・LinkedIn・X（旧Twitter）に対応しています。標準は縦型9:16。正方形（1:1）や横型（16:9）はオプションで追加可能です。</div></div></div>
+    <div class="faq-item"><button class="faq-q">無料トライアルの内容は？</button><div class="faq-a"><div class="faq-a-inner">フォーム回答後に撮影テンプレと構図指示書をお送りし、素材をいただけましたら、平均2営業日で1本制作・納品いたします。完全無料・クレジットカード不要・契約義務なしです。</div></div></div>
+    <div class="faq-item"><button class="faq-q">素材がまだなくても申し込めますか？</button><div class="faq-a"><div class="faq-a-inner">申し込めます。公開情報をもとに完成イメージを作ることもできます。ただし、実際の社員映像や職場の素材をいただいた方が、より御社らしい動画に仕上がります。</div></div></div>
+    <div class="faq-item"><button class="faq-q">公開情報だけで作る動画と、実素材で作る動画は何が違いますか？</button><div class="faq-a"><div class="faq-a-inner">公開情報だけの場合は、採用ページやSNSの内容を使った「完成イメージ」に近い仕上がりです。実素材がある場合は、社員の表情・声・職場の空気感が入り、応募者に届くリアルさが大きく上がります。</div></div></div>
+    <div class="faq-item"><button class="faq-q">他の採用動画サービスとの違いは？</button><div class="faq-a"><div class="faq-a-inner">まるおまは「採用チャネルの構築」を目的として設計されています。低単価・月額定額でショート動画を量産し、求人媒体やエージェントに頼らない採用チャネルを育てるサービスです。打ち合わせ不要・完全非同期で、ひとり人事の方でも無理なく続けられるサービスになることを目指しています。</div></div></div>
+    <div class="faq-item"><button class="faq-q">制作された動画の著作権は？</button><div class="faq-a"><div class="faq-a-inner">納品後の著作権はお客様に帰属します。SNS広告・LP・採用サイトへの掲載など自由にご利用いただけます。ポートフォリオ掲載のみ事前にご相談させていただきます。</div></div></div>
+    <div class="faq-item"><button class="faq-q">撮影に来てもらうことはできますか？</button><div class="faq-a"><div class="faq-a-inner">恐れ入りますが、撮影代行は現在対応しておりません。ご担当者様のスマホで撮影いただく形式です。三脚・照明・プロ機材は不要で、15〜35秒の撮影だけで完結します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">素材を送る締め切りはありますか？</button><div class="faq-a"><div class="faq-a-inner">厳密な締め切りはありません。毎月の本数枠内であれば、いつでも素材を送っていただけます。月末までに送っていただいた素材は当月分として制作します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">素材のセキュリティは大丈夫ですか？</button><div class="faq-a"><div class="faq-a-inner">素材はクラウド上のセキュアな環境でのみ取り扱い、ローカル保存は禁止しています。全ての編集者と守秘義務契約を締結しており、納品完了後7日以内に作業用データを削除します。クライアントの社名・未公開情報は厳重に管理しています。</div></div></div>
+    <div class="faq-item"><button class="faq-q">SNS投稿の伴走も一緒にしてもらえますか？</button><div class="faq-a"><div class="faq-a-inner">投稿の実行はお客様側でお願いしていますが、スタンダード以上のプランでは「次月の投稿提案」をレポートに含めています。投稿カレンダー・キャプション案が必要な場合はプレミアムプランをご検討ください。</div></div></div>
+  </div>
+</div></section>
+<!-- 
+<section class="sec" style="background:var(--paper)"><div class="ctn">
+  <div class="reveal tc" style="max-width:560px;margin:0 auto">
+    <span class="slbl">誰がつくっているか</span>
+    <div style="margin:24px auto 20px;width:96px;height:96px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden">
+
+      <svg viewBox="0 0 40 40" width="48" height="48" fill="none"><circle cx="20" cy="15" r="7" stroke="#1a56ff" stroke-width="1.5"/><path d="M6 38c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#1a56ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:4px">米山 樂</h3>
+    <p style="font-size:.82rem;color:var(--accent);font-weight:600;margin-bottom:16px">まるおま 採用ショート 代表</p>
+    <p style="font-size:.88rem;color:var(--muted);line-height:1.9;text-align:left">まるおまは「まるッとお任せできる採用動画の仕組み」として設計しています。撮影に慣れていない企業でも、構図・台本・編集・確認まで迷わず進められるよう、最初の1本からサポートします。</p>
+  </div>
+</div></section> -->
+
+
+<section class="sec" id="contact" style="background:var(--warm)"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">お問い合わせ</span><h2 class="stl">ご質問・ご相談はこちらから</h2><p class="ssub" style="margin:0 auto">サービスに関するご質問やお見積もりのご依頼など、お気軽にお問い合わせください。</p></div>
+  <div class="reveal" style="max-width:520px;margin:32px auto 0;background:var(--white);border-radius:var(--radius);padding:32px;border:1px solid var(--border)">
+    <div class="fi"><label>会社名<span class="req">*</span></label><input type="text" id="c_company" placeholder="株式会社○○"></div>
+    <div class="fi"><label>お名前<span class="req">*</span></label><input type="text" id="c_name" placeholder="山田 太郎"></div>
+    <div class="fi"><label>メールアドレス<span class="req">*</span></label><input type="email" id="c_email" placeholder="yamada@example.co.jp"></div>
+    <div class="fi"><label>お問い合わせ内容<span class="req">*</span></label><textarea id="c_message" placeholder="ご質問やご相談内容をお気軽にご記入ください" style="min-height:120px"></textarea></div>
+    <button class="btn-p" style="width:100%;justify-content:center" id="contactBtn" onclick="submitContact()">送信する</button>
+    <p id="contactResult" style="font-size:.85rem;color:var(--green);margin-top:12px;text-align:center;display:none"></p>
+  </div>
+</div></section>
+
+
+<section class="cta-final" id="cta">
+  <div class="cta-badge-f"><span class="dg"></span>無料トライアル受付中</div>
+  <h2>採用を変える1本を、<br>今日から。</h2>
+  <p>フォーム回答＋素材送付だけ。打ち合わせ不要、最短翌営業日に採用ショート動画をお届けします。</p>
+  <div class="cta-final-actions">
+    <button class="btn-p" style="font-size:1.05rem;padding:18px 48px" onclick="openTrial()">無料で1本つくる <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn-ghost" style="padding:18px 36px;font-size:1rem" onclick="openDoc()">サービス資料を見る</button>
+  </div>
+  <div class="cta-assurance"><span>✓ 完全無料</span><span>✓ クレジットカード不要</span><span>✓ 契約義務なし</span><span>✓ 無料修正1回</span></div>
+</section>
+
+
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="footer-logo" href="../">njoooy</a>
+        <p>Mocktail studio by Joe Yoneyama.</p>
+      </div>
+      <nav>
+        <a href="../service/">サービス支援</a>
+        <a href="../sns-support/">SNS運用支援</a>
+        <a href="../ai-product/">IT/AI導入支援</a>
+        <a href="../about/">私たちについて</a>
+        <a href="../contact/">お問い合わせ</a>
+      </nav>
+      <form class="newsletter-form">
+        <label for="newsletter">Newsletter</label>
+        <div>
+          <input id="newsletter" type="email" placeholder="Email" />
+          <button type="button">Join</button>
+        </div>
+      </form>
+    </footer>
+    <script src="../app.js"></script>
+<script>
+/* ===== Form Logic ===== */
+// Config
+const API_ENDPOINT = '../contact/'; // Vercel API Route → Resend
+let mode = 'trial'; // 'trial' or 'doc'
+let step = 1;
+const totalSteps = { trial: 4, doc: 1 };
+
+function openTrial() {
+  mode = 'trial'; step = 1;
+  gtag('event', 'form_open', { form_type: 'trial' });
+  document.getElementById('trialForm').style.display = 'block';
+  document.getElementById('docForm').className = 'doc-form';
+  document.getElementById('formThanks').className = 'form-thanks';
+  document.getElementById('formNav').style.display = 'flex';
+  renderStep(); renderProgress();
+  document.getElementById('formModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function openDoc() {
+  mode = 'doc'; step = 1;
+  gtag('event', 'form_open', { form_type: 'doc_request' });
+  document.getElementById('trialForm').style.display = 'none';
+  document.getElementById('docForm').className = 'doc-form active';
+  document.getElementById('formThanks').className = 'form-thanks';
+  document.getElementById('formNav').style.display = 'flex';
+  document.getElementById('btnBack').style.display = 'none';
+  document.getElementById('btnNext').textContent = '資料を受け取る';
+  renderProgress();
+  document.getElementById('formModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('formModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+// Close on overlay click
+document.getElementById('formModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function renderProgress() {
+  const total = totalSteps[mode];
+  let html = '';
+  for (let i = 1; i <= total; i++) {
+    const cls = i < step ? 'done' : i === step ? 'done current' : '';
+    html += '<div class="form-progress-step ' + cls + '"></div>';
+  }
+  html += '<span class="form-step-count">' + step + ' / ' + total + '</span>';
+  document.getElementById('formProgress').innerHTML = html;
+}
+
+function renderStep() {
+  const container = mode === 'trial' ? document.getElementById('trialForm') : document.getElementById('docForm');
+  container.querySelectorAll('.form-step').forEach(s => {
+    s.classList.toggle('active', parseInt(s.dataset.step) === step);
+  });
+  document.getElementById('btnBack').style.display = (step > 1 && mode === 'trial') ? 'block' : 'none';
+  const isLast = step === totalSteps[mode];
+  document.getElementById('btnNext').innerHTML = isLast
+    ? (mode === 'trial' ? '送信する' : '資料を受け取る')
+    : '次へ <span style="font-size:.8rem">→</span>';
+  document.getElementById('formConsent').style.display = isLast ? 'block' : 'none';
+  // Adapt Step 4 context based on plan selection
+  if (mode === 'trial' && step === 4) {
+    const vol = document.getElementById('f_volume').value;
+    const isPaid = vol && vol !== 'まずは1本試したい';
+    const hintEl = container.querySelector('[data-step="4"] .hint');
+    if (hintEl) {
+      hintEl.textContent = isPaid
+        ? '初回の制作に向けた参考にします。詳しいヒアリングはご契約後に改めて行いますので、お気軽にお答えください。'
+        : 'トライアルの1本を制作するための参考にします。未定の場合はスキップして送信できます。';
+    }
+  }
+}
+
+function validateStep() {
+  let valid = true;
+  if (mode === 'trial' && step === 1) {
+    ['f_company','f_name','f_email'].forEach(id => {
+      const el = document.getElementById(id);
+      const fi = el.closest('.fi');
+      if (!el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value))) {
+        fi.classList.add('invalid'); valid = false;
+      } else { fi.classList.remove('invalid'); }
+    });
+  }
+  if (mode === 'doc') {
+    ['d_company','d_name','d_email'].forEach(id => {
+      const el = document.getElementById(id);
+      const fi = el.closest('.fi');
+      if (!el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value))) {
+        fi.classList.add('invalid'); valid = false;
+      } else { fi.classList.remove('invalid'); }
+    });
+  }
+  return valid;
+}
+
+function collectData() {
+  if (mode === 'doc') {
+    return { type: 'doc_request', company: document.getElementById('d_company').value, name: document.getElementById('d_name').value, email: document.getElementById('d_email').value };
+  }
+  const getChecked = (name) => Array.from(document.querySelectorAll('input[name="'+name+'"]:checked')).map(c => c.value);
+  return {
+    type: 'trial_request',
+    company: document.getElementById('f_company').value,
+    name: document.getElementById('f_name').value,
+    email: document.getElementById('f_email').value,
+    url: document.getElementById('f_url').value,
+    trial_purpose: document.querySelector('input[name="trial_purpose"]:checked')?.value || '',
+    material: document.querySelector('input[name="material"]:checked')?.value || '',
+    volume: document.getElementById('f_volume').value,
+    goals: getChecked('goals'),
+    platform: getChecked('platform'),
+    sns_account: document.querySelector('input[name="sns_account"]:checked')?.value || '',
+    video_style: getChecked('video_style'),
+    appeal: document.getElementById('f_appeal').value
+  };
+}
+
+async function submitForm() {
+  const data = collectData();
+  const btn = document.getElementById('btnNext');
+  btn.disabled = true; btn.textContent = '送信中…';
+  try {
+    const res = await fetch(API_ENDPOINT, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('送信に失敗しました');
+  } catch (e) {
+    console.warn('Form submission error (proceeding to thank-you screen):', e);
+    // Production: Resend APIが未設定の間は送信エラーでも次へ進む
+    // TODO: API設定後に下記コメントアウトを外してエラー処理を復活させる
+    // btn.disabled = false; btn.textContent = mode === 'trial' ? '送信する' : '資料を受け取る';
+    // alert('送信に失敗しました。時間をおいて再度お試しください。');
+    // return;
+  }
+  document.getElementById('formNav').style.display = 'none';
+  gtag('event', 'form_submit', { form_type: mode });
+  document.getElementById('formProgress').innerHTML = '';
+  document.getElementById('trialForm').style.display = 'none';
+  document.getElementById('docForm').className = 'doc-form';
+  const thanks = document.getElementById('formThanks');
+  thanks.className = 'form-thanks active';
+
+  const vol = mode === 'trial' ? document.getElementById('f_volume').value : '';
+  const isPaid = vol && vol !== 'まずは1本試したい';
+
+  if (mode === 'doc') {
+    document.getElementById('thanksTitle').textContent = '資料をお送りしました！';
+    document.getElementById('thanksMsg').textContent = 'ご入力いただいたメールアドレスに、サービス資料のダウンロードリンクをお送りしました。メールをご確認ください。';
+    document.getElementById('thanksVideo').style.display = 'none';
+    document.getElementById('thanksTimeline').innerHTML = '';
+    document.getElementById('thanksPaidTeaser').innerHTML = '';
+    document.getElementById('thanksActions').innerHTML = '<a class="thanks-btn thanks-btn-primary" href="#" onclick="closeModal();return false">閉じる</a>';
+  } else if (isPaid) {
+    // ── 本契約申込後 ──
+    document.getElementById('thanksTitle').textContent = 'ご契約のお申し込みありがとうございます！';
+    document.getElementById('thanksMsg').innerHTML = 'ご入力いただいた内容をもとに、担当者が御社専用のセットアップを開始いたします。<br>24時間以内にメールでご連絡いたします。';
+    document.getElementById('thanksVideo').style.display = 'none'; // TODO: 担当者紹介動画の撮影後に 'block' に戻す
+    document.getElementById('thanksVideoLabel').textContent = '担当者の紹介動画';
+    document.getElementById('thanksTimeline').innerHTML =
+      '<div class="thanks-step"><div class="thanks-step-num">STEP 1</div><div class="thanks-step-title">初回ヒアリング</div><div class="thanks-step-desc">メールで3つの質問にお答えいただくだけ。御社に合った撮影指示書をお作りします</div></div>' +
+      '<div class="thanks-step-arrow">▶</div>' +
+      '<div class="thanks-step"><div class="thanks-step-num">STEP 2</div><div class="thanks-step-title">共有フォルダの設定</div><div class="thanks-step-desc">素材のやり取り環境を整えます</div></div>' +
+      '<div class="thanks-step-arrow">▶</div>' +
+      '<div class="thanks-step"><div class="thanks-step-num">STEP 3</div><div class="thanks-step-title">初回納品</div><div class="thanks-step-desc">素材が届き次第、最短翌営業日で動画をお届けします</div></div>';
+    document.getElementById('thanksPaidTeaser').innerHTML = '';
+    document.getElementById('thanksActions').innerHTML = '';
+  } else {
+    // ── トライアル申込後 ──
+    const mat = document.querySelector('input[name="material"]:checked')?.value || '';
+    document.getElementById('thanksTitle').textContent = 'お申し込みありがとうございます！';
+    document.getElementById('thanksVideo').style.display = 'none'; // TODO: 担当者紹介動画の撮影後に 'block' に戻す
+    document.getElementById('thanksVideoLabel').textContent = '担当者の紹介動画';
+
+    // Material-aware message + timeline
+    if (mat === '素材提供が難しい') {
+      document.getElementById('thanksMsg').innerHTML = 'ご回答いただいた内容をもとに、御社の公開情報からトライアル動画を1本お作りします。<br>お申し込みから2営業日以内にメールでお届けいたします。';
+      document.getElementById('thanksTimeline').innerHTML =
+        '<div class="thanks-step" style="border-color:var(--accent);background:var(--accent-light)">' +
+          '<div class="thanks-step-num">① いまここ</div><div class="thanks-step-title">公開情報をリサーチ</div><div class="thanks-step-desc">採用ページ・SNS等を確認</div></div>' +
+        '<div class="thanks-step-arrow">▶</div>' +
+        '<div class="thanks-step"><div class="thanks-step-num">②</div><div class="thanks-step-title">トライアル動画を制作</div><div class="thanks-step-desc">ご回答の内容に沿って編集</div></div>' +
+        '<div class="thanks-step-arrow">▶</div>' +
+        '<div class="thanks-step"><div class="thanks-step-num">③ 2営業日以内</div><div class="thanks-step-title">動画をお届け</div><div class="thanks-step-desc">メールでご確認いただけます</div></div>';
+    } else if (mat === '既存素材を共有') {
+      document.getElementById('thanksMsg').innerHTML = 'ご回答いただいた内容を確認し、共有いただく素材のご案内を24時間以内にメールでお送りいたします。';
+      document.getElementById('thanksTimeline').innerHTML =
+        '<div class="thanks-step" style="border-color:var(--accent);background:var(--accent-light)">' +
+          '<div class="thanks-step-num">① 24h以内</div><div class="thanks-step-title">素材のご案内をお届け</div><div class="thanks-step-desc">共有方法をご説明します</div></div>' +
+        '<div class="thanks-step-arrow">▶</div>' +
+        '<div class="thanks-step"><div class="thanks-step-num">②</div><div class="thanks-step-title">素材をお送りいただく</div><div class="thanks-step-desc">共有フォルダにアップロード</div></div>' +
+        '<div class="thanks-step-arrow">▶</div>' +
+        '<div class="thanks-step"><div class="thanks-step-num">③ 受領後2営業日</div><div class="thanks-step-title">トライアル動画をお届け</div><div class="thanks-step-desc">メールでご確認いただけます</div></div>';
+    } else {
+      // 新規撮影 or 未選択
+      document.getElementById('thanksMsg').innerHTML = 'ご回答いただいた内容をもとに、撮影の構図指示書を24時間以内にメールでお届けいたします。';
+      document.getElementById('thanksTimeline').innerHTML =
+        '<div class="thanks-step" style="border-color:var(--accent);background:var(--accent-light)">' +
+          '<div class="thanks-step-num">① 24h以内</div><div class="thanks-step-title">構図指示書をお届け</div><div class="thanks-step-desc">撮り方をすべてご案内</div></div>' +
+        '<div class="thanks-step-arrow">▶</div>' +
+        '<div class="thanks-step"><div class="thanks-step-num">②</div><div class="thanks-step-title">スマホで撮影・送付</div><div class="thanks-step-desc">テンプレに沿って15〜35秒</div></div>' +
+        '<div class="thanks-step-arrow">▶</div>' +
+        '<div class="thanks-step"><div class="thanks-step-num">③ 受領後2営業日</div><div class="thanks-step-title">トライアル動画をお届け</div><div class="thanks-step-desc">メールでご確認いただけます</div></div>';
+    }
+
+    // Paid experience teaser: things trial CAN'T do, with SVG illustrations
+    document.getElementById('thanksPaidTeaser').innerHTML =
+      '<div class="thanks-teaser-label">本契約ではこんなことができます</div>' +
+      '<div class="thanks-teaser-title">トライアルの先に、もうひとつの世界があります。</div>' +
+      '<div class="thanks-teaser-cards">' +
+        // Card 1: 修正・ブラッシュアップ
+        '<div class="thanks-teaser-card">' +
+          '<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+            '<rect x="8" y="6" width="22" height="30" rx="3" stroke="#1a56ff" stroke-width="1.5" opacity=".4"/>' +
+            '<rect x="18" y="12" width="22" height="30" rx="3" stroke="#1a56ff" stroke-width="1.5"/>' +
+            '<path d="M34 24l-6 4v-8l6 4z" fill="#1a56ff"/>' +
+            '<circle cx="38" cy="16" r="5" stroke="#22c55e" stroke-width="1.5"/>' +
+            '<path d="M36 16l1.5 1.5L40 14" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>' +
+          '<div class="thanks-teaser-card-title">修正・ブラッシュアップ</div>' +
+          '<div class="thanks-teaser-card-desc">納品後も細部を調整。「もう少しこうしたい」にお応えします</div>' +
+        '</div>' +
+        // Card 2: 好きなタイミングで追加＆配信指定
+        '<div class="thanks-teaser-card">' +
+          '<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+            '<rect x="10" y="8" width="28" height="28" rx="4" stroke="#1a56ff" stroke-width="1.5"/>' +
+            '<path d="M10 16h28" stroke="#1a56ff" stroke-width="1.5"/>' +
+            '<circle cx="17" cy="23" r="2" fill="#1a56ff" opacity=".4"/>' +
+            '<circle cx="24" cy="23" r="2" fill="#1a56ff"/>' +
+            '<circle cx="31" cy="23" r="2" fill="#1a56ff" opacity=".4"/>' +
+            '<circle cx="17" cy="30" r="2" fill="#1a56ff" opacity=".4"/>' +
+            '<circle cx="24" cy="30" r="2" fill="#22c55e"/>' +
+            '<path d="M38 36l-4 4-2-2" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>' +
+          '<div class="thanks-teaser-card-title">素材追加＆配信日指定</div>' +
+          '<div class="thanks-teaser-card-desc">好きなタイミングで素材を追加し、配信スケジュールもお任せ</div>' +
+        '</div>' +
+        // Card 3: トレンド・競合を踏まえた構成
+        '<div class="thanks-teaser-card">' +
+          '<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+            '<path d="M8 36l8-10 6 5 8-12 10 8" stroke="#1a56ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '<circle cx="40" cy="27" r="3" fill="#22c55e" opacity=".6"/>' +
+            '<path d="M36 12h8v8" stroke="#1a56ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>' +
+            '<circle cx="12" cy="10" r="3" stroke="#1a56ff" stroke-width="1.5" opacity=".4"/>' +
+            '<circle cx="24" cy="14" r="2" stroke="#1a56ff" stroke-width="1.5" opacity=".3"/>' +
+          '</svg>' +
+          '<div class="thanks-teaser-card-title">トレンド・競合分析</div>' +
+          '<div class="thanks-teaser-card-desc">市場の動きや競合を踏まえた構成で、効果の高い動画を制作</div>' +
+        '</div>' +
+      '</div>';
+
+    document.getElementById('thanksActions').innerHTML = '';
+  }
+}
+
+function nextStep() {
+  if (!validateStep()) return;
+  gtag('event', 'form_step_complete', { form_type: mode, step_number: step, step_total: totalSteps[mode] });
+  if (step === totalSteps[mode]) { submitForm(); return; }
+  step++;
+  renderStep(); renderProgress();
+}
+function prevStep() {
+  if (step > 1) { step--; renderStep(); renderProgress(); }
+}
+
+// Character counter
+const appealEl = document.getElementById('f_appeal');
+if (appealEl) {
+  appealEl.addEventListener('input', function() {
+    document.getElementById('charCount').textContent = this.value.length;
+  });
+}
+
+// Plan-aware form context switching
+const volEl = document.getElementById('f_volume');
+if (volEl) {
+  volEl.addEventListener('change', function() {
+    const isPaid = this.value && this.value !== 'まずは1本試したい';
+    const step2Header = document.querySelector('#trialForm [data-step="2"] .form-step-header h3');
+    const step2Hint = document.querySelector('#trialForm [data-step="2"] .form-step-header .hint');
+    if (step2Header) {
+      step2Header.textContent = isPaid
+        ? 'ご契約内容とトライアルについて教えてください。'
+        : '無料トライアルについて教えてください。';
+    }
+    if (step2Hint) {
+      step2Hint.textContent = isPaid
+        ? 'プラン本数とは別に、初回1本を無料でお作りします。以下はトライアル制作の参考にします。'
+        : 'ここではお気軽にお答えください。詳しいヒアリングはトライアル動画の納品後に行います。';
+    }
+  });
+}
+
+/* ===== Page Logic ===== */
+const nav = document.getElementById('nav');
+const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+const navSections = navLinks
+  .map(link => {
+    const id = link.getAttribute('href').slice(1);
+    return { id, link, section: document.getElementById(id) };
+  })
+  .filter(item => item.section);
+function updateNavState() {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
+  if (!nav || !navSections.length) return;
+  const marker = window.scrollY + nav.offsetHeight + window.innerHeight * 0.28;
+  let activeId = null;
+  navSections.forEach(item => {
+    if (item.section.offsetTop <= marker) activeId = item.id;
+  });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    activeId = navSections[navSections.length - 1].id;
+  }
+  navSections.forEach(item => item.link.classList.toggle('active', item.id === activeId));
+}
+window.addEventListener('scroll', updateNavState, { passive: true });
+window.addEventListener('resize', updateNavState);
+updateNavState();
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const w = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!w) item.classList.add('open');
+  });
+});
+const obs = new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* Video autoplay: play when visible, pause when not */
+const vidObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.play().catch(() => {}); }
+    else { e.target.pause(); }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.project-screen video, .ps video').forEach(v => vidObs.observe(v));
+
+
+/* Carousel slideshow - translateX based */
+(function() {
+  const track = document.getElementById('carouselTrack');
+  if (!track) return;
+  const cards = Array.from(track.querySelectorAll('.project-card'));
+  const n = cards.length;
+  let idx = Math.floor(n / 2);
+
+  function update() {
+    cards.forEach((c, j) => c.classList.toggle('active', j === idx));
+    const style = getComputedStyle(cards[0]);
+    const basis = parseFloat(style.flexBasis) || 240;
+    const gap = 20;
+    const step = basis + gap;
+    const containerW = track.parentElement.offsetWidth;
+    const offset = containerW / 2 - idx * step - basis / 2;
+    track.style.transform = 'translateX(' + offset + 'px)';
+  }
+  update();
+  setTimeout(update, 100);
+  setInterval(() => { idx = (idx + 1) % n; update(); }, 3500);
+  window.addEventListener('resize', update);
+})();
+
+/* Contact form */
+async function submitContact() {
+  const btn = document.getElementById('contactBtn');
+  const result = document.getElementById('contactResult');
+  const company = document.getElementById('c_company').value.trim();
+  const name = document.getElementById('c_name').value.trim();
+  const email = document.getElementById('c_email').value.trim();
+  const message = document.getElementById('c_message').value.trim();
+  if (!company || !name || !email || !message) { alert('すべての項目をご入力ください。'); return; }
+  btn.disabled = true; btn.textContent = '送信中…';
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'contact', company, name, email, message })
+    });
+    if (!res.ok) throw new Error();
+    result.textContent = '送信しました。担当より24時間以内にご連絡いたします。';
+    result.style.display = 'block';
+    btn.textContent = '送信済み';
+    gtag('event', 'form_submit', { form_type: 'contact' });
+  } catch(e) {
+    alert('送信に失敗しました。時間をおいて再度お試しください。');
+    btn.disabled = false; btn.textContent = '送信する';
+  }
+}
+
+/* Form auto-save to localStorage */
+function saveFormData() {
+  try {
+    const data = {};
+    document.querySelectorAll('#trialForm input, #trialForm select, #trialForm textarea').forEach(el => {
+      if (el.type === 'checkbox' || el.type === 'radio') { if (el.checked) data[el.id] = true; }
+      else if (el.value) data[el.id] = el.value;
+    });
+    localStorage.setItem('maruoma_form', JSON.stringify(data));
+  } catch(e) {}
+}
+function loadFormData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('maruoma_form') || '{}');
+    Object.keys(saved).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.type === 'checkbox' || el.type === 'radio') el.checked = saved[id];
+      else el.value = saved[id];
+    });
+  } catch(e) {}
+}
+document.querySelectorAll('#trialForm input, #trialForm select, #trialForm textarea').forEach(el => {
+  el.addEventListener('change', saveFormData);
+  el.addEventListener('input', saveFormData);
+});
+loadFormData();
+
+/* Close mobile nav on link click */
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { const links = document.querySelector('.nav-links'); if (links) links.classList.remove('open'); });
+});
+</script>
+
+<!-- Legal Modal -->
+<div class="modal-overlay" id="legalModal" onclick="if(event.target===this){this.classList.remove('active');document.body.style.overflow=''}">
+  <div class="modal" style="max-width:640px">
+    <button class="modal-close" onclick="document.getElementById('legalModal').classList.remove('active');document.body.style.overflow=''">✕</button>
+    <div class="form-body" id="legalContent" style="padding:32px;font-size:.88rem;line-height:1.9;color:var(--muted)"></div>
+  </div>
+</div>
+
+<script>
+const LEGAL = {
+  terms: `<h3 style="font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:16px">利用規約</h3>
+<p style="margin-bottom:12px">この利用規約（以下「本規約」）は、まるおま 採用ショート（以下「当サービス」）の利用条件を定めるものです。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">第1条（適用）</p><p style="margin-bottom:12px">本規約は、当サービスの利用に関する一切の関係に適用されます。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">第2条（サービス内容）</p><p style="margin-bottom:12px">当サービスは、クライアントから提供された素材をもとに縦型ショート動画の企画・編集・納品を行う月額制作サービスです。撮影の代行は含まれません。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">第3条（著作権）</p><p style="margin-bottom:12px">納品後の動画の著作権はクライアントに帰属します。ただし、当サービスのポートフォリオ・事例として使用する場合は事前にクライアントの承諾を得るものとします。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">第4条（修正・検収）</p><p style="margin-bottom:12px">初稿納品後5営業日以内にフィードバックがない場合、自動検収とします。修正回数はプランに応じた上限が適用されます。事実誤認・誤字脱字の修正は無制限で対応します。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">第5条（契約期間・解約）</p><p style="margin-bottom:12px">ライトプランは1ヶ月更新でいつでも解約可能です。スタンダード（6ヶ月）・プレミアム（12ヶ月）は契約期間終了時に更新しない旨をお伝えください。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">第6条（秘密保持）</p><p style="margin-bottom:12px">当サービスは、クライアントから提供された素材・情報を第三者に開示しません。</p>
+<p style="font-size:.78rem;margin-top:20px">制定日：2026年4月8日</p>`,
+
+  privacy: `<h3 style="font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:16px">プライバシーポリシー</h3>
+<p style="margin-bottom:12px">まるおま 採用ショート（以下「当サービス」）は、お客様の個人情報の保護を重要と考え、以下のとおり取り扱います。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">1. 収集する情報</p><p style="margin-bottom:12px">お問い合わせフォームを通じて、会社名・担当者名・メールアドレス等をお預かりします。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">2. 利用目的</p><p style="margin-bottom:12px">サービスの提供・改善、お問い合わせへの対応、サービスに関するご案内の送付に使用します。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">3. 第三者提供</p><p style="margin-bottom:12px">法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">4. 安全管理</p><p style="margin-bottom:12px">個人情報への不正アクセス、紛失、改ざん等を防止するため、適切な安全管理措置を講じます。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">5. Cookie・アクセス解析</p><p style="margin-bottom:12px">当サイトではGoogle Analyticsを使用しています。収集されるデータはGoogleのプライバシーポリシーに基づき管理されます。</p>
+<p style="font-weight:600;color:var(--ink);margin-bottom:4px">6. お問い合わせ</p><p style="margin-bottom:12px">個人情報に関するお問い合わせは、当サービスの担当者までご連絡ください。</p>
+<p style="font-size:.78rem;margin-top:20px">制定日：2026年4月8日</p>`,
+
+  tokusho: `<h3 style="font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:16px">特定商取引法に基づく表記</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.85rem">
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink);width:140px">事業者名</td><td style="padding:12px 0">株式会社Aufheben AI</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">代表者</td><td style="padding:12px 0">米山瑛人</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">所在地</td><td style="padding:12px 0">〒1500041 東京都渋谷区神南1丁目11－4FPGリンクス神南5階</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">連絡先</td><td style="padding:12px 0">contact@maruoma.com</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">サービス料金</td><td style="padding:12px 0">ライト：月額50,000円(税抜)~※詳細は料金ページをご確認ください</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">支払方法</td><td style="padding:12px 0">銀行振込</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">支払時期</td><td style="padding:12px 0">月額プラン：当月末締め翌月末払い／一括プラン：契約時一括</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:12px 0;font-weight:600;color:var(--ink)">サービス提供時期</td><td style="padding:12px 0">契約後、素材受領から最短翌営業日・平均2営業日</td></tr>
+<tr><td style="padding:12px 0;font-weight:600;color:var(--ink)">解約・返金</td><td style="padding:12px 0">ライトプラン：1ヶ月更新、いつでも解約可能。スタンダード・プレミアム：契約期間終了時に解約可能。日割り返金はございません。</td></tr>
+</table>
+<p style="font-size:.78rem;margin-top:20px;color:var(--red)">※【】内の項目はローンチ前にご自身の情報に差し替えてください</p>`
+};
+</script>
+
+<script>
+const GA_MEASUREMENT_ID = '';
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+if (GA_MEASUREMENT_ID) {
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(gaScript);
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+}
+</script>
+
+<!-- Video Lazy Loading -->
+<script>
+/* Seamless testimonial scroll */
+(function(){
+  var track = document.querySelector('.testi-track');
+  if (!track) return;
+  var cards = track.children;
+  var half = Math.floor(cards.length / 2);
+  // Calculate exact width of first half (cards + gaps)
+  var w = 0;
+  for (var i = 0; i < half; i++) {
+    w += cards[i].offsetWidth + 20; // 20 = gap
+  }
+  track.style.setProperty('--scroll-dist', '-' + w + 'px');
+  track.style.animation = 'tscroll 25s linear infinite';
+})();
+</script>
+<script>
+(function(){
+  var lazyVideos = document.querySelectorAll('video[data-lazy-src]');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var video = entry.target;
+          video.src = video.getAttribute('data-lazy-src');
+          video.removeAttribute('data-lazy-src');
+          video.play().catch(function(){});
+          observer.unobserve(video);
+        }
+      });
+    }, { rootMargin: '200px' });
+    lazyVideos.forEach(function(v) { observer.observe(v); });
+  } else {
+    lazyVideos.forEach(function(video) {
+      video.src = video.getAttribute('data-lazy-src');
+      video.removeAttribute('data-lazy-src');
+    });
+  }
+})();
+</script>
+
+  </body>
+</html>
