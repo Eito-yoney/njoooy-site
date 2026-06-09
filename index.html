@@ -6,7 +6,7 @@
     <title>njoooy | 飲食店の集客支援・採用支援</title>
     <meta
       name="description"
-      content="njoooyは、飲食店の常連依存と人手不足を営業導線から整える支援組織です。集客支援と採用支援を通じて、新規来店と繁忙期の人材確保を支援します。"
+      content="njoooyは、常連頼みの集客と繁忙期の人手不足に悩む飲食店を支援します。集客支援と採用支援を通じて、新規来店と人材確保を改善します。"
     />
     <link rel="canonical" href="https://njoooy.com/" />
     <link rel="stylesheet" href="./styles.css" />
@@ -14,7 +14,7 @@
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="njoooy" />
       <meta property="og:title" content="njoooy — 飲食店の集客支援・採用支援" />
-      <meta property="og:description" content="常連依存と人手不足を、営業導線から整える。飲食店の新規来店と繁忙期の人材確保を支援します。" />
+      <meta property="og:description" content="常連頼みの集客と繁忙期の人手不足に悩む飲食店へ。新規来店と人材確保を改善します。" />
       <meta property="og:url" content="https://njoooy.com/" />
       <meta property="og:locale" content="ja_JP" />
       <meta property="og:image" content="https://njoooy.com/og-image.png" /> <!-- : 1200x630 OG image 作成・配置] -->
@@ -25,7 +25,7 @@
       <!-- [v7.7 Track A] Twitter Card -->
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="njoooy — 飲食店の集客支援・採用支援" />
-      <meta name="twitter:description" content="常連依存と人手不足を、営業導線から整える。飲食店の新規来店と繁忙期の人材確保を支援します。" />
+      <meta name="twitter:description" content="常連頼みの集客と繁忙期の人手不足に悩む飲食店へ。新規来店と人材確保を改善します。" />
       <meta name="twitter:image" content="https://njoooy.com/og-image.png" /> <!-- : OG と共通 or 別素材] -->
       <!-- : twitter:site / twitter:creator を Twitter アカウント取得後に追加] -->
       
@@ -36,7 +36,7 @@
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700;800;900&family=Shippori+Mincho:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
       
       <!-- [v7.7 Track A] Schema.org — ProfessionalService + Person(事実ベースのみ。description/image/sameAs は公開前追加) -->
@@ -72,6 +72,730 @@
           ]
         }
         </script>
+      <style>
+        body[data-page="home"] {
+          --home-accent: #6f8f2f;
+          --home-accent-2: #9db45a;
+          --home-accent-soft: #eef4df;
+          --home-green: #4f7d3a;
+          --home-green-soft: #e8f2df;
+          --home-orange: #f59e0b;
+          --home-orange-soft: #fff4d8;
+          --home-pink: #ec4899;
+          --home-ink: #0a0a0a;
+          --home-muted: #676b77;
+          --home-border: #e1e5ef;
+          --home-paper: #fafaf8;
+          --home-white: #ffffff;
+          --home-shadow: 0 24px 70px rgba(52, 73, 30, 0.13);
+          --home-shadow-soft: 0 8px 30px rgba(52, 73, 30, 0.08);
+          background: var(--home-paper);
+          color: var(--home-ink);
+          font-family: "Inter", "Noto Sans JP", sans-serif;
+          overflow-x: hidden;
+        }
+
+        body[data-page="home"] .site-header {
+          border-bottom: 1px solid var(--home-border);
+          background: rgba(250, 250, 248, 0.86);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+        }
+
+        body[data-page="home"] .primary-nav {
+          color: var(--home-muted);
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0;
+        }
+
+        body[data-page="home"] .primary-nav a:hover,
+        body[data-page="home"] .primary-nav a[aria-current="page"] {
+          color: var(--home-ink);
+        }
+
+        body[data-page="home"] .logo .mark,
+        body[data-page="home"] .footer-logo::after {
+          background: var(--home-accent);
+        }
+
+        body[data-page="home"] .social-nav a,
+        body[data-page="home"] .nav-lang-toggle {
+          border-color: var(--home-border);
+          background: var(--home-white);
+          color: var(--home-ink);
+        }
+
+        body[data-page="home"] footer {
+          border-top: 1px solid var(--home-border);
+          background: var(--home-white);
+          color: var(--home-ink);
+          font-family: "Inter", "Noto Sans JP", sans-serif;
+        }
+
+        body[data-page="home"] .footer-email,
+        body[data-page="home"] .footer-legal a:hover {
+          color: var(--home-accent);
+        }
+
+        body[data-page="home"] .footer-email-note,
+        body[data-page="home"] .footer-copyright,
+        body[data-page="home"] .footer-legal {
+          color: var(--home-muted);
+        }
+
+        body[data-page="home"] main {
+          overflow: hidden;
+          background:
+            linear-gradient(90deg, rgba(111, 143, 47, 0.06) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(111, 143, 47, 0.045) 1px, transparent 1px),
+            linear-gradient(180deg, #fbfaf4 0%, #f1f5e7 43%, #fafaf8 100%);
+          background-size: 44px 44px, 44px 44px, auto;
+        }
+
+        body[data-page="home"] .home-hero {
+          position: relative;
+          display: grid;
+          grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+          gap: clamp(28px, 5vw, 64px);
+          align-items: center;
+          max-width: 1180px;
+          min-height: calc(100svh - 78px);
+          margin: 0 auto;
+          padding: clamp(56px, 8vw, 104px) 24px 48px;
+          border-bottom: 0;
+        }
+
+        body[data-page="home"] .hero-copy {
+          padding: 0;
+          max-width: 620px;
+        }
+
+        body[data-page="home"] h1,
+        body[data-page="home"] h2,
+        body[data-page="home"] h3 {
+          font-family: "Inter", "Noto Sans JP", sans-serif;
+          letter-spacing: -0.04em;
+        }
+
+        body[data-page="home"] h1 {
+          max-width: 680px;
+          font-size: clamp(42px, 6.5vw, 78px);
+          font-weight: 900;
+          line-height: 1.08;
+        }
+
+        body[data-page="home"] h1 em {
+          color: var(--home-accent);
+          font-style: normal;
+        }
+
+        body[data-page="home"] h2 {
+          font-size: clamp(30px, 4.4vw, 54px);
+          font-weight: 900;
+          line-height: 1.18;
+        }
+
+        body[data-page="home"] h3 {
+          font-size: 22px;
+          font-weight: 900;
+        }
+
+        body[data-page="home"] .lead {
+          color: var(--home-muted);
+          font-size: 16px;
+          line-height: 1.9;
+        }
+
+        body[data-page="home"] .button-row {
+          gap: 12px;
+          margin-top: 30px;
+        }
+
+        body[data-page="home"] .button {
+          min-height: 50px;
+          padding: 0 24px;
+          border-radius: 999px;
+          font-family: "Inter", "Noto Sans JP", sans-serif;
+          font-weight: 800;
+          box-shadow: none;
+        }
+
+        body[data-page="home"] .button.primary {
+          border-color: var(--home-accent);
+          background: var(--home-accent);
+          color: #fff;
+          box-shadow: 0 12px 28px rgba(111, 143, 47, 0.22);
+        }
+
+        body[data-page="home"] .button.primary:hover {
+          background: #587326;
+          border-color: #587326;
+        }
+
+        body[data-page="home"] .button.ghost {
+          border-color: var(--home-border);
+          background: var(--home-white);
+          color: var(--home-ink);
+        }
+
+        body[data-page="home"] .button.ghost:hover {
+          border-color: var(--home-accent);
+          background: var(--home-accent-soft);
+          color: var(--home-accent);
+        }
+
+        .home-proof-row {
+          display: grid;
+          gap: 8px;
+          margin-top: 22px;
+        }
+
+        .home-proof-row span {
+          display: flex;
+          align-items: baseline;
+          gap: 8px;
+          color: var(--home-muted);
+          font-size: 13px;
+          font-weight: 800;
+        }
+
+        .home-proof-row span::before {
+          content: "ー";
+          color: var(--home-accent);
+        }
+
+        .home-hero-visual {
+          position: relative;
+          min-height: 540px;
+        }
+
+        .home-concept-card {
+          position: relative;
+          width: min(100%, 520px);
+          min-height: 520px;
+          margin-left: auto;
+          border: 1px solid rgba(111, 143, 47, 0.16);
+          border-radius: 36px;
+          background:
+            radial-gradient(circle at 50% 44%, rgba(111, 143, 47, 0.2), transparent 28%),
+            radial-gradient(circle at 18% 20%, rgba(245, 158, 11, 0.16), transparent 24%),
+            linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(242, 247, 231, 0.88));
+          box-shadow: var(--home-shadow);
+          overflow: hidden;
+        }
+
+        .home-concept-card::before,
+        .home-concept-card::after {
+          content: "";
+          position: absolute;
+          inset: 72px;
+          border: 1px solid rgba(111, 143, 47, 0.2);
+          border-radius: 999px;
+        }
+
+        .home-concept-card::after {
+          inset: 126px;
+          border-style: dashed;
+          opacity: 0.82;
+        }
+
+        .home-concept-photo {
+          position: absolute;
+          inset: 50%;
+          width: 156px;
+          height: 156px;
+          transform: translate(-50%, -50%);
+          border: 8px solid rgba(255, 255, 255, 0.72);
+          border-radius: 50%;
+          box-shadow: 0 20px 50px rgba(52, 73, 30, 0.2);
+          overflow: hidden;
+          z-index: 2;
+        }
+
+        .home-concept-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .home-concept-core {
+          position: absolute;
+          left: 50%;
+          top: calc(50% + 112px);
+          z-index: 3;
+          display: grid;
+          gap: 3px;
+          min-width: 210px;
+          transform: translateX(-50%);
+          padding: 14px 18px;
+          border: 1px solid rgba(111, 143, 47, 0.18);
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.9);
+          text-align: center;
+        }
+
+        .home-concept-core span {
+          color: var(--home-accent);
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+        }
+
+        .home-concept-core strong {
+          font-size: 15px;
+        }
+
+        .home-concept-node {
+          position: absolute;
+          z-index: 3;
+          display: grid;
+          gap: 3px;
+          min-width: 136px;
+          padding: 14px 16px;
+          border: 1px solid rgba(111, 143, 47, 0.18);
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.88);
+          box-shadow: var(--home-shadow-soft);
+          font-weight: 900;
+        }
+
+        .home-concept-node small {
+          color: var(--home-muted);
+          font-size: 11px;
+          font-weight: 700;
+          line-height: 1.5;
+        }
+
+        .home-concept-node[data-place="map"] {
+          top: 56px;
+          left: 54px;
+        }
+
+        .home-concept-node[data-place="sns"] {
+          top: 84px;
+          right: 42px;
+        }
+
+        .home-concept-node[data-place="reserve"] {
+          left: 36px;
+          bottom: 82px;
+        }
+
+        .home-concept-node[data-place="recruit"] {
+          right: 50px;
+          bottom: 58px;
+        }
+
+        .home-concept-caption {
+          width: min(100%, 440px);
+          margin: 18px 0 0 auto;
+          color: var(--home-muted);
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1.8;
+        }
+
+        .home-mini-card p,
+        .home-area-card p,
+        .home-cta-panel p {
+          margin: 0;
+          color: var(--home-muted);
+          line-height: 1.7;
+        }
+
+        .home-mini-card {
+          display: grid;
+          gap: 12px;
+          padding: 18px;
+          border: 1px solid var(--home-border);
+          border-radius: 22px;
+          background: var(--home-white);
+        }
+
+        .home-bar {
+          height: 9px;
+          overflow: hidden;
+          border-radius: 999px;
+          background: #eef1f6;
+        }
+
+        .home-bar span {
+          display: block;
+          height: 100%;
+          border-radius: inherit;
+          background: linear-gradient(90deg, var(--home-green), var(--home-accent));
+        }
+
+        .home-section {
+          position: relative;
+          padding: clamp(64px, 8vw, 104px) 24px;
+        }
+
+        .home-section-inner {
+          max-width: 1120px;
+          margin: 0 auto;
+        }
+
+        .home-section-head {
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 24px;
+          margin-bottom: 34px;
+        }
+
+        .home-section-kicker {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin: 0 0 12px;
+          color: var(--home-accent);
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .home-section-kicker::before {
+          content: "";
+          width: 18px;
+          height: 3px;
+          border-radius: 999px;
+          background: currentColor;
+        }
+
+        .home-section-head p {
+          max-width: 560px;
+          margin: 16px 0 0;
+          color: var(--home-muted);
+          line-height: 1.9;
+        }
+
+        .home-area-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 20px;
+        }
+
+        .home-area-card {
+          position: relative;
+          display: grid;
+          gap: 22px;
+          min-height: 380px;
+          padding: 30px;
+          border: 1px solid var(--home-border);
+          border-radius: 28px;
+          background: var(--home-white);
+          box-shadow: var(--home-shadow-soft);
+          overflow: hidden;
+        }
+
+        .home-area-card::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 5px;
+          background: var(--card-accent, var(--home-accent));
+        }
+
+        .home-area-card[data-tone="growth"] {
+          --card-accent: var(--home-accent);
+        }
+
+        .home-area-card[data-tone="recruiting"] {
+          --card-accent: var(--home-green);
+        }
+
+        .home-area-top {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 18px;
+        }
+
+        .home-area-icon {
+          display: grid;
+          place-items: center;
+          width: 54px;
+          height: 54px;
+          border-radius: 18px;
+          background: var(--home-accent-soft);
+          color: var(--card-accent);
+          font-size: 24px;
+          font-weight: 900;
+        }
+
+        .home-area-card[data-tone="recruiting"] .home-area-icon {
+          background: var(--home-green-soft);
+        }
+
+        .home-area-card small {
+          color: var(--card-accent);
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .home-area-card ul,
+        .home-cta-list {
+          display: grid;
+          gap: 10px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .home-area-card li,
+        .home-cta-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          color: var(--home-muted);
+          font-size: 14px;
+          line-height: 1.65;
+        }
+
+        .home-area-card li::before,
+        .home-cta-list li::before {
+          content: "";
+          flex: 0 0 auto;
+          width: 8px;
+          height: 8px;
+          margin-top: 9px;
+          border-radius: 999px;
+          background: var(--card-accent, var(--home-accent));
+        }
+
+        body[data-page="home"] .text-link {
+          width: fit-content;
+          color: var(--card-accent, var(--home-accent));
+          font-weight: 900;
+          border-bottom-color: currentColor;
+        }
+
+        .home-philosophy {
+          background: #101318;
+          color: #fff;
+        }
+
+        .home-philosophy-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+          gap: clamp(28px, 5vw, 58px);
+          align-items: start;
+        }
+
+        .home-philosophy .home-section-kicker {
+          color: #c9dd88;
+        }
+
+        .home-philosophy h2 {
+          color: #fff;
+        }
+
+        .home-philosophy p {
+          color: rgba(255, 255, 255, 0.72);
+        }
+
+        .home-philosophy-message {
+          min-height: 100%;
+          padding-left: clamp(28px, 5vw, 58px);
+          border-left: 1px solid rgba(255, 255, 255, 0.28);
+        }
+
+        .home-philosophy-message h3 {
+          margin-bottom: 18px;
+          color: #fff;
+          font-size: clamp(24px, 3vw, 34px);
+          line-height: 1.28;
+        }
+
+        .home-cta {
+          padding-bottom: clamp(72px, 9vw, 120px);
+        }
+
+        .home-cta-shell {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(320px, 0.74fr);
+          gap: 28px;
+          align-items: stretch;
+          max-width: 1120px;
+          margin: 0 auto;
+          padding: clamp(28px, 4vw, 42px);
+          border: 1px solid rgba(111, 143, 47, 0.14);
+          border-radius: 32px;
+          background: var(--home-white);
+          box-shadow: none;
+        }
+
+        .home-cta-copy {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .home-cta-copy p {
+          max-width: 610px;
+          color: var(--home-muted);
+          line-height: 1.9;
+        }
+
+        .home-cta-panel {
+          display: grid;
+          align-content: start;
+          gap: 16px;
+          padding: 22px;
+          border-radius: 24px;
+          background: #f3f6e8;
+        }
+
+        .home-cta-panel h3 {
+          font-size: 18px;
+        }
+
+        .home-cta-list li::before {
+          --card-accent: var(--home-green);
+        }
+
+        .home-cta-assurance {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 18px;
+        }
+
+        .home-cta-assurance span {
+          color: var(--home-green);
+          font-size: 13px;
+          font-weight: 800;
+        }
+
+        @media (max-width: 1080px) {
+          body[data-page="home"] .home-hero,
+          .home-philosophy-grid,
+          .home-cta-shell {
+            grid-template-columns: 1fr;
+          }
+
+          body[data-page="home"] .home-hero {
+            min-height: auto;
+          }
+
+          .home-hero-visual {
+            min-height: auto;
+          }
+
+          .home-concept-card {
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 760px) {
+          body[data-page="home"] .site-header {
+            gap: 12px;
+          }
+
+          body[data-page="home"] .home-hero {
+            padding: 42px 18px 34px;
+          }
+
+          body[data-page="home"] h1 {
+            font-size: 40px;
+          }
+
+          body[data-page="home"] h2 {
+            font-size: 31px;
+          }
+
+          body[data-page="home"] .lead {
+            font-size: 15px;
+          }
+
+          .home-proof-row span {
+            font-size: 11px;
+          }
+
+          .home-concept-card {
+            min-height: 480px;
+            border-radius: 28px;
+          }
+
+          .home-concept-card::before {
+            inset: 52px;
+          }
+
+          .home-concept-card::after {
+            inset: 104px;
+          }
+
+          .home-concept-node {
+            min-width: 120px;
+            padding: 12px 14px;
+            font-size: 13px;
+          }
+
+          .home-concept-node[data-place="map"] {
+            top: 32px;
+            left: 24px;
+          }
+
+          .home-concept-node[data-place="sns"] {
+            top: 54px;
+            right: 18px;
+          }
+
+          .home-concept-node[data-place="reserve"] {
+            left: 20px;
+            bottom: 58px;
+          }
+
+          .home-concept-node[data-place="recruit"] {
+            right: 22px;
+            bottom: 36px;
+          }
+
+          .home-area-grid,
+          .home-cta-shell {
+            grid-template-columns: 1fr;
+          }
+
+          .home-section {
+            padding: 58px 18px;
+          }
+
+          .home-section-head {
+            align-items: start;
+            flex-direction: column;
+          }
+
+          .home-area-card {
+            min-height: auto;
+            padding: 26px 22px;
+            border-radius: 24px;
+          }
+
+          .home-cta-shell {
+            border-radius: 24px;
+          }
+
+          .home-philosophy-message {
+            padding-top: 28px;
+            padding-left: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.28);
+            border-left: 0;
+          }
+
+          .home-cta-shell {
+            padding: 24px;
+          }
+
+          .home-cta-panel {
+            padding: 18px;
+          }
+        }
+      </style>
   </head>
   <body data-page="home">
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -194,158 +918,140 @@
     <main id="main">
       <section class="home-hero">
         <div class="hero-copy">
-          <p class="kicker">Restaurant revenue ops</p>
-          <h1>常連依存と人手不足を、営業導線から整える。</h1>
+          <h1>常連頼みの集客と、繁忙期の人手不足に悩む飲食店へ。</h1>
           <p class="lead">
-            njoooyは、飲食店の「新規来店」と「繁忙期の人材確保」を支援するRevenue Opsパートナーです。集客支援と採用支援の2つの領域から、店舗の取りこぼしを減らします。
+            Googleマップ、口コミ、SNS、予約ページ、求人ページを見直し、新規のお客様と働き手に選ばれる状態づくりを支援します。
           </p>
           <div class="button-row">
             <a class="button primary" href="./contact/">無料診断を依頼する</a>
             <a class="button ghost" href="#business">支援内容を見る</a>
           </div>
-          <p style="max-width: 620px; margin: 18px 0 0; color: var(--muted); font-size: 13px;">
-            まずは店舗URLや採用ページをもとに、集客・採用どちらの改善余地が大きいかを無料で確認します。
-          </p>
-        </div>
-        <div class="hero-image-wrap">
-          <img src="./image/senzai.jpg" alt="バーの現場を知る担当者のプロフィール写真" />
-        </div>
-      </section>
-
-      <section class="press-strip">
-        <p class="kicker">For owners</p>
-        <div class="press-items">
-          <span>常連以外からの来店を増やしたい</span>
-          <span>Googleマップ・口コミを整えたい</span>
-          <span>予約・LINE導線がバラバラ</span>
-          <span>繁忙期の人手を確保したい</span>
-          <span>応募から面談までの離脱を減らしたい</span>
-        </div>
-      </section>
-
-      <section class="section-pad warm" id="business">
-        <div class="section-heading split">
-          <div>
-            <p class="kicker">Two support areas</p>
-            <h2>飲食店支援を、2つの領域で届けます。</h2>
-          </div>
-          <a class="text-link" href="./contact/">無料診断を申し込む</a>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span>01 / Customer growth</span>
-            <h3>集客支援</h3>
-            <p>Googleマップ、口コミ、写真、メニュー、予約・LINE導線を整え、常連以外からの来店を増やす土台をつくります。</p>
-            <a class="text-link" href="./growth/">集客支援を見る</a>
-          </article>
-          <article class="feature-card">
-            <span>02 / Recruiting</span>
-            <h3>採用支援</h3>
-            <p>繁忙期や欠員時に必要な人材へ届く求人導線を整え、応募から面談までの取りこぼしを減らします。</p>
-            <a class="text-link" href="./recruiting/">採用支援を見る</a>
-          </article>
-          <article class="feature-card">
-            <span>03 / Diagnosis</span>
-            <h3>無料診断</h3>
-            <p>店舗URL、Googleマップ、採用ページなどを確認し、集客・採用のどちらを優先すべきかを整理します。</p>
-            <a class="text-link" href="./contact/">無料診断へ進む</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-pad">
-        <div class="section-heading center">
-          <p class="kicker">Business portfolio</p>
-          <h2>支援内容の全体像</h2>
-          <p class="lead" style="margin-right: auto; margin-left: auto;">
-            SNS運用やAI導入を単体で売るのではなく、店舗の売上・予約・応募・作業負荷に近いところから整えます。
-          </p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <span>Customer growth</span>
-            <h3>常連以外からの来店を増やす</h3>
-            <p>Googleマップ、口コミ、写真、メニュー、予約・LINE導線を整え、来店前の迷いと離脱を減らします。</p>
-          </article>
-          <article class="service-card">
-            <span>Recruiting</span>
-            <h3>繁忙期に必要な人材へ届く</h3>
-            <p>採用ショート動画、求人ページ、応募フォーム、面談前後の連絡導線を整え、応募の取りこぼしを減らします。</p>
-          </article>
-          <article class="service-card">
-            <span>Operations</span>
-            <h3>スタッフが続けられる運用にする</h3>
-            <p>口コミ依頼、返信テンプレ、問い合わせ対応、応募者対応を、短い手順とテンプレートに落とします。</p>
-          </article>
-          <article class="service-card">
-            <span>AI / IT</span>
-            <h3>AIは裏側で使う</h3>
-            <p>レポート、返信案、求人文、改善メモの作成を速くし、店舗側の判断と運用に使える形へ整えます。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-pad warm">
-        <div class="section-heading split">
-          <div>
-            <p class="kicker">Pricing</p>
-            <h2>小さく試して、続けるか判断できます。</h2>
+          <div class="home-proof-row" aria-label="無料診断で確認できる情報">
+            <span>店舗URLだけでOK</span>
+            <span>15分ほどのヒアリングから開始</span>
+            <span>集客・採用をまとめて診断</span>
           </div>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span>Free</span>
-            <h3>無料診断</h3>
-            <p>公開情報をもとに、集客導線と採用導線のどちらに改善余地が大きいかを簡易メモで返します。</p>
-          </article>
-          <article class="feature-card">
-            <span>Growth sprint</span>
-            <h3>集客支援スプリント</h3>
-            <p>Googleマップ、口コミ、写真、メニュー、予約導線を7-14日で整えます。集客支援ページで詳細を確認できます。</p>
-          </article>
-          <article class="feature-card">
-            <span>Recruiting sprint</span>
-            <h3>採用支援スプリント</h3>
-            <p>採用ショート動画、求人導線、応募フォーム、連絡テンプレを整えます。採用支援ページで詳細を確認できます。</p>
-          </article>
+
+        <div class="home-hero-visual" aria-label="来店と応募までの接点イメージ">
+          <div class="home-concept-card">
+            <div class="home-concept-photo">
+              <img src="./image/senzai.jpg" alt="バーの現場を知る担当者のプロフィール写真" />
+            </div>
+            <div class="home-concept-core">
+              <span>STORE VALUE</span>
+              <strong>見つかる・選ばれる</strong>
+            </div>
+            <div class="home-concept-node" data-place="map">
+              Googleマップ
+              <small>検索から来店へ</small>
+            </div>
+            <div class="home-concept-node" data-place="sns">
+              SNS
+              <small>雰囲気を伝える</small>
+            </div>
+            <div class="home-concept-node" data-place="reserve">
+              予約
+              <small>迷わず問い合わせ</small>
+            </div>
+            <div class="home-concept-node" data-place="recruit">
+              採用
+              <small>応募前の不安を減らす</small>
+            </div>
+          </div>
+          <p class="home-concept-caption">お店の魅力が、来店前・応募前に正しく伝わる状態をつくります。</p>
         </div>
       </section>
 
-      <section class="section-pad">
-        <div class="section-heading split">
-          <div>
-            <p class="kicker">Why njoooy</p>
-            <h2>現場の言葉で、実装まで進めます。</h2>
+      <section class="home-section home-business" id="business">
+        <div class="home-section-inner">
+          <div class="home-section-head">
+            <div>
+              <p class="home-section-kicker">事業領域</p>
+              <h2>新規のお客様と、必要な働き手に選ばれる店づくりを支援します。</h2>
+              <p>飲食店が外から見られる情報を点検し、集客と採用それぞれで、まず手を入れるべき場所から改善します。</p>
+            </div>
+          </div>
+          <div class="home-area-grid">
+            <article class="home-area-card" data-tone="growth">
+              <div class="home-area-top">
+                <div>
+                  <small>01 / Customer growth</small>
+                  <h3>集客支援</h3>
+                </div>
+                <div class="home-area-icon" aria-hidden="true">01</div>
+              </div>
+              <p>Googleマップ、口コミ、写真、メニュー、予約・LINE導線を整え、常連以外からの来店を増やす土台をつくります。</p>
+              <ul>
+                <li>Googleビジネスプロフィールの改善</li>
+                <li>口コミ・写真・メニュー情報の整理</li>
+                <li>予約、LINE、問い合わせ導線の改善</li>
+              </ul>
+              <a class="text-link" href="./growth/">集客支援の詳細へ</a>
+            </article>
+
+            <article class="home-area-card" data-tone="recruiting">
+              <div class="home-area-top">
+                <div>
+                  <small>02 / Recruiting</small>
+                  <h3>採用支援</h3>
+                </div>
+                <div class="home-area-icon" aria-hidden="true">02</div>
+              </div>
+              <p>採用ショート動画、求人ページ、応募フォーム、面談前後の連絡導線を整え、繁忙期に必要な人材確保を支援します。</p>
+              <ul>
+                <li>採用ページ・求人文面の見直し</li>
+                <li>応募フォームと面談導線の改善</li>
+                <li>採用ショート動画・SNS活用の設計</li>
+              </ul>
+              <a class="text-link" href="./recruiting/">採用支援の詳細へ</a>
+            </article>
           </div>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span>Bar background</span>
-            <h3>バー現場を知っている</h3>
-            <p>複数のバーで働く中で、店主・店長が抱えやすい人手、予約、口コミ、メニュー、平日集客の悩みを見ています。</p>
-          </article>
-          <article class="feature-card">
-            <span>Creative ops</span>
-            <h3>制作と運用をつなげる</h3>
-            <p>写真、動画、文章、メニュー、予約文面を単発制作で終わらせず、来店導線の中で使える形にします。</p>
-          </article>
-          <article class="feature-card">
-            <span>AI behind the scenes</span>
-            <h3>AIは裏側で使う</h3>
-            <p>AI導入を売るのではなく、返信案、レポート、文面作成、改善メモの作成を速くして、店側の負担を減らします。</p>
-          </article>
+      </section>
+
+      <section class="home-section home-philosophy" id="philosophy">
+        <div class="home-section-inner home-philosophy-grid">
+          <div class="home-philosophy-main">
+            <p class="home-section-kicker">理念</p>
+            <h2>次世代まで通用する飲食店の運営ノウハウを作る。</h2>
+          </div>
+          <div class="home-philosophy-message">
+            <h3>現場で続けられる仕組みにする。</h3>
+            <p class="lead">
+              集客、採用、口コミ、予約、スタッフ育成。飲食店の課題を一つひとつ運用できる形に落とし、店主や現場スタッフが使い続けられるノウハウとして残していきます。
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="work-together section-pad compact">
-        <p class="kicker">Start here</p>
-        <h2>15分だけ、現状を聞かせてください。</h2>
-        <p class="lead" style="margin-right: auto; margin-left: auto;">
-          店舗名、Googleマップ、Instagram、メニューURL、採用ページのいずれかがあれば、まず無料で改善余地を見ます。
-        </p>
-        <div class="button-row" style="justify-content: center;">
-          <a class="button primary" href="./contact/">無料診断を依頼する</a>
-          <a class="button ghost" href="mailto:hello@njoooy.com">メールで相談する</a>
+      <section class="home-section home-cta" id="cta">
+        <div class="home-cta-shell">
+          <div class="home-cta-copy">
+            <h2>15分ほど、現状をお聞かせてください。</h2>
+            <p>
+              店舗名、Googleマップ、Instagram、採用ページのいずれかをいただけましたら、無料で改善提案を差し上げます。
+            </p>
+            <div class="button-row">
+              <a class="button primary" href="./contact/">無料診断を依頼する</a>
+              <a class="button ghost" href="mailto:hello@njoooy.com">メールで相談する</a>
+            </div>
+            <div class="home-cta-assurance">
+              <span>無料診断</span>
+              <span>営業連絡なしで相談OK</span>
+              <span>店舗URLだけでも可</span>
+            </div>
+          </div>
+          <div class="home-cta-panel">
+            <h3>送っていただきたいもの</h3>
+            <p>すべて揃っていなくても大丈夫です。公開情報をもとに初回診断します。</p>
+            <ul class="home-cta-list">
+              <li>店舗名または公式サイト</li>
+              <li>GoogleマップのURL</li>
+              <li>InstagramなどのSNS</li>
+              <li>求人ページまたは採用媒体URL</li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
