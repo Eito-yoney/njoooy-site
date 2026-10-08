@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飲食採用レスキュー | 応募取りこぼし改善スプリント | njoooy</title>
+<meta name="description" content="求人媒体に追加でお金を払う前に、今来ている応募を逃さない。飲食店・ホテルバー向けに、初回連絡、一次確認、面接設定、リマインド、求人文改善までを整える採用Ops改善支援です。">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="njoooy">
+<link rel="canonical" href="https://njoooy.com/">
+<meta property="og:title" content="飲食採用レスキュー | 応募取りこぼし改善スプリント | njoooy">
+<meta property="og:description" content="求人媒体に追加でお金を払う前に、応募後の初回連絡、面接設定、リマインドを整える飲食店・ホテルバー向け採用Ops改善支援。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://njoooy.com/">
+<meta property="og:site_name" content="njoooy">
+<meta property="og:image" content="https://njoooy.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="飲食採用レスキュー | 応募取りこぼし改善スプリント | njoooy">
+<meta name="twitter:description" content="今来ている応募を逃さない。飲食店・ホテルバー向けの応募対応改善・採用Opsスプリント。">
+<meta name="twitter:image" content="https://njoooy.com/og-image.png">
+<meta name="theme-color" content="#6f8f2f">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%236f8f2f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='800' fill='white'>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "飲食採用レスキュー",
+  "alternateName": "応募取りこぼし改善スプリント",
+  "serviceType": "飲食店・ホテルバー向け採用Ops改善",
+  "provider": {
+    "@type": "Organization",
+    "name": "njoooy",
+    "url": "https://njoooy.com/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "日本"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "飲食店、ホテルバー、ホテル内レストラン、小規模飲食チェーン"
+  },
+  "description": "求人媒体に追加でお金を払う前に、応募後の初回連絡、一次確認、面接設定、リマインド、求人文改善までを整える採用Ops改善支援です。",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "応募取りこぼし改善スプリント モニター",
+      "price": "49800",
+      "priceCurrency": "JPY",
+      "url": "https://njoooy.com/#pricing"
+    },
+    {
+      "@type": "Offer",
+      "name": "応募取りこぼし改善スプリント 標準",
+      "price": "98000",
+      "priceCurrency": "JPY",
+      "url": "https://njoooy.com/#pricing"
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0a0a0a;--paper:#fafaf8;--white:#fff;
+  --accent:#6f8f2f;--accent-light:#eef4df;--accent-dark:#587326;--accent-glow:rgba(111,143,47,0.25);
+  --warm:#f1f5e7;--muted:#6b6b6b;--border:#e1e5ef;
+  --green:#22c55e;--green-soft:rgba(34,197,94,0.1);
+  --orange:#f59e0b;--orange-soft:rgba(245,158,11,0.1);
+  --red:#ef4444;
+  --radius:14px;
+  --shadow-soft:0 2px 20px rgba(0,0,0,0.06);--shadow-card:0 4px 32px rgba(0,0,0,0.08);
+  --dark:#111;--dark-card:#1a1a1a;--dark-border:rgba(255,255,255,0.08);--dark-border-l:rgba(255,255,255,0.12);
+  --dark-text:#f5f5f5;--dark-text-s:#999;--dark-text-m:#666;
+}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.ctn{max-width:1120px;margin:0 auto;padding:0 24px}
+.sec{padding:56px 0}
+.slbl{font-size:.88rem;font-weight:700;color:var(--accent);margin-bottom:12px;display:block;letter-spacing:.06em;text-transform:uppercase}
+.stl{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.4;letter-spacing:0;margin-bottom:20px}
+.ssub{font-size:1rem;color:var(--muted);max-width:640px;line-height:1.9}
+.tc{text-align:center}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.06)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-weight:800;font-size:1.1rem;letter-spacing:0;display:flex;align-items:center;gap:8px}
+.nav-logo-icon{width:32px;height:32px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800}
+.nav-logo-sub{font-size:.7rem;font-weight:600;color:var(--accent);margin-left:2px}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:.84rem;font-weight:500;color:var(--muted)}
+.nav-links a{position:relative;padding:6px 0;transition:color .2s,font-weight .2s}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);border-radius:999px;transform:scaleX(0);transform-origin:center;transition:transform .25s ease}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{font-weight:700}
+.nav-cta-btn{padding:9px 22px;border-radius:999px;font-size:.82rem;font-weight:700;border:1.5px solid var(--ink);background:transparent;color:var(--ink);transition:all .2s;cursor:pointer;font-family:inherit}
+.nav-cta-btn:hover{background:var(--ink);color:#fff}
+@media(max-width:768px){.nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);flex-direction:column;padding:24px;gap:20px;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-cta-btn.mobile-hide{display:none}}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:16px 36px;border-radius:999px;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px var(--accent-glow);font-family:inherit}
+.btn-p:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.btn-p svg{width:18px;height:18px}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:16px 28px;border-radius:999px;font-size:.95rem;font-weight:600;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-s:hover{border-color:var(--ink)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--ink);padding:14px 28px;border-radius:999px;font-size:.9rem;font-weight:600;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== MODAL FORM ===== */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--white);border-radius:20px;width:100%;max-width:520px;max-height:90vh;box-shadow:0 24px 80px rgba(0,0,0,.2);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:var(--paper);color:var(--muted);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;font-family:inherit;transition:background .2s}
+.modal-close:hover{background:var(--border)}
+
+/* Progress */
+.form-progress{padding:24px 32px 0;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.form-progress-step{height:3px;flex:1;border-radius:2px;background:var(--border);transition:background .3s}
+.form-progress-step.done{background:var(--accent)}
+.form-progress-step.current{background:var(--accent);opacity:.5}
+.form-step-count{font-size:.72rem;color:var(--muted);font-weight:600;margin-left:8px;white-space:nowrap}
+
+/* Steps */
+.form-body{padding:32px;flex:1;overflow-y:auto;min-height:0}
+.form-step{display:none;animation:fadeUp .35s ease}
+.form-step.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.form-step-label{font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px;display:block}
+.form-step-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:4px}
+.form-step-icon{width:36px;height:36px;flex-shrink:0;margin-top:2px}
+.form-step-header h3{font-size:1.15rem;font-weight:800;margin-bottom:6px;line-height:1.4}
+.form-step-header .hint{font-size:.82rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.form-step h3{font-size:1.15rem;font-weight:800;margin-bottom:6px;line-height:1.4}
+.form-step .hint{font-size:.82rem;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.form-section-label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.form-skip{display:block;margin:16px auto 0;background:none;border:none;color:var(--muted);font-size:.82rem;cursor:pointer;text-decoration:underline;padding:8px}
+.form-skip:hover{color:var(--text)}
+.fi-hint{font-size:.72rem;color:var(--muted);margin-top:4px}
+.form-note{font-size:.72rem;color:var(--muted);margin-top:10px;line-height:1.5;padding:10px 12px;background:var(--paper);border-radius:8px;border-left:2px solid var(--border)}
+
+/* Inputs */
+.fi{margin-bottom:16px}
+.fi label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.fi label .req{color:var(--red);margin-left:2px}
+.fi input,.fi select,.fi textarea{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:.9rem;font-family:inherit;transition:border-color .2s;outline:none;background:var(--paper);color:var(--ink)}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--accent)}
+.fi textarea{resize:vertical;min-height:100px}
+.fi .err{font-size:.75rem;color:var(--red);margin-top:4px;display:none}
+.fi.invalid input,.fi.invalid select,.fi.invalid textarea{border-color:var(--red)}
+.fi.invalid .err{display:block}
+
+/* Checkbox / Radio group */
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice-item{position:relative}
+.choice-item input{position:absolute;opacity:0;width:0;height:0}
+.choice-item label{display:flex;align-items:center;gap:10px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:.88rem;font-weight:500;transition:all .2s}
+.choice-item input:checked+label{border-color:var(--accent);background:var(--accent-light);color:var(--accent);font-weight:600}
+.choice-item label .check-icon{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;font-size:.7rem;color:transparent}
+.choice-item input:checked+label .check-icon{border-color:var(--accent);background:var(--accent);color:#fff}
+.choice-item.radio-item label .check-icon{border-radius:50%}
+
+/* Form navigation */
+.form-nav{padding:16px 32px 28px;display:flex;gap:12px;align-items:center;border-top:1px solid var(--border);background:var(--white);flex-shrink:0}
+.form-back{padding:12px 24px;border-radius:999px;border:1.5px solid var(--border);background:transparent;font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit;color:var(--muted);transition:all .2s}
+.form-back:hover{border-color:var(--ink);color:var(--ink)}
+.form-next{padding:14px 36px;border-radius:999px;border:none;background:var(--accent);color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-left:auto;display:flex;align-items:center;gap:6px;min-height:48px;box-shadow:0 2px 12px var(--accent-glow)}
+.form-next:hover{background:var(--accent-dark)}
+.form-next:disabled{opacity:.4;cursor:not-allowed}
+
+/* Thank you */
+.form-thanks{display:none;text-align:center;padding:32px 24px}
+.form-thanks.active{display:block;animation:fadeUp .4s ease}
+.form-thanks-icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.form-thanks h3{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+.thanks-msg{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.thanks-video{margin-bottom:20px}
+.thanks-video-label{font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+.thanks-video-placeholder{background:var(--dark);border-radius:10px;padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.thanks-video-placeholder p{font-size:.72rem;color:rgba(255,255,255,.4);margin:0}
+.thanks-timeline{display:flex;gap:8px;margin-bottom:20px}
+.thanks-step{flex:1;background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:14px 10px;text-align:center}
+.thanks-step-num{font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.thanks-step-title{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.thanks-step-desc{font-size:.72rem;color:var(--muted);line-height:1.5}
+.thanks-step-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.9rem;font-weight:800;flex-shrink:0;width:16px}
+.thanks-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.thanks-btn{display:block;padding:12px 20px;border-radius:10px;font-size:.88rem;font-weight:700;text-align:center;cursor:pointer;border:none;font-family:inherit;text-decoration:none}
+.thanks-btn-primary{background:var(--accent);color:#fff}
+.thanks-btn-primary:hover{opacity:.9}
+.thanks-btn-secondary{background:var(--paper);color:var(--ink);border:1.5px solid var(--border)}
+.thanks-btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.thanks-contact{font-size:.78rem;color:var(--muted);line-height:1.7}
+.thanks-contact a{color:var(--accent);text-decoration:underline}
+.thanks-teaser{background:var(--paper);border-radius:12px;padding:18px 16px;margin-bottom:18px;text-align:left;border:1.5px solid var(--border)}
+.thanks-teaser-label{font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:6px}
+.thanks-teaser-title{font-size:.95rem;font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.5}
+.thanks-teaser-cards{display:flex;gap:10px}
+.thanks-teaser-card{flex:1;background:var(--white);border-radius:10px;padding:14px 12px;text-align:center;border:1px solid var(--border)}
+.thanks-teaser-card svg{width:48px;height:48px;margin-bottom:8px}
+.thanks-teaser-card-title{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.thanks-teaser-card-desc{font-size:.7rem;color:var(--muted);line-height:1.5}
+
+/* DOC form (simple) */
+.doc-form{display:none}
+.doc-form.active{display:block;animation:fadeUp .35s ease}
+
+/* ===== PAGE SECTIONS (inherited from previous version) ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding-top:64px;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(111,143,47,.06),transparent),radial-gradient(ellipse 60% 50% at 85% 20%,rgba(111,143,47,.04),transparent),var(--paper);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='.6' fill='%23000' fill-opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1040px;width:100%;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;justify-items:center;flex:1}
+.hero-copy{text-align:left;justify-self:center;max-width:600px;transform:translateX(44px)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);padding:6px 16px;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-hl{font-size:clamp(2rem,5.5vw,3rem);font-weight:900;line-height:1.35;letter-spacing:0;margin-bottom:24px}
+.hero-hl em{font-style:normal;background:linear-gradient(135deg,var(--accent),#9db45a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.9;margin:0 0 36px;max-width:520px}
+.sp-br{display:none}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:flex-start}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;justify-self:center;width:100%;transform:translateX(-44px)}
+.trust{position:relative;z-index:1;flex-shrink:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;background:var(--white);margin-top:0}
+.trust-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-stat{text-align:center}
+.trust-num{font-family:'Inter',sans-serif;font-size:2rem;font-weight:900;letter-spacing:0}
+.trust-num .a{color:var(--accent)}
+.trust-lbl{font-size:.75rem;color:var(--muted);margin-top:2px}
+.hiring-graphic{width:min(440px,100%);position:relative;background:linear-gradient(145deg,#fff,#f8fbf1);border:1px solid var(--border);border-radius:28px;padding:26px;box-shadow:var(--shadow-card)}
+.hiring-graphic::before{content:'';position:absolute;inset:16px;border:1px dashed rgba(111,143,47,.25);border-radius:22px;pointer-events:none}
+.hiring-graphic-head{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}
+.hiring-graphic-kicker{font-size:.72rem;font-weight:900;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.hiring-graphic-title{font-size:1.08rem;font-weight:900;line-height:1.45}
+.hiring-graphic-pill{background:var(--accent-light);color:var(--accent);border-radius:999px;padding:6px 12px;font-size:.72rem;font-weight:900;white-space:nowrap}
+.hiring-flow{position:relative;display:grid;gap:11px}
+.hiring-step{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border);border-radius:16px;padding:12px 14px;box-shadow:0 1px 10px rgba(0,0,0,.03)}
+.hiring-step-num{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-weight:900}
+.hiring-step h3{font-size:.88rem;font-weight:900;line-height:1.35}
+.hiring-step p{font-size:.72rem;color:var(--muted);line-height:1.5}
+.hiring-step-rate{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:900;color:var(--accent);background:var(--accent-light);border-radius:999px;padding:4px 9px;white-space:nowrap}
+.hiring-connector{height:18px;width:2px;background:var(--accent-light);margin:-2px 0 -2px 35px}
+.hiring-bottom{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.hiring-mini{border-radius:14px;background:var(--accent-light);padding:12px 8px;text-align:center}
+.hiring-mini strong{display:block;font-family:'Inter',sans-serif;font-size:1.2rem;color:var(--accent);line-height:1.1}
+.hiring-mini span{display:block;margin-top:4px;font-size:.66rem;color:var(--muted);font-weight:700;line-height:1.35}
+.formula-box{margin-top:36px;padding:26px;border-radius:var(--radius);border:1px solid var(--border);background:var(--white);box-shadow:var(--shadow-soft)}
+.formula-line{font-size:clamp(.88rem,2.4vw,1.08rem);font-weight:800;line-height:1.9;color:var(--ink)}
+.formula-line span{display:inline-block;margin:2px 4px;padding:2px 8px;border-radius:999px;background:var(--accent-light);color:var(--accent)}
+.scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.scope-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-soft)}
+.scope-card h3{font-size:1rem;font-weight:900;margin-bottom:12px}
+.scope-card ul{list-style:none;display:grid;gap:9px}
+.scope-card li{font-size:.86rem;line-height:1.65;color:var(--muted);display:flex;gap:8px}
+.scope-card li::before{content:'✓';color:var(--accent);font-weight:900;flex-shrink:0}
+.scope-card.off li::before{content:'-';color:var(--muted)}
+.whynow{background:var(--warm);color:var(--ink)}
+.whynow-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:center}
+.whynow-data{display:flex;flex-direction:column;gap:20px}
+.whynow-item{background:var(--white);border-radius:var(--radius);padding:24px 28px;border:1px solid var(--border)}
+.whynow-item strong{color:var(--accent);font-size:1.5rem;font-family:'Inter',sans-serif;font-weight:800}
+.whynow-right{background:var(--accent-light);border-radius:var(--radius);padding:32px;border:1px solid rgba(111,143,47,.2)}
+.whynow-right h3{font-size:1.2rem;font-weight:800;margin-bottom:12px;color:var(--ink)}
+.projects{padding:56px 0;overflow:hidden;max-width:100vw}
+
+/* Carousel */
+.carousel-wrap{position:relative;margin-top:48px;overflow:hidden;padding:60px 0;min-height:560px}
+.carousel-track{display:flex;gap:20px;transition:transform .6s cubic-bezier(.4,0,.2,1);align-items:center}
+.carousel-track .project-card{flex:0 0 240px;aspect-ratio:9/16;overflow:hidden;transition:transform .5s ease,opacity .5s ease;opacity:.55;transform:scale(.9)}
+.carousel-track .project-card.active{opacity:1;transform:scale(1.25);box-shadow:var(--shadow-card);z-index:2}
+
+.project-row{display:flex;gap:20px;justify-content:center;overflow-x:auto;padding:0 24px;margin-top:48px;scrollbar-width:none}
+.project-row::-webkit-scrollbar{display:none}
+.project-card{flex:0 0 220px;background:#fff;border-radius:24px;border:1px solid var(--border);overflow:hidden;transition:transform .3s;box-shadow:var(--shadow-soft)}
+.project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}
+.project-screen{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#000}
+.project-screen video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.project-play{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:2}
+.project-play::after{content:'';width:0;height:0;margin-left:4px;border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.project-overlay{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.project-tag{font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:6px}
+.project-cap{font-size:.75rem;color:rgba(255,255,255,.8)}
+.project-meta{padding:14px 16px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--border)}
+.project-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#fff;flex-shrink:0}
+.project-who{font-size:.75rem;color:var(--muted)}.project-views{font-size:.7rem;color:var(--muted);margin-left:auto}
+.reasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.reason-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px}
+.reason-icon{width:92px;height:92px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.reason-icon img{width:100%;height:100%;object-fit:contain;display:block}
+.reason-num{font-size:.7rem;font-weight:800;color:var(--accent);letter-spacing:.05em;margin-bottom:10px}
+.reason-title{font-size:1.15rem;font-weight:800;margin-bottom:10px;line-height:1.5}
+.reason-desc{font-size:.88rem;color:var(--muted);line-height:1.8}
+.reason-metric{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:6px 14px;border-radius:999px;font-size:.75rem;font-weight:700}
+.flow{background:var(--paper);color:var(--ink);padding:56px 0}
+.flow .slbl{color:var(--accent)}.flow .stl{color:var(--ink)}.flow .ssub{color:var(--muted)}
+.flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;margin-top:56px}
+.flow-card{background:var(--white);border-radius:16px;padding:24px 20px;border:1px solid var(--border);position:relative;box-shadow:var(--shadow-soft)}
+.flow-card::after{display:none}
+.flow-card:last-child::after{display:none}
+.flow-card-label{font-size:.82rem;font-weight:800;color:var(--accent);letter-spacing:.04em;margin-bottom:14px;display:inline-block;background:var(--accent-light);padding:4px 12px;border-radius:999px}
+.flow-card-visual{width:100%;aspect-ratio:16/10;border-radius:10px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--paper)}
+.flow-card-visual img{width:100%;height:100%;object-fit:contain}
+.flow-card h3{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.flow-card p{font-size:.78rem;color:var(--muted);line-height:1.7}
+.flow-badge{display:inline-block;font-size:.65rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:12px}
+.mid-cta{background:var(--accent-light);padding:48px 0;text-align:center}
+.mid-cta-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.mid-cta p{font-size:1rem;font-weight:700;margin-right:8px}
+.usecases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.usecase-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.usecase-card::before{content:'';display:block;height:3px;background:var(--accent)}
+.usecase-illust{width:100%;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:12px}
+.usecase-illust img{width:100%;height:100%;object-fit:contain}
+.usecase-body{padding:28px 24px}
+.usecase-persona{font-size:.78rem;font-weight:700;color:var(--accent);margin-bottom:10px}
+.usecase-pain{font-size:1.15rem;font-weight:800;margin-bottom:10px;line-height:1.5}
+.usecase-solution{font-size:.85rem;color:var(--muted);line-height:1.8}
+.pricing{background:var(--warm)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.pr-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:36px 28px;position:relative;display:flex;flex-direction:column}
+.pr-card.rec{border-color:var(--accent);box-shadow:0 4px 32px rgba(111,143,47,.12)}
+.pr-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:4px 18px;border-radius:999px;font-size:.72rem;font-weight:700}
+.pr-name{font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.pr-price{font-family:'Inter',sans-serif;font-size:2.4rem;font-weight:800;letter-spacing:0;margin-bottom:4px}
+.pr-price span{font-size:.9rem;font-weight:600;color:var(--muted)}
+.pr-unit{font-size:.78rem;color:var(--accent);font-weight:600;margin-bottom:4px}
+.pr-note{font-size:.78rem;color:var(--muted);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.pr-ft{list-style:none}
+.pr-ft li{font-size:.85rem;padding:8px 0;display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.pr-ft li::before{content:'✓';color:var(--accent);font-weight:800;flex-shrink:0;margin-top:2px}
+.pr-cta-btn{display:block;width:100%;margin-top:auto;padding-top:28px;padding:14px;border-radius:999px;font-size:.9rem;font-weight:700;text-align:center;border:1.5px solid var(--border);color:var(--ink);background:#fff;cursor:pointer;transition:all .2s;font-family:inherit}
+.pr-cta-btn:hover{border-color:var(--accent);color:var(--accent)}
+.pr-card.rec .pr-cta-btn{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pr-card.rec .pr-cta-btn:hover{background:var(--accent-dark)}
+.pr-extras{margin-top:36px;text-align:center;font-size:.85rem;color:var(--muted);line-height:2}
+.pr-common{margin-top:24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.pr-common span{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+.pr-common span::before{content:'✓';color:var(--green);font-weight:800;font-size:.75rem}
+.about-band{background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:32px;align-items:start;margin-top:44px}
+.about-profile{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-soft)}
+.about-label{display:inline-flex;align-items:center;background:var(--accent-light);color:var(--accent);border-radius:999px;padding:5px 12px;font-size:.72rem;font-weight:900;margin-bottom:18px}
+.about-name{font-size:1.3rem;font-weight:900;margin-bottom:8px}
+.about-role{font-size:.82rem;color:var(--muted);font-weight:700;margin-bottom:18px}
+.about-profile p,.about-text-card p{font-size:.9rem;color:var(--muted);line-height:1.9}
+.about-text-stack{display:grid;gap:16px}
+.about-text-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-soft)}
+.about-text-card h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}
+.contact-section{background:var(--warm)}
+.contact-shell{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:28px;align-items:start;margin-top:40px}
+.contact-note{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-soft)}
+.contact-note h3{font-size:1.1rem;font-weight:900;margin-bottom:14px}
+.contact-note ul{list-style:none;display:grid;gap:10px;margin-top:16px}
+.contact-note li{font-size:.88rem;color:var(--muted);display:flex;gap:10px;line-height:1.7}
+.contact-note li::before{content:'✓';color:var(--accent);font-weight:900;flex-shrink:0}
+.contact-form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-card)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:grid;gap:7px;margin-bottom:16px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-size:.78rem;font-weight:900;color:var(--ink)}
+.form-field input,.form-field select,.form-field textarea{width:100%;border:1.5px solid var(--border);border-radius:12px;background:#fff;padding:12px 13px;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(111,143,47,.12)}
+.form-field textarea{min-height:130px;resize:vertical;line-height:1.7}
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.checkbox-grid label{display:flex;align-items:flex-start;gap:8px;border:1px solid var(--border);border-radius:12px;padding:10px 11px;font-size:.82rem;color:var(--muted);font-weight:700;line-height:1.5}
+.checkbox-grid input{width:auto;margin-top:3px;accent-color:var(--accent)}
+.form-help{font-size:.75rem;color:var(--muted);line-height:1.6}
+.form-submit{width:100%;margin-top:8px;border:0;border-radius:999px;background:var(--accent);color:#fff;font-weight:900;padding:15px 18px;cursor:pointer;box-shadow:0 10px 28px rgba(111,143,47,.22);transition:background .2s,transform .2s}
+.form-submit:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.comparison{background:var(--white);color:var(--ink);padding:56px 0;border-top:1px solid var(--border)}
+.comparison .slbl{color:var(--accent)}.comparison .stl{color:var(--ink)}.comparison .ssub{color:var(--muted)}
+.comparison-head{text-align:center}
+.comparison-head .ssub{margin-left:auto;margin-right:auto}
+.comp-wrap{overflow-x:auto;margin-top:48px}
+.comp-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:740px}
+.comp-table th{font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.05em;padding:16px 20px;text-align:left;border-bottom:2px solid var(--border)}
+.comp-table td{padding:16px 20px;border-bottom:1px solid var(--border);color:var(--muted);font-size:.84rem}
+.comp-table td:first-child{font-weight:600;color:var(--ink)}
+.comp-table th:last-child,.comp-table td:last-child{color:var(--accent);font-weight:700;background:var(--accent-light)}
+.comp-note{text-align:center;margin-top:20px;font-size:.75rem;color:var(--muted)}
+.testimonials{overflow:hidden;padding:100px 0}
+.testi-track{display:flex;gap:20px;margin-top:48px}
+@keyframes tscroll{0%{transform:translateX(0)}100%{transform:translateX(var(--scroll-dist))}}
+.testi-card{flex:0 0 360px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.testi-quote{font-size:.92rem;line-height:1.8;margin-bottom:16px}
+.testi-quote::before{content:'\201C';font-size:1.6rem;font-weight:800;color:var(--accent);display:block;margin-bottom:4px}
+.testi-result{display:inline-block;font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff;flex-shrink:0}
+.testi-name{font-size:.85rem;font-weight:600}.testi-role{font-size:.75rem;color:var(--muted)}
+.testi-note{text-align:center;margin-top:24px;font-size:.75rem;color:var(--muted)}
+.faq-list{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:22px 0;font-size:.95rem;font-weight:700;cursor:pointer;background:none;border:none;width:100%;text-align:left;color:var(--ink);font-family:inherit;line-height:1.6}
+.faq-q::after{content:'+';font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:400;color:var(--muted);flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 0 22px;font-size:.88rem;color:var(--muted);line-height:1.9}
+.cta-final{text-align:center;padding:90px 24px;position:relative;background:var(--paper)}
+.cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(111,143,47,.06),transparent 70%);pointer-events:none}
+.cta-final>*{position:relative}
+.cta-badge-f{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);border:1px solid rgba(111,143,47,.15);padding:8px 18px;border-radius:999px;font-size:.82rem;color:var(--accent);font-weight:600;margin-bottom:28px}
+.cta-badge-f .dg{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.cta-final h2{font-size:clamp(1.8rem,5vw,3rem);font-weight:900;line-height:1.2;letter-spacing:0;margin-bottom:20px}
+.cta-final>p{font-size:1rem;color:var(--muted);margin-bottom:36px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-final-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.cta-assurance{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.cta-assurance span{font-size:.82rem;color:var(--green);font-weight:600;display:flex;align-items:center;gap:4px}
+footer.footer{border-top:1px solid var(--border);padding:40px 24px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand{font-weight:800;font-size:1.1rem}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:.82rem;color:var(--muted)}.footer-links a:hover{color:var(--ink)}
+.footer-copy{font-size:.75rem;color:var(--muted);width:100%;text-align:center;margin-top:16px}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:24px}
+  .hero-copy{text-align:center;transform:none}
+  .hero-sub{margin:0 auto 36px}
+  .hero-actions{justify-content:center}
+  .hero-visual{order:1;transform:none}
+  .hero{min-height:100svh;padding-top:76px;padding-bottom:0}
+  .trust{margin-top:0}
+  .trust-stats{gap:24px}
+  .trust-num{font-size:1.5rem}
+  
+  
+  .reasons-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .reason-card{padding:28px 24px}
+  .usecases-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .scope-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .about-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+  .contact-shell{grid-template-columns:1fr;max-width:620px;margin-left:auto;margin-right:auto}
+  .hiring-graphic{max-width:440px;margin:0 auto}
+  .pricing-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}
+  .flow-row{grid-template-columns:1fr!important;gap:16px!important}
+  .flow-row>div[style*="font-size:1.6rem"]{display:none}
+  .carousel-track .project-card{flex:0 0 180px}
+  .carousel-wrap{min-height:360px;overflow:hidden;margin-top:24px;padding:40px 0}
+  .testi-card{flex:0 0 300px;padding:20px}
+  .testi-quote{font-size:.85rem}
+  .comp-table{min-width:0;font-size:.78rem;width:100%}
+  .comp-table th,.comp-table td{padding:12px 10px}
+  .comp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .whynow .ctn > .reveal:nth-child(2){grid-template-columns:1fr!important;max-width:480px;margin-left:auto;margin-right:auto}
+  .testimonials{overflow:hidden}
+  .footer{flex-direction:column;align-items:flex-start}
+  .footer-links{gap:16px}
+  .cta-final{padding:60px 24px}
+  .cta-assurance{gap:12px}
+  .cta-assurance span{font-size:.75rem}
+}
+@media(max-width:600px){
+  .sec{padding:36px 0}
+  .stl{font-size:1.4rem}
+  .hero-hl{font-size:1.8rem}
+  .sp-br{display:block}
+  .hero-sub{font-size:.92rem;margin-bottom:24px}
+  .hero-badge{font-size:.72rem;margin-bottom:16px}
+  .hiring-graphic{padding:18px;border-radius:22px}
+  .hiring-graphic-head{flex-direction:column;gap:8px}
+  .hiring-step{grid-template-columns:38px 1fr;gap:10px}
+  .hiring-step-rate{grid-column:2;justify-self:start}
+  .hiring-step-num{width:38px;height:38px;border-radius:12px}
+  .hiring-bottom{grid-template-columns:1fr}
+  .formula-box{padding:18px}
+  .about-profile,.about-text-card,.contact-note,.contact-form{padding:22px 18px}
+  .form-grid{grid-template-columns:1fr}
+  .checkbox-grid{grid-template-columns:1fr}
+  .trust-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 10px}
+  .trust-num{font-size:1rem;white-space:nowrap}
+  .trust-lbl{font-size:.58rem;line-height:1.4}
+  .trust{padding:12px 0;margin-top:0}
+  
+  
+  .reasons-grid,.usecases-grid{max-width:100%}
+  .reason-card{padding:24px 20px}
+  .flow-row{grid-template-columns:1fr!important}
+  .flow-row>div[style*="font-size:1.6rem"]{display:none!important}
+  .flow-card{padding:20px 16px}
+  .carousel-track .project-card{flex:0 0 160px}
+  .carousel-wrap{min-height:320px;overflow:hidden;margin-top:16px;padding:30px 0}
+  .project-cap{font-size:.65rem}
+  .project-tag{font-size:.6rem;padding:3px 8px}
+  .pr-price{font-size:1.8rem}
+  .pr-card{padding:28px 20px}
+  .comp-table{min-width:0;font-size:.72rem;width:100%}
+  .comp-table th,.comp-table td{padding:10px 8px}
+  .testi-card{flex:0 0 260px;padding:16px}
+  .testi-quote{font-size:.8rem}
+  .faq-q{font-size:.88rem;padding:18px 0}
+  .faq-a-inner{font-size:.82rem}
+  .btn-p{padding:14px 28px;font-size:.9rem}
+  .btn-s,.btn-ghost{padding:12px 20px;font-size:.85rem}
+  .mid-cta{padding:32px 0}
+  .mid-cta-inner{flex-direction:column;gap:12px}
+  .mid-cta p{margin-right:0}
+  .cta-final{padding:48px 16px}
+  .cta-final h2{font-size:1.6rem}
+  .cta-final-actions{flex-direction:column;align-items:center}
+  .cta-assurance{flex-direction:column;align-items:center;gap:8px}
+  .choice-grid{grid-template-columns:1fr}
+  .usecase-illust{aspect-ratio:16/8}
+  .usecase-body{padding:20px 16px}
+  .usecase-pain{font-size:1rem}
+  .footer-links{gap:12px;flex-wrap:wrap}
+  .footer-links a{font-size:.75rem}
+  .roi-grid{grid-template-columns:1fr!important}
+  .whynow .ctn > .reveal:nth-child(2){grid-template-columns:1fr!important;gap:16px!important}
+}
+.reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(min-width:1400px){
+  .ctn{max-width:1280px}
+  .hero-inner{max-width:1280px;gap:80px}
+  .stl{font-size:clamp(1.6rem,3.5vw,2.8rem)}
+  .reasons-grid,.usecases-grid{gap:32px}
+  .pricing-grid{gap:32px}
+  .pr-card{padding:40px 32px}
+  .reason-card{padding:40px 32px}
+  .faq-list{max-width:800px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE CONTENT ===== -->
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a class="nav-logo" href="#top"><div class="nav-logo-icon">N</div>njoooy<span class="nav-logo-sub">採用支援</span></a>
+  <div class="nav-links"><a href="#projects">採用数分解</a><a href="#flow">進め方</a><a href="#pricing">料金</a><a href="#about">私たち</a><a href="#faq">FAQ</a><a href="#contact">相談</a></div>
+  <button class="nav-cta-btn" onclick="openTrial()">15分相談</button>
+  <button id="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.textContent=this.textContent==='☰'?'✕':'☰'" style="display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;padding:8px;color:var(--ink)">☰</button>
+</div></nav>
+<style>@media(max-width:768px){#hamburger{display:block!important}.nav-cta-btn:not(#hamburger){display:none}}</style>
+
+<section class="hero" id="top"><div class="hero-inner"><div class="hero-copy">
+  <div class="hero-badge">飲食店・ホテルバー向け / 15分相談</div>
+  <h1 class="hero-hl">求人応募、<br><em>現場の忙しさで</em><br>取りこぼして<br class="sp-br">いませんか？</h1>
+  <p class="hero-sub">求人媒体に追加でお金を払う前に、今来ている応募を逃さない。<strong>応募後の初回連絡、一次確認、面接設定、リマインド、求人文改善</strong>までを整える採用Ops改善支援です。</p>
+  <div class="hero-actions">
+    <button class="btn-p" onclick="openTrial()">15分ヒアリングを相談する <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn-s" onclick="openDoc()">スプリント料金を見る</button>
+  </div>
+</div>
+<div class="hero-visual">
+  <div class="hiring-graphic" aria-label="応募取りこぼし改善の図解">
+    <div class="hiring-graphic-head">
+      <div>
+        <div class="hiring-graphic-kicker">Hiring Ops Flow</div>
+        <div class="hiring-graphic-title">応募後の歩留まりを、見える化して整える。</div>
+      </div>
+      <div class="hiring-graphic-pill">7日で納品</div>
+    </div>
+    <div class="hiring-flow">
+      <div class="hiring-step"><div class="hiring-step-num">01</div><div><h3>応募を受け取る</h3><p>媒体、紹介、採用ページ、SNSからの応募を整理。</p></div><div class="hiring-step-rate">応募数</div></div>
+      <div class="hiring-connector"></div>
+      <div class="hiring-step"><div class="hiring-step-num">02</div><div><h3>初回連絡を止めない</h3><p>応募直後の返信文、電話/DM台本を準備。</p></div><div class="hiring-step-rate">連絡率</div></div>
+      <div class="hiring-connector"></div>
+      <div class="hiring-step"><div class="hiring-step-num">03</div><div><h3>面接設定まで進める</h3><p>一次確認、候補日提示、確定連絡を標準化。</p></div><div class="hiring-step-rate">設定率</div></div>
+      <div class="hiring-connector"></div>
+      <div class="hiring-step"><div class="hiring-step-num">04</div><div><h3>面接前の不安を減らす</h3><p>前日/当日のリマインド、持ち物、道案内を整備。</p></div><div class="hiring-step-rate">来店率</div></div>
+    </div>
+    <div class="hiring-bottom">
+      <div class="hiring-mini"><strong>15分</strong><span>初回ヒアリング</span></div>
+      <div class="hiring-mini"><strong>49,800</strong><span>初回モニター</span></div>
+      <div class="hiring-mini"><strong>紹介なし</strong><span>採用Ops改善</span></div>
+    </div>
+  </div>
+</div></div>
+
+<div class="trust reveal"><div class="trust-stats">
+  <div class="trust-stat"><div class="trust-num"><span class="a">15</span>分</div><div class="trust-lbl">初回ヒアリング</div></div>
+  <div class="trust-stat"><div class="trust-num"><span class="a">7</span>日</div><div class="trust-lbl">応募対応整備</div></div>
+  <div class="trust-stat"><div class="trust-num">¥<span class="a">49,800</span></div><div class="trust-lbl">初回モニター</div></div>
+  <div class="trust-stat"><div class="trust-num"><span class="a">紹介なし</span></div><div class="trust-lbl">候補者紹介なし</div></div>
+</div></div>
+</section>
+
+<section class="sec projects" id="projects"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">採用数を分解する</span><h2 class="stl">「応募が来ない」だけでなく、応募後のどこで落ちているかを見る。</h2><p class="ssub" style="margin:0 auto">採用数は、応募数だけでは決まりません。初期スプリントでは、現場の努力だけに依存しがちな応募後の歩留まりを優先して整えます。</p></div>
+  <div class="formula-box reveal">
+    <p class="formula-line">採用数 = <span>応募数</span> × <span>初回連絡率</span> × <span>返信率</span> × <span>面接設定率</span> × <span>面接来店率</span> × <span>採用率</span> × <span>初回勤務到達率</span> × <span>定着率</span></p>
+  </div>
+  <div class="scope-grid reveal">
+    <div class="scope-card"><h3>初期商品で深く扱う</h3><ul><li>初回連絡率</li><li>返信率</li><li>面接設定率</li><li>面接来店率</li></ul></div>
+    <div class="scope-card"><h3>必要な分だけ扱う</h3><ul><li>求人文改善で応募前のズレを減らす</li><li>一次確認で条件不一致を早めに見つける</li><li>初回勤務前の案内で不安を減らす</li></ul></div>
+    <div class="scope-card off"><h3>初期商品ではやらない</h3><ul><li>候補者紹介</li><li>派遣、スタッフ供給</li><li>採用成功保証</li><li>最終採用判断の代行</li></ul></div>
+  </div>
+</div></section>
+
+<section class="flow" id="flow"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">7日間の進め方</span><h2 class="stl">応募取りこぼし改善スプリントで、現場が使える形まで落とし込む。</h2><p class="ssub" style="margin:0 auto">求人媒体、応募後の連絡文面、面接設定、リマインド、求人文のズレを棚卸しし、翌日から使えるテンプレートと運用ルールにします。</p></div>
+  <div class="flow-row reveal" style="align-items:center">
+    <div class="flow-card"><span class="flow-card-label">ステップ 1</span><div class="flow-card-visual"><img src="recruiting/images/1_Forms.svg" alt="ヒアリングシート"></div><h3>15分ヒアリング</h3><p>応募数、応募経路、初回連絡までの時間、面接来店率、既存業者の範囲を確認します。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">無料</span></div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent);font-weight:800">▶</div>
+    <div class="flow-card"><span class="flow-card-label">ステップ 2</span><div class="flow-card-visual"><img src="recruiting/images/2_Record.svg" alt="応募導線診断"></div><h3>応募導線診断</h3><p>求人文、初回返信、一次確認、面接候補日の出し方、リマインド有無を確認します。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">詰まりを可視化</span></div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent);font-weight:800">▶</div>
+    <div class="flow-card"><span class="flow-card-label">ステップ 3</span><div class="flow-card-visual"><img src="recruiting/images/3_Check.svg" alt="テンプレート作成"></div><h3>テンプレと確認シート作成</h3><p>初回返信、電話/DM台本、一次確認シート、面接設定、前日/当日リマインドを作ります。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">7日納品</span></div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent);font-weight:800">▶</div>
+    <div class="flow-card"><span class="flow-card-label">ステップ 4</span><div class="flow-card-visual"><img src="recruiting/images/4_Report.svg" alt="改善レポート"></div><h3>レポートと次の打ち手</h3><p>応募数、返信、面接設定、来店状況を残し、継続代行や求人文改善の優先順位を出します。</p><span class="flow-badge" style="background:var(--green-soft);color:var(--green)">月額化も可</span></div>
+  </div>
+</div></section>
+
+<div class="mid-cta reveal"><div class="ctn"><div class="mid-cta-inner">
+  <p>15分だけ、今の応募状況を聞かせてください。</p>
+  <button class="btn-p" style="padding:12px 28px;font-size:.9rem" onclick="openTrial()">ヒアリングを相談する →</button>
+  <button class="btn-ghost" onclick="openDoc()">料金を見る</button>
+</div></div></div>
+
+<section class="sec" id="usecases"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">こんなお悩みに</span><h2 class="stl">応募はあるのに、採用までつながりきっていない店舗へ。</h2></div>
+  <div class="usecases-grid reveal">
+    <div class="usecase-card"><div class="usecase-illust" style="background:linear-gradient(135deg,#eef4df,#dde9bf)"><img src="recruiting/images/a_wandering.svg" alt="応募後の返信が遅れている"></div><div class="usecase-body"><p class="usecase-persona">初回連絡が遅れがちな店舗さま</p><h4 class="usecase-pain">応募者への連絡が、営業中の忙しさで後回しになる</h4><p class="usecase-solution">応募直後に送る文面、電話/DM台本、確認項目を整え、最初の返信が止まらない状態にします。</p></div></div>
+    <div class="usecase-card"><div class="usecase-illust" style="background:linear-gradient(135deg,#fef3e2,#fde8c8)"><img src="recruiting/images/b_deadline.svg" alt="面接設定で止まっている"></div><div class="usecase-body"><p class="usecase-persona">面接設定で離脱が出る店舗さま</p><h4 class="usecase-pain">候補日のやり取りが長引き、返信が途切れてしまう</h4><p class="usecase-solution">候補日時の提示方法、確定連絡、変更時の文面をテンプレート化し、応募者が返しやすい流れにします。</p></div></div>
+    <div class="usecase-card"><div class="usecase-illust" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)"><img src="recruiting/images/c_cost.svg" alt="面接キャンセルが多い"></div><div class="usecase-body"><p class="usecase-persona">面接キャンセルや辞退が気になる店舗さま</p><h4 class="usecase-pain">前日、当日の不安が残ったまま、来店につながらない</h4><p class="usecase-solution">持ち物、服装、アクセス、到着後の声かけ、働き方の期待値を事前に伝えるリマインドを作ります。</p></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="reasons"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">なぜ採用Opsから入るのか</span><h2 class="stl">人材紹介でも、採用動画でもなく、まず現場の取りこぼしを減らす。</h2></div>
+  <div class="reasons-grid reveal">
+    <div class="reason-card"><div class="reason-icon"><img src="recruiting/images/11_movie.svg" alt=""></div><span class="reason-num">01</span><h3 class="reason-title">今ある損失に近い。</h3><p class="reason-desc">応募を増やす前に、すでに来ている応募が初回連絡、面接設定、面接前で落ちていないかを確認します。</p><span class="reason-metric" style="background:var(--green-soft);color:var(--green)">歩留まり改善</span></div>
+    <div class="reason-card"><div class="reason-icon"><img src="recruiting/images/12_mtg.svg" alt=""></div><span class="reason-num">02</span><h3 class="reason-title">7日で残る成果物にする。</h3><p class="reason-desc">文面、確認シート、面接設定テンプレ、リマインド、レポートを残すので、媒体掲載が終わっても店舗側の運用資産になります。</p><span class="reason-metric" style="background:var(--green-soft);color:var(--green)">テンプレ資産</span></div>
+    <div class="reason-card"><div class="reason-icon"><img src="recruiting/images/13_budget.svg" alt=""></div><span class="reason-num">03</span><h3 class="reason-title">既存業者と補完しやすい。</h3><p class="reason-desc">候補者紹介や派遣ではなく、店舗側の応募対応を整えるため、求人媒体や外部業者を使っている店舗にも導入しやすい支援です。</p><span class="reason-metric" style="background:var(--green-soft);color:var(--green)">紹介・派遣なし</span></div>
+  </div>
+</div></section>
+
+<section class="comparison" id="comparison"><div class="ctn">
+  <div class="reveal comparison-head"><span class="slbl">比較</span><h2 class="stl">求人媒体に追加課金する前に、応募後の運用を確認する。</h2><p class="ssub">求人媒体や人材サービスを否定するものではありません。既存施策の効果を落とさないために、応募後の受け皿を整える提案です。</p></div>
+  <div class="comp-wrap reveal"><table class="comp-table">
+    <thead><tr><th>比較項目</th><th>求人媒体の追加掲載</th><th>人材紹介・派遣</th><th>njoooy 応募取りこぼし改善</th></tr></thead>
+    <tbody>
+      <tr><td>主な役割</td><td>応募数を増やす</td><td>候補者や人員を供給する</td><td>今来ている応募の歩留まりを上げる</td></tr>
+      <tr><td>見る範囲</td><td>応募前</td><td>人材供給、マッチング</td><td>初回連絡、一次確認、面接設定、面接前リマインド</td></tr>
+      <tr><td>残るもの</td><td>掲載終了後は残りにくい</td><td>契約や案件ごとにリセットされやすい</td><td>文面、SOP、確認シート、対応ログ</td></tr>
+      <tr><td>初期費用</td><td>媒体費、広告費が必要</td><td>成果報酬や派遣料が発生</td><td>初回49,800円、標準98,000円</td></tr>
+      <tr><td>注意点</td><td>受け皿が弱いと応募を逃す</td><td>許認可領域になりやすい</td><td>採用保証ではなく、運用改善を納品</td></tr>
+    </tbody>
+  </table></div>
+  <p class="comp-note">※ 候補者紹介、派遣、採用成功報酬、最終採用判断の代行は行いません。</p>
+</div></section>
+
+<section class="sec pricing" id="pricing"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">料金</span><h2 class="stl">まずは15分ヒアリングから。初回スプリントは49,800円。</h2></div>
+  <div class="pricing-grid reveal">
+    <div class="pr-card"><p class="pr-name">15分ヒアリング</p><p class="pr-price">¥0<span></span></p><p class="pr-unit">現状把握と商談化</p><p class="pr-note">応募数、経路、初回連絡、面接来店率を確認</p><ul class="pr-ft"><li>応募経路の確認</li><li>初回連絡までの時間を確認</li><li>面接設定、来店率の課題を整理</li><li>有償スプリントの対象可否を判断</li></ul><button class="pr-cta-btn" onclick="openTrial()">ヒアリングを相談する</button></div>
+    <div class="pr-card rec"><span class="pr-badge">初回提案</span><p class="pr-name">モニタースプリント</p><p class="pr-price">¥49,800<span>（税別）</span></p><p class="pr-unit">7日間 / 初着金向け</p><p class="pr-note">事例化許可、範囲限定、原則前払い</p><ul class="pr-ft"><li>応募導線診断</li><li>初回返信テンプレ</li><li>一次確認シート</li><li>面接設定、リマインド文面</li><li>求人文改善メモ</li><li>採用Opsミニレポート</li></ul><button class="pr-cta-btn" onclick="openTrial()">49,800円スプリントを相談する</button></div>
+    <div class="pr-card"><p class="pr-name">標準スプリント</p><p class="pr-price">¥98,000<span>（税別）</span></p><p class="pr-unit">7-14日間 / 標準商品</p><p class="pr-note">複数媒体、複数職種、改善幅が大きい場合</p><ul class="pr-ft"><li>媒体別の詰まり整理</li><li>電話/DM台本</li><li>求人文改善案</li><li>初回勤務前の案内文</li><li>運用ルールの整備</li><li>月額代行の提案</li></ul><button class="pr-cta-btn" onclick="openTrial()">標準スプリントを相談する</button></div>
+  </div>
+  <div class="pr-common reveal"><span>候補者紹介なし</span><span>派遣なし</span><span>採用保証なし</span><span>最終判断は店舗側</span><span>情報管理方法を事前確認</span></div>
+</div></section>
+
+<section class="sec about-band" id="about"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">私たちについて</span><h2 class="stl">採用代行ではなく、現場に残る応募対応の型を作る。</h2><p class="ssub" style="margin:0 auto">njoooy は、飲食店・ホテルバーの採用現場にある「忙しくて返せない」「面接設定まで進まない」「当日来ない」を、運用と文面から整える採用Ops改善チームです。</p></div>
+  <div class="about-grid reveal">
+    <div class="about-profile">
+      <span class="about-label">Founder</span>
+      <h3 class="about-name">米山 丈偉</h3>
+      <p class="about-role">飲食店支援 / 現場理解 × 採用Ops改善</p>
+      <p>良いお店ほど、営業中の忙しさで応募者への初回連絡や面接前の案内が後回しになり、採用機会を落としてしまう場面があります。まずは大きな採用投資ではなく、今来ている応募を逃さない受け皿を整えることに集中します。</p>
+    </div>
+    <div class="about-text-stack">
+      <div class="about-text-card"><h3>人材紹介・派遣ではありません。</h3><p>候補者紹介、派遣、採用成功報酬、最終採用判断の代行は行いません。店舗側の初回連絡、一次確認、面接設定、リマインド、求人文改善を整える支援です。</p></div>
+      <div class="about-text-card"><h3>現場が翌日から使える形にします。</h3><p>きれいな提案書で終わらせず、初回返信テンプレ、電話/DM台本、一次確認シート、前日/当日リマインド、対応ログの型として残します。</p></div>
+      <div class="about-text-card"><h3>AIや動画は、初期商品では前面に出しません。</h3><p>必要があれば裏側で効率化に使いますが、初着金フェーズでは体力、コミュニケーション力、現場理解を、採用Ops改善として提供します。</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec faq" id="faq"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">FAQ</span><h2 class="stl">よくいただくご質問</h2></div>
+  <div class="faq-list reveal">
+    <div class="faq-item"><button class="faq-q">人材紹介や派遣のサービスですか？</button><div class="faq-a"><div class="faq-a-inner">いいえ。候補者の紹介、派遣、採用成功報酬は行いません。店舗に来ている応募を、初回連絡、一次確認、面接設定、リマインドまで逃さないための採用Ops改善です。</div></div></div>
+    <div class="faq-item"><button class="faq-q">採用成功を保証してもらえますか？</button><div class="faq-a"><div class="faq-a-inner">採用成功の保証はしていません。納品するのは、応募後の対応速度、返信率、面接設定率、面接来店率を改善するための文面、シート、運用ルール、レポートです。</div></div></div>
+    <div class="faq-item"><button class="faq-q">応募がほとんどない店舗でも相談できますか？</button><div class="faq-a"><div class="faq-a-inner">相談できます。ただし初期スプリントの主対象は「応募はあるが採用につながりきっていない店舗」です。応募が少ない場合は、求人文改善や採用ページ改善を中心に切り分けて提案します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">既存の求人媒体や外部業者を使っていても依頼できますか？</button><div class="faq-a"><div class="faq-a-inner">はい。既存業者が応募獲得を担っていても、店舗側の初回連絡、面接設定、期待値調整、受け入れで詰まることがあります。その補完領域として入ります。</div></div></div>
+    <div class="faq-item"><button class="faq-q">実際の応募者対応まで代行してもらえますか？</button><div class="faq-a"><div class="faq-a-inner">初期スプリントでは、まず文面、確認項目、運用ルールを整えます。実応募への対応補助を行う場合は、情報管理、権限、対応範囲を別途確認したうえで個別に設計します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">7日間で何が納品されますか？</button><div class="faq-a"><div class="faq-a-inner">応募導線診断、初回返信テンプレ、電話/DM台本、一次確認シート、面接設定テンプレ、前日/当日リマインド文面、求人文改善案、採用Opsミニレポートを納品します。</div></div></div>
+    <div class="faq-item"><button class="faq-q">必要な情報は何ですか？</button><div class="faq-a"><div class="faq-a-inner">求人媒体URL、採用ページURL、応募経路別の応募数、過去の返信文面、面接設定のやり方、勤務条件、採用基準、店舗のアクセス情報などを共有いただきます。</div></div></div>
+    <div class="faq-item"><button class="faq-q">動画やAIは使わないのですか？</button><div class="faq-a"><div class="faq-a-inner">初期商品では前面に出しません。必要があれば求人文やレポート作成の裏側でAIを使い、動画やSNSは第二段階以降の選択肢として扱います。</div></div></div>
+    <div class="faq-item"><button class="faq-q">月額で継続できますか？</button><div class="faq-a"><div class="faq-a-inner">はい。月に10件以上応募があり、現場だけでは対応が継続しにくい場合は、月額120,000円からの採用Ops代行を提案できます。</div></div></div>
+  </div>
+</div></section>
+<section class="sec contact-section" id="contact"><div class="ctn">
+  <div class="reveal tc"><span class="slbl">15分ヒアリング</span><h2 class="stl">今の応募状況を聞かせてください。</h2><p class="ssub" style="margin:0 auto">月の応募数、応募経路、初回連絡までの時間、面接来店率が分かれば、どこで取りこぼしているかを一緒に確認できます。</p></div>
+  <div class="contact-shell reveal">
+    <div class="contact-note">
+      <h3>ヒアリングで確認すること</h3>
+      <p class="form-help">すべて分からなくても大丈夫です。分かる範囲で送っていただければ、15分で有償スプリントの対象になるかを切り分けます。</p>
+      <ul>
+        <li>月の応募数と、応募が来ている媒体</li>
+        <li>応募から初回連絡までの時間</li>
+        <li>返信、面接設定、面接来店で落ちている箇所</li>
+        <li>既存の求人文面、返信文面、面接案内の有無</li>
+      </ul>
+    </div>
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="6bd01f4d-9bb4-4a01-985a-33ae07f6b18c">
+      <input type="hidden" name="from_name" value="njoooy recruiting ops form">
+      <input type="hidden" name="subject" value="[njoooy] 飲食採用レスキュー 15分ヒアリング">
+      <input type="hidden" name="inquiry_type" value="飲食採用レスキュー / 応募取りこぼし改善スプリント">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="cf-name">お名前</label>
+          <input type="text" id="cf-name" name="name" placeholder="例) 山田 太郎" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-email">メールアドレス</label>
+          <input type="email" id="cf-email" name="email" placeholder="例) yamada@example.com" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-store-name">店舗名</label>
+          <input type="text" id="cf-store-name" name="store_name" placeholder="例) BAR njoooy">
+        </div>
+        <div class="form-field">
+          <label for="cf-store-url">求人媒体・採用ページURL</label>
+          <input type="url" id="cf-store-url" name="recruiting_url" placeholder="求人媒体、採用ページ、SNSなど">
+        </div>
+        <div class="form-field">
+          <label for="cf-applicants">直近1ヶ月の応募数</label>
+          <select id="cf-applicants" name="monthly_applicants">
+            <option value="" selected>選択してください</option>
+            <option value="0件">0件</option>
+            <option value="1-4件">1-4件</option>
+            <option value="5-9件">5-9件</option>
+            <option value="10件以上">10件以上</option>
+            <option value="不明">不明</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="cf-role">募集職種</label>
+          <input type="text" id="cf-role" name="hiring_role" placeholder="例) ホール、キッチン、バーテンダー">
+        </div>
+        <div class="form-field full">
+          <label>気になっている詰まり</label>
+          <div class="checkbox-grid" role="group" aria-label="気になっている詰まり">
+            <label><input type="checkbox" name="bottlenecks" value="初回連絡が遅れる">初回連絡が遅れる</label>
+            <label><input type="checkbox" name="bottlenecks" value="返信が返ってこない">返信が返ってこない</label>
+            <label><input type="checkbox" name="bottlenecks" value="面接設定で止まる">面接設定で止まる</label>
+            <label><input type="checkbox" name="bottlenecks" value="面接に来ない">面接に来ない</label>
+            <label><input type="checkbox" name="bottlenecks" value="求人文が弱い">求人文が弱い</label>
+            <label><input type="checkbox" name="bottlenecks" value="何が悪いか分からない">何が悪いか分からない</label>
+          </div>
+        </div>
+        <div class="form-field full">
+          <label for="cf-msg">相談内容</label>
+          <textarea id="cf-msg" name="message" placeholder="例) 応募は月5件ほどありますが、面接設定まで進む人が少ないです。返信文面やリマインドを見直したいです。" required></textarea>
+          <p class="form-help">送信後、原則24時間以内に返信します。</p>
+        </div>
+      </div>
+      <button class="form-submit" type="submit">15分ヒアリングを相談する</button>
+    </form>
+  </div>
+</div></section>
+
+
+<section class="cta-final" id="cta">
+  <div class="cta-badge-f"><span class="dg"></span>飲食採用レスキュー</div>
+  <h2>求人媒体に追加で払う前に、<br>今来ている応募を逃さない。</h2>
+  <p>飲食店・ホテルバー向けに、初回連絡、一次確認、面接設定、リマインド、求人文改善までを7日間で整えます。</p>
+  <div class="cta-final-actions">
+    <button class="btn-p" style="font-size:1.05rem;padding:18px 48px" onclick="openTrial()">15分ヒアリングを相談する <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn-ghost" style="padding:18px 36px;font-size:1rem" onclick="openDoc()">スプリント料金を見る</button>
+  </div>
+  <div class="cta-assurance"><span>✓ 候補者紹介なし</span><span>✓ 派遣なし</span><span>✓ 採用保証なし</span><span>✓ 7日スプリント</span></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">njoooy 採用支援</div>
+  <div class="footer-links"><a href="#top">トップ</a><a href="#projects">採用数分解</a><a href="#flow">進め方</a><a href="#pricing">料金</a><a href="#about">私たち</a><a href="#contact">相談</a><a href="/legal/privacy.html">プライバシーポリシー</a><a href="/legal/tokusho.html">特商法</a></div>
+  <div class="footer-copy">© 2026 njoooy 採用支援 All rights reserved.</div>
+</footer>
+
+<script>
+function openTrial() { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }
+function openDoc() { document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }
+
+/* ===== Page Logic ===== */
+const nav = document.getElementById('nav');
+const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+const navSections = navLinks
+  .map(link => {
+    const id = link.getAttribute('href').slice(1);
+    return { id, link, section: document.getElementById(id) };
+  })
+  .filter(item => item.section);
+function updateNavState() {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+  if (!navSections.length) return;
+  const marker = window.scrollY + nav.offsetHeight + window.innerHeight * 0.28;
+  let activeId = null;
+  navSections.forEach(item => {
+    if (item.section.offsetTop <= marker) activeId = item.id;
+  });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    activeId = navSections[navSections.length - 1].id;
+  }
+  navSections.forEach(item => item.link.classList.toggle('active', item.id === activeId));
+}
+window.addEventListener('scroll', updateNavState, { passive: true });
+window.addEventListener('resize', updateNavState);
+updateNavState();
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const w = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!w) item.classList.add('open');
+  });
+});
+const obs = new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* Video autoplay: play when visible, pause when not */
+const vidObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.play().catch(() => {}); }
+    else { e.target.pause(); }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.project-screen video, .ps video').forEach(v => vidObs.observe(v));
+
+
+/* Carousel slideshow - translateX based */
+(function() {
+  const track = document.getElementById('carouselTrack');
+  if (!track) return;
+  const cards = Array.from(track.querySelectorAll('.project-card'));
+  const n = cards.length;
+  let idx = Math.floor(n / 2);
+
+  function update() {
+    cards.forEach((c, j) => c.classList.toggle('active', j === idx));
+    const style = getComputedStyle(cards[0]);
+    const basis = parseFloat(style.flexBasis) || 240;
+    const gap = 20;
+    const step = basis + gap;
+    const containerW = track.parentElement.offsetWidth;
+    const offset = containerW / 2 - idx * step - basis / 2;
+    track.style.transform = 'translateX(' + offset + 'px)';
+  }
+  update();
+  setTimeout(update, 100);
+  setInterval(() => { idx = (idx + 1) % n; update(); }, 3500);
+  window.addEventListener('resize', update);
+})();
+
+/* Close mobile nav on link click */
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+});
+</script>
+
+<script>
+const GA_MEASUREMENT_ID = '';
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+if (GA_MEASUREMENT_ID) {
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(gaScript);
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+}
+</script>
+
+<script>
+/* Seamless testimonial scroll */
+(function(){
+  var track = document.querySelector('.testi-track');
+  if (!track) return;
+  var cards = track.children;
+  var half = Math.floor(cards.length / 2);
+  // Calculate exact width of first half (cards + gaps)
+  var w = 0;
+  for (var i = 0; i < half; i++) {
+    w += cards[i].offsetWidth + 20; // 20 = gap
+  }
+  track.style.setProperty('--scroll-dist', '-' + w + 'px');
+  track.style.animation = 'tscroll 25s linear infinite';
+})();
+</script>
+</body>
+</html>
